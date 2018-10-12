@@ -7,7 +7,7 @@ def read_txt(f):
 
 
 setup(
-    name='ansla',
+    name='tradssat',
     version=read_txt('tradssat/version.txt'),
     packages=find_packages(),
     url='',
