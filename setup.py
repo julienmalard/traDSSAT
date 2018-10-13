@@ -17,9 +17,10 @@ setup(
     description='DSSAT input and output file reader and writer',
     long_description=read_txt('README.md'),
     setup_requires=[],
-    install_requires=[],
+    install_requires=['numpy'],
     classifiers=[
         'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.6'
+        'Programming Language :: Python :: 3.7'
     ],
 )
