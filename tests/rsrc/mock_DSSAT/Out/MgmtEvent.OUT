@@ -1,0 +1,225 @@
+*MANAGEMENT OPERATIONS EVENT SUMMARY
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+!---------------------------------------------------------------------------------------------
+@RUN Date........  DOY    DAS    DAP  CR  Stage         Operation       Quantities
+!---------------------------------------------------------------------------------------------
+   1 JUN  9, 1989  160      1      0  PI  14 Start Sim 
+   1 JUN 15, 1989  166      7      0  PI                Planting       
+   1 JUN 15, 1989  166      7      0  PI  07 Planting  
+   1 JUN 16, 1989  167      8      1  PI  08 Root Init.
+   1 AUG 15, 1989  227     68     61  PI  09 Leaf Emerg
+   1 OCT 14, 1989  287    128    121  PI  01 Zero Stem 
+   1 DEC  3, 1989  337    178    171  PI                Irrigation        43.0 mm
+   1 DEC  5, 1989  339    180    173  PI                Irrigation        22.0 mm
+   1 DEC  7, 1989  341    182    175  PI                Irrigation        18.0 mm
+   1 DEC 16, 1989  350    191    184  PI                Irrigation         8.0 mm
+   1 DEC 21, 1989  355    196    189  PI                Irrigation        11.0 mm
+   1 DEC 23, 1989  357    198    191  PI                Irrigation         6.0 mm
+   1 DEC 30, 1989  364    205    198  PI                Irrigation         6.0 mm
+   1 JAN  6, 1990  006    212    205  PI                Irrigation         6.0 mm
+   1 JAN  9, 1990  009    215    208  PI                Irrigation         6.0 mm
+   1 JAN 13, 1990  013    219    212  PI                Irrigation         5.0 mm
+   1 JAN 19, 1990  019    225    218  PI                Irrigation         5.0 mm
+   1 JAN 20, 1990  020    226    219  PI                Irrigation         5.0 mm
+   1 JAN 26, 1990  026    232    225  PI                Irrigation        19.0 mm
+   1 FEB 10, 1990  041    247    240  PI                Irrigation         9.0 mm
+   1 FEB 12, 1990  043    249    242  PI                Irrigation         9.0 mm
+   1 FEB 24, 1990  055    261    254  PI                Irrigation        15.0 mm
+   1 FEB 28, 1990  059    265    258  PI                Irrigation        10.0 mm
+   1 MAR 10, 1990  069    275    268  PI                Irrigation        17.0 mm
+   1 MAR 14, 1990  073    279    272  PI                Irrigation        13.0 mm
+   1 MAR 16, 1990  075    281    274  PI                Irrigation        14.0 mm
+   1 MAR 19, 1990  078    284    277  PI                Irrigation        15.0 mm
+   1 MAR 23, 1990  082    288    281  PI                Irrigation        12.0 mm
+   1 MAR 25, 1990  084    290    283  PI                Irrigation        18.0 mm
+   1 MAR 29, 1990  088    294    287  PI                Irrigation        12.0 mm
+   1 SEP 18, 1990  261    467    460  PI  02 Forcing   
+   1 OCT 30, 1990  303    509    502  PI  03 SCY       
+   1 NOV 21, 1990  325    531    524  PI  04 Early Flwr
+   1 MAR 15, 1991  074    645    638  PI  05 Fruit Harv
+   1 APR 24, 1991  114    685    678  PI  Phys. Maturity 
+   1 APR 24, 1991  114    685    678  PI  06 Maturity  
+   1 APR 24, 1991  114    685    678  PI                Harvest Yield    3136. kg/ha
+ 
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+!---------------------------------------------------------------------------------------------
+@RUN Date........  DOY    DAS    DAP  CR  Stage         Operation       Quantities
+!---------------------------------------------------------------------------------------------
+   2 JUN  9, 1989  160      1      0  PI  14 Start Sim 
+   2 JUN 15, 1989  166      7      0  PI                Planting       
+   2 JUN 15, 1989  166      7      0  PI  07 Planting  
+   2 JUN 16, 1989  167      8      1  PI  08 Root Init.
+   2 AUG 15, 1989  227     68     61  PI  09 Leaf Emerg
+   2 OCT 14, 1989  287    128    121  PI  01 Zero Stem 
+   2 NOV 29, 1989  333    174    167  PI                Fertilizer         17. kg[N]/ha 
+   2 DEC  3, 1989  337    178    171  PI                Irrigation        43.0 mm
+   2 DEC  5, 1989  339    180    173  PI                Irrigation        22.0 mm
+   2 DEC  7, 1989  341    182    175  PI                Irrigation        18.0 mm
+   2 DEC 16, 1989  350    191    184  PI                Irrigation         8.0 mm
+   2 DEC 21, 1989  355    196    189  PI                Irrigation        11.0 mm
+   2 DEC 23, 1989  357    198    191  PI                Irrigation         6.0 mm
+   2 DEC 30, 1989  364    205    198  PI                Irrigation         6.0 mm
+   2 JAN  6, 1990  006    212    205  PI                Fertilizer         17. kg[N]/ha 
+   2 JAN  6, 1990  006    212    205  PI                Irrigation         6.0 mm
+   2 JAN  9, 1990  009    215    208  PI                Irrigation         6.0 mm
+   2 JAN 13, 1990  013    219    212  PI                Irrigation         5.0 mm
+   2 JAN 19, 1990  019    225    218  PI                Irrigation         5.0 mm
+   2 JAN 20, 1990  020    226    219  PI                Irrigation         5.0 mm
+   2 JAN 26, 1990  026    232    225  PI                Irrigation        19.0 mm
+   2 FEB 10, 1990  041    247    240  PI                Fertilizer         17. kg[N]/ha 
+   2 FEB 10, 1990  041    247    240  PI                Irrigation         9.0 mm
+   2 FEB 12, 1990  043    249    242  PI                Irrigation         9.0 mm
+   2 FEB 24, 1990  055    261    254  PI                Irrigation        15.0 mm
+   2 FEB 28, 1990  059    265    258  PI                Irrigation        10.0 mm
+   2 MAR 10, 1990  069    275    268  PI                Irrigation        17.0 mm
+   2 MAR 14, 1990  073    279    272  PI                Irrigation        13.0 mm
+   2 MAR 16, 1990  075    281    274  PI                Irrigation        14.0 mm
+   2 MAR 19, 1990  078    284    277  PI                Irrigation        15.0 mm
+   2 MAR 23, 1990  082    288    281  PI                Irrigation        12.0 mm
+   2 MAR 25, 1990  084    290    283  PI                Irrigation        18.0 mm
+   2 MAR 29, 1990  088    294    287  PI                Irrigation        12.0 mm
+   2 SEP 18, 1990  261    467    460  PI  02 Forcing   
+   2 OCT 30, 1990  303    509    502  PI  03 SCY       
+   2 NOV 21, 1990  325    531    524  PI  04 Early Flwr
+   2 MAR 21, 1991  080    651    644  PI  05 Fruit Harv
+   2 APR 21, 1991  111    682    675  PI  Phys. Maturity 
+   2 APR 21, 1991  111    682    675  PI  06 Maturity  
+   2 APR 21, 1991  111    682    675  PI                Harvest Yield    5619. kg/ha
+ 
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+!---------------------------------------------------------------------------------------------
+@RUN Date........  DOY    DAS    DAP  CR  Stage         Operation       Quantities
+!---------------------------------------------------------------------------------------------
+   3 JUN  9, 1989  160      1      0  PI  14 Start Sim 
+   3 JUN 15, 1989  166      7      0  PI                Planting       
+   3 JUN 15, 1989  166      7      0  PI  07 Planting  
+   3 JUN 16, 1989  167      8      1  PI  08 Root Init.
+   3 AUG 15, 1989  227     68     61  PI  09 Leaf Emerg
+   3 OCT 14, 1989  287    128    121  PI  01 Zero Stem 
+   3 NOV 29, 1989  333    174    167  PI                Fertilizer         67. kg[N]/ha 
+   3 DEC  3, 1989  337    178    171  PI                Irrigation        43.0 mm
+   3 DEC  5, 1989  339    180    173  PI                Irrigation        22.0 mm
+   3 DEC  7, 1989  341    182    175  PI                Irrigation        18.0 mm
+   3 DEC 16, 1989  350    191    184  PI                Irrigation         8.0 mm
+   3 DEC 21, 1989  355    196    189  PI                Irrigation        11.0 mm
+   3 DEC 23, 1989  357    198    191  PI                Irrigation         6.0 mm
+   3 DEC 30, 1989  364    205    198  PI                Irrigation         6.0 mm
+   3 JAN  6, 1990  006    212    205  PI                Fertilizer         67. kg[N]/ha 
+   3 JAN  6, 1990  006    212    205  PI                Irrigation         6.0 mm
+   3 JAN  9, 1990  009    215    208  PI                Irrigation         6.0 mm
+   3 JAN 13, 1990  013    219    212  PI                Irrigation         5.0 mm
+   3 JAN 19, 1990  019    225    218  PI                Irrigation         5.0 mm
+   3 JAN 20, 1990  020    226    219  PI                Irrigation         5.0 mm
+   3 JAN 26, 1990  026    232    225  PI                Irrigation        19.0 mm
+   3 FEB 10, 1990  041    247    240  PI                Fertilizer         67. kg[N]/ha 
+   3 FEB 10, 1990  041    247    240  PI                Irrigation         9.0 mm
+   3 FEB 12, 1990  043    249    242  PI                Irrigation         9.0 mm
+   3 FEB 24, 1990  055    261    254  PI                Irrigation        15.0 mm
+   3 FEB 28, 1990  059    265    258  PI                Irrigation        10.0 mm
+   3 MAR 10, 1990  069    275    268  PI                Irrigation        17.0 mm
+   3 MAR 14, 1990  073    279    272  PI                Irrigation        13.0 mm
+   3 MAR 16, 1990  075    281    274  PI                Irrigation        14.0 mm
+   3 MAR 19, 1990  078    284    277  PI                Irrigation        15.0 mm
+   3 MAR 23, 1990  082    288    281  PI                Irrigation        12.0 mm
+   3 MAR 25, 1990  084    290    283  PI                Irrigation        18.0 mm
+   3 MAR 29, 1990  088    294    287  PI                Irrigation        12.0 mm
+   3 SEP 18, 1990  261    467    460  PI  02 Forcing   
+   3 OCT 30, 1990  303    509    502  PI  03 SCY       
+   3 NOV 21, 1990  325    531    524  PI  04 Early Flwr
+   3 MAR 26, 1991  085    656    649  PI  05 Fruit Harv
+   3 APR 19, 1991  109    680    673  PI  Phys. Maturity 
+   3 APR 19, 1991  109    680    673  PI  06 Maturity  
+   3 APR 19, 1991  109    680    673  PI                Harvest Yield    7712. kg/ha
+ 
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+!---------------------------------------------------------------------------------------------
+@RUN Date........  DOY    DAS    DAP  CR  Stage         Operation       Quantities
+!---------------------------------------------------------------------------------------------
+   4 JUN  9, 1989  160      1      0  PI  14 Start Sim 
+   4 JUN 15, 1989  166      7      0  PI                Planting       
+   4 JUN 15, 1989  166      7      0  PI  07 Planting  
+   4 JUN 16, 1989  167      8      1  PI  08 Root Init.
+   4 AUG 15, 1989  227     68     61  PI  09 Leaf Emerg
+   4 OCT 14, 1989  287    128    121  PI  01 Zero Stem 
+   4 DEC  3, 1989  337    178    171  PI                Irrigation        43.0 mm
+   4 DEC  5, 1989  339    180    173  PI                Irrigation        22.0 mm
+   4 DEC  7, 1989  341    182    175  PI                Irrigation        18.0 mm
+   4 DEC 16, 1989  350    191    184  PI                Irrigation         8.0 mm
+   4 DEC 21, 1989  355    196    189  PI                Irrigation        11.0 mm
+   4 DEC 23, 1989  357    198    191  PI                Irrigation         6.0 mm
+   4 DEC 30, 1989  364    205    198  PI                Irrigation         6.0 mm
+   4 JAN  6, 1990  006    212    205  PI                Irrigation         6.0 mm
+   4 JAN  9, 1990  009    215    208  PI                Irrigation         6.0 mm
+   4 JAN 13, 1990  013    219    212  PI                Irrigation         5.0 mm
+   4 JAN 19, 1990  019    225    218  PI                Irrigation         5.0 mm
+   4 JAN 20, 1990  020    226    219  PI                Irrigation         5.0 mm
+   4 JAN 26, 1990  026    232    225  PI                Irrigation        19.0 mm
+   4 FEB 10, 1990  041    247    240  PI                Irrigation         9.0 mm
+   4 FEB 12, 1990  043    249    242  PI                Irrigation         9.0 mm
+   4 FEB 24, 1990  055    261    254  PI                Irrigation        15.0 mm
+   4 FEB 28, 1990  059    265    258  PI                Irrigation        10.0 mm
+   4 MAR 10, 1990  069    275    268  PI                Irrigation        17.0 mm
+   4 MAR 14, 1990  073    279    272  PI                Irrigation        13.0 mm
+   4 MAR 16, 1990  075    281    274  PI                Irrigation        14.0 mm
+   4 MAR 19, 1990  078    284    277  PI                Irrigation        15.0 mm
+   4 MAR 23, 1990  082    288    281  PI                Irrigation        12.0 mm
+   4 MAR 25, 1990  084    290    283  PI                Irrigation        18.0 mm
+   4 MAR 29, 1990  088    294    287  PI                Irrigation        12.0 mm
+   4 SEP 18, 1990  261    467    460  PI  02 Forcing   
+   4 OCT 30, 1990  303    509    502  PI  03 SCY       
+   4 NOV 21, 1990  325    531    524  PI  04 Early Flwr
+   4 MAR 30, 1991  089    660    653  PI  05 Fruit Harv
+   4 APR 17, 1991  107    678    671  PI  Phys. Maturity 
+   4 APR 17, 1991  107    678    671  PI  06 Maturity  
+   4 APR 17, 1991  107    678    671  PI                Harvest Yield    8609. kg/ha
+ 
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:37
+!---------------------------------------------------------------------------------------------
+@RUN Date........  DOY    DAS    DAP  CR  Stage         Operation       Quantities
+!---------------------------------------------------------------------------------------------
+   5 JUN  9, 1989  160      1      0  PI  14 Start Sim 
+   5 JUN 15, 1989  166      7      0  PI                Planting       
+   5 JUN 15, 1989  166      7      0  PI  07 Planting  
+   5 JUN 16, 1989  167      8      1  PI  08 Root Init.
+   5 AUG 15, 1989  227     68     61  PI  09 Leaf Emerg
+   5 OCT 14, 1989  287    128    121  PI  01 Zero Stem 
+   5 NOV 29, 1989  333    174    167  PI                Fertilizer         17. kg[N]/ha 
+   5 DEC  3, 1989  337    178    171  PI                Irrigation        43.0 mm
+   5 DEC  5, 1989  339    180    173  PI                Irrigation        22.0 mm
+   5 DEC  7, 1989  341    182    175  PI                Irrigation        18.0 mm
+   5 DEC 16, 1989  350    191    184  PI                Irrigation         8.0 mm
+   5 DEC 21, 1989  355    196    189  PI                Irrigation        11.0 mm
+   5 DEC 23, 1989  357    198    191  PI                Irrigation         6.0 mm
+   5 DEC 30, 1989  364    205    198  PI                Irrigation         6.0 mm
+   5 JAN  6, 1990  006    212    205  PI                Fertilizer         17. kg[N]/ha 
+   5 JAN  6, 1990  006    212    205  PI                Irrigation         6.0 mm
+   5 JAN  9, 1990  009    215    208  PI                Irrigation         6.0 mm
+   5 JAN 13, 1990  013    219    212  PI                Irrigation         5.0 mm
+   5 JAN 19, 1990  019    225    218  PI                Irrigation         5.0 mm
+   5 JAN 20, 1990  020    226    219  PI                Irrigation         5.0 mm
+   5 JAN 26, 1990  026    232    225  PI                Irrigation        19.0 mm
+   5 FEB 10, 1990  041    247    240  PI                Fertilizer         17. kg[N]/ha 
+   5 FEB 10, 1990  041    247    240  PI                Irrigation         9.0 mm
+   5 FEB 12, 1990  043    249    242  PI                Irrigation         9.0 mm
+   5 FEB 24, 1990  055    261    254  PI                Irrigation        15.0 mm
+   5 FEB 28, 1990  059    265    258  PI                Irrigation        10.0 mm
+   5 MAR 10, 1990  069    275    268  PI                Irrigation        17.0 mm
+   5 MAR 14, 1990  073    279    272  PI                Irrigation        13.0 mm
+   5 MAR 16, 1990  075    281    274  PI                Irrigation        14.0 mm
+   5 MAR 19, 1990  078    284    277  PI                Irrigation        15.0 mm
+   5 MAR 23, 1990  082    288    281  PI                Irrigation        12.0 mm
+   5 MAR 25, 1990  084    290    283  PI                Irrigation        18.0 mm
+   5 MAR 29, 1990  088    294    287  PI                Irrigation        12.0 mm
+   5 SEP 18, 1990  261    467    460  PI  02 Forcing   
+   5 OCT 30, 1990  303    509    502  PI  03 SCY       
+   5 NOV 21, 1990  325    531    524  PI  04 Early Flwr
+   5 APR  4, 1991  094    665    658  PI  05 Fruit Harv
+   5 APR 15, 1991  105    676    669  PI  Phys. Maturity 
+   5 APR 15, 1991  105    676    669  PI  06 Maturity  
+   5 APR 15, 1991  105    676    669  PI                Harvest Yield    9262. kg/ha
+ 

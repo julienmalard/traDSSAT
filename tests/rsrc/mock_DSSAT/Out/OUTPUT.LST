@@ -1,0 +1,23 @@
+*Output file list
+
+@FILENAME          DESCRIPTION
+ET.OUT             Daily soil-plant-atmosphere output file           
+MgmtOps.OUT        Daily management operations output file           
+PlantGro.OUT       Daily plant growth output file                    
+PlantN.OUT         Daily plant nitrogen output file                  
+SoilNi.OUT         Daily inorganic soil N output file                
+SoilTemp.OUT       Daily soil temperature output file                
+SoilWat.OUT        Daily soil water output file                      
+Weather.OUT        Daily weather output file                         
+Mulch.OUT          Daily surface mulch output file                   
+Evaluate.OUT       Evaluation output file (simulated vs. measured)   
+MgmtEvent.OUT      Management event output file                      
+OVERVIEW.OUT       Seasonal overview output file                     
+SolNBalSum.OUT     Soil N balance summary                            
+SoilNiBal.OUT      Seasonal inorganic soil N balance                 
+SoilNoBal.OUT      Seasonal organic soil N balance                   
+SoilWatBal.OUT     Seasonal soil water balance                       
+Summary.OUT        Seasonal summary output file                      
+INFO.OUT           Information output file                           
+WARNING.OUT        Warning messages                                  
+LUN.LST            List of output files generated                    

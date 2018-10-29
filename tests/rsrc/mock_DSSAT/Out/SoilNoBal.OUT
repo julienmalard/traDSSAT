@@ -1,0 +1,149 @@
+*SOIL ORGANIC N BALANCE
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+                                                                                
+*RUN   1        : Plant Population 2.61 p/m PIALO047 UHKN8901    1              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  1   : Plant Population 2.61 p/m PIALO047                            
+  
+
+
+!                                        INITIAL Year/Doy      FINAL Year/Doy
+!                                                1989/160            1991/114
+!SOIL N BALANCE                                 -----------kg N/ha-----------
+
+!   Soil Humus N                                 11396.67            11137.43
+!   Soil Litter N                                    1.80                0.61
+!   N in Surface Residue                            10.60               10.60
+
+!   Added to / Removed from Soil:
+!   N in Harvest Residues from Previous Crop         0.00
+!   N from Organic Applications                      0.00
+!   N from senesced plant matter                     0.00
+!   N immobilized                                    0.00
+!   N mineralized                                                      260.43
+
+!   Total N balance                              11409.07            11409.07
+!   Balance                                                             0.002
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+                                                                                
+*RUN   2        : Plant Population 5.22 p/m PIALO047 UHKN8901    2              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  2   : Plant Population 5.22 p/m PIALO047                            
+  
+
+
+!                                        INITIAL Year/Doy      FINAL Year/Doy
+!                                                1989/160            1991/111
+!SOIL N BALANCE                                 -----------kg N/ha-----------
+
+!   Soil Humus N                                 11396.67            11140.15
+!   Soil Litter N                                    1.80                0.61
+!   N in Surface Residue                            10.60               10.60
+
+!   Added to / Removed from Soil:
+!   N in Harvest Residues from Previous Crop         0.00
+!   N from Organic Applications                      0.00
+!   N from senesced plant matter                     0.00
+!   N immobilized                                    0.00
+!   N mineralized                                                      257.71
+
+!   Total N balance                              11409.07            11409.07
+!   Balance                                                            -0.002
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+                                                                                
+*RUN   3        : Plant Population 7.83 p/m PIALO047 UHKN8901    3              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  3   : Plant Population 7.83 p/m PIALO047                            
+  
+
+
+!                                        INITIAL Year/Doy      FINAL Year/Doy
+!                                                1989/160            1991/109
+!SOIL N BALANCE                                 -----------kg N/ha-----------
+
+!   Soil Humus N                                 11396.67            11140.28
+!   Soil Litter N                                    1.80                0.61
+!   N in Surface Residue                            10.60               10.60
+
+!   Added to / Removed from Soil:
+!   N in Harvest Residues from Previous Crop         0.00
+!   N from Organic Applications                      0.00
+!   N from senesced plant matter                     0.00
+!   N immobilized                                    0.00
+!   N mineralized                                                      257.58
+
+!   Total N balance                              11409.07            11409.07
+!   Balance                                                             0.002
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+                                                                                
+*RUN   4        : Plant Population 10.1 p/m PIALO047 UHKN8901    4              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  4   : Plant Population 10.1 p/m PIALO047                            
+  
+
+
+!                                        INITIAL Year/Doy      FINAL Year/Doy
+!                                                1989/160            1991/107
+!SOIL N BALANCE                                 -----------kg N/ha-----------
+
+!   Soil Humus N                                 11396.67            11140.67
+!   Soil Litter N                                    1.80                0.61
+!   N in Surface Residue                            10.60               10.60
+
+!   Added to / Removed from Soil:
+!   N in Harvest Residues from Previous Crop         0.00
+!   N from Organic Applications                      0.00
+!   N from senesced plant matter                     0.00
+!   N immobilized                                    0.00
+!   N mineralized                                                      257.19
+
+!   Total N balance                              11409.07            11409.07
+!   Balance                                                            -0.003
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:37
+                                                                                
+*RUN   5        : Plant Population 12.8 p/m PIALO047 UHKN8901    5              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  5   : Plant Population 12.8 p/m PIALO047                            
+  
+
+
+!                                        INITIAL Year/Doy      FINAL Year/Doy
+!                                                1989/160            1991/105
+!SOIL N BALANCE                                 -----------kg N/ha-----------
+
+!   Soil Humus N                                 11396.67            11141.60
+!   Soil Litter N                                    1.80                0.61
+!   N in Surface Residue                            10.60               10.60
+
+!   Added to / Removed from Soil:
+!   N in Harvest Residues from Previous Crop         0.00
+!   N from Organic Applications                      0.00
+!   N from senesced plant matter                     0.00
+!   N immobilized                                    0.00
+!   N mineralized                                                      256.25
+
+!   Total N balance                              11409.07            11409.07
+!   Balance                                                            -0.003

@@ -1,0 +1,703 @@
+*SIMULATION OVERVIEW FILE
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+                                                                                
+*RUN   1        : Plant Population 2.61 p/m PIALO047 UHKN8901    1              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  1   : Plant Population 2.61 p/m PIALO047                            
+                                                                                
+                                                                                
+ CROP           : Pineapple        CULTIVAR : SC-F153          ECOTYPE :IB0001  
+ STARTING DATE  : JUN  9 1989                                                   
+ PLANTING DATE  : JUN 15 1989        PLANTS/m2 :  2.6     ROW SPACING :  53.cm  
+ WEATHER        : UHKN   1989                                                   
+ SOIL           : IBPI910013     TEXTURE : -99   - Waipio                       
+ SOIL INITIAL C : DEPTH:110cm EXTR. H2O:137.0mm  NO3: 11.8kg/ha  NH4: 13.5kg/ha 
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)                                  
+ IRRIGATION     :      304 mm IN    24 APPLICATIONS                             
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION                   
+ N-FERTILIZER   :        0 kg/ha IN     0 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :  2000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+                  CO2 353ppm  NSWIT   :1  EVAP :R  SOIL   :1  STEMP  :D         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:R  HARVEST:M         
+                  WEATHER :M  TILLAGE :N                                        
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.220 0.350 0.550 0.130 0.260   1.00   1.00   6.30   3.60   3.40   2.27 
+  5- 15 0.230 0.350 0.550 0.120 0.260   1.00   1.00   6.30   2.80   2.80   2.27 
+ 15- 30 0.240 0.350 0.550 0.110 0.300   0.80   1.05   5.80   1.40   1.90   1.10 
+ 30- 45 0.250 0.370 0.480 0.120 0.370   0.40   1.17   5.80   0.70   1.10   1.41 
+ 45- 60 0.257 0.377 0.467 0.120 0.337   0.27   1.20   5.93   0.57   0.97   0.86 
+ 60- 90 0.253 0.380 0.460 0.127 0.300   0.10   1.22   6.00   0.50   0.57   0.44 
+ 90-110 0.260 0.400 0.480 0.140 0.320   0.02   1.17   6.00   0.40   0.10   0.27 
+                                                                                
+TOT-110  27.4  41.1  54.1  13.7  34.4  <--cm   -  kg/ha-->   11.8   13.5 114004 
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 5.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.60         FERT. FACTOR : 1.00 
+                                                                                
+ Pineapple  CULTIVAR :IB0066-SC-F153            ECOTYPE :IB0001                 
+     P1:  60.0    P2: 629.0    P3: 381.0    P4: 2640.    P5: 400.0    P6:  60.0 
+     G2: 200.0    G3: 14.00 PHINT:  40.0                                        
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     1     Plant Population 2.61 p/
+
+        CROP GROWTH     BIOMASS         LEAF   CROP N     STRESS      STRESS                                           
+   DATE  AGE STAGE        kg/ha    LAI   NUM  kg/ha  %   H2O  Nitr Phos1 Phos2  RSTG                                   
+ ------  --- ----------   -----  -----  ----  ---  ---  ----  ----  ----  ----  ----                                   
+  9 JUN    0 Start Sim        0   0.00   0.0    0  0.0  0.00  0.00  0.00  0.00     7
+ 15 JUN    0 Planting       595   0.22   0.0    0  0.0  0.00  0.00  0.00  0.00     8
+ 16 JUN    1 Root Init.     595   0.22   0.0    0  0.0  0.00  0.00  0.00  0.00     9
+ 15 AUG   61 Leaf Emerg     595   0.22   1.0   26  4.4  0.00  0.00  0.00  0.00     1
+ 14 OCT  121 Zero Stem      804   0.34   7.5   26  3.3  0.48  0.00  0.00  0.00     2
+ 18 SEP  460 Forcing       9272   2.76  38.8   70  0.8  0.38  0.00  0.00  0.00     3
+ 30 OCT  502 SCY           9906   2.83  40.6   70  0.7  0.86  0.07  0.00  0.00     4
+ 21 NOV  524 Early Flwr   10063   2.83  40.6   88  0.9  0.71  0.82  0.00  0.00     5
+ 15 MAR  638 Fruit Harv   13804   2.15  40.6  122  0.9  0.27  0.09  0.00  0.00     6
+ 24 APR  678 Maturity     13804   2.15  40.6  122  0.9  0.11  0.97  0.00  0.00     6
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                                         SIMULATED     MEASURED
+      --------                                         ---------     --------
+      Forcing date (dap)                                     460          460
+      Physiological maturity day (dap)                       678          685
+      Harvest day (dap)                                      678          653
+      Yield fresh weight at harvest (t/ha)                 26.13        55.33
+      Yield dry weight at harvest (t/ha)                    3.14          -99
+      Above-ground biomass at forcing (pineapple, t/ha)      9.3        14.39
+      Aerial biomass (green+dead), dm at harvest (t/ha)     13.8        36.20
+      Vegetative dry matter at maturity (t/ha)              7.83        30.19
+      Leaf area index, maximum                              2.83         4.54
+      Leaf number per stem at maturity                      40.6          -99
+      Harvest index at maturity                            0.227          -99
+      Eye number at maturity (no/m2)                         219          496
+      Eye number at maturity (no/fruit)                     86.0          190
+      Eye weight (g)                                       1.429        1.512
+      Tops N at maturity (kg/ha)                           121.7          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|--------------------------------------Environment--------------------------------------|-----------------Stress-----------------|
+                              |---------------Average--------------|-----Cumulative-----|--------Count of days--------|          (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp  Temp Solar Photop                Evapo    Pot TMIN TMIN TMAX TMAX TMAX RAIN|----Water----|---Nitrogen--|-Phosphorus-|
+                         Span   Max   Min  Mean   Rad  [day]    CO2   Rain  Trans     ET   <    <    >    >    >    >   Photo         Photo         Photo
+                         days    øC    øC    øC MJ/m2     hr    ppm     mm     mm     mm  0øC  2øC 30øC 32øC 34øC  0mm  synth Growth  synth Growth  synth Growth
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Emergence - Zero Stem     60  32.5  20.2  26.4  17.7  12.14  353.1  281.6   72.2  250.6    0    0   53   38   12   19  0.309  0.476  0.000  0.001  0.000  0.000
+ Zero Stem - Forcing      339  29.7  18.5  24.1  16.4  12.01  353.8  503.5  710.8 1289.6    0    0  175   87   30   95  0.355  0.379  0.000  0.001  0.000  0.000
+ Forcing - SCY             42  32.5  20.4  26.5  16.1  11.66  354.5   48.4   45.4  162.6    0    0   40   26    5   14  0.843  0.864  0.027  0.069  0.000  0.000
+ SCY - Early Flwr          22  30.7  19.8  25.3  11.0  11.11  354.7   74.5   15.8   57.7    0    0   13    9    6    7  0.716  0.748  0.588  0.799  0.000  0.000
+ Early Flwr - Fruit Harv  155  28.0  17.3  22.7  13.8  11.40  355.1  433.1  407.0  482.0    0    0   45   13    0   61  0.186  0.230  0.228  0.318  0.000  0.000
+   
+ Planting to Harvest      678  30.0  18.7  24.4  16.1  11.93  354.0   1427   1297   2530    0    0  386  204   60  220  0.323  0.362  0.072  0.102  0.000  0.000
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+*Resource Productivity
+ Growing season length: 678 days 
+
+ Precipitation during growing season      1426.9 mm[rain]
+   Dry Matter Productivity                  0.97 kg[DM]/m3[rain]          =    9.7 kg[DM]/ha per mm[rain]
+   Yield Productivity                       0.22 kg[grain yield]/m3[rain] =    2.2 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growing season 1296.7 mm[ET]
+   Dry Matter Productivity                  1.06 kg[DM]/m3[ET]            =   10.6 kg[DM]/ha per mm[ET]
+   Yield Productivity                       0.24 kg[grain yield]/m3[ET]   =    2.4 kg[yield]/ha per mm[ET]
+
+ Transpiration during growing season       809.8 mm[EP]
+   Dry Matter Productivity                  1.70 kg[DM]/m3[EP]            =   17.0 kg[DM]/ha per mm[EP]
+   Yield Productivity                       0.39 kg[grain yield]/m3[EP]   =    3.9 kg[yield]/ha per mm[EP]
+
+ Irrigation during growing season          304.0 mm[irrig]
+   Dry Matter Productivity                  4.54 kg[DM]/m3[irrig]         =   45.4 kg[DM]/ha per mm[irrig]
+   Yield Productivity                       1.03 kg[grain yield]/m3[irrig]=   10.3 kg[yield]/ha per mm[irrig]
+
+ N uptake during growing season              118 kg[N uptake]/ha
+   Dry Matter Productivity                 117.0 kg[DM]/kg[N uptake]
+   Yield Productivity                       26.6 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+                 Pineapple YIELD :     3136 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+                                                                                
+*RUN   2        : Plant Population 5.22 p/m PIALO047 UHKN8901    2              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  2   : Plant Population 5.22 p/m PIALO047                            
+                                                                                
+                                                                                
+ CROP           : Pineapple        CULTIVAR : SC-F153          ECOTYPE :IB0001  
+ STARTING DATE  : JUN  9 1989                                                   
+ PLANTING DATE  : JUN 15 1989        PLANTS/m2 :  5.2     ROW SPACING :  53.cm  
+ WEATHER        : UHKN   1989                                                   
+ SOIL           : IBPI910013     TEXTURE : -99   - Waipio                       
+ SOIL INITIAL C : DEPTH:110cm EXTR. H2O:137.0mm  NO3:  9.9kg/ha  NH4:  9.9kg/ha 
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)                                  
+ IRRIGATION     :      304 mm IN    24 APPLICATIONS                             
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION                   
+ N-FERTILIZER   :       51 kg/ha IN     3 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :  2000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+                  CO2 353ppm  NSWIT   :1  EVAP :R  SOIL   :1  STEMP  :D         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:R  HARVEST:M         
+                  WEATHER :M  TILLAGE :N                                        
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.220 0.350 0.550 0.130 0.260   1.00   1.00   6.30   5.20   3.10   2.27 
+  5- 15 0.230 0.350 0.550 0.120 0.260   1.00   1.00   6.30   4.20   2.50   2.27 
+ 15- 30 0.240 0.350 0.550 0.110 0.300   0.80   1.05   5.80   1.20   1.00   1.10 
+ 30- 45 0.250 0.370 0.480 0.120 0.370   0.40   1.17   5.80   0.20   0.90   1.41 
+ 45- 60 0.257 0.377 0.467 0.120 0.337   0.27   1.20   5.93   0.13   0.70   0.86 
+ 60- 90 0.253 0.380 0.460 0.127 0.300   0.10   1.22   6.00   0.10   0.33   0.44 
+ 90-110 0.260 0.400 0.480 0.140 0.320   0.02   1.17   6.00   0.10   0.10   0.27 
+                                                                                
+TOT-110  27.4  41.1  54.1  13.7  34.4  <--cm   -  kg/ha-->    9.9    9.9 114004 
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 5.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.60         FERT. FACTOR : 1.00 
+                                                                                
+ Pineapple  CULTIVAR :IB0066-SC-F153            ECOTYPE :IB0001                 
+     P1:  60.0    P2: 629.0    P3: 381.0    P4: 2640.    P5: 400.0    P6:  60.0 
+     G2: 200.0    G3: 14.00 PHINT:  40.0                                        
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     2     Plant Population 5.22 p/
+
+        CROP GROWTH     BIOMASS         LEAF   CROP N     STRESS      STRESS                                           
+   DATE  AGE STAGE        kg/ha    LAI   NUM  kg/ha  %   H2O  Nitr Phos1 Phos2  RSTG                                   
+ ------  --- ----------   -----  -----  ----  ---  ---  ----  ----  ----  ----  ----                                   
+  9 JUN    0 Start Sim        0   0.00   0.0  122  0.0  0.00  0.00  0.00  0.00     7
+ 15 JUN    0 Planting      1191   0.45   0.0    0  0.0  0.00  0.00  0.00  0.00     8
+ 16 JUN    1 Root Init.    1191   0.45   0.0    0  0.0  0.00  0.00  0.00  0.00     9
+ 15 AUG   61 Leaf Emerg    1191   0.45   1.0   52  4.4  0.00  0.00  0.00  0.00     1
+ 14 OCT  121 Zero Stem     1426   0.58   5.9   52  3.7  0.61  0.00  0.00  0.00     2
+ 18 SEP  460 Forcing      13393   4.15  34.8  100  0.8  0.40  0.00  0.00  0.00     3
+ 30 OCT  502 SCY          14357   4.26  36.8  110  0.8  0.84  0.06  0.00  0.00     4
+ 21 NOV  524 Early Flwr   14567   4.26  36.8  123  0.8  0.68  0.79  0.00  0.00     5
+ 21 MAR  644 Fruit Harv   20638   3.19  36.8  168  0.8  0.30  0.10  0.00  0.00     6
+ 21 APR  675 Maturity     20638   3.19  36.8  168  0.8  0.00  0.97  0.00  0.00     6
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                                         SIMULATED     MEASURED
+      --------                                         ---------     --------
+      Forcing date (dap)                                     460          460
+      Physiological maturity day (dap)                       675          691
+      Harvest day (dap)                                      675          657
+      Yield fresh weight at harvest (t/ha)                 46.83        79.88
+      Yield dry weight at harvest (t/ha)                    5.62          -99
+      Above-ground biomass at forcing (pineapple, t/ha)     13.4        22.97
+      Aerial biomass (green+dead), dm at harvest (t/ha)     20.6        39.50
+      Vegetative dry matter at maturity (t/ha)             10.77        30.83
+      Leaf area index, maximum                              4.26         5.85
+      Leaf number per stem at maturity                      36.8          -99
+      Harvest index at maturity                            0.272          -99
+      Eye number at maturity (no/m2)                         394          913
+      Eye number at maturity (no/fruit)                     78.8          175
+      Eye weight (g)                                       1.425        1.312
+      Tops N at maturity (kg/ha)                           167.7          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|--------------------------------------Environment--------------------------------------|-----------------Stress-----------------|
+                              |---------------Average--------------|-----Cumulative-----|--------Count of days--------|          (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp  Temp Solar Photop                Evapo    Pot TMIN TMIN TMAX TMAX TMAX RAIN|----Water----|---Nitrogen--|-Phosphorus-|
+                         Span   Max   Min  Mean   Rad  [day]    CO2   Rain  Trans     ET   <    <    >    >    >    >   Photo         Photo         Photo
+                         days    øC    øC    øC MJ/m2     hr    ppm     mm     mm     mm  0øC  2øC 30øC 32øC 34øC  0mm  synth Growth  synth Growth  synth Growth
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Emergence - Zero Stem     60  32.5  20.2  26.4  17.7  12.14  353.1  281.6   76.4  251.8    0    0   53   38   12   19  0.491  0.605  0.000  0.001  0.000  0.000
+ Zero Stem - Forcing      339  29.7  18.5  24.1  16.4  12.01  353.8  503.5  725.3 1294.0    0    0  175   87   30   95  0.366  0.397  0.000  0.001  0.000  0.000
+ Forcing - SCY             42  32.5  20.4  26.5  16.1  11.66  354.5   48.4   46.1  163.1    0    0   40   26    5   14  0.800  0.837  0.023  0.057  0.000  0.000
+ SCY - Early Flwr          22  30.7  19.8  25.3  11.0  11.11  354.7   74.5   16.4   57.9    0    0   13    9    6    7  0.695  0.723  0.557  0.771  0.000  0.000
+ Early Flwr - Fruit Harv  152  27.9  17.3  22.6  13.7  11.37  355.1  432.6  393.6  469.2    0    0   42   12    0   60  0.187  0.238  0.192  0.280  0.000  0.000
+   
+ Planting to Harvest      675  30.0  18.7  24.4  16.1  11.92  354.0   1426   1304   2525    0    0  383  204   60  219  0.342  0.382  0.062  0.091  0.000  0.000
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+*Resource Productivity
+ Growing season length: 675 days 
+
+ Precipitation during growing season      1426.4 mm[rain]
+   Dry Matter Productivity                  1.45 kg[DM]/m3[rain]          =   14.5 kg[DM]/ha per mm[rain]
+   Yield Productivity                       0.39 kg[grain yield]/m3[rain] =    3.9 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growing season 1303.7 mm[ET]
+   Dry Matter Productivity                  1.58 kg[DM]/m3[ET]            =   15.8 kg[DM]/ha per mm[ET]
+   Yield Productivity                       0.43 kg[grain yield]/m3[ET]   =    4.3 kg[yield]/ha per mm[ET]
+
+ Transpiration during growing season       912.2 mm[EP]
+   Dry Matter Productivity                  2.26 kg[DM]/m3[EP]            =   22.6 kg[DM]/ha per mm[EP]
+   Yield Productivity                       0.62 kg[grain yield]/m3[EP]   =    6.2 kg[yield]/ha per mm[EP]
+
+ Irrigation during growing season          304.0 mm[irrig]
+   Dry Matter Productivity                  6.79 kg[DM]/m3[irrig]         =   67.9 kg[DM]/ha per mm[irrig]
+   Yield Productivity                       1.85 kg[grain yield]/m3[irrig]=   18.5 kg[yield]/ha per mm[irrig]
+
+ N applied during growing season             51. kg[N applied]/ha
+   Dry Matter Productivity                 404.7 kg[DM]/kg[N applied]
+   Yield Productivity                      110.2 kg[yield]/kg[N applied]
+
+ N uptake during growing season              139 kg[N uptake]/ha
+   Dry Matter Productivity                 148.5 kg[DM]/kg[N uptake]
+   Yield Productivity                       40.4 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+                 Pineapple YIELD :     5619 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+                                                                                
+*RUN   3        : Plant Population 7.83 p/m PIALO047 UHKN8901    3              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  3   : Plant Population 7.83 p/m PIALO047                            
+                                                                                
+                                                                                
+ CROP           : Pineapple        CULTIVAR : SC-F153          ECOTYPE :IB0001  
+ STARTING DATE  : JUN  9 1989                                                   
+ PLANTING DATE  : JUN 15 1989        PLANTS/m2 :  7.8     ROW SPACING :  53.cm  
+ WEATHER        : UHKN   1989                                                   
+ SOIL           : IBPI910013     TEXTURE : -99   - Waipio                       
+ SOIL INITIAL C : DEPTH:110cm EXTR. H2O:137.0mm  NO3:  9.0kg/ha  NH4: 11.9kg/ha 
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)                                  
+ IRRIGATION     :      304 mm IN    24 APPLICATIONS                             
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION                   
+ N-FERTILIZER   :      201 kg/ha IN     3 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :  2000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+                  CO2 353ppm  NSWIT   :1  EVAP :R  SOIL   :1  STEMP  :D         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:R  HARVEST:M         
+                  WEATHER :M  TILLAGE :N                                        
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.220 0.350 0.550 0.130 0.260   1.00   1.00   6.30   4.30   2.10   2.27 
+  5- 15 0.230 0.350 0.550 0.120 0.260   1.00   1.00   6.30   2.90   2.10   2.27 
+ 15- 30 0.240 0.350 0.550 0.110 0.300   0.80   1.05   5.80   1.60   2.20   1.10 
+ 30- 45 0.250 0.370 0.480 0.120 0.370   0.40   1.17   5.80   0.30   1.00   1.41 
+ 45- 60 0.257 0.377 0.467 0.120 0.337   0.27   1.20   5.93   0.17   0.87   0.86 
+ 60- 90 0.253 0.380 0.460 0.127 0.300   0.10   1.22   6.00   0.10   0.47   0.44 
+ 90-110 0.260 0.400 0.480 0.140 0.320   0.02   1.17   6.00   0.10   0.10   0.27 
+                                                                                
+TOT-110  27.4  41.1  54.1  13.7  34.4  <--cm   -  kg/ha-->    9.0   11.9 114004 
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 5.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.60         FERT. FACTOR : 1.00 
+                                                                                
+ Pineapple  CULTIVAR :IB0066-SC-F153            ECOTYPE :IB0001                 
+     P1:  60.0    P2: 629.0    P3: 381.0    P4: 2640.    P5: 400.0    P6:  60.0 
+     G2: 200.0    G3: 14.00 PHINT:  40.0                                        
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     3     Plant Population 7.83 p/
+
+        CROP GROWTH     BIOMASS         LEAF   CROP N     STRESS      STRESS                                           
+   DATE  AGE STAGE        kg/ha    LAI   NUM  kg/ha  %   H2O  Nitr Phos1 Phos2  RSTG                                   
+ ------  --- ----------   -----  -----  ----  ---  ---  ----  ----  ----  ----  ----                                   
+  9 JUN    0 Start Sim        0   0.00   0.0  168  0.0  0.00  0.00  0.00  0.00     7
+ 15 JUN    0 Planting      1786   0.68   0.0    0  0.0  0.00  0.00  0.00  0.00     8
+ 16 JUN    1 Root Init.    1786   0.68   0.0    0  0.0  0.00  0.00  0.00  0.00     9
+ 15 AUG   61 Leaf Emerg    1786   0.68   1.0   79  4.4  0.00  0.00  0.00  0.00     1
+ 14 OCT  121 Zero Stem     2070   0.83   5.3   79  3.8  0.65  0.00  0.00  0.00     2
+ 18 SEP  460 Forcing      16057   5.08  32.4  120  0.7  0.41  0.00  0.00  0.00     3
+ 30 OCT  502 SCY          17256   5.25  34.5  132  0.8  0.80  0.06  0.00  0.00     4
+ 21 NOV  524 Early Flwr   17483   5.25  34.5  153  0.9  0.66  0.79  0.00  0.00     5
+ 26 MAR  649 Fruit Harv   25407   3.87  34.5  221  0.9  0.28  0.05  0.00  0.00     6
+ 19 APR  673 Maturity     25407   3.87  34.5  221  0.9  0.00  0.96  0.00  0.00     6
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                                         SIMULATED     MEASURED
+      --------                                         ---------     --------
+      Forcing date (dap)                                     460          460
+      Physiological maturity day (dap)                       673          701
+      Harvest day (dap)                                      673          664
+      Yield fresh weight at harvest (t/ha)                 64.26        104.1
+      Yield dry weight at harvest (t/ha)                    7.71          -99
+      Above-ground biomass at forcing (pineapple, t/ha)     16.1        27.36
+      Aerial biomass (green+dead), dm at harvest (t/ha)     25.4        45.78
+      Vegetative dry matter at maturity (t/ha)             12.44        34.47
+      Leaf area index, maximum                              5.25         7.63
+      Leaf number per stem at maturity                      34.5          -99
+      Harvest index at maturity                            0.304          -99
+      Eye number at maturity (no/m2)                         553         1174
+      Eye number at maturity (no/fruit)                     75.1          150
+      Eye weight (g)                                       1.395        1.152
+      Tops N at maturity (kg/ha)                           220.6          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|--------------------------------------Environment--------------------------------------|-----------------Stress-----------------|
+                              |---------------Average--------------|-----Cumulative-----|--------Count of days--------|          (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp  Temp Solar Photop                Evapo    Pot TMIN TMIN TMAX TMAX TMAX RAIN|----Water----|---Nitrogen--|-Phosphorus-|
+                         Span   Max   Min  Mean   Rad  [day]    CO2   Rain  Trans     ET   <    <    >    >    >    >   Photo         Photo         Photo
+                         days    øC    øC    øC MJ/m2     hr    ppm     mm     mm     mm  0øC  2øC 30øC 32øC 34øC  0mm  synth Growth  synth Growth  synth Growth
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Emergence - Zero Stem     60  32.5  20.2  26.4  17.7  12.14  353.1  281.6   78.5  252.8    0    0   53   38   12   19  0.563  0.653  0.000  0.001  0.000  0.000
+ Zero Stem - Forcing      339  29.7  18.5  24.1  16.4  12.01  353.8  503.5  730.6 1296.0    0    0  175   87   30   95  0.370  0.405  0.000  0.001  0.000  0.000
+ Forcing - SCY             42  32.5  20.4  26.5  16.1  11.66  354.5   48.4   46.2  163.2    0    0   40   26    5   14  0.764  0.804  0.022  0.055  0.000  0.000
+ SCY - Early Flwr          22  30.7  19.8  25.3  11.0  11.11  354.7   74.5   16.1   58.0    0    0   13    9    6    7  0.663  0.700  0.558  0.771  0.000  0.000
+ Early Flwr - Fruit Harv  150  27.9  17.3  22.6  13.6  11.36  355.1  432.6  383.1  460.2    0    0   40   12    0   60  0.180  0.237  0.141  0.198  0.000  0.000
+   
+ Planting to Harvest      673  30.0  18.7  24.4  16.1  11.92  354.0   1426   1300   2521    0    0  381  204   60  219  0.346  0.388  0.050  0.072  0.000  0.000
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+*Resource Productivity
+ Growing season length: 673 days 
+
+ Precipitation during growing season      1426.4 mm[rain]
+   Dry Matter Productivity                  1.78 kg[DM]/m3[rain]          =   17.8 kg[DM]/ha per mm[rain]
+   Yield Productivity                       0.54 kg[grain yield]/m3[rain] =    5.4 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growing season 1299.5 mm[ET]
+   Dry Matter Productivity                  1.96 kg[DM]/m3[ET]            =   19.6 kg[DM]/ha per mm[ET]
+   Yield Productivity                       0.59 kg[grain yield]/m3[ET]   =    5.9 kg[yield]/ha per mm[ET]
+
+ Transpiration during growing season       972.5 mm[EP]
+   Dry Matter Productivity                  2.61 kg[DM]/m3[EP]            =   26.1 kg[DM]/ha per mm[EP]
+   Yield Productivity                       0.79 kg[grain yield]/m3[EP]   =    7.9 kg[yield]/ha per mm[EP]
+
+ Irrigation during growing season          304.0 mm[irrig]
+   Dry Matter Productivity                  8.36 kg[DM]/m3[irrig]         =   83.6 kg[DM]/ha per mm[irrig]
+   Yield Productivity                       2.54 kg[grain yield]/m3[irrig]=   25.4 kg[yield]/ha per mm[irrig]
+
+ N applied during growing season            201. kg[N applied]/ha
+   Dry Matter Productivity                 126.4 kg[DM]/kg[N applied]
+   Yield Productivity                       38.4 kg[yield]/kg[N applied]
+
+ N uptake during growing season              167 kg[N uptake]/ha
+   Dry Matter Productivity                 152.1 kg[DM]/kg[N uptake]
+   Yield Productivity                       46.2 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+                 Pineapple YIELD :     7712 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+                                                                                
+*RUN   4        : Plant Population 10.1 p/m PIALO047 UHKN8901    4              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  4   : Plant Population 10.1 p/m PIALO047                            
+                                                                                
+                                                                                
+ CROP           : Pineapple        CULTIVAR : SC-F153          ECOTYPE :IB0001  
+ STARTING DATE  : JUN  9 1989                                                   
+ PLANTING DATE  : JUN 15 1989        PLANTS/m2 : 10.1     ROW SPACING :  53.cm  
+ WEATHER        : UHKN   1989                                                   
+ SOIL           : IBPI910013     TEXTURE : -99   - Waipio                       
+ SOIL INITIAL C : DEPTH:110cm EXTR. H2O:137.0mm  NO3: 16.2kg/ha  NH4: 16.8kg/ha 
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)                                  
+ IRRIGATION     :      304 mm IN    24 APPLICATIONS                             
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION                   
+ N-FERTILIZER   :        0 kg/ha IN     0 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :  2000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+                  CO2 353ppm  NSWIT   :1  EVAP :R  SOIL   :1  STEMP  :D         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:R  HARVEST:M         
+                  WEATHER :M  TILLAGE :N                                        
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.220 0.350 0.550 0.130 0.260   1.00   1.00   6.30   4.30   3.60   2.27 
+  5- 15 0.230 0.350 0.550 0.120 0.260   1.00   1.00   6.30   3.00   2.70   2.27 
+ 15- 30 0.240 0.350 0.550 0.110 0.300   0.80   1.05   5.80   2.00   1.90   1.10 
+ 30- 45 0.250 0.370 0.480 0.120 0.370   0.40   1.17   5.80   1.00   1.40   1.41 
+ 45- 60 0.257 0.377 0.467 0.120 0.337   0.27   1.20   5.93   1.00   1.40   0.86 
+ 60- 90 0.253 0.380 0.460 0.127 0.300   0.10   1.22   6.00   0.80   0.87   0.44 
+ 90-110 0.260 0.400 0.480 0.140 0.320   0.02   1.17   6.00   0.60   0.50   0.27 
+                                                                                
+TOT-110  27.4  41.1  54.1  13.7  34.4  <--cm   -  kg/ha-->   16.2   16.8 114004 
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 5.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.60         FERT. FACTOR : 1.00 
+                                                                                
+ Pineapple  CULTIVAR :IB0066-SC-F153            ECOTYPE :IB0001                 
+     P1:  60.0    P2: 629.0    P3: 381.0    P4: 2640.    P5: 400.0    P6:  60.0 
+     G2: 200.0    G3: 14.00 PHINT:  40.0                                        
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     4     Plant Population 10.1 p/
+
+        CROP GROWTH     BIOMASS         LEAF   CROP N     STRESS      STRESS                                           
+   DATE  AGE STAGE        kg/ha    LAI   NUM  kg/ha  %   H2O  Nitr Phos1 Phos2  RSTG                                   
+ ------  --- ----------   -----  -----  ----  ---  ---  ----  ----  ----  ----  ----                                   
+  9 JUN    0 Start Sim        0   0.00   0.0  221  0.0  0.00  0.00  0.00  0.00     7
+ 15 JUN    0 Planting      2313   0.87   0.0    0  0.0  0.00  0.00  0.00  0.00     8
+ 16 JUN    1 Root Init.    2313   0.87   0.0    0  0.0  0.00  0.00  0.00  0.00     9
+ 15 AUG   61 Leaf Emerg    2313   0.87   1.0  102  4.4  0.00  0.00  0.00  0.00     1
+ 14 OCT  121 Zero Stem     2643   1.05   5.0  102  3.9  0.68  0.00  0.00  0.00     2
+ 18 SEP  460 Forcing      18269   5.88  30.9  138  0.8  0.41  0.00  0.00  0.00     3
+ 30 OCT  502 SCY          19610   6.06  33.1  149  0.8  0.78  0.05  0.00  0.00     4
+ 21 NOV  524 Early Flwr   19839   6.05  33.1  160  0.8  0.64  0.80  0.00  0.00     5
+ 30 MAR  653 Fruit Harv   28190   4.47  33.1  207  0.7  0.27  0.13  0.00  0.00     6
+ 17 APR  671 Maturity     28190   4.47  33.1  207  0.7  0.00  0.94  0.00  0.00     6
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                                         SIMULATED     MEASURED
+      --------                                         ---------     --------
+      Forcing date (dap)                                     460          460
+      Physiological maturity day (dap)                       671          707
+      Harvest day (dap)                                      671          670
+      Yield fresh weight at harvest (t/ha)                 71.74        124.2
+      Yield dry weight at harvest (t/ha)                    8.61          -99
+      Above-ground biomass at forcing (pineapple, t/ha)     18.3        29.00
+      Aerial biomass (green+dead), dm at harvest (t/ha)     28.2        51.62
+      Vegetative dry matter at maturity (t/ha)             13.52        38.13
+      Leaf area index, maximum                              6.06         8.15
+      Leaf number per stem at maturity                      33.1          -99
+      Harvest index at maturity                            0.305          -99
+      Eye number at maturity (no/m2)                         685         1257
+      Eye number at maturity (no/fruit)                     73.1          125
+      Eye weight (g)                                       1.257        1.012
+      Tops N at maturity (kg/ha)                           207.3          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|--------------------------------------Environment--------------------------------------|-----------------Stress-----------------|
+                              |---------------Average--------------|-----Cumulative-----|--------Count of days--------|          (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp  Temp Solar Photop                Evapo    Pot TMIN TMIN TMAX TMAX TMAX RAIN|----Water----|---Nitrogen--|-Phosphorus-|
+                         Span   Max   Min  Mean   Rad  [day]    CO2   Rain  Trans     ET   <    <    >    >    >    >   Photo         Photo         Photo
+                         days    øC    øC    øC MJ/m2     hr    ppm     mm     mm     mm  0øC  2øC 30øC 32øC 34øC  0mm  synth Growth  synth Growth  synth Growth
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Emergence - Zero Stem     60  32.5  20.2  26.4  17.7  12.14  353.1  281.6   79.3  253.6    0    0   53   38   12   19  0.599  0.678  0.000  0.001  0.000  0.000
+ Zero Stem - Forcing      339  29.7  18.5  24.1  16.4  12.01  353.8  503.5  734.0 1297.1    0    0  175   87   30   95  0.371  0.404  0.000  0.000  0.000  0.000
+ Forcing - SCY             42  32.5  20.4  26.5  16.1  11.66  354.5   48.4   46.4  163.3    0    0   40   26    5   14  0.741  0.785  0.021  0.053  0.000  0.000
+ SCY - Early Flwr          22  30.7  19.8  25.3  11.0  11.11  354.7   74.5   16.0   58.0    0    0   13    9    6    7  0.642  0.685  0.567  0.779  0.000  0.000
+ Early Flwr - Fruit Harv  148  27.8  17.3  22.6  13.5  11.34  355.1  432.6  373.4  449.7    0    0   38   11    0   60  0.177  0.231  0.142  0.230  0.000  0.000
+   
+ Planting to Harvest      671  30.0  18.7  24.4  16.1  11.92  354.0   1426   1293   2512    0    0  379  202   60  218  0.348  0.387  0.050  0.078  0.000  0.000
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+*Resource Productivity
+ Growing season length: 671 days 
+
+ Precipitation during growing season      1425.9 mm[rain]
+   Dry Matter Productivity                  1.98 kg[DM]/m3[rain]          =   19.8 kg[DM]/ha per mm[rain]
+   Yield Productivity                       0.60 kg[grain yield]/m3[rain] =    6.0 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growing season 1292.5 mm[ET]
+   Dry Matter Productivity                  2.18 kg[DM]/m3[ET]            =   21.8 kg[DM]/ha per mm[ET]
+   Yield Productivity                       0.67 kg[grain yield]/m3[ET]   =    6.7 kg[yield]/ha per mm[ET]
+
+ Transpiration during growing season      1010.7 mm[EP]
+   Dry Matter Productivity                  2.79 kg[DM]/m3[EP]            =   27.9 kg[DM]/ha per mm[EP]
+   Yield Productivity                       0.85 kg[grain yield]/m3[EP]   =    8.5 kg[yield]/ha per mm[EP]
+
+ Irrigation during growing season          304.0 mm[irrig]
+   Dry Matter Productivity                  9.27 kg[DM]/m3[irrig]         =   92.7 kg[DM]/ha per mm[irrig]
+   Yield Productivity                       2.83 kg[grain yield]/m3[irrig]=   28.3 kg[yield]/ha per mm[irrig]
+
+ N uptake during growing season              129 kg[N uptake]/ha
+   Dry Matter Productivity                 218.5 kg[DM]/kg[N uptake]
+   Yield Productivity                       66.7 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+                 Pineapple YIELD :     8609 kg/ha    [Dry weight] 
+
+**************************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:37
+                                                                                
+*RUN   5        : Plant Population 12.8 p/m PIALO047 UHKN8901    5              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  5   : Plant Population 12.8 p/m PIALO047                            
+                                                                                
+                                                                                
+ CROP           : Pineapple        CULTIVAR : SC-F153          ECOTYPE :IB0001  
+ STARTING DATE  : JUN  9 1989                                                   
+ PLANTING DATE  : JUN 15 1989        PLANTS/m2 : 12.8     ROW SPACING :  53.cm  
+ WEATHER        : UHKN   1989                                                   
+ SOIL           : IBPI910013     TEXTURE : -99   - Waipio                       
+ SOIL INITIAL C : DEPTH:110cm EXTR. H2O:137.0mm  NO3:  8.9kg/ha  NH4:  9.5kg/ha 
+ WATER BALANCE  : IRRIGATE ON REPORTED DATE(S)                                  
+ IRRIGATION     :      304 mm IN    24 APPLICATIONS                             
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION                   
+ N-FERTILIZER   :       51 kg/ha IN     3 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :  2000 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+                  CO2 353ppm  NSWIT   :1  EVAP :R  SOIL   :1  STEMP  :D         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :R  FERT :R  RESIDUE:R  HARVEST:M         
+                  WEATHER :M  TILLAGE :N                                        
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.220 0.350 0.550 0.130 0.260   1.00   1.00   6.30   5.20   3.10   2.27 
+  5- 15 0.230 0.350 0.550 0.120 0.260   1.00   1.00   6.30   3.20   2.10   2.27 
+ 15- 30 0.240 0.350 0.550 0.110 0.300   0.80   1.05   5.80   1.20   1.00   1.10 
+ 30- 45 0.250 0.370 0.480 0.120 0.370   0.40   1.17   5.80   0.20   0.90   1.41 
+ 45- 60 0.257 0.377 0.467 0.120 0.337   0.27   1.20   5.93   0.13   0.70   0.86 
+ 60- 90 0.253 0.380 0.460 0.127 0.300   0.10   1.22   6.00   0.10   0.33   0.44 
+ 90-110 0.260 0.400 0.480 0.140 0.320   0.02   1.17   6.00   0.10   0.10   0.27 
+                                                                                
+TOT-110  27.4  41.1  54.1  13.7  34.4  <--cm   -  kg/ha-->    8.9    9.5 114004 
+SOIL ALBEDO    : 0.14      EVAPORATION LIMIT : 5.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :60.00      DRAINAGE RATE     : 0.60         FERT. FACTOR : 1.00 
+                                                                                
+ Pineapple  CULTIVAR :IB0066-SC-F153            ECOTYPE :IB0001                 
+     P1:  60.0    P2: 629.0    P3: 381.0    P4: 2640.    P5: 400.0    P6:  60.0 
+     G2: 200.0    G3: 14.00 PHINT:  40.0                                        
+
+
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     5     Plant Population 12.8 p/
+
+        CROP GROWTH     BIOMASS         LEAF   CROP N     STRESS      STRESS                                           
+   DATE  AGE STAGE        kg/ha    LAI   NUM  kg/ha  %   H2O  Nitr Phos1 Phos2  RSTG                                   
+ ------  --- ----------   -----  -----  ----  ---  ---  ----  ----  ----  ----  ----                                   
+  9 JUN    0 Start Sim        0   0.00   0.0  207  0.0  0.00  0.00  0.00  0.00     7
+ 15 JUN    0 Planting      2931   1.11   0.0    0  0.0  0.00  0.00  0.00  0.00     8
+ 16 JUN    1 Root Init.    2931   1.11   0.0    0  0.0  0.00  0.00  0.00  0.00     9
+ 15 AUG   61 Leaf Emerg    2931   1.11   1.0  129  4.4  0.00  0.00  0.00  0.00     1
+ 14 OCT  121 Zero Stem     3309   1.31   4.7  129  3.9  0.70  0.00  0.00  0.00     2
+ 18 SEP  460 Forcing      19721   6.45  29.4  146  0.7  0.41  0.00  0.00  0.00     3
+ 30 OCT  502 SCY          21123   6.57  31.5  160  0.8  0.77  0.05  0.00  0.00     4
+ 21 NOV  524 Early Flwr   21371   6.53  31.5  173  0.8  0.63  0.81  0.00  0.00     5
+  4 APR  658 Fruit Harv   30020   4.90  31.5  235  0.8  0.26  0.09  0.00  0.00     6
+ 15 APR  669 Maturity     30020   4.90  31.5  235  0.8  0.00  0.91  0.00  0.00     6
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                                         SIMULATED     MEASURED
+      --------                                         ---------     --------
+      Forcing date (dap)                                     460          460
+      Physiological maturity day (dap)                       669          711
+      Harvest day (dap)                                      669          677
+      Yield fresh weight at harvest (t/ha)                 77.18        140.2
+      Yield dry weight at harvest (t/ha)                    9.26          -99
+      Above-ground biomass at forcing (pineapple, t/ha)     19.7        27.57
+      Aerial biomass (green+dead), dm at harvest (t/ha)     30.0        54.03
+      Vegetative dry matter at maturity (t/ha)             14.12        38.81
+      Leaf area index, maximum                              6.57         9.52
+      Leaf number per stem at maturity                      31.5          -99
+      Harvest index at maturity                            0.309          -99
+      Eye number at maturity (no/m2)                         826         1281
+      Eye number at maturity (no/fruit)                     71.0          100
+      Eye weight (g)                                       1.121        0.912
+      Tops N at maturity (kg/ha)                           234.9          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|--------------------------------------Environment--------------------------------------|-----------------Stress-----------------|
+                              |---------------Average--------------|-----Cumulative-----|--------Count of days--------|          (0=Min, 1=Max Stress)         |
+                         Time  Temp  Temp  Temp Solar Photop                Evapo    Pot TMIN TMIN TMAX TMAX TMAX RAIN|----Water----|---Nitrogen--|-Phosphorus-|
+                         Span   Max   Min  Mean   Rad  [day]    CO2   Rain  Trans     ET   <    <    >    >    >    >   Photo         Photo         Photo
+                         days    øC    øC    øC MJ/m2     hr    ppm     mm     mm     mm  0øC  2øC 30øC 32øC 34øC  0mm  synth Growth  synth Growth  synth Growth
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Emergence - Zero Stem     60  32.5  20.2  26.4  17.7  12.14  353.1  281.6   78.2  254.4    0    0   53   38   12   19  0.631  0.702  0.000  0.001  0.000  0.000
+ Zero Stem - Forcing      339  29.7  18.5  24.1  16.4  12.01  353.8  503.5  734.2 1297.8    0    0  175   87   30   95  0.369  0.404  0.001  0.001  0.000  0.000
+ Forcing - SCY             42  32.5  20.4  26.5  16.1  11.66  354.5   48.4   46.5  163.3    0    0   40   26    5   14  0.732  0.773  0.022  0.054  0.000  0.000
+ SCY - Early Flwr          22  30.7  19.8  25.3  11.0  11.11  354.7   74.5   16.1   58.0    0    0   13    9    6    7  0.629  0.677  0.572  0.783  0.000  0.000
+ Early Flwr - Fruit Harv  146  27.8  17.3  22.5  13.4  11.33  355.1  429.6  362.6  439.2    0    0   36   10    0   58  0.176  0.236  0.092  0.157  0.000  0.000
+   
+ Planting to Harvest      669  30.0  18.7  24.4  16.1  11.92  354.0   1423   1282   2505    0    0  378  202   60  217  0.348  0.390  0.039  0.063  0.000  0.000
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+*Resource Productivity
+ Growing season length: 669 days 
+
+ Precipitation during growing season      1423.4 mm[rain]
+   Dry Matter Productivity                  2.11 kg[DM]/m3[rain]          =   21.1 kg[DM]/ha per mm[rain]
+   Yield Productivity                       0.65 kg[grain yield]/m3[rain] =    6.5 kg[yield]/ha per mm[rain]
+
+ Evapotranspiration during growing season 1281.8 mm[ET]
+   Dry Matter Productivity                  2.34 kg[DM]/m3[ET]            =   23.4 kg[DM]/ha per mm[ET]
+   Yield Productivity                       0.72 kg[grain yield]/m3[ET]   =    7.2 kg[yield]/ha per mm[ET]
+
+ Transpiration during growing season      1032.7 mm[EP]
+   Dry Matter Productivity                  2.91 kg[DM]/m3[EP]            =   29.1 kg[DM]/ha per mm[EP]
+   Yield Productivity                       0.90 kg[grain yield]/m3[EP]   =    9.0 kg[yield]/ha per mm[EP]
+
+ Irrigation during growing season          304.0 mm[irrig]
+   Dry Matter Productivity                  9.88 kg[DM]/m3[irrig]         =   98.8 kg[DM]/ha per mm[irrig]
+   Yield Productivity                       3.05 kg[grain yield]/m3[irrig]=   30.5 kg[yield]/ha per mm[irrig]
+
+ N applied during growing season             51. kg[N applied]/ha
+   Dry Matter Productivity                 588.6 kg[DM]/kg[N applied]
+   Yield Productivity                      181.6 kg[yield]/kg[N applied]
+
+ N uptake during growing season              130 kg[N uptake]/ha
+   Dry Matter Productivity                 230.9 kg[DM]/kg[N uptake]
+   Yield Productivity                       71.2 kg[yield]/kg[N uptake]
+
+--------------------------------------------------------------------------------------------------------------
+
+                 Pineapple YIELD :     9262 kg/ha    [Dry weight] 
+
+**************************************************************************************************************

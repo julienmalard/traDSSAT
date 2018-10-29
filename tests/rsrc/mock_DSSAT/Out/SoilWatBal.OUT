@@ -1,0 +1,156 @@
+*WATER BALANCE OUTPUT FILE
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+                                                                                
+*RUN   1        : Plant Population 2.61 p/m PIALO047 UHKN8901    1              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  1   : Plant Population 2.61 p/m PIALO047                            
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1989/160    344.05
+!     Soil H20 (final) on Year/day 1991/114    339.63
+!     Effective Irrigation                     304.00
+!     Precipitation                           1427.90
+!     Water added with new mulch                 0.00
+!     Drainage                                 330.04
+!     Tiledrain flow                             0.00
+!     Runoff                                    97.10
+!     Mulch evaporation                         72.88
+!     Soil Evaporation                         426.70
+!     Transpiration                            809.79
+!     Potential ET                            2568.43
+
+!     Initial mulch water content                0.35
+!     Final mulch water content                  0.16
+
+!     Final Balance                            -0.001
+
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+                                                                                
+*RUN   2        : Plant Population 5.22 p/m PIALO047 UHKN8901    2              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  2   : Plant Population 5.22 p/m PIALO047                            
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1989/160    344.05
+!     Soil H20 (final) on Year/day 1991/111    353.26
+!     Effective Irrigation                     304.00
+!     Precipitation                           1427.40
+!     Water added with new mulch                 0.00
+!     Drainage                                 309.73
+!     Tiledrain flow                             0.00
+!     Runoff                                    97.08
+!     Mulch evaporation                         70.42
+!     Soil Evaporation                         332.99
+!     Transpiration                            912.25
+!     Potential ET                            2563.36
+
+!     Initial mulch water content                0.35
+!     Final mulch water content                  0.07
+
+!     Final Balance                            -0.000
+
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+                                                                                
+*RUN   3        : Plant Population 7.83 p/m PIALO047 UHKN8901    3              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  3   : Plant Population 7.83 p/m PIALO047                            
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1989/160    344.05
+!     Soil H20 (final) on Year/day 1991/109    361.95
+!     Effective Irrigation                     304.00
+!     Precipitation                           1427.40
+!     Water added with new mulch                 0.00
+!     Drainage                                 305.07
+!     Tiledrain flow                             0.00
+!     Runoff                                    97.07
+!     Mulch evaporation                         67.25
+!     Soil Evaporation                         271.77
+!     Transpiration                            972.50
+!     Potential ET                            2558.74
+
+!     Initial mulch water content                0.35
+!     Final mulch water content                  0.19
+
+!     Final Balance                             0.005
+
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+                                                                                
+*RUN   4        : Plant Population 10.1 p/m PIALO047 UHKN8901    4              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  4   : Plant Population 10.1 p/m PIALO047                            
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1989/160    344.05
+!     Soil H20 (final) on Year/day 1991/107    372.96
+!     Effective Irrigation                     304.00
+!     Precipitation                           1427.40
+!     Water added with new mulch                 0.00
+!     Drainage                                 299.77
+!     Tiledrain flow                             0.00
+!     Runoff                                    97.06
+!     Mulch evaporation                         62.73
+!     Soil Evaporation                         232.07
+!     Transpiration                           1010.66
+!     Potential ET                            2551.15
+
+!     Initial mulch water content                0.35
+!     Final mulch water content                  0.56
+
+!     Final Balance                            -0.003
+
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:37
+                                                                                
+*RUN   5        : Plant Population 12.8 p/m PIALO047 UHKN8901    5              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  5   : Plant Population 12.8 p/m PIALO047                            
+  
+
+!     WATER BALANCE PARAMETERS
+!     ========================                 --mm--
+
+!     Soil H20 (start) on Year/day 1989/160    344.05
+!     Soil H20 (final) on Year/day 1991/105    380.43
+!     Effective Irrigation                     304.00
+!     Precipitation                           1424.40
+!     Water added with new mulch                 0.00
+!     Drainage                                 301.46
+!     Tiledrain flow                             0.00
+!     Runoff                                    97.05
+!     Mulch evaporation                         58.61
+!     Soil Evaporation                         202.16
+!     Transpiration                           1032.73
+!     Potential ET                            2543.00
+
+!     Initial mulch water content                0.35
+!     Final mulch water content                  0.36
+
+!     Final Balance                             0.004
+

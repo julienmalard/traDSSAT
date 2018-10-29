@@ -1,0 +1,191 @@
+*SOILS: General DSSAT Soil Input File
+! DSSAT v4.7; 09/01/2017
+!
+! Standard Soil Profiles
+!
+! The following generic information was developed by A.J. Gijsman:
+!
+! - BD was estimated as BD = 100 / (SOM% / 0.224 + (100 - SOM%) / mineral BD)  
+!   (Adams, 1973; Rawls and Brakensiek, 1985).
+! - LL and DUL are according to Saxton et al., 1986.
+! - SAT was taken as a fraction of porosity (Dalgliesh and Foale, 1998):
+!   0.93 for soil classes S, SL and LS; 0.95 for soil classes L, SIL, SI,
+!   SCL and SC; and 0.97 for soil classes C, CL, SIC and SICL.
+!   For this, porosity was estimated as: POR = 1 - BD / APD (in which APD
+!   is the adjusted particle density, i.e. corrected for SOM; Baumer and Rice, 1988).
+! - The ranges of LL and DUL values were calculated by stepping through the
+!   complete texture triangle in steps of 1% sand, 1% silt and 1% clay (>5000 
+!   combinations), but with the texture limitations that Saxton set for his method
+!   taken into consideration. For SAT, these limitations do not hold, as this was
+!   based on POR and not on Saxton. See Gijsman et al., 2002.
+! - The root growth distribution function SRGF was was calculated as:
+!   SRGF = 1 * EXP(-0.02 * LAYER_CENTER); SRGF was set 1 for LAYER_BOTTOM <= 15.
+!
+! SOIL CLASS       BD                LL               DUL               SAT
+! ========== =============     =============     =============     =============
+!   C        1.129 - 1.512     0.220 - 0.346     0.330 - 0.467     0.413 - 0.488
+!   CL       1.243 - 1.502     0.156 - 0.218     0.282 - 0.374     0.417 - 0.512
+!   L        1.245 - 1.483     0.083 - 0.156     0.222 - 0.312     0.415 - 0.501
+!   LS       1.353 - 1.629     0.059 - 0.110     0.137 - 0.185     0.355 - 0.416
+!   S        1.446 - 1.574     0.055 - 0.085     0.123 - 0.158     0.374 - 0.400
+!   SC       1.501 - 1.593     0.195 - 0.294     0.276 - 0.389     0.376 - 0.409
+!   SCL      1.475 - 1.636     0.132 - 0.191     0.213 - 0.304     0.360 - 0.418
+!   SI       0.978 - 1.464     0.096 - 0.099     0.299 - 0.307     0.442 - 0.488
+!   SIC      1.307 - 1.446     0.224 - 0.326     0.379 - 0.456     0.455 - 0.489
+!   SICL     1.248 - 1.464     0.155 - 0.219     0.324 - 0.392     0.448 - 0.511
+!   SIL      0.968 - 1.464     0.082 - 0.152     0.240 - 0.333     0.439 - 0.547
+!   SL       1.142 - 1.647     0.066 - 0.133     0.164 - 0.243     0.348 - 0.499
+!
+!======================================================================================================
+! Start of Generic soil profiles
+!======================================================================================================
+!
+! The 12 Generic soils for SOIL.SOL, as estimated by Arjan Gijsman:
+!
+! - LL, DUL are according to the Nearest Neighbor method (Jagtap et al, 2004)
+! - Ksat at -99 
+! - BD according to Gijsman et al (2002)
+! - SAT based on the APSRU manual (Dalgliesh and Foale, 1998); i.e. 93-97% of porosity
+!   depending on the soil type) in which porosity is according to Baumer and Rice (1988).
+!
+! References
+! Adams W.A. 1973. The effect of organic matter on the bulk and true densities of some
+!   uncultivated podzolic soils. J. Soil Science 24, 10-17.
+! Baumer O.W. and Rice J.W. 1988. Methods to predict soil input data for DRAINMOD. 
+!   Am. Soc. Agr. Eng. Paper 88-2564
+! Dalgliesh, N.P., and M.A. Foale. 1998. Soil Matters � monitoring soil water and nitrogen
+!   in dryland farming. CSIRO, Agricultural Production Systems Research Unit, 
+!   Toowoomba, Queensland, Australia. 122 pp.
+! Gijsman A.J., Jagtap S.S., Jones J.W. 2002. Wading through a swamp of complete confusion: 
+!   how to choose a method for estimating soil water retention parameters for crop models. 
+!   European Journal of Agronomy, 18: 75-105.
+! Jagtap S.S., Lal U., Jones J.W., Gijsman A.J., Ritchie J.T. 2004. A dynamic nearest-neighbor
+!   method for estimating soil water parameters. Transactions of ASAE 47: 1437-1444
+! Rawls W.J. and Brakensiek D.L. 1985. Prediction of soil water properties for hydrologic
+!   modeling. In: Jones, E.B. and Ward, T.J. (Eds.), Proc. Symp. Watershed Management
+!   in the Eighties. April 30-May 1, 1985, Denver, CO. Am. Soc. Civil Eng., 
+!   New York, NY. pp.293-299.
+! Saxton K.E., Rawls W.J., Romberger J.S., Papendick R.I. 1986. Estimating generalized soil-water
+!   characteristics from texture. Soil Sci. Soc. Am. J. 50, 1031-1036
+!
+!======================================================================================================
+
+*IB00000001  IBSNAT      SIC     210 DEFAULT - DEEP SILTY CLAY
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ Generic     Generic           -99    -99  Generic
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+   -99  0.11   6.0  0.30  85.0  1.00  1.00 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+     5   -99 0.228 0.385 0.481 1.000   -99  1.30  1.75  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    15   -99 0.228 0.385 0.481 1.000   -99  1.30  1.75  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    30   -99 0.249 0.406 0.482 0.638   -99  1.30  1.60  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    45   -99 0.249 0.406 0.465 0.472   -99  1.35  1.45  50.0  45.0   0.0 0.140   6.5   -99   -99   -99 
+    60   -99 0.249 0.406 0.465 0.350   -99  1.35  1.45  50.0  45.0   0.0 0.140   6.5   -99   -99   -99 
+    90   -99 0.308 0.456 0.468 0.223   -99  1.35  1.10  50.0  45.0   0.0 0.110   6.5   -99   -99   -99 
+   120   -99 0.207 0.341 0.452 0.122   -99  1.40  0.65  50.0  45.0   0.0 0.060   6.5   -99   -99   -99 
+   150   -99 0.243 0.365 0.455 0.067   -99  1.40  0.30  50.0  45.0   0.0 0.030   6.5   -99   -99   -99 
+   180   -99 0.259 0.361 0.457 0.037   -99  1.40  0.10  50.0  45.0   0.0 0.010   6.5   -99   -99   -99 
+   210   -99 0.259 0.361 0.457 0.020   -99  1.40  0.01  50.0  45.0   0.0 0.000   6.5   -99   -99   -99 
+
+*IB00000002  IBSNAT      SIC     150 DEFAULT - MEDIUM SILTY CLAY
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ Generic     Generic           -99    -99  Generic
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+   -99  0.11   6.0  0.20  87.0  1.00  1.00 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+     5   -99 0.228 0.385 0.463 1.000   -99  1.35  1.74  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    15   -99 0.228 0.385 0.463 1.000   -99  1.35  1.74  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    30   -99 0.228 0.385 0.459 0.638   -99  1.36  1.66  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    45   -99 0.249 0.406 0.461 0.472   -99  1.36  1.45  50.0  45.0   0.0 0.140   6.5   -99   -99   -99 
+    60   -99 0.249 0.406 0.461 0.350   -99  1.36  1.45  50.0  45.0   0.0 0.140   6.5   -99   -99   -99 
+    90   -99 0.308 0.449 0.460 0.223   -99  1.37  1.09  50.0  45.0   0.0 0.110   6.5   -99   -99   -99 
+   120   -99 0.207 0.341 0.460 0.122   -99  1.38  0.65  50.0  45.0   0.0 0.060   6.5   -99   -99   -99 
+   150   -99 0.256 0.373 0.463 0.067   -99  1.38  0.29  50.0  45.0   0.0 0.030   6.5   -99   -99   -99 
+
+*IB00000003  IBSNAT      SIC      60 DEFAULT - SHALLOW SILTY CLAY
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ Generic     Generic           -99    -99  Generic
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+   -99  0.11   6.0  0.10  89.0  1.00  1.00 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+     5   -99 0.228 0.385 0.463 1.000   -99  1.35  1.74  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    15   -99 0.228 0.385 0.463 1.000   -99  1.35  1.74  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    30   -99 0.228 0.385 0.459 0.638   -99  1.36  1.66  50.0  45.0   0.0 0.170   6.5   -99   -99   -99 
+    45   -99 0.249 0.406 0.461 0.472   -99  1.36  1.45  50.0  45.0   0.0 0.140   6.5   -99   -99   -99 
+    60   -99 0.249 0.406 0.461 0.350   -99  1.36  1.45  50.0  45.0   0.0 0.140   6.5   -99   -99   -99 
+
+*IB00000004  IBSNAT      SIL     210 DEFAULT - DEEP SILTY LOAM
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ Generic     Generic           -99    -99  Generic
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+   -99  0.12   6.0  0.40  77.0  1.00  1.00 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+     5   -99 0.110 0.227 0.450 1.000   -99  1.37  1.16  10.0  60.0   0.0 0.120   6.5   -99   -99   -99 
+    15   -99 0.110 0.227 0.450 1.000   -99  1.37  1.16  10.0  60.0   0.0 0.120   6.5   -99   -99   -99 
+    30   -99 0.103 0.201 0.451 0.638   -99  1.37  1.10  10.0  60.0   0.0 0.110   6.5   -99   -99   -99 
+    45   -99 0.099 0.193 0.452 0.472   -99  1.37  0.97  10.0  60.0   0.0 0.100   6.5   -99   -99   -99 
+    60   -99 0.099 0.193 0.452 0.350   -99  1.37  0.97  10.0  60.0   0.0 0.100   6.5   -99   -99   -99 
+    90   -99 0.088 0.173 0.450 0.223   -99  1.38  0.72  10.0  60.0   0.0 0.070   6.5   -99   -99   -99 
+   120   -99 0.079 0.165 0.452 0.122   -99  1.38  0.43  10.0  60.0   0.0 0.040   6.5   -99   -99   -99 
+   150   -99 0.086 0.178 0.450 0.067   -99  1.39  0.20  10.0  60.0   0.0 0.020   6.5   -99   -99   -99 
+   190   -99 0.072 0.174 0.451 0.033   -99  1.39  0.06  10.0  60.0   0.0 0.010   6.5   -99   -99   -99 
+   210   -99 0.072 0.174 0.452 0.018   -99  1.39  0.01  10.0  60.0   0.0 0.000   6.5   -99   -99   -99 
+
+*IB00000005  IBSNAT      SIL     150 DEFAULT - MEDIUM SILTY LOAM
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ Generic     Generic           -99    -99  Generic
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+   -99  0.12   6.0  0.30  79.0  1.00  1.00 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+     5   -99 0.110 0.227 0.450 1.000   -99  1.37  1.16  10.0  60.0   0.0 0.120   6.5   -99   -99   -99 
+    15   -99 0.110 0.227 0.450 1.000   -99  1.37  1.16  10.0  60.0   0.0 0.120   6.5   -99   -99   -99 
+    30   -99 0.103 0.201 0.451 0.638   -99  1.37  1.10  10.0  60.0   0.0 0.110   6.5   -99   -99   -99 
+    45   -99 0.099 0.193 0.452 0.472   -99  1.37  0.97  10.0  60.0   0.0 0.100   6.5   -99   -99   -99 
+    60   -99 0.099 0.193 0.452 0.350   -99  1.37  0.97  10.0  60.0   0.0 0.100   6.5   -99   -99   -99 
+    90   -99 0.088 0.173 0.450 0.223   -99  1.38  0.72  10.0  60.0   0.0 0.070   6.5   -99   -99   -99 
+   120   -99 0.079 0.165 0.452 0.122   -99  1.38  0.43  10.0  60.0   0.0 0.040   6.5   -99   -99   -99 
+   150   -99 0.086 0.178 0.450 0.067   -99  1.39  0.20  10.0  60.0   0.0 0.020   6.5   -99   -99   -99 
+
+*IB00000006  IBSNAT      SIL      60 DEFAULT - SHALLOW SILTY LOAM
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ Generic     Generic           -99    -99  Generic
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+   -99  0.12   6.0  0.20  81.0  1.00  1.00 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+     5   -99 0.110 0.227 0.450 1.000   -99  1.37  1.16  10.0  60.0   0.0 0.120   6.5   -99   -99   -99 
+    15   -99 0.110 0.227 0.450 1.000   -99  1.37  1.16  10.0  60.0   0.0 0.120   6.5   -99   -99   -99 
+    30   -99 0.103 0.201 0.451 0.638   -99  1.37  1.10  10.0  60.0   0.0 0.110   6.5   -99   -99   -99 
+    45   -99 0.099 0.193 0.452 0.472   -99  1.37  0.97  10.0  60.0   0.0 0.100   6.5   -99   -99   -99 
+    60   -99 0.099 0.193 0.452 0.350   -99  1.37  0.97  10.0  60.0   0.0 0.100   6.5   -99   -99   -99 
+
+*IB00000007  IBSNAT      SL      210 DEFAULT - DEEP SANDY LOAM
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ Generic     Generic           -99    -99  Generic
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+   -99  0.13   6.0  0.50  68.0  1.00  1.00 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+     5   -99 0.052 0.176 0.359 1.000   -99  1.61  0.70  10.0  30.0   0.0 0.070   6.5   -99   -99   -99 
+    15   -99 0.052 0.176 0.359 1.000   -99  1.61  0.70  10.0  30.0   0.0 0.070   6.5   -99   -99   -99 
+    30   -99 0.052 0.176 0.359 0.638   -99  1.61  0.66  10.0  30.0   0.0 0.070   6.5   -99   -99   -99 
+    45   -99 0.073 0.192 0.360 0.472   -99  1.61  0.58  10.0  30.0   0.0 0.060   6.5   -99   -99   -99 
+    60   -99 0.073 0.192 0.360 0.350   -99  1.61  0.58  10.0  30.0   0.0 0.060   6.5   -99   -99   -99 
+    90   -99 0.128 0.232 0.361 0.223   -99  1.61  0.43  10.0  30.0   0.0 0.040   6.5   -99   -99   -99 
+   120   -99 0.143 0.243 0.359 0.122   -99  1.62  0.26  10.0  30.0   0.0 0.030   6.5   -99   -99   -99 
+   150   -99 0.138 0.243 0.360 0.067   -99  1.62  0.12  10.0  30.0   0.0 0.010   6.5   -99   -99   -99 
+   180   -99 0.138 0.244 0.361 0.037   -99  1.62  0.04  10.0  30.0   0.0 0.000   6.5   -99   -99   -99 
+   210   -99 0.138 0.244 0.361 0.020   -99  1.62  0.01  10.0  30.0   0.0 0.000   6.5   -99   -99   -99 
+
+*IB00000008  IBSNAT      SL      150 DEFAULT - MEDIUM SANDY LOAM
+@SITE        COUNTRY          LAT     LONG SCS FAMILY
+ Generic     Generic           -99    -99  Generic
+@ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
+   -99  0.13   6.0  0.50  70.0  1.00  1.00 IB001 IB001 IB001
+@  SLB  SLMH  SLLL  SDUL  SSAT  SRGF  SSKS  SBDM  SLOC  SLCL  SLSI  SLCF  SLNI  SLHW  SLHB  SCEC  SADC
+     5   -99 0.052 0.176 0.359 1.000   -99  1.61  0.70  10.0  30.0   0.0 0.070   6.5   -99   -99   -99 
+    15   -99 0.052 0.176 0.359 1.000   -99  1.61  0.70  10.0  30.0   0.0 0.070   6.5   -99   -99   -99 
+    30   -99 0.052 0.176 0.359 0.638   -99  1.61  0.66  10.0  30.0   0.0 0.070   6.5   -99   -99   -99 
+    45   -99 0.073 0.192 0.360 0.472   -99  1.61  0.58  10.0  30.0   0.0 0.060   6.5   -99   -99   -99 
+    60   -99 0.073 0.192 0.360 0.350   -99  1.61  0.58  10.0  30.0   0.0 0.060   6.5   -99   -99   -99 
+    90   -99 0.128 0.232 0.361 0.223   -99  1.61  0.43  10.0  30.0   0.0 0.040   6.5   -99   -99   -99 
+   120   -99 0.143 0.243 0.359 0.122   -99  1.62  0.26  10.0  30.0   0.0 0.030   6.5   -99   -99   -99 
+   150   -99 0.138 0.243 0.360 0.067   -99  1.62  0.12  10.0  30.0   0.0 0.010   6.5   -99   -99   -99 

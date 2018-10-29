@@ -1,0 +1,189 @@
+*SOIL INORGANIC N BALANCE
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+                                                                                
+*RUN   1        : Plant Population 2.61 p/m PIALO047 UHKN8901    1              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  1   : Plant Population 2.61 p/m PIALO047                            
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1989/160            1991/114
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        11.82               84.58
+!   Soil NH4                                        13.47                1.31
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.05
+
+! N additions:
+!   Fertilizer N                                     0.00
+!   Mineralized N                                  260.43
+
+! N subtractions:
+!   N immobilized                                                        0.00
+!   N leached                                                           78.08
+!   N Uptake From Soil                                                 118.36
+!   NH3 loss                                                             0.00
+!   N2O loss                                                             0.73
+!   N2 loss                                                              1.67
+!   NO loss                                                              0.96
+
+!   Total N balance                                285.73              285.73
+!   Balance                                                            -0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:34
+                                                                                
+*RUN   2        : Plant Population 5.22 p/m PIALO047 UHKN8901    2              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  2   : Plant Population 5.22 p/m PIALO047                            
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1989/160            1991/111
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                         9.88               94.67
+!   Soil NH4                                         9.92                1.47
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.05
+
+! N additions:
+!   Fertilizer N                                    51.00
+!   Mineralized N                                  257.71
+
+! N subtractions:
+!   N immobilized                                                        0.00
+!   N leached                                                           79.15
+!   N Uptake From Soil                                                 138.75
+!   NH3 loss                                                            10.42
+!   N2O loss                                                             0.95
+!   N2 loss                                                              1.84
+!   NO loss                                                              1.21
+
+!   Total N balance                                328.51              328.51
+!   Balance                                                             0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+                                                                                
+*RUN   3        : Plant Population 7.83 p/m PIALO047 UHKN8901    3              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  3   : Plant Population 7.83 p/m PIALO047                            
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1989/160            1991/109
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                         9.00              145.13
+!   Soil NH4                                        11.87                1.57
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.09
+
+! N additions:
+!   Fertilizer N                                   201.00
+!   Mineralized N                                  257.58
+
+! N subtractions:
+!   N immobilized                                                        0.00
+!   N leached                                                           95.88
+!   N Uptake From Soil                                                 166.76
+!   NH3 loss                                                            64.06
+!   N2O loss                                                             1.63
+!   N2 loss                                                              2.36
+!   NO loss                                                              1.98
+
+!   Total N balance                                479.45              479.45
+!   Balance                                                            -0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:36
+                                                                                
+*RUN   4        : Plant Population 10.1 p/m PIALO047 UHKN8901    4              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  4   : Plant Population 10.1 p/m PIALO047                            
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1989/160            1991/107
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                        16.19               73.33
+!   Soil NH4                                        16.81                1.66
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.06
+
+! N additions:
+!   Fertilizer N                                     0.00
+!   Mineralized N                                  257.19
+
+! N subtractions:
+!   N immobilized                                                        0.00
+!   N leached                                                           82.83
+!   N Uptake From Soil                                                 129.15
+!   NH3 loss                                                             0.00
+!   N2O loss                                                             0.73
+!   N2 loss                                                              1.47
+!   NO loss                                                              0.96
+
+!   Total N balance                                290.19              290.19
+!   Balance                                                             0.000
+
+!===============================================================================
+
+*DSSAT Cropping System Model Ver. 4.7.1.001 -release      OCT 16, 2018; 15:49:37
+                                                                                
+*RUN   5        : Plant Population 12.8 p/m PIALO047 UHKN8901    5              
+ MODEL          : PIALO047 - Pineapple                                          
+ EXPERIMENT     : UHKN8901 PI POPULATION, KUNIA, UH EXP.1989-6                  
+ DATA PATH      : C:\DSSAT47\PINEAPPLE\                                         
+ TREATMENT  5   : Plant Population 12.8 p/m PIALO047                            
+  
+
+
+!SOIL INORGANIC N BALANCE                         Initial               Final
+!                                                Year/Doy            Year/Doy
+!                                                1989/160            1991/105
+!                                               (kg[N]/ha)          (kg[N]/ha)
+! Soil N state variables:
+!   Soil NO3                                         8.88              101.26
+!   Soil NH4                                         9.52                1.71
+!   Soil Urea                                        0.00                0.00
+!   Soil N gases                                     0.00                0.06
+
+! N additions:
+!   Fertilizer N                                    51.00
+!   Mineralized N                                  256.25
+
+! N subtractions:
+!   N immobilized                                                        0.00
+!   N leached                                                           79.78
+!   N Uptake From Soil                                                 130.07
+!   NH3 loss                                                             8.90
+!   N2O loss                                                             0.93
+!   N2 loss                                                              1.76
+!   NO loss                                                              1.18
+
+!   Total N balance                                325.65              325.65
+!   Balance                                                            -0.000
