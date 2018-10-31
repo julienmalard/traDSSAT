@@ -13,7 +13,7 @@ install:
 
 script:
 - cd tests
-- coverage run -m unittest  --rcfile=.coveragerc
+- coverage run -m unittest
 
 after_success:
 - coveralls --rcfile=.coveragerc
