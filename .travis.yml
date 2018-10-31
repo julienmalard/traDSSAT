@@ -9,8 +9,7 @@ install:
 - pip install -r requirements.txt
 - pip install coveralls codecov
 - python setup.py sdist bdist_wheel
-- pip install ennikkai --no-index --find-links=./dist
-- rm -r tradssat
+- pip install tradssat --no-index --find-links=./dist
 
 script:
 - cd tests
