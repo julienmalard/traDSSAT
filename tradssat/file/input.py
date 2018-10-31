@@ -11,7 +11,7 @@ class InpFile(object):
         self.var_info = VariableSet(self._get_var_info())
         self.template = self._get_template()
 
-        self.values = FileValueSet()
+        self._values = FileValueSet()
         self._read()
 
     def _read(self):
@@ -24,7 +24,6 @@ class InpFile(object):
                     continue
 
                 if l[0] == '*':  # start of section
-                    self._read_section_vars(l)
 
                     # Process any previously stored block
                     if len(block):
@@ -33,7 +32,7 @@ class InpFile(object):
                     # Clear the current block
                     block.clear()
 
-                elif len(l.strip()):
+                if len(l.strip()):
                     block.append(l)  # Append current line to block
 
             # Read the last block too
@@ -77,23 +76,29 @@ class InpFile(object):
         with open(file, encoding='utf8') as f:
             f.writelines(lines)
 
+    def to_dict(self):
+        return self._values.to_dict()
+
     def get_val(self, var):
-        return self.values[var]['val']
+        return self._values[var]['val']
 
     def get_dims_val(self, var):
         return self.get_val(var).shape
 
     def set_var(self, var, val):
         if isinstance(val, np.ndarray) and val.shape != self.get_dims_val(var):
-            self.values[var] = val
+            self._values[var] = val
         else:
-            self.values[var][:] = val
+            self._values[var][:] = val
 
     def get_var_section(self, var):
         return self.var_info[var].sect
 
     def get_var_type(self, var):
         return self.var_info[var].type_
+
+    def get_var_spc(self, var):
+        return self.var_info[var].spc
 
     def get_var_size(self, var):
         return self.var_info[var].size
@@ -103,10 +108,10 @@ class InpFile(object):
 
     def _read_section(self, block):
         section_name = self._get_sect_name(block[0])
-        self.values.add_section(section_name)
+        self._values.add_block(section_name)
 
         subblock = []
-        for l in block:
+        for l in block[1:]:  # skip first line (with "*")
             if l[0] == '@':
 
                 if len(subblock):
@@ -122,18 +127,22 @@ class InpFile(object):
     def _read_subsection(self, section_name, subblock):
         var_names = self._get_var_names(subblock[0])
         n_lines = len(subblock) - 1  # -1 for the header line (with "@" )
-        cum_len = np.cumsum([0] + [self.get_var_size(vr) for vr in var_names])
-        cutoffs = [(cum_len[i], cum_len[i + 1]) for i in range(len(var_names))]
+        lengths = [self.get_var_size(vr) for vr in var_names]
+        spaces = [self.get_var_spc(vr) for vr in var_names]
+        cum_lens = np.insert(np.cumsum(lengths) + np.cumsum(spaces), 0, 0)
+        cutoffs = [(cum_lens[i], cum_lens[i + 1]+1) for i in range(len(var_names))]
 
         d_vals = {vr: self._gen_empty_mtrx(vr, n_lines) for vr in var_names}
 
         for i, l in enumerate(subblock[1:]):
-            vals = [l[c[0]:c[1]] for c in cutoffs]
+            vals = [l[c[0]:c[1]].strip() for c in cutoffs]
             for vr, vl in zip(var_names, vals):
-                d_vals[i] = vl
+                if not len(vl):
+                    vl = -99
+                d_vals[vr][i] = vl
 
         for vr in var_names:
-            self.values[section_name][vr] = d_vals[vr]
+            self._values[section_name][vr] = d_vals[vr]
 
     def _read_section_vars(self, l):
         pass
@@ -144,13 +153,13 @@ class InpFile(object):
             dtype = float
         elif tp == 'int':
             dtype = int
-        elif tp == 'str':
-            size = self.get_var_size(var)
-            dtype = f'U{size}'
+        elif tp == 'str' or tp==str:
+            str_size = self.get_var_size(var)
+            dtype = f'U{str_size}'
         else:
             dtype = tp
 
-        return np.empty(size, dtype=dtype)
+        return np.full(size, -99, dtype=dtype)
 
     @staticmethod
     def _get_sect_name(line):
@@ -179,11 +188,14 @@ class FileValueSet(object):
     def __init__(self):
         self._sections = {}
 
-    def add_section(self, name):
-        self._sections[name] = ValueSection
+    def add_block(self, name):
+        self._sections[name] = ValueSection()
 
     def __getitem__(self, item):
         return self._sections[item]
+
+    def to_dict(self):
+        return {name: sect.to_dict() for name, sect in self._sections.items()}
 
 
 class ValueSection(object):
@@ -191,10 +203,19 @@ class ValueSection(object):
         self._values = {}
 
     def set_value(self, var, val):
-        pass
+        if isinstance(val, np.ndarray) and (var not in self or val.shape != self[var].shape):
+            self._values[var] = val
+        else:
+            self[var][:] = val
 
     def check(self):
         return len(np.unique([v.shape for v in self._values.values()])) == 1
+
+    def to_dict(self):
+        return self._values
+
+    def __contains__(self, item):
+        return item in self._values
 
     def __getitem__(self, item):
         return self._values[item]

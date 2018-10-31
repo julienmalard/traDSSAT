@@ -1,12 +1,12 @@
 class Variable(object):
     type_ = None
 
-    def __init__(self, name, section, size, lims=None, info=''):
+    def __init__(self, name, size, lims=None, spc=1, info=''):
         self.name = name
-        self.section = section
         self.size = size
         self.lims = lims
         self.info = info
+        self.spc = spc
 
     def __str__(self):
         return str(self.name)
@@ -15,23 +15,23 @@ class Variable(object):
 class CharacterVar(Variable):
     type_ = str
 
-    def __init__(self, name, section, size, lims=None, info=''):
-        super().__init__(name, section, size, lims, info)
+    def __init__(self, name, size, lims=None, spc=1, info=''):
+        super().__init__(name, size, lims, spc, info)
 
 
 class FloatVar(Variable):
     type_ = float
 
-    def __init__(self, name, section, size, dec, lims=None, info=''):
-        super().__init__(name, section, size, lims, info)
+    def __init__(self, name, size, dec, lims=None, spc=1, info=''):
+        super().__init__(name, size, lims, spc, info)
         self.dec = dec
 
 
 class IntegerVar(Variable):
     type_ = int
 
-    def __init__(self, name, section, size, lims=None, info=''):
-        super().__init__(name, section, size, lims, info)
+    def __init__(self, name, size, lims=None, spc=1, info=''):
+        super().__init__(name, size, lims, spc, info)
 
 
 class VariableSet(object):
