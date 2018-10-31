@@ -9,12 +9,13 @@ install:
 - pip install -r requirements.txt
 - pip install coveralls codecov
 - python setup.py sdist bdist_wheel
-- pip install tradssat --no-index --find-links=./dist
+- pip install ennikkai --no-index --find-links=./dist
+- rm -r tradssat
 
 script:
-- rm -r tradssat
-- coverage run --rcfile='tests/.coveragerc' -m unittest discover
+- cd tests
+- coverage run -m unittest
 
 after_success:
-- coveralls --rcfile='tests/.coveragerc'
+- coveralls --rcfile=.coveragerc
 - codecov
