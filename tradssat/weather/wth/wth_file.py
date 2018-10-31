@@ -1,4 +1,4 @@
-from tradssat.file.input import InpFile
+from tradssat.tmpl.input import InpFile
 from .wth_vars import vars_
 
 

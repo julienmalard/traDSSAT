@@ -1,4 +1,4 @@
-from tradssat.file.var import CharacterVar, FloatVar
+from tradssat.tmpl.var import CharacterVar, FloatVar
 
 vars_ = {
     CharacterVar('SITE', '', 11, info='Site name'),

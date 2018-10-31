@@ -1,4 +1,4 @@
-from tradssat.file.var import CharacterVar, FloatVar, IntegerVar
+from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 
 vars_ = {
     CharacterVar('INSI', 4, spc=2, info='Institute + Site code'),

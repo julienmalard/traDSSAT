@@ -1,6 +1,6 @@
 import numpy as np
 
-from tradssat.file.var import Variable, VariableSet
+from tradssat.tmpl.var import Variable, VariableSet
 
 
 class InpFile(object):

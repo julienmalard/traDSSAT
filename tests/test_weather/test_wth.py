@@ -4,13 +4,13 @@ from json import JSONDecodeError
 from warnings import warn
 import numpy.testing as npt
 from tradssat.utils import write_json, read_json
-from tradssat.weather.wth import WTHFile
+from tradssat.weather import WTHFile
 
 
 class TestWTH(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.folder = '../rsrc/mock_DSSAT'
+        cls.folder = os.path.join(os.path.split(__file__)[0], '../rsrc/mock_DSSAT')
         cls.inp_class = WTHFile
 
     def _find_files(self):
@@ -34,11 +34,10 @@ class TestWTH(unittest.TestCase):
             return read_json(ref_file)
         except (FileNotFoundError, JSONDecodeError):
             write_json(default, ref_file)
-            warn('Reference generated for file "{}".'.format(file_name))
+            warn('Reference generated for tmpl "{}".'.format(file_name))
             return default
 
     def test_read(self):
-
         files = self._find_files()
         for f in files:
             with self.subTest(os.path.split(f)[1]):
@@ -49,3 +48,5 @@ class TestWTH(unittest.TestCase):
                 for sect, d_sect in dict_vars.items():
                     for var, val in d_sect.items():
                         npt.assert_equal(ref[sect][var], val, err_msg=sect+var)
+    def test_write(self):
+        print('test')

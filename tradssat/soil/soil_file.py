@@ -1,4 +1,4 @@
-from tradssat.file import InpFile
+from tradssat.tmpl import InpFile
 from .soil_vars import vars_
 
 
