@@ -1,12 +1,13 @@
 from tradssat.tmpl import InpFile
-from .wth_vars import vars_
+from .exper_vars import vars_
 
 
-class WTHFile(InpFile):
-    ext = ['.WTH', '.WTG']
+class ExpFile(InpFile):
+    ext = ['.MZX', 'PIX']
 
     def _get_var_info(self):
         return vars_
 
     def _get_template(self):
         pass
+

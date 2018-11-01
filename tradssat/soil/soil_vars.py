@@ -2,7 +2,7 @@ from tradssat.tmpl.var import CharacterVar, FloatVar
 
 vars_ = {
     CharacterVar('SITE', '', 11, info='Site name'),
-    CharacterVar('SITE', '', 11, info='Country name'),
+    CharacterVar('COUNTRY', '', 11, info='Country name'),
     FloatVar('LAT', '', 8, 3, info='Latitude'),
     FloatVar('LONG', '', 8, 3, info='Longitude'),
     CharacterVar('SCS FAMILY', '', 50, info='Family, SCS system'),

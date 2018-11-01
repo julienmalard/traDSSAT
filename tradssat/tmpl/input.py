@@ -122,7 +122,8 @@ class InpFile(object):
             if len(l.strip()):
                 subblock.append(l)
 
-        self._read_subsection(section_name, subblock)
+        if len(subblock):
+            self._read_subsection(section_name, subblock)
 
     def _read_subsection(self, section_name, subblock):
         var_names = self._get_var_names(subblock[0])
@@ -167,7 +168,7 @@ class InpFile(object):
 
     @staticmethod
     def _get_var_names(line):
-        return line[1:].split()  # skip initial "@"
+        return [x.strip('.') for x in line[1:].split()]  # skip initial "@"
 
     def _get_var_info(self):
         """
