@@ -8,15 +8,26 @@ class Variable(object):
         self.info = info
         self.spc = spc
 
+    def write(self, val=None):
+        if val is None:
+            return str(self).rjust(self.size + self.spc)
+        else:
+            return self._write(val)
+
+    def _write(self, val):
+        raise NotImplementedError
+
     def __str__(self):
         return str(self.name)
-
 
 class CharacterVar(Variable):
     type_ = str
 
     def __init__(self, name, size, lims=None, spc=1, info=''):
         super().__init__(name, size, lims, spc, info)
+
+    def _write(self, val):
+        return val.rjust(self.size + self.spc)
 
 
 class FloatVar(Variable):
@@ -26,12 +37,18 @@ class FloatVar(Variable):
         super().__init__(name, size, lims, spc, info)
         self.dec = dec
 
+    def _write(self, val):
+        return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec).rjust(self.spc + self.size)
+
 
 class IntegerVar(Variable):
     type_ = int
 
     def __init__(self, name, size, lims=None, spc=1, info=''):
         super().__init__(name, size, lims, spc, info)
+
+    def _write(self, val):
+        return '{:{sz}d}'.format(val, sz=self.size).rjust(self.spc + self.size)
 
 
 class VariableSet(object):

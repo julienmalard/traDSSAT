@@ -10,4 +10,3 @@ class ExpFile(InpFile):
 
     def _get_template(self):
         pass
-

@@ -17,12 +17,16 @@ def read_json(file):
     numpyfiy(d)
     return d
 
+
 def jsonify(d):
     for k, v in d.items():
         if isinstance(v, np.ndarray):
             d[k] = v.tolist()
         elif isinstance(v, dict):
             jsonify(v)
+        elif isinstance(v, list):
+            for i in v:
+                jsonify(i)
 
 
 def numpyfiy(d):

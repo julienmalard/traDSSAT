@@ -1,11 +1,11 @@
 import os
 import unittest
 from json import JSONDecodeError
+from tempfile import NamedTemporaryFile
 from warnings import warn
 
 import numpy.testing as npt
 from tradssat.utils import read_json, write_json
-from tradssat.weather import WTHFile
 
 
 class FileTestTemplate(unittest.TestCase):
@@ -34,7 +34,8 @@ class FileTestTemplate(unittest.TestCase):
 
         return l_files
 
-    def _get_ref(self, file, default):
+    @staticmethod
+    def _get_ref(file, default):
         path, file = os.path.split(file)
         file_name = os.path.splitext(file)[0]
         ref_file = os.path.join(path, f'ref_{file_name}.json')
@@ -53,9 +54,25 @@ class FileTestTemplate(unittest.TestCase):
 
                 ref = self._get_ref(f, dict_vars)
 
-                for sect, d_sect in dict_vars.items():
-                    for var, val in d_sect.items():
-                        npt.assert_equal(ref[sect][var], val, err_msg=sect+var)
+                for sect, l_sect in ref.items():
+                    for i, subsect in enumerate(l_sect):
+
+                        for var, val in subsect.items():
+                            npt.assert_equal(dict_vars[sect][i][var], val, err_msg=sect + var)
 
     def test_write(self):
-        print('test')
+        files = self._find_files()
+        for f in files:
+            with self.subTest(os.path.split(f)[1]):
+
+                ext = self.inp_class.ext
+                if isinstance(ext, list):
+                    ext = ext[0]
+
+                temp_file = NamedTemporaryFile(suffix=ext).name
+                inp_file_obj = self.inp_class(f)
+                inp_file_obj.write(temp_file)
+
+                new_file_obj = self.inp_class(temp_file)
+
+                self.assertEqual(inp_file_obj, new_file_obj)

@@ -9,7 +9,6 @@ class InpFile(object):
     def __init__(self, file):
         self.file = file
         self.var_info = VariableSet(self._get_var_info())
-        self.template = self._get_template()
 
         self._values = FileValueSet()
         self._read()
@@ -17,7 +16,7 @@ class InpFile(object):
     def _read(self):
 
         with open(self.file, encoding='utf8') as f:
-            block = []  # To store lines that go in the same section
+            section = []  # To store lines that go in the same section
             for l in f.readlines():
 
                 if l[0] == '!':  # skip comments
@@ -26,55 +25,25 @@ class InpFile(object):
                 if l[0] == '*':  # start of section
 
                     # Process any previously stored block
-                    if len(block):
-                        self._read_section(block)
+                    if len(section):
+                        self._read_section(section)
 
                     # Clear the current block
-                    block.clear()
+                    section.clear()
 
                 if len(l.strip()):
-                    block.append(l)  # Append current line to block
+                    section.append(l)  # Append current line to block
 
             # Read the last block too
-            self._read_section(block)
+            self._read_section(section)
 
     def write(self, file, check=True):
         lines = []
 
-        for sect_line, subs in self.template.items():
-            lines.append(sect_line)
+        self._values.write(lines, self.var_info)
 
-            for sub_line, sub_templt in subs:
-                lines.append(sub_line)
-                var_names = self._get_var_names(sub_line)
-                dims = [self.get_dims_val(vr) for vr in var_names]
-                if not np.unique(dims).size == 1:
-                    raise ValueError(
-                        'Not all variables in the same subsection have the same dimensions:'
-                        '\n\t{}'.format(', '.join([f'{vr}: {dm}' for vr, dm in zip(var_names, dims)]))
-                    )
-                dims = self.get_dims_val(var_names[0])
-                if check:
-                    for vr in var_names:
-                        rng = self.get_var_lims(vr)
-                        val = self.get_val(vr)
-                        if rng is not None:
-                            errs = np.where(np.logical_or(np.greater(val, rng[1]), np.less(val, rng[0])))
-                            if len(errs):
-                                raise ValueError(
-                                    f'Variable {vr} out of bounds at values: {val[errs]}!'
-                                )
-
-                for i in range(dims):
-                    d_vals = {}
-                    for vr in var_names:
-                        d_vals[vr] = self.get_val(vr)[i]
-                    lines.append(sub_templt.format(**d_vals))
-
-            lines.append('')
-
-        with open(file, encoding='utf8') as f:
-            f.writelines(lines)
+        with open(file, 'w', encoding='utf8') as f:
+            f.writelines(l + "\n" for l in lines)
 
     def to_dict(self):
         return self._values.to_dict()
@@ -106,12 +75,12 @@ class InpFile(object):
     def get_var_lims(self, var):
         return self.var_info[var].lims
 
-    def _read_section(self, block):
-        section_name = self._get_sect_name(block[0])
-        self._values.add_block(section_name)
+    def _read_section(self, section):
+        section_name = self._get_sect_name(section[0])
+        self._values.add_section(section_name)
 
         subblock = []
-        for l in block[1:]:  # skip first line (with "*")
+        for l in section[1:]:  # skip first line (with "*")
             if l[0] == '@':
 
                 if len(subblock):
@@ -131,7 +100,7 @@ class InpFile(object):
         lengths = [self.get_var_size(vr) for vr in var_names]
         spaces = [self.get_var_spc(vr) for vr in var_names]
         cum_lens = np.insert(np.cumsum(lengths) + np.cumsum(spaces), 0, 0)
-        cutoffs = [(cum_lens[i], cum_lens[i + 1]+1) for i in range(len(var_names))]
+        cutoffs = [(cum_lens[i], cum_lens[i + 1] + 1) for i in range(len(var_names))]
 
         d_vals = {vr: self._gen_empty_mtrx(vr, n_lines) for vr in var_names}
 
@@ -142,11 +111,11 @@ class InpFile(object):
                     vl = -99
                 d_vals[vr][i] = vl
 
+        subsect = ValueSubSection()
         for vr in var_names:
-            self._values[section_name][vr] = d_vals[vr]
+            subsect.set_value(vr, d_vals[vr])
 
-    def _read_section_vars(self, l):
-        pass
+        self._values[section_name].add_subsection(subsect)
 
     def _gen_empty_mtrx(self, var, size):
         tp = self.get_var_type(var)
@@ -154,7 +123,7 @@ class InpFile(object):
             dtype = float
         elif tp == 'int':
             dtype = int
-        elif tp == 'str' or tp==str:
+        elif tp == 'str' or tp == str:
             str_size = self.get_var_size(var)
             dtype = f'U{str_size}'
         else:
@@ -170,6 +139,9 @@ class InpFile(object):
     def _get_var_names(line):
         return [x.strip('.') for x in line[1:].split()]  # skip initial "@"
 
+    def __eq__(self, other):
+        return self._values == other._values
+
     def _get_var_info(self):
         """
         Return a dictionary of variable information.
@@ -181,25 +153,71 @@ class InpFile(object):
 
         raise NotImplementedError
 
-    def _get_template(self):
-        raise NotImplementedError
-
 
 class FileValueSet(object):
     def __init__(self):
         self._sections = {}
 
-    def add_block(self, name):
-        self._sections[name] = ValueSection()
+    def add_section(self, name):
+        self._sections[name] = ValueSection(name)
+
+    def write(self, lines, var_info):
+
+        for s in self:
+            s.write(lines, var_info)
+
+        lines.append('')
+
+        return lines
+
+    def __iter__(self):
+        for s in self._sections.values():
+            yield s
 
     def __getitem__(self, item):
         return self._sections[item]
+
+    def __eq__(self, other):
+        return all(s1 == s2 for s1, s2 in zip(self, other))
 
     def to_dict(self):
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
 
 class ValueSection(object):
+    def __init__(self, name):
+        self.name = name
+        self._subsections = []
+
+    def add_subsection(self, subsect):
+        self._subsections.append(subsect)
+
+    def write(self, lines, var_info):
+        lines.append('*' + self.name)
+        for s in self:
+            s.write(lines, var_info)
+
+        lines.append('')
+
+        return lines
+
+    def __iter__(self):
+        for s in self._subsections:
+            yield s
+
+    def __setitem__(self, key, value):
+        for subsect in self:
+            if key in subsect:
+                subsect[key] = value
+
+    def __eq__(self, other):
+        return all(s1 == s2 for s1, s2 in zip(self, other))
+
+    def to_dict(self):
+        return [subsect.to_dict() for subsect in self]
+
+
+class ValueSubSection(object):
     def __init__(self):
         self._values = {}
 
@@ -212,8 +230,25 @@ class ValueSection(object):
     def check(self):
         return len(np.unique([v.shape for v in self._values.values()])) == 1
 
+    def n_data(self):
+        self.check()
+        return self[list(self._values)[0]].size
+
+    def write(self, lines, var_info):
+        self.check()
+
+        lines.append('@' + ''.join([var_info[vr].write() for vr in self]))
+        for i in range(self.n_data()):
+            lines.append(''.join([var_info[vr].write(self[vr][i]) for vr in self]))
+
+        return lines
+
     def to_dict(self):
         return self._values
+
+    def __iter__(self):
+        for vr in self._values:
+            yield vr
 
     def __contains__(self, item):
         return item in self._values
@@ -223,3 +258,6 @@ class ValueSection(object):
 
     def __setitem__(self, key, value):
         self.set_value(key, value)
+
+    def __eq__(self, other):
+        return set(self) == set(other) and all(np.array_equal(self[vr], other[vr]) for vr in self)
