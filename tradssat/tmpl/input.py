@@ -1,5 +1,5 @@
 import numpy as np
-
+import numpy.testing as npt
 from tradssat.tmpl.var import Variable, VariableSet
 
 
@@ -135,9 +135,24 @@ class InpFile(object):
     def _get_sect_name(line):
         return line[1:].strip()
 
-    @staticmethod
-    def _get_var_names(line):
-        return [x.strip('.') for x in line[1:].split()]  # skip initial "@"
+    def _get_var_names(self, line):
+        names = [x.strip('.') for x in line[1:].split()]  # skip initial "@"
+        final_names = []
+        to_skip = []
+        for i, vr in enumerate(names):
+            if vr in to_skip:
+                continue
+            if vr in self.var_info:
+                final_names.append(vr)
+            elif i != len(names) - 1 and '{} {}'.format(vr, names[i+1]) in self.var_info:
+                final_names.append('{} {}'.format(vr, names[i+1]))
+                to_skip.append(names[i+1])
+            else:
+                raise ValueError('Variable "{}" does not exist.'.format(vr))
+        return final_names
+
+    def equals(self, other):
+        self._values.equals(other._values)
 
     def __eq__(self, other):
         return self._values == other._values
@@ -180,6 +195,10 @@ class FileValueSet(object):
     def __eq__(self, other):
         return all(s1 == s2 for s1, s2 in zip(self, other))
 
+    def equals(self, other):
+        for s1, s2 in zip(self, other):
+            s1.equals(s2)
+
     def to_dict(self):
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
@@ -213,6 +232,10 @@ class ValueSection(object):
     def __eq__(self, other):
         return all(s1 == s2 for s1, s2 in zip(self, other))
 
+    def equals(self, other):
+        for s1, s2 in zip(self, other):
+            s1.equals(s2)
+
     def to_dict(self):
         return [subsect.to_dict() for subsect in self]
 
@@ -227,15 +250,20 @@ class ValueSubSection(object):
         else:
             self[var][:] = val
 
-    def check(self):
+    def check_dims(self):
         return len(np.unique([v.shape for v in self._values.values()])) == 1
 
+    def check_vals(self, var_info):
+        for vr in self:
+            var_info[vr].check_val(self[vr])
+
     def n_data(self):
-        self.check()
+        self.check_dims()
         return self[list(self._values)[0]].size
 
     def write(self, lines, var_info):
-        self.check()
+        self.check_dims()
+        self.check_vals(var_info)
 
         lines.append('@' + ''.join([var_info[vr].write() for vr in self]))
         for i in range(self.n_data()):
@@ -261,3 +289,10 @@ class ValueSubSection(object):
 
     def __eq__(self, other):
         return set(self) == set(other) and all(np.array_equal(self[vr], other[vr]) for vr in self)
+
+    def equals(self, other):
+        missing = set(self) - set(other)
+        if len(missing):
+            raise ValueError('Missing variables:' + ', '.format(missing))
+        for vr in self:
+            npt.assert_equal(self[vr], other[vr], err_msg=vr)

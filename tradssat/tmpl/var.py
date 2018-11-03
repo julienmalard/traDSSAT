@@ -33,11 +33,13 @@ class CharacterVar(Variable):
         super().__init__(name, size, spc, info)
 
     def check_val(self, val):
-        if len(val) > self.size:
-            raise ValueError(
-                'Value "{val}" is longer than {sz} characters for variable {name}.'
-                    .format(val=val, sz=self.size, name=self)
-            )
+        if isinstance(val, str):
+            if len(val) > self.size:
+                raise ValueError(
+                    'Value "{val}" is longer than {sz} characters for variable {name}.'.format(
+                        val=val, sz=self.size, name=self
+                    )
+                )
 
     def _write(self, val):
         return val.rjust(self.size + self.spc)
@@ -58,7 +60,7 @@ class NumericVar(Variable):
     def check_val(self, val):
         val = np.array(val)
         out = np.where(np.logical_or(np.less(val, self.lims[0]), np.greater(val, self.lims[1])))
-        if len(out):
+        if len(out[0]):
             vals_out = val[out]
             raise ValueError(
                 'Value {val} is not in range {rng} for variable {name}.'.format(val=vals_out, name=self, rng=self.lims)
@@ -76,7 +78,10 @@ class FloatVar(NumericVar):
         self.dec = dec
 
     def _write(self, val):
-        return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec).rjust(self.spc + self.size)
+        if val == -99:
+            return '-99'.rjust(self.spc + self.size)  # to avoid size overflow on small-sized variables with decimals
+        else:
+            return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec).rjust(self.spc + self.size)
 
 
 class IntegerVar(NumericVar):
@@ -95,3 +100,6 @@ class VariableSet(object):
 
     def __getitem__(self, item):
         return self._vars[item]
+
+    def __contains__(self, item):
+        return item in self._vars

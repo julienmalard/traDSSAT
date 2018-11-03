@@ -75,4 +75,4 @@ class FileTestTemplate(unittest.TestCase):
 
                 new_file_obj = self.inp_class(temp_file)
 
-                self.assertEqual(inp_file_obj, new_file_obj)
+                inp_file_obj.equals(new_file_obj)
