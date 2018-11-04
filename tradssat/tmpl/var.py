@@ -4,17 +4,25 @@ import numpy as np
 class Variable(object):
     type_ = None
 
-    def __init__(self, name, size, spc, info):
+    def __init__(self, name, size, spc, header_fill, float_r, info):
         self.name = name
         self.size = size
-        self.info = info
         self.spc = spc
+        self.info = info
+        self.fill = header_fill
+
+        self.float_r = float_r
 
     def write(self, val=None):
         if val is None:
-            return str(self).rjust(self.size + self.spc)
+            txt = str(self)
         else:
-            return self._write(val)
+            txt = self._write(val)
+
+        if self.float_r:
+            return ' ' * self.spc + txt.ljust(self.size, self.fill)
+        else:
+            return ' ' * self.spc + txt.rjust(self.size, self.fill)
 
     def check_val(self, val):
         raise NotImplementedError
@@ -29,8 +37,8 @@ class Variable(object):
 class CharacterVar(Variable):
     type_ = str
 
-    def __init__(self, name, size, spc=1, info=''):
-        super().__init__(name, size, spc, info)
+    def __init__(self, name, size, spc=1, header_fill=' ', info=''):
+        super().__init__(name, size, spc, header_fill, float_r=False, info=info)
 
     def check_val(self, val):
         if isinstance(val, str):
@@ -42,14 +50,14 @@ class CharacterVar(Variable):
                 )
 
     def _write(self, val):
-        return val.rjust(self.size + self.spc)
+        return val
 
 
 class NumericVar(Variable):
 
-    def __init__(self, name, size, lims, spc, info):
+    def __init__(self, name, size, lims, spc, header_fill, info):
 
-        super().__init__(name, size, spc, info)
+        super().__init__(name, size, spc, header_fill, float_r=True, info=info)
 
         if lims is None:
             lims = (-np.inf, np.inf)
@@ -73,25 +81,25 @@ class NumericVar(Variable):
 class FloatVar(NumericVar):
     type_ = float
 
-    def __init__(self, name, size, dec, lims=None, spc=1, info=''):
-        super().__init__(name, size, lims, spc, info)
+    def __init__(self, name, size, dec, lims=None, spc=1, header_fill=' ', info=''):
+        super().__init__(name, size, lims, spc, header_fill, info)
         self.dec = dec
 
     def _write(self, val):
         if val == -99:
-            return '-99'.rjust(self.spc + self.size)  # to avoid size overflow on small-sized variables with decimals
+            return '-99'  # to avoid size overflow on small-sized variables with decimals
         else:
-            return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec).rjust(self.spc + self.size)
+            return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec)
 
 
 class IntegerVar(NumericVar):
     type_ = int
 
-    def __init__(self, name, size, lims=None, spc=1, info=''):
-        super().__init__(name, size, lims, spc, info)
+    def __init__(self, name, size, lims=None, spc=1, header_fill=' ', info=''):
+        super().__init__(name, size, lims, spc, header_fill, info)
 
     def _write(self, val):
-        return '{:{sz}d}'.format(val, sz=self.size).rjust(self.spc + self.size)
+        return '{:{sz}d}'.format(val, sz=self.size)
 
 
 class VariableSet(object):
