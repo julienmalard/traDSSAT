@@ -4,11 +4,12 @@ import numpy as np
 class Variable(object):
     type_ = None
 
-    def __init__(self, name, size, spc, header_fill, float_r, info):
+    def __init__(self, name, size, spc, header_fill, float_r, sect, info):
         self.name = name
         self.size = size
         self.spc = spc
         self.info = info
+        self.sect = sect
         self.fill = header_fill
 
         self.float_r = float_r
@@ -37,8 +38,8 @@ class Variable(object):
 class CharacterVar(Variable):
     type_ = str
 
-    def __init__(self, name, size, spc=1, header_fill=' ', info=''):
-        super().__init__(name, size, spc, header_fill, float_r=False, info=info)
+    def __init__(self, name, size, spc=1, sect=None, header_fill=' ', info=''):
+        super().__init__(name, size, spc, header_fill, float_r=False, sect=sect, info=info)
 
     def check_val(self, val):
         if isinstance(val, str):
@@ -55,9 +56,9 @@ class CharacterVar(Variable):
 
 class NumericVar(Variable):
 
-    def __init__(self, name, size, lims, spc, header_fill, info):
+    def __init__(self, name, size, lims, spc, header_fill, sect, info):
 
-        super().__init__(name, size, spc, header_fill, float_r=True, info=info)
+        super().__init__(name, size, spc, header_fill, sect=sect, float_r=True, info=info)
 
         if lims is None:
             lims = (-np.inf, np.inf)
@@ -81,8 +82,8 @@ class NumericVar(Variable):
 class FloatVar(NumericVar):
     type_ = float
 
-    def __init__(self, name, size, dec, lims=None, spc=1, header_fill=' ', info=''):
-        super().__init__(name, size, lims, spc, header_fill, info)
+    def __init__(self, name, size, dec, lims=None, spc=1, sect=None, header_fill=' ', info=''):
+        super().__init__(name, size, lims, spc, header_fill, sect, info=info)
         self.dec = dec
 
     def _write(self, val):
@@ -95,8 +96,8 @@ class FloatVar(NumericVar):
 class IntegerVar(NumericVar):
     type_ = int
 
-    def __init__(self, name, size, lims=None, spc=1, header_fill=' ', info=''):
-        super().__init__(name, size, lims, spc, header_fill, info)
+    def __init__(self, name, size, lims=None, spc=1, sect=None, header_fill=' ', info=''):
+        super().__init__(name, size, lims, spc, header_fill, sect, info=info)
 
     def _write(self, val):
         return '{:{sz}d}'.format(val, sz=self.size)
