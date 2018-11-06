@@ -22,5 +22,7 @@ vars_ = {
     IntegerVar('GSTD', 6, info='Growth stage'),
     FloatVar('LAID', 6, 2, info='Leaf Area Index'),
     IntegerVar('CWAD', 6, info='Tops dry weight, kg/Ha'),
+    IntegerVar('VWAD', 6, info='Veg dry weight, kg/Ha'),
+
 
 }
