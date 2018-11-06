@@ -1,7 +1,7 @@
 import numpy as np
-from numpy import testing as npt
 
-from tradssat.tmpl.var import VariableSet
+from .vals import FileValueSet, ValueSubSection
+from .var import VariableSet
 
 
 class File(object):
@@ -53,7 +53,9 @@ class File(object):
         return self.var_info[var].size
 
     def _read_subsection(self, section_name, subblock):
+
         var_names = self._get_var_names(subblock[0])
+
         n_lines = len(subblock) - 1  # -1 for the header line (with "@" )
         lengths = [self.get_var_size(vr) for vr in var_names]
         spaces = [self.get_var_spc(vr) for vr in var_names]
@@ -76,11 +78,10 @@ class File(object):
         self._values[section_name].add_subsection(subsect)
 
     def _read_section(self, section):
-        section_name = self._get_sect_name(section[0])
-        self._values.add_section(section_name)
+        section_name, section_lines = self._process_section_header(section)
 
         subblock = []
-        for l in section[1:]:  # skip first line (with "*")
+        for l in section_lines:  # skip first line (with "*")
             if l[0] == '@':
 
                 if len(subblock):
@@ -108,10 +109,6 @@ class File(object):
 
         return np.full(size, -99, dtype=dtype)
 
-    @staticmethod
-    def _get_sect_name(line):
-        return line[1:].strip()
-
     def _get_var_names(self, line):
         names = [x.strip('.') for x in line[1:].split()]  # skip initial "@"
         final_names = []
@@ -128,6 +125,15 @@ class File(object):
                 raise ValueError('Variable "{}" does not exist.'.format(vr))
         return final_names
 
+    def to_dict(self):
+        return self._values.to_dict()
+
+    def get_val(self, var):
+        return self._values[var]['val']
+
+    def get_dims_val(self, var):
+        return self.get_val(var).shape
+
     def _get_var_info(self):
         """
         Return a dictionary of variable information.
@@ -139,131 +145,30 @@ class File(object):
 
         raise NotImplementedError
 
-    def to_dict(self):
-        return self._values.to_dict()
+    @classmethod
+    def matches_file(cls, file):
+        """
 
-    def get_val(self, var):
-        return self._values[var]['val']
+        Parameters
+        ----------
+        file: str
 
-    def get_dims_val(self, var):
-        return self.get_val(var).shape
+        Returns
+        -------
+        bool
+        """
+        raise NotImplementedError
 
+    def _process_section_header(self, lines):
+        """
 
-class FileValueSet(object):
-    def __init__(self):
-        self._sections = {}
+        Parameters
+        ----------
+        lines
 
-    def add_section(self, name):
-        self._sections[name] = ValueSection(name)
+        Returns
+        -------
+        tuple[str, list]
+        """
 
-    def write(self, lines, var_info):
-
-        for s in self:
-            s.write(lines, var_info)
-
-        lines.append('')
-
-        return lines
-
-    def __iter__(self):
-        for s in self._sections.values():
-            yield s
-
-    def __getitem__(self, item):
-        return self._sections[item]
-
-    def equals(self, other):
-        for s1, s2 in zip(self, other):
-            s1.equals(s2)
-
-    def to_dict(self):
-        return {name: sect.to_dict() for name, sect in self._sections.items()}
-
-
-class ValueSection(object):
-    def __init__(self, name):
-        self.name = name
-        self._subsections = []
-
-    def add_subsection(self, subsect):
-        self._subsections.append(subsect)
-
-    def write(self, lines, var_info):
-        lines.append('*' + self.name)
-        for s in self:
-            s.write(lines, var_info)
-
-        lines.append('')
-
-        return lines
-
-    def __iter__(self):
-        for s in self._subsections:
-            yield s
-
-    def __setitem__(self, key, value):
-        for subsect in self:
-            if key in subsect:
-                subsect[key] = value
-
-    def equals(self, other):
-        for s1, s2 in zip(self, other):
-            s1.equals(s2)
-
-    def to_dict(self):
-        return [subsect.to_dict() for subsect in self]
-
-
-class ValueSubSection(object):
-    def __init__(self):
-        self._values = {}
-
-    def set_value(self, var, val):
-        if isinstance(val, np.ndarray) and (var not in self or val.shape != self[var].shape):
-            self._values[var] = val
-        else:
-            self[var][:] = val
-
-    def check_dims(self):
-        return len(np.unique([v.shape for v in self._values.values()])) == 1
-
-    def check_vals(self, var_info):
-        for vr in self:
-            var_info[vr].check_val(self[vr])
-
-    def n_data(self):
-        self.check_dims()
-        return self[list(self._values)[0]].size
-
-    def write(self, lines, var_info):
-        self.check_dims()
-        self.check_vals(var_info)
-
-        lines.append('@' + ''.join([var_info[vr].write() for vr in self]))
-        for i in range(self.n_data()):
-            lines.append(''.join([var_info[vr].write(self[vr][i]) for vr in self]))
-
-        return lines
-
-    def to_dict(self):
-        return self._values
-
-    def __iter__(self):
-        for vr in self._values:
-            yield vr
-
-    def __contains__(self, item):
-        return item in self._values
-
-    def __getitem__(self, item):
-        return self._values[item]
-
-    def __setitem__(self, key, value):
-        self.set_value(key, value)
-
-    def equals(self, other):
-        missing = set(self) - set(other)
-        if len(missing):
-            raise ValueError('Missing variables:' + ', '.format(missing))
-        for vr in self:
-            npt.assert_equal(self[vr], other[vr], err_msg=vr)
+        raise NotImplementedError

@@ -1,11 +1,12 @@
+import os
+
 import numpy as np
 
 from .file import File
 
 
 class InpFile(File):
-
-    ext = None
+    ext = None  # type: str
 
     def write(self, file, check=True):
         lines = []
@@ -29,6 +30,21 @@ class InpFile(File):
 
     def equals(self, other):
         self._values.equals(other._values)
+
+    def _process_section_header(self, lines):
+
+        section_name = lines[0][1:].strip()
+        self._values.add_section(section_name)
+
+        return section_name, lines[1:]
+
+    @classmethod
+    def matches_file(cls, file):
+        ext = os.path.splitext(file)[1]
+        if isinstance(cls.ext, str):
+            return ext.lower() == cls.ext.lower()
+        else:
+            return ext.lower() in [x.lower() for x in cls.ext]
 
     def _get_var_info(self):
         raise NotImplementedError
