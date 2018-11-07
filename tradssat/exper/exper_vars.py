@@ -162,6 +162,242 @@ vars_ = {
     CharacterVar('FMCD', 5, info='Fertilizer material, code'),
     CharacterVar('FACD', 5, info='Fertilizer application/placement, code'),
     FloatVar('FDEP', 5, 0, info='Fertilizer incorporation/application depth, cm'),
+    FloatVar('FAMN', 5, 0, info='N in applied fertilizer, kg ha-1'),
+    FloatVar('FAMP', 5, 0, info='P in applied fertilizer, kg ha-1'),
+    FloatVar('FAMK', 5, 0, info='K in applied fertilizer, kg ha-1'),
+    FloatVar('FAMC', 5, 0, info='Ca in applied fertilizer, kg ha-1'),
+    FloatVar('FAMO', 5, 0, info='Other elements in applied fertilizer, kg ha-1'),
+    CharacterVar('FOCD', 5, info='Other element code, e.g., MG'),
 
+    # Todo: check size
+    CharacterVar('FERNAME', 25, info='Fertilizer level name'),
+
+    # RESIDUES AND OTHER ORGANIC MATERIALS
+    IntegerVar('R', 2, spc=0, info='Residue management level'),
+    IntegerVar('RDATE', 5, info='Incorporation date, year + days'),
+    CharacterVar('RCOD', 5, info='Residue material, code'),
+    FloatVar('RAMT', 5, 0, info='Residue amount, kg ha-1'),
+    FloatVar('RESN', 5, 2, info='Residue nitrogen concentration, %'),
+    FloatVar('RESP', 5, 2, info='Residue phosphorus concentration, %'),
+    FloatVar('RESK', 5, 2, info='Residue potassium concentration, %'),
+    FloatVar('RINP', 5, 0, info='Residue incorporation percentage, %'),
+    FloatVar('RDEP', 5, 0, info='Residue incorporation depth, cm'),
+
+    # Todo: check
+    FloatVar('RMET', 5, 0, info=''),
+    CharacterVar('RENAME', 25, info='Residue management level name'),
+
+    # CHEMICAL APPLICATIONS
+    IntegerVar('C', 2, spc=0, info='Chemical applications level'),
+    IntegerVar('CDATE', 5, info='Application date, year + day or days from planting'),
+    CharacterVar('CHCOD', 5, info='Chemical material, code'),
+    FloatVar('CHAMT', 5, 2, info='Chemical application amount, kg ha-1'),
+    CharacterVar('CHME', 5, info='Chemical application method, code'),
+    FloatVar('CHDEP', 5, 0, info='Chemical application depth, cm'),
+    CharacterVar('CHT', 5, info='Chemical targets'),
+    CharacterVar('CHNAME', 25, info='Chemical application level name'),  # todo: check size
+
+    # TILLAGE
+    IntegerVar('T', 2, spc=0, info='Tillage level'),
+    IntegerVar('TDATE', 5, info='Tillage date, year + day'),
+    CharacterVar('TIMPL', 5, info='Tillage implement, code'),
+    FloatVar('TDEP', 5, 0, info='Tillage implement, code'),
+
+    # ENVIRONMENT MODIFICATIONS
+    # todo
+
+    # HARVEST DETAILS
+    IntegerVar('H', 2, spc=0, info='Harvest level'),
+    IntegerVar('HDATE', 5, info='Harvest date, year + day or days from planting'),
+    CharacterVar('HSTG', 5, info='Harvest stage'),
+    CharacterVar('HCOM', 5, info='Harvest component, code'),
+    CharacterVar('HSIZ', 5, info='Harvest size group, code'),
+    FloatVar('HPC', 5, 0, info='Harvest percentage, %'),
+
+    # SIMULATION CONTROLS
+    IntegerVar('N', 2, spc=0, info='Simulation control level number'),
+    CharacterVar('GENERAL', 11, info='Identifier'),
+    IntegerVar('NYERS', 2, spc=4, info='Years'),
+    IntegerVar('NREPS', 2, spc=4, info='Replications'),
+    CharacterVar(
+        'START', 1, spc=5,
+        info='Start of Simulation, code: '
+             'E = On reported emergence date; '
+             'I = When initial conditions measured; '
+             'P = On reported planting date; '
+             'S = On specified date'
+    ),
+    IntegerVar('SDATE', 5, info='Date, year + day (if needed)'),
+    IntegerVar('RSEED', 5, info='Random number seed'),
+    CharacterVar('SNAME', 25, header_fill='.', info='Title'),
+    CharacterVar('SMODEL', 5, info=''),  # todo: check
+
+    CharacterVar('OPTIONS', 11, info='Identifier'),
+    CharacterVar('WATER', 1, spc=5, info='Water (Y = yes; N = no)'),
+    CharacterVar('NITRO', 1, spc=5, info='Nitrogen (Y = yes; N = no)'),
+    CharacterVar('SYMBI', 1, spc=5, info='Symbiosis (Y= yes, N= no, U= unlimited N)'),
+    CharacterVar('PHOSP', 1, spc=5, info='Phosphorus (Y = yes; N = no)'),
+    CharacterVar('POTAS', 1, spc=5, info='Potassium (Y = yes; N = no)'),
+    CharacterVar('DISES', 1, spc=5, info='Diseases and other pests (Y = yes; N = no)'),
+    CharacterVar('CHEM', 1, spc=5, info='Chemical applications (Y = yes; N = no)'),
+    CharacterVar('TILL', 1, spc=5, info='Tillage (Y = yes; N = no)'),
+    CharacterVar('CO2', 1, spc=5, info='CO2 effects (Y = yes; N = no)'),
+
+    CharacterVar('METHODS', 11, info='Identifier'),
+    CharacterVar(
+        'WTHER', 1, spc=5,
+        info='Weather: '
+             'M = Measured data, as recorded; '
+             'G = Simulated data, stored as *.WTG files; '
+             'S = Simulated data (Internal weather generator using monthly inputs); '
+             'W = Simulated data (Internal WGEN weather generator) '
+    ),
+    CharacterVar(
+        'INCON', 1, spc=5,
+        info='Initial Soil Conditions: '
+             'M = As reported; '
+             'S = Simulated outputs from previous model run'
+    ),
+    CharacterVar(
+        'LIGHT', 1, spc=5,
+        info='Light interception: '
+             'E = Exponential with LAI; '
+             "H = ‘Hedgerow’ calculations"
+    ),
+    CharacterVar(
+        'EVAPO', 1, spc=5,
+        info='Evaporation: '
+             'P = FAO - Penman; '
+             'R = Ritchie modification of Priestley-Taylor'
+    ),
+    CharacterVar(
+        'INFIL', 1, spc=5,
+        info='Infiltration: '
+             'R = Ritchie method; '
+             'S = Soil Conservation Service routines'
+    ),
+    CharacterVar(
+        'PHOTO', 1, spc=5,
+        info='Photosynthesis: '
+             'C = Canopy photosynthesis response curve; '
+             'R = Radiation use efficiency; '
+             'L = Leaf photosynthesis response curve'
+    ),
+
+    # Todo: check and document
+    CharacterVar(
+        'HYDRO', 1, spc=5,
+        info=''
+    ),
+    IntegerVar('NSWIT', 1, spc=5, info=''),
+    CharacterVar(
+        'MESOM', 1, spc=5, info=''
+    ),
+    CharacterVar(
+        'MESEV', 1, spc=5, info=''
+    ),
+    IntegerVar('MESOL', 1, spc=5),
+
+    CharacterVar('MANAGEMENT', 11, info='Identifier'),
+    CharacterVar(
+        'PLANT', 1, spc=5,
+        info='Planting/Transplanting: '
+             'A = Automatic when conditions satisfactory; '
+             'R = On reported date'
+    ),
+    CharacterVar(
+        'IRRIG', 1, spc=5,
+        info='Irrigation and Water Management: '
+             'A = Automatic when required; '
+             'N = Not irrigated; '
+             'F = Automatic with fixed amounts at each irrigation date; '
+             'R = On reported dates; '
+             'D = As reported, in days after planting'
+    ),
+    CharacterVar(
+        'FERTI', 1, spc=5,
+        info='Fertilization: '
+             'A = Automatic when required; '
+             'N = Not fertilized; '
+             'F = Automatic with fixed amounts at each fertilization date; '
+             'R = On reported dates; '
+             'D = As reported, in days after planting'
+    ),
+    CharacterVar(
+        'RESID', 1, spc=5,
+        info='Residue applications: '
+             'A = Automatic for multiple years/crop sequences; '
+             'N = No applications; '
+             'F = Automatic with fixed amounts at each residue application date; '
+             'R = On reported dates; '
+             'D = As reported, in days after planting'
+    ),
+    CharacterVar(
+        'HARVS', 1, spc=5,
+        info='Harvest: '
+             'A = Automatic when conditions satisfactory; '
+             'G = At reported growth stage(s); '
+             'M = At maturity; '
+             'R = On reported date(s); '
+             'D = On reported days after planting'
+    ),
+
+    CharacterVar('OUTPUTS', 11, info='Identifier'),
+    CharacterVar('FNAME', 1, spc=5, info='Experiment (Y = yes, files named with the experiment code; N = no)'),
+    CharacterVar('OVVEW', 1, spc=5, info='Overview (Y = yes, new; A = append; N = no)'),
+    CharacterVar('SUMRY', 1, spc=5, info='Summary (Y = yes, new; A = append; N = no)'),
+    IntegerVar('FROPT', 2, spc=4, info='Frequency of output (days)'),
+    CharacterVar('GROUT', 1, spc=5, info='Growth (Y = yes; N = no)'),
+    CharacterVar('CAOUT', 1, spc=5, info='Carbon (Y = yes; N = no)'),
+    CharacterVar('WAOUT', 1, spc=5, info='Water (Y = yes; N = no)'),
+    CharacterVar('NIOUT', 1, spc=5, info='Nitrogen (Y = yes; N = no)'),
+    CharacterVar('MIOUT', 1, spc=5, info='Phosphorous (Y = yes; N = no)'),
+    CharacterVar('DIOUT', 1, spc=5, info='Diseases and other pests (Y = yes; N = no)'),
+
+    # todo: check and document
+    CharacterVar('VBOSE', 1, spc=5, info='Wide (Y) or 80-column (N) daily outputs'),
+    CharacterVar('CHOUT', 1, spc=5),
+    CharacterVar('OPOUT', 1, spc=5),
+    CharacterVar('FMOPT', 1, spc=5),
+
+    # Automatic Management
+    CharacterVar('AUTOMATIC', 0),
+    CharacterVar('MANAGEMENT', 0),  # No idea why these two variables even exist
+
+    CharacterVar('PLANTING', 11, info='Identifier'),
+    IntegerVar('PFRST', 5, info='Earliest, year and day of year (YRDOY)'),
+    IntegerVar('PLAST', 5, info='Latest, year and day of year (YRDOY)'),
+    FloatVar('PH2OL', 5, 0, info='Lowermost soil water, % '),
+    FloatVar('PH2OU', 5, 0, info='Uppermost soil water, %'),
+    FloatVar('PH2OD', 5, 0, info='Management depth for water, cm'),
+    FloatVar('PSTMX', 5, 0, info='Max. soil temp. (10 cm av.), °C'),
+    FloatVar('PSTMN', 5, 0, info='Min. soil temp. (10 cm av.), °C'),
+
+    CharacterVar('IRRIGATION', 11, info='Identifier'),
+    FloatVar('IMDEP', 5, 0, info='Management depth, cm'),
+    FloatVar('ITHRL', 5, 0, info='Threshold, % of maximum available'),
+    FloatVar('ITHRU', 5, 0, info='End point, % of maximum available'),
+    CharacterVar('IROFF', 5, info='End of applications, growth stage'),
+    CharacterVar('IMETH', 5, info='Method, code'),
+    FloatVar('IRAMT', 5, 0, info='Amount per irrigation, if fixed, mm'),
+    FloatVar('IREFF', 5, 2, info='Irrigation application efficiency, fraction'),
+
+    CharacterVar('NITROGEN', 11, info='Identifier'),
+    FloatVar('NMDEP', 5, 0, info='Application depth, cm'),
+    FloatVar('NMTHR', 5, 0, info='Threshold, N stress factor, %'),
+    FloatVar('NAMNT', 5, 0, info='Amount per application, kg N ha-1'),
+    CharacterVar('NCODE', 5, info='Material, code'),
+    CharacterVar('NAOFF', 5, info='End of applications, growth stage'),
+
+    CharacterVar('RESIDUES', 11, info='Identifier'),
+    FloatVar('RIPCN', 5, 0, info='Incorporation percentage, % of remaining'),
+    IntegerVar('RTIME', 5, info='Incorporation time, days after harvest'),
+    FloatVar('RIDEP', 5, 0, info='Incorporation depth, cm'),
+
+    CharacterVar('HARVEST', 11, info='Identifier'),
+    IntegerVar('HFRST', 5, info='Earliest, days after maturity'),
+    IntegerVar('HLAST', 5, info='Latest, year and day of year (YRDOY)'),
+    FloatVar('HPCNP', 5, 0, info='Percentage of product harvested, %'),
+    FloatVar('HPCNR', 5, 0, info='Percentage of residue harvested, %')
 
 }
