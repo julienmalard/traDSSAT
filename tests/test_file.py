@@ -24,7 +24,7 @@ class TestInputs(unittest.TestCase):
             with self.subTest(inp_class.__name__):
                 test_write(inp_class, rsrcs)
 
-@unittest.skip
+
 class TestOutputs(unittest.TestCase):
     def test_read(self):
         for out_class in output_classes:
