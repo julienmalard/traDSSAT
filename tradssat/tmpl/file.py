@@ -112,7 +112,7 @@ class File(object):
         return np.full(size, -99, dtype=dtype)
 
     def _get_var_names(self, line):
-        names = [x for x in re.split('[.\W+]', line[1:]) if len(x)]  # skip initial "@"
+        names = [x.strip() for x in re.split('[. +]', line[1:]) if len(x.strip())]  # skip initial "@"
         final_names = []
         to_skip = []
         for i, vr in enumerate(names):
