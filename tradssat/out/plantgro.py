@@ -30,6 +30,27 @@ vars_ = {
     IntegerVar('SUGD', 6, info='Suck dry weight, kg/Ha'),
     IntegerVar('RWAD', 6, info='Root dry weight, kg/Ha'),
     FloatVar('HIAD', 6, 3, info='Harvest index'),
+    IntegerVar('EYWAD', 6, info='Eye Weight, kg/Ha'),
+    IntegerVar('EY#WD', 6, info='Eye number'),
+    FloatVar('WSPD', 6, 3, info='Water stress in photosynthesis'),
+    FloatVar('WSGD', 6, 3, info='Water stress in growth'),
+    FloatVar('NSTD', 6, 3, info='Nitrogen stress'),
+    FloatVar('LN%D', 6, 2, info='Leaf Nitrogen percentage'),
+    FloatVar('SLAD', 6, 1, info='Specific Leaf area'),
+    FloatVar('RDPD', 6, 1, info='Root depth, m'),
+    FloatVar('RL1D', 6, 2, info='Level 1 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL2D', 6, 2, info='Level 2 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL3D', 6, 2, info='Level 3 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL4D', 6, 2, info='Level 4 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL5D', 6, 2, info='Level 5 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL6D', 6, 2, info='Level 6 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL7D', 6, 2, info='Level 7 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL8D', 6, 2, info='Level 8 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL9D', 6, 2, info='Level 9 Root Length density, cm3/cm3 of soil'),
+    FloatVar('RL10', 6, 2, info='Level 10 Root Length density, cm3/cm3 of soil')
+
+
+
 
 
 
