@@ -1,8 +1,18 @@
 import os
 
+from .alfrm import cul_vars_ALFRM, eco_vars_ALFRM
+from .cscas import cul_vars_CSCAS, eco_vars_CSCAS
+from .pialo import cul_vars_PIALO, eco_vars_PIALO
+
 from tradssat.tmpl import InpFile
 
-from . import gen_vars as vrs
+
+vars_gen = {
+    'ALFRM': {'cul': cul_vars_ALFRM, 'eco': eco_vars_ALFRM},
+    'CSCAS': {'cul': cul_vars_CSCAS, 'eco': eco_vars_CSCAS},
+
+    'PIALO': {'cul': cul_vars_PIALO, 'eco': eco_vars_PIALO}
+}
 
 
 class CULFile(InpFile):
@@ -10,12 +20,14 @@ class CULFile(InpFile):
 
     def _get_var_info(self):
         file = os.path.split(self.file)[1]
-        if self.file.startswith('ALFRM'):
-            return vrs.cul_vars_ALFRM
-        elif self.file.startswith('PIALO'):
-            return vrs.cul_vars_PIALO
-        else:
-            raise ValueError('No variables defined for {} cropping model.'.format(os.path.splitext(file)[0]))
+
+        for gen, d_gen in vars_gen.items():
+            if file.startswith(gen):
+                return d_gen['cul']
+
+        raise ValueError(
+            'No cultivar variables defined for {} cropping model.'.format(os.path.splitext(file)[0])
+        )
 
 
 class ECOFile(InpFile):
@@ -23,9 +35,11 @@ class ECOFile(InpFile):
 
     def _get_var_info(self):
         file = os.path.split(self.file)[1]
-        if file.startswith('ALFRM'):
-            return vrs.eco_vars_ALFRM
-        elif file.startswith('PIALO'):
-            return vrs.eco_vars_PIALO
-        else:
-            raise ValueError('No variables defined for {} cropping model.'.format(os.path.splitext(file)[0]))
+
+        for gen, d_gen in vars_gen.items():
+            if file.startswith(gen):
+                return d_gen['eco']
+
+        raise ValueError(
+            'No ecotype variables defined for {} cropping model.'.format(os.path.splitext(file)[0])
+        )
