@@ -58,7 +58,9 @@ def test_write(inp_class, folder, testcase):
             if isinstance(ext, list):
                 ext = ext[0]
 
-            temp_file = NamedTemporaryFile(suffix=ext).name
+            name = os.path.split(f)[1]
+
+            temp_file = NamedTemporaryFile(prefix=name, suffix=ext).name
             inp_file_obj = inp_class(f)
             inp_file_obj.write(temp_file)
 
