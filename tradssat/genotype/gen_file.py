@@ -1,14 +1,15 @@
 import os
 
+from tradssat.tmpl import InpFile
+
 from .alfrm import cul_vars_ALFRM, eco_vars_ALFRM
+from .bacer import cul_vars_BACER, eco_vars_BACER
 from .cscas import cul_vars_CSCAS, eco_vars_CSCAS
 from .pialo import cul_vars_PIALO, eco_vars_PIALO
 
-from tradssat.tmpl import InpFile
-
-
 vars_gen = {
     'ALFRM': {'cul': cul_vars_ALFRM, 'eco': eco_vars_ALFRM},
+    'BACER': {'cul': cul_vars_BACER, 'eco': eco_vars_BACER},
     'CSCAS': {'cul': cul_vars_CSCAS, 'eco': eco_vars_CSCAS},
 
     'PIALO': {'cul': cul_vars_PIALO, 'eco': eco_vars_PIALO}

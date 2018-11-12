@@ -54,6 +54,12 @@ class File(object):
     def get_var_size(self, var, sect=None):
         return self.var_info.get_var(var, sect).size
 
+    def get_var_miss(self, var, sect=None):
+        return self.get_var(var, sect).miss
+
+    def get_var(self, var):
+        return self.var_info[var]
+
     def _read_subsection(self, section_name, subblock):
 
         var_names = self._get_var_names(subblock[0])
@@ -69,7 +75,7 @@ class File(object):
         for i, l in enumerate(subblock[1:]):
             vals = [l[c[0]:c[1]].strip() for c in cutoffs]
             for vr, vl in zip(var_names, vals):
-                if not len(vl):
+                if not len(vl) or vl == self.get_var_miss(vr):
                     vl = -99
                 d_vals[vr][i] = vl
 

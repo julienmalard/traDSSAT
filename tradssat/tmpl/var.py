@@ -6,15 +6,17 @@ import numpy as np
 class Variable(object):
     type_ = None
 
-    def __init__(self, name, size, spc, header_fill, float_r, sect, info):
+    def __init__(self, name, size, spc, header_fill, float_r, miss, sect, info):
         self.name = name
         self.size = size
         self.spc = spc
+
+        self.fill = header_fill
+        self.float_r = float_r
+        self.miss = miss
+
         self.info = info
         self.sect = sect
-        self.fill = header_fill
-
-        self.float_r = float_r
 
     def write(self, val=None):
         fill = self.fill if val is None else ' '
@@ -41,8 +43,8 @@ class Variable(object):
 class CharacterVar(Variable):
     type_ = str
 
-    def __init__(self, name, size, spc=1, sect=None, header_fill=' ', info=''):
-        super().__init__(name, size, spc, header_fill, float_r=False, sect=sect, info=info)
+    def __init__(self, name, size, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
+        super().__init__(name, size, spc, header_fill, float_r=False, miss=miss, sect=sect, info=info)
 
     def check_val(self, val):
         if isinstance(val, str):
@@ -59,9 +61,9 @@ class CharacterVar(Variable):
 
 class NumericVar(Variable):
 
-    def __init__(self, name, size, lims, spc, header_fill, sect, info):
+    def __init__(self, name, size, lims, spc, header_fill, miss, sect, info):
 
-        super().__init__(name, size, spc, header_fill, sect=sect, float_r=True, info=info)
+        super().__init__(name, size, spc, header_fill, sect=sect, float_r=True, miss=miss, info=info)
 
         if lims is None:
             lims = (-np.inf, np.inf)
@@ -85,8 +87,8 @@ class NumericVar(Variable):
 class FloatVar(NumericVar):
     type_ = float
 
-    def __init__(self, name, size, dec, lims=None, spc=1, sect=None, header_fill=' ', info=''):
-        super().__init__(name, size, lims, spc, header_fill, sect, info=info)
+    def __init__(self, name, size, dec, lims=None, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
+        super().__init__(name, size, lims, spc, header_fill, miss=miss, sect=sect, info=info)
         self.dec = dec
 
     def _write(self, val):
@@ -99,8 +101,8 @@ class FloatVar(NumericVar):
 class IntegerVar(NumericVar):
     type_ = int
 
-    def __init__(self, name, size, lims=None, spc=1, sect=None, header_fill=' ', info=''):
-        super().__init__(name, size, lims, spc, header_fill, sect, info=info)
+    def __init__(self, name, size, lims=None, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
+        super().__init__(name, size, lims, spc, header_fill, miss=miss, sect=sect, info=info)
 
     def _write(self, val):
         return '{:{sz}d}'.format(val, sz=self.size)
