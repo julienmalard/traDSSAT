@@ -1,6 +1,7 @@
 import re
 
 import numpy as np
+from tradssat.utils import detect_encod
 
 from .vals import FileValueSet, ValueSubSection
 from .var import VariableSet
@@ -23,7 +24,8 @@ class File(object):
 
     def _read(self):
 
-        with open(self.file, encoding='utf8') as f:
+        cod = detect_encod(self.file)
+        with open(self.file, encoding=cod) as f:
             section = []  # To store lines that go in the same section
             for l in f.readlines():
 

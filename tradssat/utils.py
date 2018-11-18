@@ -2,6 +2,7 @@ import json
 from copy import deepcopy
 
 import numpy as np
+from chardet import UniversalDetector
 
 
 def write_json(obj, file):
@@ -35,3 +36,18 @@ def numpyfiy(d):
             d[k] = np.array(v)
         elif isinstance(v, dict):
             jsonify(v)
+
+
+def detect_encod(file):
+    detector = UniversalDetector()
+    with open(file, 'rb') as d:
+        for i, line in enumerate(d.readlines()):
+
+            detector.feed(line)
+
+            if detector.done:
+                break
+
+    detector.close()
+
+    return detector.result['encoding']
