@@ -42,11 +42,11 @@ def test_read(inp_class, folder, testcase):
             for sect, l_sect in ref.items():
                 for i, subsect in enumerate(l_sect):
 
-                for var, val in subsect.items():
-                    if len(val):
-                        npt.assert_equal(dict_vars[sect][i][var], val, err_msg=f'{f}\n\t {sect}; var {var}')
-                    elif len(dict_vars[sect][i][var]):
-                        raise ValueError
+                    for var, val in subsect.items():
+                        if len(val):
+                            npt.assert_equal(dict_vars[sect][i][var], val, err_msg=f'{f}\n\t {sect}; var {var}')
+                        elif len(dict_vars[sect][i][var]):
+                            raise ValueError
 
 
 def test_write(inp_class, folder, testcase):
