@@ -17,15 +17,16 @@ class Variable(object):
         self.float_r = float_r
 
     def write(self, val=None):
+        fill = self.fill if val is None else ' '
         if val is None:
             txt = str(self)
         else:
-            txt = self._write(val)
+            txt = self._write(val)  # todo: missing values
 
         if self.float_r:
-            return ' ' * self.spc + txt.ljust(self.size, self.fill)
+            return ' ' * self.spc + txt.ljust(self.size, fill)
         else:
-            return ' ' * self.spc + txt.rjust(self.size, self.fill)
+            return ' ' * self.spc + txt.rjust(self.size, fill)
 
     def check_val(self, val):
         raise NotImplementedError
