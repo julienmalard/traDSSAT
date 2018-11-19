@@ -1,3 +1,4 @@
+import os
 import re
 
 import numpy as np
@@ -132,7 +133,9 @@ class File(object):
                 final_names.append('{} {}'.format(vr, names[i + 1]))
                 to_skip.append(names[i + 1])
             else:
-                raise ValueError('Variable "{}" does not exist.'.format(vr))
+                raise ValueError(
+                    'Variable "{vr}" is not defined for file {nm}.'.format(vr=vr, nm=os.path.split(self.file)[1])
+                )
         return final_names
 
     def to_dict(self):
