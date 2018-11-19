@@ -20,6 +20,12 @@ class FileValueSet(object):
     def to_dict(self):
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
+    def get_val(self, var, sect=None):
+        if sect is not None:
+            return self[sect].get_val(var)
+        else:
+            return next(s.get_val(var) for s in self if var in s)
+
     def __iter__(self):
         for s in self._sections.values():
             yield s
@@ -52,9 +58,20 @@ class ValueSection(object):
     def to_dict(self):
         return [subsect.to_dict() for subsect in self]
 
+    def get_val(self, var):
+        val = []
+        for s in self._subsections:
+            if var in s:
+                val.append(s[var])
+
+        return np.array(val).flatten()
+
     def __iter__(self):
         for s in self._subsections:
             yield s
+
+    def __contains__(self, item):
+        return any(item in s for s in self._subsections)
 
     def __setitem__(self, key, value):
         for subsect in self:
