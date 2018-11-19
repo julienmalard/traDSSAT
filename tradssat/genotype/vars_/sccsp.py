@@ -10,6 +10,10 @@ cul_vars_SCCSP = {
     IntegerVar('EXPNO', 5, miss='.', info='Number of experiments used to estimate cultivar parameters.'),
     CharacterVar('ECO#', 6, info='Ecotype code of this cultivar in the ECO input file'),
 
+    FloatVar(
+        'LFMAX', 5, 3,
+        info='Maximum leaf photosynthesis rate, 30 C, 350 ppm CO2 and high '
+             'light (used in leaf-level ET routine - Not yet in CASUPRO). mg CO2/m2-s')
 
 }
 
