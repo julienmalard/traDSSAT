@@ -3,6 +3,9 @@ import re
 import numpy as np
 
 
+CODE_MISS = -99
+
+
 class Variable(object):
     type_ = None
 
@@ -23,7 +26,9 @@ class Variable(object):
         if val is None:
             txt = str(self)
         else:
-            txt = self._write(val)  # todo: missing values
+            if val == CODE_MISS:
+                val = self.miss
+            txt = self._write(val)
 
         if self.float_r:
             return ' ' * self.spc + txt.ljust(self.size, fill)
@@ -92,7 +97,7 @@ class FloatVar(NumericVar):
         self.dec = dec
 
     def _write(self, val):
-        if val == -99:
+        if val == self.miss:
             return '-99'  # to avoid size overflow on small-sized variables with decimals
         else:
             return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec)
