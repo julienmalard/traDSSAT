@@ -5,6 +5,7 @@ from tradssat.tmpl import InpFile
 from .alfrm import cul_vars_ALFRM, eco_vars_ALFRM
 from .bacer import cul_vars_BACER, eco_vars_BACER
 from .cscas import cul_vars_CSCAS, eco_vars_CSCAS
+from .gbgro import cul_vars_GBGRO, eco_vars_GBGRO
 from .mzcer import cul_vars_MZCER, eco_vars_MZCER
 from .pialo import cul_vars_PIALO, eco_vars_PIALO
 from .swcer import cul_vars_SWCER, eco_vars_SWCER
@@ -14,10 +15,11 @@ vars_gen = {
     'ALFRM': {'cul': cul_vars_ALFRM, 'eco': eco_vars_ALFRM},
     'BACER': {'cul': cul_vars_BACER, 'eco': eco_vars_BACER},
     'CSCAS': {'cul': cul_vars_CSCAS, 'eco': eco_vars_CSCAS},
+    'GBGRO': {'cul': cul_vars_GBGRO, 'eco': eco_vars_GBGRO},
     'MZCER': {'cul': cul_vars_MZCER, 'eco': eco_vars_MZCER},
+    'PIALO': {'cul': cul_vars_PIALO, 'eco': eco_vars_PIALO},
     'SWCER': {'cul': cul_vars_SWCER, 'eco': eco_vars_SWCER},
     'TNARO': {'cul': cul_vars_TNARO},
-    'PIALO': {'cul': cul_vars_PIALO, 'eco': eco_vars_PIALO},
 
 }
 
