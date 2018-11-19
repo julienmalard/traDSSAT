@@ -3,6 +3,7 @@ from json import JSONDecodeError
 from tempfile import NamedTemporaryFile
 from warnings import warn
 
+import numpy as np
 import numpy.testing as npt
 
 from tradssat.utils import read_json, write_json
@@ -66,4 +67,21 @@ def test_write(inp_class, folder, testcase):
 
             new_file_obj = inp_class(temp_file)
 
-            inp_file_obj.equals(new_file_obj)
+            _test_dicts_equal(act=new_file_obj.to_dict(), ref=inp_file_obj.to_dict(), f=f)
+
+
+def _test_dicts_equal(act, ref, f, keys=None):
+    if keys is None:
+        keys = []
+    if isinstance(act, dict):
+        for k, v in act.items():
+            keys.append(k)
+            _test_dicts_equal(v, ref[k], f=f, keys=keys)
+            keys[:] = keys[:-1]
+    elif isinstance(act, list):
+        for i, (a, r) in enumerate(zip(act, ref)):
+            keys.append(i)
+            _test_dicts_equal(a, r, f=f, keys=keys)
+            keys[:] = keys[:-1]
+    elif isinstance(act, np.ndarray):
+        npt.assert_equal(actual=act, desired=ref, err_msg='{}\n\t{}'.format(f, ': '.join(str(k) for k in keys)))

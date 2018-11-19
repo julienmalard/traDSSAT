@@ -110,7 +110,10 @@ class IntegerVar(NumericVar):
         super().__init__(name, size, lims, spc, header_fill, miss=miss, sect=sect, info=info)
 
     def _write(self, val):
-        return '{:{sz}d}'.format(val, sz=self.size)
+        if val == self.miss:
+            return '{:{sz}}'.format(val, sz=self.size)  # to avoid problems with non-numeric missing value codes
+        else:
+            return '{:{sz}d}'.format(val, sz=self.size)
 
 
 class VariableSet(object):

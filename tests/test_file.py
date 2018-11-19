@@ -11,6 +11,7 @@ rsrcs_out = os.path.join(os.path.split(__file__)[0], 'rsrc/mock_DSSAT/Out')
 output_classes = [PlantGrowOut]
 
 
+# Inputs must be read and written
 class TestInputs(unittest.TestCase):
     def test_read(self):
         for inp_class in input_classes:
@@ -23,6 +24,7 @@ class TestInputs(unittest.TestCase):
                 test_write(inp_class, rsrcs, testcase=self)
 
 
+# Outputs are only read, not written
 class TestOutputs(unittest.TestCase):
     def test_read(self):
         for out_class in output_classes:

@@ -1,5 +1,4 @@
 import numpy as np
-from numpy import testing as npt
 
 
 class FileValueSet(object):
@@ -18,19 +17,15 @@ class FileValueSet(object):
 
         return lines
 
+    def to_dict(self):
+        return {name: sect.to_dict() for name, sect in self._sections.items()}
+
     def __iter__(self):
         for s in self._sections.values():
             yield s
 
     def __getitem__(self, item):
         return self._sections[item]
-
-    def equals(self, other):
-        for s1, s2 in zip(self, other):
-            s1.equals(s2)
-
-    def to_dict(self):
-        return {name: sect.to_dict() for name, sect in self._sections.items()}
 
 
 class ValueSection(object):
@@ -54,6 +49,9 @@ class ValueSection(object):
 
         return lines
 
+    def to_dict(self):
+        return [subsect.to_dict() for subsect in self]
+
     def __iter__(self):
         for s in self._subsections:
             yield s
@@ -62,13 +60,6 @@ class ValueSection(object):
         for subsect in self:
             if key in subsect:
                 subsect[key] = value
-
-    def equals(self, other):
-        for s1, s2 in zip(self, other):
-            s1.equals(s2)
-
-    def to_dict(self):
-        return [subsect.to_dict() for subsect in self]
 
 
 class ValueSubSection(object):
@@ -118,10 +109,3 @@ class ValueSubSection(object):
 
     def __setitem__(self, key, value):
         self.set_value(key, value)
-
-    def equals(self, other):
-        missing = set(self) - set(other)
-        if len(missing):
-            raise ValueError('Missing variables:' + ', '.format(missing))
-        for vr in self:
-            npt.assert_equal(self[vr], other[vr], err_msg=vr)

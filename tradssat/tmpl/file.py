@@ -63,6 +63,15 @@ class File(object):
     def get_var(self, var, sect=None):
         return self._var_info.get_var(var, sect)
 
+    def get_val(self, var, sect=None):
+        return self._values[var]['val']
+
+    def get_dims_val(self, var):
+        return self.get_val(var).shape
+
+    def to_dict(self):
+        return self._values.to_dict()
+
     def _read_subsection(self, section_name, subblock):
 
         var_names = self._get_var_names(subblock[0])
@@ -137,15 +146,6 @@ class File(object):
                     'Variable "{vr}" is not defined for file {nm}.'.format(vr=vr, nm=os.path.split(self.file)[1])
                 )
         return final_names
-
-    def to_dict(self):
-        return self._values.to_dict()
-
-    def get_val(self, var):
-        return self._values[var]['val']
-
-    def get_dims_val(self, var):
-        return self.get_val(var).shape
 
     def _get_var_info(self):
         """
