@@ -173,8 +173,8 @@ vars_ = {
     # Todo: check size
     CharacterVar('FERNAME', 25, info='Fertilizer level name'),
 
-    # RESIDUES AND OTHER ORGANIC MATERIALS
-    IntegerVar('R', 2, spc=0, info='Residue management level'),
+    # RESIDUES AND ORGANIC FERTILIZER
+    IntegerVar('R', 2, spc=0, sect='RESIDUES AND ORGANIC FERTILIZER', info='Residue management level'),
     IntegerVar('RDATE', 5, info='Incorporation date, year + days'),
     CharacterVar('RCOD', 5, info='Residue material, code'),
     FloatVar('RAMT', 5, 0, info='Residue amount, kg ha-1'),
@@ -189,7 +189,7 @@ vars_ = {
     CharacterVar('RENAME', 25, info='Residue management level name'),
 
     # CHEMICAL APPLICATIONS
-    IntegerVar('C', 2, spc=0, info='Chemical applications level'),
+    IntegerVar('C', 2, spc=0, sect='CHEMICAL APPLICATIONS', info='Chemical applications level'),
     IntegerVar('CDATE', 5, info='Application date, year + day or days from planting'),
     CharacterVar('CHCOD', 5, info='Chemical material, code'),
     FloatVar('CHAMT', 5, 2, info='Chemical application amount, kg ha-1'),
@@ -216,7 +216,7 @@ vars_ = {
     FloatVar('HPC', 5, 0, info='Harvest percentage, %'),
 
     # SIMULATION CONTROLS
-    IntegerVar('N', 2, spc=0, info='Simulation control level number'),
+    IntegerVar('N', 2, spc=0, sect='SIMULATION CONTROLS', info='Simulation control level number'),
     CharacterVar('GENERAL', 11, info='Identifier'),
     IntegerVar('NYERS', 2, spc=4, info='Years'),
     IntegerVar('NREPS', 2, spc=4, info='Replications'),
