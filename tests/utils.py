@@ -5,7 +5,6 @@ from warnings import warn
 
 import numpy as np
 import numpy.testing as npt
-
 from tradssat.utils import read_json, write_json
 
 
@@ -67,21 +66,27 @@ def test_write(inp_class, folder, testcase):
 
             new_file_obj = inp_class(temp_file)
 
-            _test_dicts_equal(act=new_file_obj.to_dict(), ref=inp_file_obj.to_dict(), f=f)
+            _test_dicts_equal(testcase, act=new_file_obj.to_dict(), ref=inp_file_obj.to_dict(), f=f)
 
 
-def _test_dicts_equal(act, ref, f, keys=None):
+def _test_dicts_equal(tc, act, ref, f, keys=None):
     if keys is None:
         keys = []
     if isinstance(act, dict):
+        tc.assertListEqual(list(act), list(ref), msg='Dictionary keys are not equal in {}'.format(_f_loc(f, keys)))
         for k, v in act.items():
             keys.append(k)
-            _test_dicts_equal(v, ref[k], f=f, keys=keys)
+            _test_dicts_equal(tc=tc, act=v, ref=ref[k], f=f, keys=keys)
             keys[:] = keys[:-1]
     elif isinstance(act, list):
+        tc.assertEqual(len(act), len(ref), msg='List lengths not equal in {}'.format(_f_loc(f, keys)))
         for i, (a, r) in enumerate(zip(act, ref)):
             keys.append(i)
-            _test_dicts_equal(a, r, f=f, keys=keys)
+            _test_dicts_equal(tc=tc, act=a, ref=r, f=f, keys=keys)
             keys[:] = keys[:-1]
     elif isinstance(act, np.ndarray):
-        npt.assert_equal(actual=act, desired=ref, err_msg='{}\n\t{}'.format(f, ': '.join(str(k) for k in keys)))
+        npt.assert_equal(actual=act, desired=ref, err_msg=_f_loc(f, keys))
+
+
+def _f_loc(f, keys):
+    return '{}\n\t{}'.format(f, ': '.join(str(k) for k in keys))
