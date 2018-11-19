@@ -9,6 +9,7 @@ from .var import VariableSet, CODE_MISS
 
 
 class File(object):
+
     def __init__(self, file):
         """
 
@@ -63,8 +64,11 @@ class File(object):
     def get_var(self, var, sect=None):
         return self._var_info.get_var(var, sect)
 
-    def get_val(self, var, sect=None):
-        return self._values[var]['val']
+    def get_val(self, var, sect=None, subsect=None):
+        return self._values.get_val(var, sect=sect, subsect=subsect)
+
+    def set_val(self, var, val, sect=None, subsect=None):
+        self._values.set_val(var, val, sect=sect, subsect=subsect)
 
     def get_dims_val(self, var):
         return self.get_val(var).shape

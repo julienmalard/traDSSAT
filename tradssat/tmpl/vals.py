@@ -2,6 +2,7 @@ import numpy as np
 
 
 class FileValueSet(object):
+
     def __init__(self):
         self._sections = {}
 
@@ -20,11 +21,19 @@ class FileValueSet(object):
     def to_dict(self):
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
-    def get_val(self, var, sect=None):
+    def get_val(self, var, sect=None, subsect=None):
         if sect is not None:
-            return self[sect].get_val(var)
+            return self[sect].get_val(var, subsect)
         else:
-            return next(s.get_val(var) for s in self if var in s)
+            return next(s.get_val(var, subsect) for s in self if var in s)
+
+    def set_val(self, var, val, sect=None, subsect=None):
+        if sect is not None:
+            self[sect].set_val(var, val, subsect)
+        else:
+            for s in self:
+                if var in s:
+                    s.set_val(var, val, subsect)
 
     def __iter__(self):
         for s in self._sections.values():
@@ -58,13 +67,35 @@ class ValueSection(object):
     def to_dict(self):
         return [subsect.to_dict() for subsect in self]
 
-    def get_val(self, var):
+    def get_val(self, var, subsect=None):
         val = []
-        for s in self._subsections:
+
+        if subsect is None:
+            subsect = range(len(self._subsections))
+        elif isinstance(subsect, int):
+            subsect = [subsect]
+
+        for s in subsect:
             if var in s:
                 val.append(s[var])
 
         return np.array(val).flatten()
+
+    def set_val(self, var, val, subsect=None):
+
+        if subsect is None:
+            subsect = range(len(self._subsections))
+        elif isinstance(subsect, int):
+            subsect = [subsect]
+
+        success = False
+        for s in subsect:
+            if var in s:
+                success = True
+                s[var] = val
+
+        if not success:
+            raise ValueError('Variable "{}" not found.'.format(var))
 
     def __iter__(self):
         for s in self._subsections:
