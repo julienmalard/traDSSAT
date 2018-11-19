@@ -17,15 +17,15 @@ class File(object):
 
         """
         self.file = file
-        self.var_info = VariableSet(self._get_var_info())
+        self._var_info = VariableSet(self._get_var_info())
 
         self._values = FileValueSet()
+        self.encoding = detect_encod(self.file)
         self._read()
 
     def _read(self):
 
-        cod = detect_encod(self.file)
-        with open(self.file, encoding=cod) as f:
+        with open(self.file, encoding=self.encoding) as f:
             section = []  # To store lines that go in the same section
             for l in f.readlines():
 
@@ -48,19 +48,19 @@ class File(object):
             self._read_section(section)
 
     def get_var_type(self, var, sect=None):
-        return self.var_info.get_var(var, sect).type_
+        return self.get_var(var, sect).type_
 
     def get_var_spc(self, var, sect=None):
-        return self.var_info.get_var(var, sect).spc
+        return self.get_var(var, sect).spc
 
     def get_var_size(self, var, sect=None):
-        return self.var_info.get_var(var, sect).size
+        return self.get_var(var, sect).size
 
     def get_var_miss(self, var, sect=None):
         return self.get_var(var, sect).miss
 
-    def get_var(self, var):
-        return self.var_info[var]
+    def get_var(self, var, sect=None):
+        return self._var_info.get_var(var, sect)
 
     def _read_subsection(self, section_name, subblock):
 
@@ -126,9 +126,9 @@ class File(object):
         for i, vr in enumerate(names):
             if vr in to_skip:
                 continue
-            if vr in self.var_info:
+            if vr in self._var_info:
                 final_names.append(vr)
-            elif i != len(names) - 1 and '{} {}'.format(vr, names[i + 1]) in self.var_info:
+            elif i != len(names) - 1 and '{} {}'.format(vr, names[i + 1]) in self._var_info:
                 final_names.append('{} {}'.format(vr, names[i + 1]))
                 to_skip.append(names[i + 1])
             else:

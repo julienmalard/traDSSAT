@@ -98,7 +98,8 @@ class ValueSubSection(object):
 
         lines.append('@' + ''.join([var_info.get_var(vr, sect).write() for vr in self]))
         for i in range(self.n_data()):
-            lines.append(''.join([var_info.get_var(vr, sect).write(self[vr][i]) for vr in self]))
+            line = ''.join([var_info.get_var(vr, sect).write(self[vr][i]) for vr in self])
+            lines.append(line)
 
         return lines
 

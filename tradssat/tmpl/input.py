@@ -11,9 +11,9 @@ class InpFile(File):
     def write(self, file, check=True):
         lines = []
 
-        self._values.write(lines, self.var_info)
+        self._values.write(lines, self._var_info)
 
-        with open(file, 'w', encoding='utf8') as f:
+        with open(file, 'w', encoding=self.encoding) as f:
             f.writelines(l + "\n" for l in lines)
 
     def set_var(self, var, val):
@@ -23,7 +23,7 @@ class InpFile(File):
             self._values[var][:] = val
 
     def get_var_lims(self, var):
-        return self.var_info[var].lims
+        return self._var_info[var].lims
 
     def equals(self, other):
         self._values.equals(other._values)
