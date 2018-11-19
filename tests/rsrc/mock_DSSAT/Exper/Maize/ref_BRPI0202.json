@@ -994,22 +994,22 @@
         1
       ],
       "MANAGEMENT": [
-        "M"
+        "MA"
       ],
       "PLANT": [
-        "M"
+        "R"
       ],
       "IRRIG": [
-        "-"
+        "R"
       ],
       "FERTI": [
         "R"
       ],
       "RESID": [
-        "R"
+        "N"
       ],
       "HARVS": [
-        "R"
+        "M"
       ]
     },
     {
@@ -1063,8 +1063,7 @@
       ]
     },
     {
-      "AUTOMATIC": [],
-      "MANAGEMENT": []
+      "AUTOMATIC MANAGEMENT": []
     },
     {
       "N": [

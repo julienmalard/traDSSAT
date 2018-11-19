@@ -19,8 +19,6 @@ class TestInputs(unittest.TestCase):
 
     def test_write(self):
         for inp_class in input_classes:
-            if inp_class is ExpFile:
-                continue  # todo
             with self.subTest(inp_class.__name__):
                 test_write(inp_class, rsrcs)
 

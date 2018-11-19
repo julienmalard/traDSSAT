@@ -1139,13 +1139,13 @@
         1
       ],
       "MANAGEMENT": [
-        "M"
+        "MA"
       ],
       "PLANT": [
-        "M"
+        "R"
       ],
       "IRRIG": [
-        "-"
+        "R"
       ],
       "FERTI": [
         "R"
@@ -1154,7 +1154,7 @@
         "R"
       ],
       "HARVS": [
-        "R"
+        "M"
       ]
     },
     {
@@ -1208,8 +1208,7 @@
       ]
     },
     {
-      "AUTOMATIC": [],
-      "MANAGEMENT": []
+      "AUTOMATIC MANAGEMENT": []
     },
     {
       "N": [

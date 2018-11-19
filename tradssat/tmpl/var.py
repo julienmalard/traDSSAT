@@ -1,3 +1,5 @@
+import re
+
 import numpy as np
 
 
@@ -105,10 +107,28 @@ class IntegerVar(NumericVar):
 
 class VariableSet(object):
     def __init__(self, l_vars):
-        self._vars = {str(vr): vr for vr in l_vars}
+        self._vars = l_vars
 
-    def __getitem__(self, item):
-        return self._vars[item]
+    def get_var(self, var, sect=None):
+
+        def match(vr_sect, target_sect):
+            if None in [vr_sect, target_sect]:
+                return True
+            elif isinstance(vr_sect, re.Pattern):
+                return re.fullmatch(vr_sect, target_sect)
+            else:
+                return target_sect == vr_sect
+
+        try:
+            return next(
+                vr for vr in self._vars if str(vr) == var and match(vr.sect, sect)
+            )
+        except StopIteration:
+            if sect is None:
+                msg = 'Variable {var} does not exist.'.format(var=var)
+            else:
+                msg = 'Variable {var} does not exist in section {sect}.'.format(var=var, sect=sect)
+            raise ValueError(msg)
 
     def __contains__(self, item):
-        return item in self._vars
+        return any(str(vr) == str(item) for vr in self._vars)

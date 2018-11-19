@@ -45,14 +45,14 @@ class File(object):
             # Read the last block too
             self._read_section(section)
 
-    def get_var_type(self, var):
-        return self.var_info[var].type_
+    def get_var_type(self, var, sect=None):
+        return self.var_info.get_var(var, sect).type_
 
-    def get_var_spc(self, var):
-        return self.var_info[var].spc
+    def get_var_spc(self, var, sect=None):
+        return self.var_info.get_var(var, sect).spc
 
-    def get_var_size(self, var):
-        return self.var_info[var].size
+    def get_var_size(self, var, sect=None):
+        return self.var_info.get_var(var, sect).size
 
     def _read_subsection(self, section_name, subblock):
 

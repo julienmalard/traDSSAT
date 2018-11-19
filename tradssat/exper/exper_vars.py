@@ -1,6 +1,7 @@
 from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
+import re
 
-trt = 'TREATMENTS'
+trt = re.compile('TREATMENTS(\W+[-]+FACTOR LEVELS[-]+)?')
 
 vars_ = {
 
@@ -103,13 +104,13 @@ vars_ = {
     # todo: define and verify
     FloatVar('ICWD', 5, 2),
     FloatVar('ICRES', 5, 0),
-    FloatVar('ICREN', 5, 1),
+    FloatVar('ICREN', 5, 2),
     FloatVar('ICREP', 5, 0),
     FloatVar('ICRIP', 5, 0),
     FloatVar('ICRID', 5, 0),
     CharacterVar('ICNAME', 25, info='Inicial condition level name'),
 
-    FloatVar('ICBL', 5, 2, info='Depth, base of layer, cm'),
+    FloatVar('ICBL', 5, 0, info='Depth, base of layer, cm'),
     FloatVar('SH2O', 5, 3, info='Water, cm3 cm-3 x 100 volume percent'),
     FloatVar('SNH4', 5, 1, info='Ammonium, KCl, g elemental N Mg-1 soil'),
     FloatVar('SNO3', 5, 1, info='Nitrate, KCl, g elemental N Mg-1 soil'),
@@ -361,8 +362,7 @@ vars_ = {
     CharacterVar('FMOPT', 1, spc=5),
 
     # Automatic Management
-    CharacterVar('AUTOMATIC', 0),
-    CharacterVar('MANAGEMENT', 0),  # No idea why these two variables even exist
+    CharacterVar('AUTOMATIC MANAGEMENT', 0),  # No idea why this variable even exists
 
     CharacterVar('PLANTING', 11, info='Identifier'),
     IntegerVar('PFRST', 5, info='Earliest, year and day of year (YRDOY)'),

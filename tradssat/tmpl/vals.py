@@ -48,7 +48,7 @@ class ValueSection(object):
     def write(self, lines, var_info):
         lines.append('*' + self.name)
         for s in self:
-            s.write(lines, var_info)
+            s.write(lines, var_info, sect=self.name)
 
         lines.append('')
 
@@ -86,19 +86,19 @@ class ValueSubSection(object):
 
     def check_vals(self, var_info):
         for vr in self:
-            var_info[vr].check_val(self[vr])
+            var_info.get_var(vr).check_val(self[vr])
 
     def n_data(self):
         self.check_dims()
         return self[list(self._values)[0]].size
 
-    def write(self, lines, var_info):
+    def write(self, lines, var_info, sect):
         self.check_dims()
         self.check_vals(var_info)
 
-        lines.append('@' + ''.join([var_info[vr].write() for vr in self]))
+        lines.append('@' + ''.join([var_info.get_var(vr, sect).write() for vr in self]))
         for i in range(self.n_data()):
-            lines.append(''.join([var_info[vr].write(self[vr][i]) for vr in self]))
+            lines.append(''.join([var_info.get_var(vr, sect).write(self[vr][i]) for vr in self]))
 
         return lines
 

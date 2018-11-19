@@ -22,9 +22,6 @@ class InpFile(File):
         else:
             self._values[var][:] = val
 
-    def get_var_section(self, var):
-        return self.var_info[var].sect
-
     def get_var_lims(self, var):
         return self.var_info[var].lims
 
