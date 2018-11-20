@@ -35,6 +35,9 @@ class FileValueSet(object):
                 if var in s:
                     s.set_val(var, val, subsect)
 
+    def changed(self):
+        return any(s.changed() for s in self)
+
     def __iter__(self):
         for s in self._sections.values():
             yield s
@@ -97,6 +100,9 @@ class ValueSection(object):
         if not success:
             raise ValueError('Variable "{}" not found.'.format(var))
 
+    def changed(self):
+        return any(s.changed for s in self)
+
     def __iter__(self):
         for s in self._subsections:
             yield s
@@ -113,12 +119,16 @@ class ValueSection(object):
 class ValueSubSection(object):
     def __init__(self):
         self._values = {}
+        self.changed = False
 
     def set_value(self, var, val):
         if var not in self or (isinstance(val, np.ndarray) and (val.shape != self[var].shape)):
             self._values[var] = np.array(val)
+            self.changed = True
         else:
-            self[var][:] = val
+            if val != self[var]:
+                self[var][:] = val
+                self.changed = True
 
     def check_dims(self):
         return len(np.unique([v.shape for v in self._values.values()])) == 1
@@ -139,6 +149,8 @@ class ValueSubSection(object):
         for i in range(self.n_data()):
             line = ''.join([var_info.get_var(vr, sect).write(self[vr][i]) for vr in self])
             lines.append(line)
+
+        self.changed = False
 
         return lines
 

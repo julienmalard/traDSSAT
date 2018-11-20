@@ -8,25 +8,22 @@ from .file import File
 class InpFile(File):
     ext = None  # type: str
 
-    def write(self, file, check=True):
+    def write(self, file, force=False, check=True):
         lines = []
 
-        self._values.write(lines, self._var_info)
+        write = force or file != self.file or self.changed()
 
-        with open(file, 'w', encoding=self.encoding) as f:
-            f.writelines(l + "\n" for l in lines)
+        if write:
+            self._values.write(lines, self._var_info)
 
-    def set_var(self, var, val):
-        if isinstance(val, np.ndarray) and val.shape != self.get_dims_val(var):
-            self._values[var] = val
-        else:
-            self._values[var][:] = val
+            with open(file, 'w', encoding=self.encoding) as f:
+                f.writelines(l + "\n" for l in lines)
 
-    def get_var_lims(self, var):
-        return self._var_info[var].lims
+    def set_val(self, var, val, sect=None, subsect=None):
+        self._values.set_val(var, val, sect=sect, subsect=subsect)
 
-    def equals(self, other):
-        self._values.equals(other._values)
+    def changed(self):
+        return self._values.changed()
 
     def _process_section_header(self, lines):
 

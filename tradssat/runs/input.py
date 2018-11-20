@@ -1,52 +1,44 @@
-import numpy as np
+import os
 
-from tradssat import ExpFile
+import numpy as np
+from tradssat import ExpFile, config, WTHFile
+from .gen_mgr import PeriphGenMgr
 
 
 class DSSATRun(object):
     def __init__(self, file):
         self.file = file
         self.exp = ExpFile(file)
-        self.soil = self._get_soil()
-        self.weather = self._get_weather()
-        self.genetics = self._get_genetics()
+
+        self.soil = PeriphSoilMgr(self.get_val('ID_SOIL'))
+        self.weather = PeriphWeatherMgr(self.get_val('WSTA'))
+        self.genetics = PeriphGenMgr(self.get_val('CR'), self.get_val('INGENO'))
 
         self.check()
 
     def get_val(self, var, trt=None):
         trts = self._valid_trt(trt)
+
+        var_loc = self._locate_var(var)
+
         sect = self._get_sect(var)
         subsect = self._get_subsect(trts, sect)
 
         self.exp.get_val(var, sect=sect, subsect=subsect)
 
-    def set_val(self, var, val, var_loc='exp', trt=None):
+    def set_val(self, var, val, trt=None, overwrite=False):
         trts = self._valid_trt(trt)
 
-        var_loc = var_loc.lower()
+        var_loc = self._locate_var(var)
 
-        if var_loc == 'exp':
-            sect = self._get_sect(var)
-            subsect = self._get_subsect(trts, sect)
-            self.exp.set_val(var, val, sect=sect, subsect=subsect)
+        var_loc.set_val(var, val)
 
-        elif var_loc == 'soil':
-            soil = self.get_val('', trt)
-            self.soil.set_val(var, val, soil=soil)
+    def _locate_var(self, var):
 
-        elif var_loc == 'weather':
-            weather = self.get_val('', trt)
-            self.weather.set_val(var, val, weather=weather)
-
-        elif var_loc == 'genetic':
-            cultivar = self.get_val('', trt)
-            species = self.get_val('', trt)
-            self.genetics.set_val(var, val, cult=cultivar, spe=species)
-
-        else:
-            raise ValueError(
-                '`var_loc` must be one of "exp", "soil", "weather" or "genetic", not "{}".'.format(var_loc)
-            )
+        for f in [self.exp, self.soil, self.genetics, self.weather]:
+            if var in f.variables():
+                return f
+        raise ValueError('Could not find variable "{}".'.format(var))
 
     def treatments(self):
         return self.exp.get_val('TNAME')
@@ -94,14 +86,15 @@ class DSSATRun(object):
 
         return trt
 
-    def _get_soil(self):
-        soil_codes = self.get_val('')
-        return PeriphFileMgr()
-
-    def _get_weather(self):
-        weather_codes = self.get_val('')
-        return PeriphFileMgr()
-
 
 class PeriphFileMgr(object):
-    pass
+    def __init__(self, files):
+        self._files = files
+        self.dssat_dir = config['DSSAT_DIR']
+
+    def get_val(self, var, code):
+        return self._files[code].get_val(var)
+
+    def set_val(self, var, val, code):
+        return self._files[code].set_val(var, val)
+

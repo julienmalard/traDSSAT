@@ -52,6 +52,9 @@ class File(object):
     def get_var_type(self, var, sect=None):
         return self.get_var(var, sect).type_
 
+    def get_var_lims(self, var, sect=None):
+        return self.get_var(var, sect).lims
+
     def get_var_spc(self, var, sect=None):
         return self.get_var(var, sect).spc
 
@@ -67,11 +70,11 @@ class File(object):
     def get_val(self, var, sect=None, subsect=None):
         return self._values.get_val(var, sect=sect, subsect=subsect)
 
-    def set_val(self, var, val, sect=None, subsect=None):
-        self._values.set_val(var, val, sect=sect, subsect=subsect)
-
     def get_dims_val(self, var):
         return self.get_val(var).shape
+
+    def variables(self):
+        return list(self._var_info.variables())
 
     def to_dict(self):
         return self._values.to_dict()

@@ -17,7 +17,7 @@ setup(
     description='DSSAT input and output tmpl reader and writer',
     long_description=read_txt('README.md'),
     setup_requires=[],
-    install_requires=['numpy'],
+    install_requires=['numpy', 'chardet'],
     classifiers=[
         'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.6'

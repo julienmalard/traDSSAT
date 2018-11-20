@@ -141,5 +141,8 @@ class VariableSet(object):
                 msg = 'Variable {var} does not exist in section {sect}.'.format(var=var, sect=sect)
             raise ValueError(msg)
 
+    def variables(self):
+        return self._vars
+
     def __contains__(self, item):
         return any(str(vr) == str(item) for vr in self._vars)
