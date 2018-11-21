@@ -116,7 +116,7 @@ class File(object):
                 subblock.clear()
 
             # Append current line to section
-            if len(l.strip()):
+            if len(l.strip().strip('\x1a')):  # '\x1a' needed for obscure character DSSAT likes to append to .SNX/SQX
                 subblock.append(l)
 
         if len(subblock):
