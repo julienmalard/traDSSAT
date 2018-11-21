@@ -49,11 +49,4 @@ vars_ = {
     FloatVar('RL9D', 6, 2, info='Level 9 Root Length density, cm3/cm3 of soil'),
     FloatVar('RL10', 6, 2, info='Level 10 Root Length density, cm3/cm3 of soil')
 
-
-
-
-
-
-
-
 }

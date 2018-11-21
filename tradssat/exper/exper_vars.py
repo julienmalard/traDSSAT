@@ -1,33 +1,34 @@
 from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 import re
 
-trt = re.compile('TREATMENTS(\W+[-]+FACTOR LEVELS[-]+)?')
+TRT_HEAD = re.compile('TREATMENTS(\W+[-]+FACTOR LEVELS[-]+)?')
+GENERAL = 'GENERAL'
 
 vars_ = {
 
     # General
-    CharacterVar('PEOPLE', 75, info='Names of scientists'),
-    CharacterVar('ADDRESS', 75, info='Contact address of principal scientist'),
-    CharacterVar('SITE', 75, info='Name and location of experimental site(s)'),
+    CharacterVar('PEOPLE', 75, sect=GENERAL, info='Names of scientists'),
+    CharacterVar('ADDRESS', 75, sect=GENERAL, info='Contact address of principal scientist'),
+    CharacterVar('SITE', 75, sect=GENERAL, info='Name and location of experimental site(s)'),
 
-    FloatVar('PAREA', 6, 1, spc=3, info='Gross plot area per rep, m-2'),
-    IntegerVar('PRNO', 5, info='Rows per plot'),
-    FloatVar('PLEN', 5, 1, info='Plot length, m'),
-    IntegerVar('PLDR', 5, info='Plots relative to drains, degrees'),
-    IntegerVar('PLSP', 5, info='Plot spacing, cm'),
-    CharacterVar('PLAY', 5, info='Plot layout'),
-    FloatVar('HAREA', 5, 1, info='Harvest area, m-2'),
-    IntegerVar('HRNO', 5, info='Harvest row number'),
-    FloatVar('HLEN', 5, 1, info='Harvest row length, m'),
-    CharacterVar('HARM', 15, info='Harvest method'),
+    FloatVar('PAREA', 6, 1, sect=GENERAL, spc=3, info='Gross plot area per rep, m-2'),
+    IntegerVar('PRNO', 5, sect=GENERAL, info='Rows per plot'),
+    FloatVar('PLEN', 5, 1, sect=GENERAL, info='Plot length, m'),
+    IntegerVar('PLDR', 5, sect=GENERAL, info='Plots relative to drains, degrees'),
+    IntegerVar('PLSP', 5, sect=GENERAL, info='Plot spacing, cm'),
+    CharacterVar('PLAY', 5, sect=GENERAL, info='Plot layout'),
+    FloatVar('HAREA', 5, 1, sect=GENERAL, info='Harvest area, m-2'),
+    IntegerVar('HRNO', 5, sect=GENERAL, info='Harvest row number'),
+    FloatVar('HLEN', 5, 1, sect=GENERAL, info='Harvest row length, m'),
+    CharacterVar('HARM', 15, sect=GENERAL, info='Harvest method'),
 
-    CharacterVar('NOTES', 75, info='Notes'),
+    CharacterVar('NOTES', 75, sect=GENERAL, info='Notes'),
 
     # Treatments
-    IntegerVar('N', 2, spc=0, sect=trt, info='Treatment number'),
-    IntegerVar('R', 1, sect=trt, info='Rotation component: number (default=1)'),
-    IntegerVar('O', 1, sect=trt, info='Rotation component: option (default=1)'),
-    IntegerVar('C', 1, sect=trt, info='Crop component number (default = 0)'),
+    IntegerVar('N', 2, spc=0, sect=TRT_HEAD, info='Treatment number'),
+    IntegerVar('R', 1, sect=TRT_HEAD, info='Rotation component: number (default=1)'),
+    IntegerVar('O', 1, sect=TRT_HEAD, info='Rotation component: option (default=1)'),
+    IntegerVar('C', 1, sect=TRT_HEAD, info='Crop component number (default = 0)'),
     CharacterVar('TNAME', 25, header_fill='.', info='Treatment name'),
     IntegerVar('CU', 2, info='Cultivar level'),
     IntegerVar('FL', 2, info='Field level'),

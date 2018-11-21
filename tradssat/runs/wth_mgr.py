@@ -1,6 +1,7 @@
 from tradssat import WTHFile, config
 import os
 
+
 class PeriphWeatherMgr(object):
 
     def __init__(self, codes, start, end, treatments):
