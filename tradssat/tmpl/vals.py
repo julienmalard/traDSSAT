@@ -1,3 +1,5 @@
+import re
+
 import numpy as np
 
 
@@ -43,7 +45,10 @@ class FileValueSet(object):
             yield s
 
     def __getitem__(self, item):
-        return self._sections[item]
+        if isinstance(item, re.Pattern):
+            return next(s for s in self._sections.values() if re.match(item, s.name))
+        else:
+            return self._sections[item]
 
 
 class ValueSection(object):
@@ -79,8 +84,9 @@ class ValueSection(object):
             subsect = [subsect]
 
         for s in subsect:
-            if var in s:
-                val.append(s[var])
+            sub = self._subsections[s]
+            if var in sub:
+                val.append(sub[var])
 
         return np.array(val).flatten()
 

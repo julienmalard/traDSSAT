@@ -32,9 +32,9 @@ class DSSATRun(object):
 
         trts = self.exp.get_val('N', sect=TRT_HEAD)
 
-        self.soil = PeriphSoilMgr(self.get_val('ID_SOIL'), trts)
-        self.weather = PeriphWeatherMgr(self.get_val('WSTA'), treatments=trts)
-        self.genetics = PeriphGenMgr(self.get_val('CR'), self.get_val('INGENO'), trts)
+        # self.soil = PeriphSoilMgr(self.get_val('ID_SOIL'), trts)
+        # self.weather = PeriphWeatherMgr(self.get_val('WSTA'), treatments=trts)
+        # self.genetics = PeriphGenMgr(self.get_val('CR'), self.get_val('INGENO'), trts)
 
         self.check()
 

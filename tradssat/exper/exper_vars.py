@@ -1,5 +1,6 @@
-from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 import re
+
+from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 
 TRT_HEAD = re.compile('TREATMENTS(\W+[-]+FACTOR LEVELS[-]+)?')
 GENERAL = 'GENERAL'
@@ -206,15 +207,32 @@ vars_ = {
     FloatVar('TDEP', 5, 0, info='Tillage implement, code'),
 
     # ENVIRONMENT MODIFICATIONS
-    # todo
+    IntegerVar('E', 2, spc=0, info='Environment modifications level '),
+    IntegerVar('ODATE', 5, info='Modification date, year + day or days from planting'),
+    # The following are officially 2 variables each in DSSAT (code + value). However, as this is almost impossible
+    # to implement sanely here (no space between variable names, and repeated names in the same section, we will treat
+    # these as character values including both the code and value.
+    CharacterVar('EDAY', size=5, info='Daylength adjustment, factor (A, S, M, R) + h'),
+    CharacterVar('ERAD', size=5, info='Radiation adjustment, factor (A, S, M, R) + MJ m-2 d-1'),
+    CharacterVar('EMAX', size=5, info='Temperature (maximum) adjustment, factor (A, S, M, R) + °C'),
+    CharacterVar('EMIN', size=5, info='Temperature (minimum) adjustment, factor (A, S, M, R) + °C'),
+    CharacterVar('ERAIN', size=5, info='Precipitation adjustment, factor (A, S, M, R) + mm'),
+    CharacterVar('ECO2', size=5, info='CO2 adjustment, factor (A, S, M, R) + vpm'),
+    CharacterVar('EDEW', size=5, info='Humidity (dew pt) adjustment, factor (A, S, M, R) + °C'),
+    CharacterVar('EWIND', size=5, info='Daylength adjustment, factor (A, S, M, R) + h'),
+    CharacterVar('ENVNAME', size=25, info='Environmental modification level name'),  # todo: check size
 
     # HARVEST DETAILS
     IntegerVar('H', 2, spc=0, info='Harvest level'),
     IntegerVar('HDATE', 5, info='Harvest date, year + day or days from planting'),
     CharacterVar('HSTG', 5, info='Harvest stage'),
     CharacterVar('HCOM', 5, info='Harvest component, code'),
-    CharacterVar('HSIZ', 5, info='Harvest size group, code'),
+    CharacterVar('HSIZE', 5, info='Harvest size group, code'),
     FloatVar('HPC', 5, 0, info='Harvest percentage, %'),
+
+    # Todo: check
+    FloatVar('HBPC', 5, 0, info=''),
+    CharacterVar('HNAME', 25, info='Harvest details level name'),
 
     # SIMULATION CONTROLS
     IntegerVar('N', 2, spc=0, sect='SIMULATION CONTROLS', info='Simulation control level number'),
