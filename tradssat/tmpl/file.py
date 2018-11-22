@@ -73,6 +73,9 @@ class File(object):
     def get_dims_val(self, var):
         return self.get_val(var).shape
 
+    def find_var_sect(self, var):
+        self._values.find_var_sect(var)
+
     def variables(self):
         return list(self._var_info.variables())
 

@@ -1,11 +1,13 @@
-from tradssat import WTHFile, config
 import os
 
+from tradssat import WTHFile, config
+from .mgr import PeriphFileMgr
 
-class PeriphWeatherMgr(object):
 
-    def __init__(self, codes, start, end, treatments):
-        self.files = {trt: WeatherFileMgr(cd, srt, end) for cd, srt, end, trt in zip(codes, start, end, treatments)}
+class PeriphWeatherMgr(PeriphFileMgr):
+
+    def __init__(self, codes, treatments):
+        self.files = {trt: WeatherFileMgr(cd, srt, end) for cd, srt, end, trt in zip(codes, treatments)}
 
     def get_val(self, var, trt):
         self.files[trt].get_val(var)
@@ -16,7 +18,7 @@ class PeriphWeatherMgr(object):
 
 class WeatherFileMgr(object):
 
-    def __init__(self, code, start, end):
+    def __init__(self, code):
         weather_dir = os.path.join(config['DSSAT_DIR'], 'Weather')
         gen_weather_dir = os.path.join(weather_dir, 'Gen')
 

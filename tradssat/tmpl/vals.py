@@ -37,6 +37,9 @@ class FileValueSet(object):
                 if var in s:
                     s.set_val(var, val, subsect)
 
+    def find_var_sect(self, var):
+        return next(s for s in self if var in s)
+
     def changed(self):
         return any(s.changed() for s in self)
 
