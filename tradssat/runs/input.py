@@ -1,5 +1,6 @@
 import numpy as np
 from tradssat.exper.exper_vars import TRT_HEAD, GENERAL
+from tradssat.runs.exp_mgr import _level_codes
 
 from .exp_mgr import ExpFileMgr
 from .gen_mgr import PeriphGenMgr
@@ -22,22 +23,6 @@ _factor_codes = {
     'SM': 'SIMULATION CONTROLS'
 }
 
-_level_codes = {
-    'CU': 'C',
-    'FL': 'L',
-    'SA': 'A',
-    'IC': 'C',
-    'MP': 'P',
-    'MI': 'I',
-    'MF': 'F',
-    'MR': 'R',
-    'MC': 'C',
-    'MT': 'T',
-    'ME': 'E',
-    'MH': 'H',
-    'SM': 'N'
-}
-
 _factor_to_code = {fct: cd for cd, fct in _factor_codes}
 
 
@@ -52,7 +37,7 @@ def _valid_factor(factor):
 
 
 class DSSATRun(object):
-    def __init__(self, file):
+    def __init__(self, file, model=None):
         self.file = file
         self.exp = ExpFileMgr(file)
 
@@ -60,12 +45,12 @@ class DSSATRun(object):
 
         self.soil = PeriphSoilMgr(self.exp.get_file_val('ID_SOIL'), trts)
         self.weather = PeriphWeatherMgr(self.exp.get_file_val('WSTA'), treatments=trts)
-        self.genetics = PeriphGenMgr(self.exp.get_file_val('CR'), self.exp.get_file_val('INGENO'), trts)
+        self.genetics = PeriphGenMgr(self.exp.get_file_val('CR'), self.exp.get_file_val('INGENO'), trts, model)
 
         self.check()
 
     def get_general_val(self, var):
-        self.exp.get_file_val(var, sect=GENERAL)
+        return self.exp.get_file_val(var, sect=GENERAL)
 
     def set_general_val(self, var, val):
         self.exp.set_file_val(var, val, sect=GENERAL)

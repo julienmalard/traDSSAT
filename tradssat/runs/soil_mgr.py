@@ -1,6 +1,7 @@
 import os
 
-from tradssat import SoilFile, config
+from tradssat import SoilFile
+from .mgr import get_dssat_subdir
 
 
 class PeriphSoilMgr(object):
@@ -18,11 +19,11 @@ class PeriphSoilMgr(object):
 class SoilMgr(object):
     def __init__(self, code):
 
-        soils_dir = os.path.join(config['DSSAT_DIR'], 'Soil')
+        soils_dir = get_dssat_subdir('Soil')
 
         for f in os.listdir(soils_dir):
             if SoilFile.matches_file(f):
-                file = SoilFile(f)
+                file = SoilFile(os.path.join(soils_dir, f))
 
                 if code in file:
                     self.file = file

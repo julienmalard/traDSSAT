@@ -1,5 +1,6 @@
 import json
 from copy import deepcopy
+import os
 
 import numpy as np
 from chardet import UniversalDetector
@@ -51,3 +52,17 @@ def detect_encod(file):
     detector.close()
 
     return detector.result['encoding']
+
+
+config = {'DSSAT_DIR': None}
+
+
+def set_dssat_dir(dssat_dir):
+    if os.path.isdir(dssat_dir):
+        config['DSSAT_DIR'] = dssat_dir
+    else:
+        raise FileNotFoundError(dssat_dir)
+
+
+def get_dssat_dir():
+    return config['DSSAT_DIR']

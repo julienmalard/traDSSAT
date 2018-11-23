@@ -157,6 +157,9 @@ class File(object):
                 )
         return final_names
 
+    def __contains__(self, item):
+        return item in self.variables()
+
     def _get_var_info(self):
         """
         Return a dictionary of variable information.

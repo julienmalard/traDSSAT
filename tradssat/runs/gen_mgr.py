@@ -1,15 +1,18 @@
 import os
 
 import numpy as np
-from tradssat import CULFile, ECOFile, config
+from tradssat import CULFile, ECOFile
+from .mgr import get_dssat_subdir
 
 
 class PeriphGenMgr(object):
-    def __init__(self, crops, cultivars, treatments):
+    def __init__(self, crops, cultivars, treatments, model=None):
         self.crops = crops
         self.cultivars = cultivars
 
-        self.files = {trt: GeneticMgr(crp, cult) for trt, crp, cult in zip(treatments, crops, cultivars)}
+        self.files = {
+            trt: GeneticMgr(get_model(crp, model), cult) for trt, crp, cult in zip(treatments, crops, cultivars)
+        }
 
     def get_val(self, var, trt):
         return self.files[trt].get_val(var)
@@ -23,13 +26,15 @@ class GeneticMgr(object):
         self.crop = crop
         self.cult = cult
 
+        geno_dir = get_dssat_subdir('Genotype')
+
         self.eco_file = self.cult_file = None
-        for f in os.listdir(config['DSSAT_DIR']):
+        for f in os.listdir(geno_dir):
             name = os.path.split(f)[1]
             if CULFile.matches_file(name) and name.startswith(self.crop):
-                self.cult_file = CULFile(f)
+                self.cult_file = CULFile(os.path.join(geno_dir, f))
             elif ECOFile.matches_file(name) and name.startswith(self.crop):
-                self.eco_file = ECOFile(self.crop)
+                self.eco_file = ECOFile(os.path.join(geno_dir, f))
 
             if self.eco_file is not None and self.cult_file is not None:
                 break
@@ -59,3 +64,51 @@ class GeneticMgr(object):
             return self.eco_file.set_val(var, val)
         else:
             raise ValueError('No genetic variable named "{}" was found.'.format(var))
+
+_crop_models = {
+    'AL': ['ALFRM'],
+    'BA': ['BACER', 'BACRP'],
+    'BH': ['BHGRO'],
+    'BM': ['BMFRM', 'BMGRO'],
+    'BN': ['BNGRO'],
+    'BR': ['BRFRM', 'BRGRO'],
+    'BS': ['BSCER'],
+    'CB': ['CBGRO'],
+    'CH': ['CHGRO'],
+    'CN': ['CNGRO'],
+    'CO': ['COGRO'],
+    'CP': ['CPGRO'],
+    'CS': ['CSCAS', 'CSYCA'],
+    'FB': ['FBGRO'],
+    'G0': ['G0GRO'],
+    'GB': ['GBGRO'],
+    'ML': ['MLCER'],
+    'MZ': ['MZCER', 'MZIXM'],
+    'PI': ['PIALO'],
+    'PN': ['PNGRO'],
+    'PP': ['PPGRO'],
+    'PR': ['PRGRO'],
+    'PT': ['PTSUB'],
+    'RI': ['RICER', 'RIORZ'],
+    'SB': ['SBGRO'],
+    'SC': ['SCCAN', 'SCCSP'],
+    'SF': ['SFGRO'],
+    'SG': ['SGCER'],
+    'SU': ['SUGRO'],
+    'SW': ['SWCER'],
+    'TM': ['TMGRO'],
+    'TN': ['TNARO'],
+    'VB': ['VBGRO'],
+    'WH': ['WHAPS', 'WHCER', 'WHCRP']
+}
+
+
+def get_model(crop, mod):
+    try:
+        m = _crop_models[crop]
+    except KeyError:
+        raise ValueError('No model defined for crop "{}" in traDSSAT.'.format(crop))
+    if mod in m:
+        return mod
+    else:
+        return m[0]

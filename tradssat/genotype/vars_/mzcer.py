@@ -41,5 +41,22 @@ cul_vars_MZCER = {
 }
 
 eco_vars_MZCER = {
+    CharacterVar('ECO#', 6, spc=0, info='Code for the ecotype to which a cultivar belongs (see *.cul file)'),
+    CharacterVar('ECONAME', 17, header_fill='.', info='Name of the ecotype, which is referenced from *.CUL file'),
+    FloatVar('TBASE', 5, 1, info='Base temperature below which no development occurs, C'),
+    FloatVar('TOPT', 5, 1, info='Temperature at which maximum development rate occurs during vegetative stages, C'),
+    FloatVar('ROPT', 5, 1, info='Temperature at which maximum development rate occurs for reproductive stages, C'),
+    FloatVar('P20', 5, 1, info='Daylength below which daylength does not affect development rate, hours'),
+    FloatVar(
+        'DJTI', 5, 1,
+        info='Minimum days from end of juvenile stage to tassel initiation if the cultivar is not photoperiod '
+             'sensitive, days'
+    ),
+    FloatVar('GDDE', 5, 1, info='Growing degree days per cm seed depth required for emergence, GDD/cm'),
+    FloatVar('DSGFT', 5, 0, info='GDD from silking to effective grain filling period, C'),
+    FloatVar('RUE', 5, 1, info='Radiation use efficiency, g plant dry matter/MJ PAR'),
+    FloatVar('KCAN', 5, 2, info='Canopy light extinction coefficient for daily PAR.'),
+    FloatVar('TSEN', 5, 2, info='Critical temperature below which leaf damage occurs (default 6°C)'),
 
+    FloatVar('CDAY', 5, 1, info='Number of cold days parameter (default 15.0 )'),
 }
