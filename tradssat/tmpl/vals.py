@@ -29,13 +29,13 @@ class FileValueSet(object):
         else:
             return next(s.get_val(var, subsect) for s in self if var in s)
 
-    def set_val(self, var, val, sect=None, subsect=None):
+    def set_val(self, var, val, sect=None, subsect=None, cond=None):
         if sect is not None:
-            self[sect].set_val(var, val, subsect)
+            self[sect].set_val(var, val, subsect, cond=cond)
         else:
             for s in self:
                 if var in s:
-                    s.set_val(var, val, subsect)
+                    s.set_val(var, val, subsect, cond=cond)
 
     def find_var_sect(self, var):
         return next(s for s in self if var in s)
@@ -87,13 +87,13 @@ class ValueSection(object):
             subsect = [subsect]
 
         for s in subsect:
-            sub = self._subsections[s]
+            sub = self[s]
             if var in sub:
                 val.append(sub[var])
 
         return np.array(val).flatten()
 
-    def set_val(self, var, val, subsect=None):
+    def set_val(self, var, val, subsect=None, cond=None):
 
         if subsect is None:
             subsect = range(len(self._subsections))
@@ -102,9 +102,13 @@ class ValueSection(object):
 
         success = False
         for s in subsect:
-            if var in s:
+            sub = self[s]
+            if var in sub:
                 success = True
-                s[var] = val
+                if cond is None:
+                    sub[var] = val
+                else:
+                    raise NotImplementedError
 
         if not success:
             raise ValueError('Variable "{}" not found.'.format(var))
@@ -118,6 +122,9 @@ class ValueSection(object):
 
     def __contains__(self, item):
         return any(item in s for s in self._subsections)
+
+    def __getitem__(self, item):
+        return self._subsections[item]
 
     def __setitem__(self, key, value):
         for subsect in self:

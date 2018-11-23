@@ -19,8 +19,8 @@ class InpFile(File):
             with open(file, 'w', encoding=self.encoding) as f:
                 f.writelines(l + "\n" for l in lines)
 
-    def set_val(self, var, val, sect=None, subsect=None):
-        self._values.set_val(var, val, sect=sect, subsect=subsect)
+    def set_val(self, var, val, sect=None, subsect=None, cond=None):
+        self._values.set_val(var, val, sect=sect, subsect=subsect, cond=cond)
 
     def changed(self):
         return self._values.changed()
