@@ -46,8 +46,8 @@ Piracicaba, SP. Brazil
 
 *FIELDS
 @L ID_FIELD WSTA....  FLSA  FLOB  FLDT  FLDD  FLDS  FLST SLTX  SLDP  ID_SOIL    FLNAME
- 1 BRPI0001 ACNM1301   -99     0 DR000     0     0 00000 -99    120  BRPI020001 RAINFED EXPERIMENT
- 2 BRPI0002 ACNM1301   -99     0 DR000     0     0 00000 -99    120  BRPI020002 IRRIGATED EXPERIMENT
+ 1 BRPI0001 ACNM1301   -99     0 DR000     0     0 00000 -99    120  SIAZ950001 RAINFED EXPERIMENT
+ 2 BRPI0002 ACNM1301   -99     0 DR000     0     0 00000 -99    120  SIAZ950002 IRRIGATED EXPERIMENT
 @L ...........XCRD ...........YCRD .....ELEV .............AREA .SLEN .FLWR .SLAS FLHST FHDUR
  1               0               0         0                 0     0     0     0   -99   -99
  2               0               0         0                 0     0     0     0   -99   -99
