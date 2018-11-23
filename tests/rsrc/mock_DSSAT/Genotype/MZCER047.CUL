@@ -231,9 +231,9 @@ GH0010 OBATAMPA             . IB0001 280.0 0.000 750.0 540.0  7.50 40.00
 !Obatanpa is low yielding (fertility constraints, or OPV)
 !Yield "trait" is 5% higher RUE, 5% higher G2, 5% higher G3
 
-GF0001 Base Garst808-wh403  . IB0001 250.0 0.500 730.0 800.0  7.80 38.90
-GF0101 Baseline 10%shorter  . IB0001 215.0 0.500 650.0 800.0  7.80 38.90
-GF0201 Baseline 10%longer   . IB0001 285.0 0.500 810.0 800.0  7.80 38.90
+GF0001 B Garst808wh403      . IB0001 250.0 0.500 730.0 800.0  7.80 38.90
+GF0101 Baseln10%shorter     . IB0001 215.0 0.500 650.0 800.0  7.80 38.90
+GF0201 Baseln 10%longer     . IB0001 285.0 0.500 810.0 800.0  7.80 38.90
 GF0301 Yield norm cycle     . IB0004 250.0 0.500 730.0 840.0  8.19 38.90
 GF0401 Yield 10%shorter     . IB0004 215.0 0.500 650.0 840.0  8.19 38.90
 GF0501 Yield 10%longer      . IB0004 285.0 0.500 810.0 840.0  8.19 38.90
