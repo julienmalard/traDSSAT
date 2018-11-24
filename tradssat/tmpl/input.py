@@ -1,4 +1,5 @@
 import os
+import re
 
 import numpy as np
 
@@ -7,6 +8,10 @@ from .file import File
 
 class InpFile(File):
     ext = None  # type: str
+
+    def __init__(self, file):
+        self._header_vars = self._get_header_vars()
+        super().__init__(file)
 
     def write(self, file, force=False, check=True):
         lines = []
@@ -27,10 +32,29 @@ class InpFile(File):
 
     def _process_section_header(self, lines):
 
-        section_name = lines[0][1:].strip()
-        self._values.add_section(section_name)
+        header_text = lines[0][1:].strip()
 
-        return section_name, lines[1:]
+        for txt, h_vars in self._header_vars.items():
+            match = _header_matches(txt, header_text)
+            if match is not False:
+                section_name = match.strip()
+                self._values.add_section(section_name)
+                header_text = header_text[len(match):]
+
+                for vr in h_vars:
+                    val = header_text[:vr.size].strip()
+                    header_text = header_text[vr.size:]
+                    self._values[section_name].add_header_var(vr, val)
+                return match, lines[1:]
+
+        self._values.add_section(header_text)
+        return header_text, lines[1:]
+
+    def _write_section_header(self):
+        pass
+
+    def _get_header_vars(self):
+        return {}
 
     @classmethod
     def matches_file(cls, file):
@@ -42,3 +66,14 @@ class InpFile(File):
 
     def _get_var_info(self):
         raise NotImplementedError
+
+
+def _header_matches(pattern, header):
+    if isinstance(pattern, re.Pattern):
+        m = re.match(pattern, header)
+        if m:
+            return m.group()
+        else:
+            return False
+    else:
+        return pattern if header.startswith(pattern) else False

@@ -1,6 +1,6 @@
 {
   "SOILS: Spain soils": [],
-  "SIAZ950001  SCS         L        80 Shallow loam": [
+  "SIAZ950001": [
     {
       "SITE": [
         "ZA"
@@ -138,7 +138,7 @@
       ]
     }
   ],
-  "SIAZ950002  SCS         L       150 Loam": [
+  "SIAZ950002": [
     {
       "SITE": [
         "ZA"

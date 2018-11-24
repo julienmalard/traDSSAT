@@ -1,6 +1,6 @@
 {
   "SOILS: General DSSAT Soil Input File": [],
-  "IB00000001  IBSNAT      SIC     210 DEFAULT - DEEP SILTY CLAY": [
+  "IB00000001": [
     {
       "SITE": [
         "Generic"
@@ -257,7 +257,7 @@
       ]
     }
   ],
-  "IB00000002  IBSNAT      SIC     150 DEFAULT - MEDIUM SILTY CLAY": [
+  "IB00000002": [
     {
       "SITE": [
         "Generic"
@@ -480,7 +480,7 @@
       ]
     }
   ],
-  "IB00000003  IBSNAT      SIC      60 DEFAULT - SHALLOW SILTY CLAY": [
+  "IB00000003": [
     {
       "SITE": [
         "Generic"
@@ -652,7 +652,7 @@
       ]
     }
   ],
-  "IB00000004  IBSNAT      SIL     210 DEFAULT - DEEP SILTY LOAM": [
+  "IB00000004": [
     {
       "SITE": [
         "Generic"
@@ -909,7 +909,7 @@
       ]
     }
   ],
-  "IB00000005  IBSNAT      SIL     150 DEFAULT - MEDIUM SILTY LOAM": [
+  "IB00000005": [
     {
       "SITE": [
         "Generic"
@@ -1132,7 +1132,7 @@
       ]
     }
   ],
-  "IB00000006  IBSNAT      SIL      60 DEFAULT - SHALLOW SILTY LOAM": [
+  "IB00000006": [
     {
       "SITE": [
         "Generic"
@@ -1304,7 +1304,7 @@
       ]
     }
   ],
-  "IB00000007  IBSNAT      SL      210 DEFAULT - DEEP SANDY LOAM": [
+  "IB00000007": [
     {
       "SITE": [
         "Generic"
@@ -1561,7 +1561,7 @@
       ]
     }
   ],
-  "IB00000008  IBSNAT      SL      150 DEFAULT - MEDIUM SANDY LOAM": [
+  "IB00000008": [
     {
       "SITE": [
         "Generic"

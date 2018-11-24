@@ -5,7 +5,12 @@ from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 TRT_HEAD = re.compile('TREATMENTS(\W+[-]+FACTOR LEVELS[-]+)?')
 GENERAL = 'GENERAL'
 
-vars_ = {
+header_vars = [
+    CharacterVar('EXPCODE', 10, info='Experiment identifier'),
+    CharacterVar('ENAME', 60, info='Experiment name')
+]
+
+main_vars = {
 
     # General
     CharacterVar('PEOPLE', 75, sect=GENERAL, info='Names of scientists'),
