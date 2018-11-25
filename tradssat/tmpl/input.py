@@ -1,8 +1,8 @@
 import os
-import re
 
-import numpy as np
 
+from .vals import ValueSubSection
+from .var import HeaderVariableSet
 from .file import File
 
 
@@ -10,7 +10,7 @@ class InpFile(File):
     ext = None  # type: str
 
     def __init__(self, file):
-        self._header_vars = self._get_header_vars()
+        self._header_vars = HeaderVariableSet(self._get_header_vars())
         super().__init__(file)
 
     def write(self, file, force=False, check=True):
@@ -19,7 +19,7 @@ class InpFile(File):
         write = force or file != self.file or self.changed()
 
         if write:
-            self._values.write(lines, self._var_info)
+            self._values.write(lines)
 
             with open(file, 'w', encoding=self.encoding) as f:
                 f.writelines(l + "\n" for l in lines)
@@ -30,28 +30,45 @@ class InpFile(File):
     def changed(self):
         return self._values.changed()
 
+    def get_var(self, var, sect=None):
+        try:
+            return super().get_var(var, sect=sect)
+        except ValueError:
+            return self._header_vars.get_var(var, sect=sect)
+
     def _process_section_header(self, lines):
 
         header_text = lines[0][1:].strip()
 
-        for txt, h_vars in self._header_vars.items():
-            match = _header_matches(txt, header_text)
-            if match is not False:
-                section_name = match.strip()
-                self._values.add_section(section_name)
-                header_text = header_text[len(match):]
+        match = self._header_vars.matches(header_text)
+        if match:
 
-                for vr in h_vars:
-                    val = header_text[:vr.size].strip()
-                    header_text = header_text[vr.size:]
-                    self._values[section_name].add_header_var(vr, val)
-                return match, lines[1:]
+            section_name = match.strip()
+            self._values.add_section(section_name)
+            header_text = header_text[len(match):]
 
-        self._values.add_section(header_text)
-        return header_text, lines[1:]
+            h_vars = self._header_vars.get_vars(match)
 
-    def _write_section_header(self):
-        pass
+            l_vals = []
+            for vr in h_vars:
+                size = vr.size + vr.spc
+                val = header_text[:size].strip()
+
+                matr = self._gen_empty_mtrx(str(vr), size=1)
+                matr[:] = val
+
+                l_vals.append(matr)
+
+                header_text = header_text[size:]
+
+            header_vars_subsect = ValueSubSection(h_vars, l_vals=l_vals)
+            self._values[section_name].set_header_vars(header_vars_subsect)
+
+            return match, lines[1:]
+
+        else:
+            self._values.add_section(header_text)
+            return header_text, lines[1:]
 
     def _get_header_vars(self):
         return {}
@@ -66,14 +83,3 @@ class InpFile(File):
 
     def _get_var_info(self):
         raise NotImplementedError
-
-
-def _header_matches(pattern, header):
-    if isinstance(pattern, re.Pattern):
-        m = re.match(pattern, header)
-        if m:
-            return m.group()
-        else:
-            return False
-    else:
-        return pattern if header.startswith(pattern) else False

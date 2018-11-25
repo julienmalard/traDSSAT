@@ -101,9 +101,9 @@ class File(object):
                     vl = CODE_MISS
                 d_vals[vr][i] = vl
 
-        subsect = ValueSubSection()
-        for vr in var_names:
-            subsect.set_value(vr, d_vals[vr])
+        l_vars = [self._var_info.get_var(vr, sect=section_name) for vr in var_names]
+        l_vals = [d_vals[vr] for vr in var_names]
+        subsect = ValueSubSection(l_vars, l_vals)
 
         self._values[section_name].add_subsection(subsect)
 

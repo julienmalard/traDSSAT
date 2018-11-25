@@ -11,10 +11,10 @@ class FileValueSet(object):
     def add_section(self, name):
         self._sections[name] = ValueSection(name)
 
-    def write(self, lines, var_info):
+    def write(self, lines):
 
         for s in self:
-            s.write(lines, var_info)
+            s.write(lines)
 
         lines.append('')
 
@@ -58,25 +58,28 @@ class ValueSection(object):
     def __init__(self, name):
         self.name = name
         self._subsections = []
-        self._header_vars = ValueSubSection()
+        self._header_vars = HeaderValues()
 
     def add_subsection(self, subsect):
         self._subsections.append(subsect)
 
-    def add_header_var(self, var, val):
-        self._header_vars.set_value(var, val)
+    def set_header_vars(self, h_vars):
+        self._header_vars.set_vars(h_vars)
 
-    def write(self, lines, var_info):
-        lines.append('*' + self.name)
+    def write(self, lines):
+        lines.append(self._write_header())
         for s in self:
-            s.write(lines, var_info, sect=self.name)
+            s.write(lines)
 
         lines.append('')
 
         return lines
 
     def to_dict(self):
-        return [subsect.to_dict() for subsect in self]
+        return {
+            'header vars': self._header_vars.to_dict(),
+            'main vars': [subsect.to_dict() for subsect in self]
+        }
 
     def get_val(self, var, subsect=None):
         val = []
@@ -114,7 +117,10 @@ class ValueSection(object):
             raise ValueError('Variable "{}" not found.'.format(var))
 
     def changed(self):
-        return any(s.changed for s in self)
+        return any(s.changed() for s in self)
+
+    def _write_header(self):
+        return '*' + self.name + self._header_vars.write()
 
     def __iter__(self):
         for s in self._subsections:
@@ -133,55 +139,104 @@ class ValueSection(object):
 
 
 class ValueSubSection(object):
-    def __init__(self):
-        self._values = {}
-        self.changed = False
+    def __init__(self, l_vars, l_vals):
+
+        self._vars = {str(vr): VariableValue(vr, vl) for vr, vl in zip(l_vars, l_vals)}
 
     def set_value(self, var, val):
-        if var not in self or (isinstance(val, np.ndarray) and (val.shape != self[var].shape)):
-            self._values[var] = np.array(val)
-            self.changed = True
-        else:
-            if val != self[var]:
-                self[var][:] = val
-                self.changed = True
+        self._vars[str(var)].set_value(val)
 
     def check_dims(self):
-        return len(np.unique([v.shape for v in self._values.values()])) == 1
+        return len(np.unique([v.size() for v in self._vars.values()])) == 1
 
-    def check_vals(self, var_info):
+    def check_vals(self):
         for vr in self:
-            var_info.get_var(vr).check_val(self[vr])
+            vr.check_val()
 
     def n_data(self):
         self.check_dims()
-        return self[list(self._values)[0]].size
+        return self[list(self._vars)[0]].size()
 
-    def write(self, lines, var_info, sect):
+    def write(self, lines):
         self.check_dims()
-        self.check_vals(var_info)
+        self.check_vals()
 
-        lines.append('@' + ''.join([var_info.get_var(vr, sect).write() for vr in self]))
+        lines.append('@' + ''.join([vr.write() for vr in self]))
         for i in range(self.n_data()):
-            line = ''.join([var_info.get_var(vr, sect).write(self[vr][i]) for vr in self])
+            line = ''.join([vr.write(i) for vr in self])
             lines.append(line)
-
-        self.changed = False
 
         return lines
 
     def to_dict(self):
-        return self._values
+        return {nm: vr.val for nm, vr in self._vars.items()}
+
+    def changed(self):
+        return any(v.changed for v in self)
 
     def __iter__(self):
-        for vr in self._values:
+        for vr in self._vars.values():
             yield vr
 
     def __contains__(self, item):
-        return item in self._values
+        return str(item) in self._vars
 
     def __getitem__(self, item):
-        return self._values[item]
+        return self._vars[str(item)]
 
     def __setitem__(self, key, value):
         self.set_value(key, value)
+
+
+class VariableValue(object):
+    def __init__(self, var, val):
+
+        self.changed = False
+
+        self.name = str(var)
+
+        self.var = var
+        self.val = val
+
+    def set_value(self, val):
+
+        if isinstance(val, np.ndarray) and (val.shape != self.val.shape):
+            self.val = np.array(val)
+            self.changed = True
+        else:
+            if np.any(val != self.val):
+                self.val[:] = val
+                self.changed = True
+
+    def size(self):
+        return self.val.size
+
+    def check_val(self):
+        self.var.check_val(self.val)
+
+    def write(self, i=None):
+        if i is None:
+            return self.var.write()
+        else:
+            self.changed = False
+            return self.var.write(self.val[i])
+
+
+class HeaderValues(object):
+    def __init__(self):
+        self._subsect = None
+
+    def set_vars(self, subsect):
+        self._subsect = subsect
+
+    def to_dict(self):
+        if self._subsect is None:
+            return []
+        else:
+            return self._subsect.to_dict()
+
+    def write(self):
+        if self._subsect is None:
+            return ''
+        else:
+            return ''.join([vr.write(0) for vr in self._subsect])

@@ -1,6 +1,6 @@
 {
   "SOILS: General DSSAT Soil Input File": {
-    "header vars": {},
+    "header vars": [],
     "main vars": []
   },
   "IB00000001": {
@@ -12,7 +12,7 @@
         "SIC"
       ],
       "SLDP": [
-        "210"
+        210.0
       ],
       "SLDESCRIP": [
         "DEFAULT - DEEP SILTY CLAY"
@@ -285,7 +285,7 @@
         "SIC"
       ],
       "SLDP": [
-        "150"
+        150.0
       ],
       "SLDESCRIP": [
         "DEFAULT - MEDIUM SILTY CLAY"
@@ -524,7 +524,7 @@
         "SIC"
       ],
       "SLDP": [
-        "60"
+        60.0
       ],
       "SLDESCRIP": [
         "DEFAULT - SHALLOW SILTY CLAY"
@@ -712,7 +712,7 @@
         "SIL"
       ],
       "SLDP": [
-        "210"
+        210.0
       ],
       "SLDESCRIP": [
         "DEFAULT - DEEP SILTY LOAM"
@@ -985,7 +985,7 @@
         "SIL"
       ],
       "SLDP": [
-        "150"
+        150.0
       ],
       "SLDESCRIP": [
         "DEFAULT - MEDIUM SILTY LOAM"
@@ -1224,7 +1224,7 @@
         "SIL"
       ],
       "SLDP": [
-        "60"
+        60.0
       ],
       "SLDESCRIP": [
         "DEFAULT - SHALLOW SILTY LOAM"
@@ -1412,7 +1412,7 @@
         "SL"
       ],
       "SLDP": [
-        "210"
+        210.0
       ],
       "SLDESCRIP": [
         "DEFAULT - DEEP SANDY LOAM"
@@ -1685,7 +1685,7 @@
         "SL"
       ],
       "SLDP": [
-        "150"
+        150.0
       ],
       "SLDESCRIP": [
         "DEFAULT - MEDIUM SANDY LOAM"

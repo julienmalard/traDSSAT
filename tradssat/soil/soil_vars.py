@@ -1,7 +1,6 @@
 from tradssat.tmpl.var import CharacterVar, FloatVar
 
 header_vars = [
-    CharacterVar('ID_SOIL', 10, spc=0, info='Identifier (Institute + Site + Year + Soil)'),
     CharacterVar('SLSOURCE', 11, spc=2, info='Source'),
     CharacterVar('SLTX', 5, info='Texture, code'),
     FloatVar('SLDP', 5, 0, info='Depth, cm'),

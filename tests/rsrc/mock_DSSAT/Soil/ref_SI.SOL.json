@@ -1,6 +1,6 @@
 {
   "SOILS: Spain soils": {
-    "header vars": {},
+    "header vars": [],
     "main vars": []
   },
   "SIAZ950001": {
@@ -12,7 +12,7 @@
         "L"
       ],
       "SLDP": [
-        "80"
+        80.0
       ],
       "SLDESCRIP": [
         "Shallow loam"
@@ -166,7 +166,7 @@
         "L"
       ],
       "SLDP": [
-        "150"
+        150.0
       ],
       "SLDESCRIP": [
         "Loam"

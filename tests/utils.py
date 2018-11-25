@@ -38,15 +38,7 @@ def test_read(inp_class, folder, testcase):
             dict_vars = inp_class(f).to_dict()
 
             ref = get_ref(f, dict_vars)
-
-            for sect, l_sect in ref.items():
-                for i, subsect in enumerate(l_sect):
-
-                    for var, val in subsect.items():
-                        if len(val):
-                            npt.assert_equal(dict_vars[sect][i][var], val, err_msg=f'{f}\n\t {sect}; var {var}')
-                        elif len(dict_vars[sect][i][var]):
-                            raise ValueError
+            _test_dicts_equal(tc=testcase, act=dict_vars, ref=ref, f=f)
 
 
 def test_write(inp_class, folder, testcase):
@@ -85,7 +77,8 @@ def _test_dicts_equal(tc, act, ref, f, keys=None):
             _test_dicts_equal(tc=tc, act=a, ref=r, f=f, keys=keys)
             keys[:] = keys[:-1]
     elif isinstance(act, np.ndarray):
-        npt.assert_equal(actual=act, desired=ref, err_msg=_f_loc(f, keys))
+        if not len(act) == len(ref) == 0:  # skip empty arrays (which may have inferred different types)
+            npt.assert_equal(actual=act, desired=ref, err_msg=_f_loc(f, keys))
 
 
 def _f_loc(f, keys):

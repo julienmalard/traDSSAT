@@ -2,6 +2,7 @@ import re
 
 import numpy as np
 
+from .utils import _name_matches
 
 CODE_MISS = -99
 
@@ -122,17 +123,9 @@ class VariableSet(object):
 
     def get_var(self, var, sect=None):
 
-        def match(vr_sect, target_sect):
-            if None in [vr_sect, target_sect]:
-                return True
-            elif isinstance(vr_sect, re.Pattern):
-                return re.fullmatch(vr_sect, target_sect)
-            else:
-                return target_sect == vr_sect
-
         try:
             return next(
-                vr for vr in self._vars if str(vr) == var and match(vr.sect, sect)
+                vr for vr in self._vars if str(vr) == var and _name_matches(vr.sect, sect, full=True)
             )
         except StopIteration:
             if sect is None:
@@ -146,3 +139,25 @@ class VariableSet(object):
 
     def __contains__(self, item):
         return any(str(vr) == str(item) for vr in self._vars)
+
+
+class HeaderVariableSet(object):
+    def __init__(self, d_vars):
+        self._vars = d_vars
+
+    def matches(self, header):
+        for hd in self._vars:
+            match = _name_matches(hd, header)
+            if match is not None:
+                return match
+
+    def get_vars(self, header):
+        return next(self._vars[hd] for hd in self._vars if _name_matches(hd, header))
+
+    def get_var(self, var, sect=None):
+        try:
+            return next(
+                vr for hd, vrs in self._vars.items() for vr in vrs if _name_matches(hd, sect) and var == str(vr)
+            )
+        except StopIteration:
+            raise ValueError('Variable {var} does not exist.'.format(var=var))
