@@ -67,17 +67,17 @@ class File(object):
     def get_var(self, var, sect=None):
         return self._var_info.get_var(var, sect)
 
-    def get_val(self, var, sect=None, subsect=None):
-        return self._values.get_val(var, sect=sect, subsect=subsect)
+    def get_val(self, var, sect=None, subsect=None, cond=None):
+        return self._values.get_val(var, sect=sect, subsect=subsect, cond=cond)
 
     def get_dims_val(self, var):
         return self.get_val(var).shape
 
     def find_var_sect(self, var):
-        self._values.find_var_sect(var)
+        return self._values.find_var_sect(var)
 
     def variables(self):
-        return list(self._var_info.variables())
+        return list(str(vr) for vr in self._var_info.variables())
 
     def to_dict(self):
         return self._values.to_dict()
@@ -158,7 +158,7 @@ class File(object):
         return final_names
 
     def __contains__(self, item):
-        return item in self.variables()
+        return item in self._values
 
     def _get_var_info(self):
         """

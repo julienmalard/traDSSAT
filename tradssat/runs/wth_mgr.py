@@ -15,6 +15,9 @@ class PeriphWeatherMgr(PeriphFileMgr):
     def set_val(self, var, val, trt):
         self.files[trt].set_val(var, val)
 
+    def variables(self):
+        return {str(vr) for f in self.files.values() for vr in f.variables()}
+
 
 class WeatherFileMgr(object):
 
@@ -32,3 +35,9 @@ class WeatherFileMgr(object):
                         break
         if self.file is None:
             raise ValueError('No weather file found matching "{}".'.format(code))
+
+    def get_val(self, var):
+        return self.file.get_val(var)
+
+    def variables(self):
+        return self.file.variables()

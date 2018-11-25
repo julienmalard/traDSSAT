@@ -23,11 +23,11 @@ class FileValueSet(object):
     def to_dict(self):
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
-    def get_val(self, var, sect=None, subsect=None):
+    def get_val(self, var, sect=None, subsect=None, cond=None):
         if sect is not None:
-            return self[sect].get_val(var, subsect)
+            return self[sect].get_val(var, subsect, cond=cond)
         else:
-            return next(s.get_val(var, subsect) for s in self if var in s)
+            return next(s.get_val(var, subsect, cond=cond) for s in self if var in s)
 
     def set_val(self, var, val, sect=None, subsect=None, cond=None):
         if sect is not None:
@@ -38,7 +38,7 @@ class FileValueSet(object):
                     s.set_val(var, val, subsect, cond=cond)
 
     def find_var_sect(self, var):
-        return next(s for s in self if var in s)
+        return next(s.name for s in self if var in s)
 
     def changed(self):
         return any(s.changed() for s in self)
@@ -46,6 +46,9 @@ class FileValueSet(object):
     def __iter__(self):
         for s in self._sections.values():
             yield s
+
+    def __contains__(self, item):
+        return item in self._sections
 
     def __getitem__(self, item):
         if isinstance(item, re.Pattern):
@@ -81,18 +84,26 @@ class ValueSection(object):
             'main vars': [subsect.to_dict() for subsect in self]
         }
 
-    def get_val(self, var, subsect=None):
-        val = []
+    def get_val(self, var, subsect=None, cond=None):
 
         if subsect is None:
             subsect = range(len(self._subsections))
         elif isinstance(subsect, int):
             subsect = [subsect]
 
+        if cond is None:
+            cond = {}
+        req_vars = {var, *cond}
+
+        val = []
         for s in subsect:
             sub = self[s]
-            if var in sub:
-                val.append(sub[var])
+            if all(vr in sub for vr in req_vars):
+
+                filter_ = np.all(
+                    [sub[vr].val == vl for vr, vl in cond.items()], axis=0
+                )
+                val.append(sub[var].val[filter_])
 
         return np.array(val).flatten()
 

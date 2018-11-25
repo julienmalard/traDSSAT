@@ -1,6 +1,5 @@
 from tradssat import ExpFile
 from tradssat.exper.exper_vars import TRT_HEAD
-
 from .mgr import PeriphFileMgr
 
 
@@ -28,13 +27,13 @@ class ExpFileMgr(PeriphFileMgr):
         self.file.remove_row(sect=sect, subsect=subsect, cond=cond)
 
     def find_var_sect(self, var):
-        self.file.find_var_sect(var)
+        return self.file.find_var_sect(var)
 
     def get_val(self, var, level):
         sect = self.file.find_var_sect(var)
-        lv_cd = _level_codes[sect]
+        lv_cd = _level_codes[_factor_to_code[sect]]
 
-        self.file.get_val(var, sect=sect, cond={lv_cd: level})
+        return self.file.get_val(var, sect=sect, cond={lv_cd: level})
 
     def set_val(self, var, val, level):
         sect = self.file.find_var_sect(var)
@@ -61,3 +60,19 @@ _level_codes = {
     'MH': 'H',
     'SM': 'N'
 }
+_factor_codes = {
+    'CU': 'CULTIVARS',
+    'FL': 'FIELDS',
+    'SA': 'SOIL ANALYSIS',
+    'IC': 'INITIAL CONDITIONS',
+    'MP': 'PLANTING DETAILS',
+    'MI': 'IRRIGATION AND WATER MANAGEMENT',
+    'MF': 'FERTILIZERS (INORGANIC)',
+    'MR': 'RESIDUES AND ORGANIC FERTILIZER',
+    'MC': 'CHEMICAL APPLICATIONS',
+    'MT': 'TILLAGE AND ROTATIONS',
+    'ME': 'ENVIRONMENT MODIFICATIONS',
+    'MH': 'HARVEST DETAILS',
+    'SM': 'SIMULATION CONTROLS'
+}
+_factor_to_code = {fct: cd for cd, fct in _factor_codes.items()}

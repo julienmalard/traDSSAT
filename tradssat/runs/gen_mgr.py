@@ -1,11 +1,12 @@
 import os
 
 import numpy as np
+
 from tradssat import CULFile, ECOFile
-from .mgr import get_dssat_subdir
+from .mgr import get_dssat_subdir, PeriphFileMgr
 
 
-class PeriphGenMgr(object):
+class PeriphGenMgr(PeriphFileMgr):
     def __init__(self, crops, cultivars, treatments, model=None):
         self.crops = crops
         self.cultivars = cultivars
@@ -19,6 +20,9 @@ class PeriphGenMgr(object):
 
     def set_val(self, var, val, trt):
         return self.files[trt].set_val(var, val)
+
+    def variables(self):
+        return {str(vr) for f in self.files.values() for vr in f.variables()}
 
 
 class GeneticMgr(object):
@@ -52,7 +56,7 @@ class GeneticMgr(object):
     def get_val(self, var):
         if var in self.cult_file.variables():
             return self.cult_file.get_val(var)
-        elif var in self.eco_file.variables():
+        elif self.eco_file is not None and var in self.eco_file.variables():
             return self.eco_file.get_val(var)
         else:
             raise ValueError('No genetic variable named "{}" was found.'.format(var))
@@ -60,10 +64,18 @@ class GeneticMgr(object):
     def set_val(self, var, val):
         if var in self.cult_file.variables():
             return self.cult_file.set_val(var, val)
-        elif var in self.eco_file.variables():
+        elif self.eco_file is not None and var in self.eco_file.variables():
             return self.eco_file.set_val(var, val)
         else:
             raise ValueError('No genetic variable named "{}" was found.'.format(var))
+
+    def variables(self):
+        vars_ = {*self.cult_file.variables()}
+        if self.eco_file is not None:
+            vars_.update(self.eco_file.variables())
+
+        return vars_
+
 
 _crop_models = {
     'AL': ['ALFRM'],

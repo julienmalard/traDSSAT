@@ -1,32 +1,14 @@
 import numpy as np
 from tradssat.exper.exper_vars import TRT_HEAD, GENERAL
-from tradssat.runs.exp_mgr import _level_codes
+from tradssat.runs.exp_mgr import _level_codes, _factor_codes, _factor_to_code
 
 from .exp_mgr import ExpFileMgr
 from .gen_mgr import PeriphGenMgr
 from .soil_mgr import PeriphSoilMgr
 from .wth_mgr import PeriphWeatherMgr
 
-_factor_codes = {
-    'CU': 'CULTIVARS',
-    'FL': 'FIELDS',
-    'SA': 'SOIL ANALYSIS',
-    'IC': 'INITIAL CONDITIONS',
-    'MP': 'PLANTING DETAILS',
-    'MI': 'IRRIGATION AND WATER MANAGEMENT',
-    'MF': 'FERTILIZERS (INORGANIC)',
-    'MR': 'RESIDUES AND ORGANIC FERTILIZER',
-    'MC': 'CHEMICAL APPLICATIONS',
-    'MT': 'TILLAGE AND ROTATIONS',
-    'ME': 'ENVIRONMENT MODIFICATIONS',
-    'MH': 'HARVEST DETAILS',
-    'SM': 'SIMULATION CONTROLS'
-}
 
-_factor_to_code = {fct: cd for cd, fct in _factor_codes}
-
-
-def _valid_factor(factor):
+def _valid_factor(factor, code=True):
     if factor in _factor_codes:
         return factor
     else:
@@ -92,7 +74,7 @@ class DSSATRun(object):
         trt_nums = self.treatments()
         levels = self.exp.get_file_val(factor, sect=TRT_HEAD)
 
-        return levels[trt_nums == trt]
+        return levels[trt_nums == trt][0]
 
     def set_treatment_factor_level(self, trt, factor, level):
         factor = _valid_factor(factor)
@@ -132,9 +114,10 @@ class DSSATRun(object):
 
     def n_factor_levels(self, factor):
         factor = _valid_factor(factor)
+        factor_name = _factor_codes[factor]
         lv_var = _level_codes[factor]
 
-        levels = self.exp.get_file_val(lv_var, sect=factor)
+        levels = self.exp.get_file_val(lv_var, sect=factor_name)
 
         return np.unique(levels)
 
@@ -142,7 +125,7 @@ class DSSATRun(object):
         nums = self.treatments()
         names = self.treatments(name=True)
 
-        return names[np.where(nums == n)]
+        return names[np.where(nums == n)][0]
 
     def get_trt_num(self, trt):
         nums = self.treatments()
@@ -187,10 +170,10 @@ class DSSATRun(object):
 
         for i, t in enumerate(trt):
             if isinstance(t, str):
-                trt[i] = self.get_trt_num(t)
+                trt[i] = self.get_trt_num(t)[0]
 
             elif t not in self.treatments():
-                raise ValueError(t)
+                raise ValueError('Treatment "{t}" not found.'.format(t=t))
 
         return trt
 
