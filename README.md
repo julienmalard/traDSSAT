@@ -3,7 +3,7 @@ TraDSSAT is a library to easily read and write DSSAT input and output files.
 
 ## Status
 [![Build Status](https://travis-ci.org/julienmalard/traDSSAT.svg?branch=master)](https://travis-ci.org/julienmalard/traDSSAT)
-[![Coverage Status](https://coveralls.io/repos/github/julienmalard/traDSSAT/badge.svg?branch=master&service=github)](https://coveralls.io/github/julienmalard/traDSSAT?branch=master)
+[![codecov](https://codecov.io/gh/julienmalard/traDSSAT/branch/master/graph/badge.svg)](https://codecov.io/gh/julienmalard/traDSSAT)
 
 ## Installation
 `pip install tradssat`
