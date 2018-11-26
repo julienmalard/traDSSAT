@@ -9,6 +9,14 @@ from .vals import ValueSubSection
 class OutFile(File):
     filename = None  # type: str
 
+    def __init__(self, folder):
+        if os.path.isdir(folder):
+            file = os.path.join(folder, self.filename)
+        else:
+            file = folder
+
+        super().__init__(file)
+
     def _process_section_header(self, lines):
 
         section_name = lines[0][1:]
