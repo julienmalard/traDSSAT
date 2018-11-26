@@ -16,15 +16,14 @@ class PeriphGenMgr(PeriphFileMgr):
             lvl: GeneticMgr(_get_model(crp, model), cult) for lvl, crp, cult in zip(levels, crops, cultivars)
         }
 
-    def get_val(self, var, level):
-        return self.files[level].get_val(var)
+    def get_value(self, var, level):
+        return self.files[level].get_value(var)
 
-    def set_val(self, var, val, level):
-        return self.files[level].set_val(var, val)
+    def set_value(self, var, val, level):
+        return self.files[level].set_value(var, val)
 
     def variables(self):
         return {str(vr) for f in self.files.values() for vr in f.variables()}
-
 
 
 class GeneticMgr(object):
@@ -49,26 +48,26 @@ class GeneticMgr(object):
         if self.cult_file is None:
             raise ValueError('No cultivar file (.CUL) found for crop "{}".'.format(self.crop))
 
-        eco_codes = self.cult_file.get_val('ECO#')
-        cult_codes = self.cult_file.get_val('VAR#')
+        eco_codes = self.cult_file.get_value('ECO#')
+        cult_codes = self.cult_file.get_value('VAR#')
         eco = eco_codes[cult_codes == self.cult]
 
-        self.eco_n = np.where(self.eco_file.get_val('ECO#') == eco)
+        self.eco_n = np.where(self.eco_file.get_value('ECO#') == eco)
         self.cult_n = np.where(cult_codes == cult)
 
-    def get_val(self, var):
+    def get_value(self, var):
         if var in self.cult_file.variables():
-            return self.cult_file.get_val(var, cond={'VAR#': self.cult})
+            return self.cult_file.get_value(var, cond={'VAR#': self.cult})
         elif self.eco_file is not None and var in self.eco_file.variables():
-            return self.eco_file.get_val(var)
+            return self.eco_file.get_value(var)
         else:
             raise ValueError('No genetic variable named "{}" was found.'.format(var))
 
-    def set_val(self, var, val):
+    def set_value(self, var, val):
         if var in self.cult_file.variables():
-            return self.cult_file.set_val(var, val)
+            return self.cult_file.set_value(var, val)
         elif self.eco_file is not None and var in self.eco_file.variables():
-            return self.eco_file.set_val(var, val)
+            return self.eco_file.set_value(var, val)
         else:
             raise ValueError('No genetic variable named "{}" was found.'.format(var))
 

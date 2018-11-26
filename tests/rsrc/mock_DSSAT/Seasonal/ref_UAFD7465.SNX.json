@@ -11,7 +11,7 @@
     "main vars": []
   },
   "GENERAL": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "PEOPLE": [
@@ -63,7 +63,7 @@
     ]
   },
   "TREATMENTS                        -------------FACTOR LEVELS------------": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "N": [
@@ -1042,7 +1042,7 @@
     ]
   },
   "CULTIVARS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -1061,7 +1061,7 @@
     ]
   },
   "FIELDS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "L": [
@@ -1139,7 +1139,7 @@
     ]
   },
   "SOIL ANALYSIS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "A": [
@@ -1196,7 +1196,7 @@
     ]
   },
   "INITIAL CONDITIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -1302,7 +1302,7 @@
     ]
   },
   "PLANTING DETAILS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "P": [
@@ -1405,11 +1405,11 @@
     ]
   },
   "IRRIGATION AND WATER MANAGEMENT": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "I": [
-          "1"
+          1
         ],
         "EFIR": [
           1.0
@@ -1438,21 +1438,21 @@
       },
       {
         "I": [
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1"
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
         ],
         "IDATE": [
           74186,
@@ -1509,7 +1509,7 @@
     ]
   },
   "FERTILIZERS (INORGANIC)": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "F": [
@@ -1852,7 +1852,7 @@
     ]
   },
   "RESIDUES AND ORGANIC FERTILIZER": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "R": [
@@ -1892,7 +1892,7 @@
     ]
   },
   "CHEMICAL APPLICATIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -1923,7 +1923,7 @@
     ]
   },
   "TILLAGE AND ROTATIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "T": [
@@ -1945,7 +1945,7 @@
     ]
   },
   "ENVIRONMENT MODIFICATIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "E": [
@@ -1985,7 +1985,7 @@
     ]
   },
   "HARVEST DETAILS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "H": [
@@ -2016,7 +2016,7 @@
     ]
   },
   "SIMULATION CONTROLS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "N": [

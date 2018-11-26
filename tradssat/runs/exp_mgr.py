@@ -9,16 +9,16 @@ class ExpFileMgr(PeriphFileMgr):
         self.file = ExpFile(file)
 
     def get_file_val(self, var, subsect=None, sect=None):
-        return self.file.get_val(var, subsect=subsect, sect=sect)
+        return self.file.get_value(var, subsect=subsect, sect=sect)
 
     def set_file_val(self, var, val, subsect=None, sect=None, cond=None):
-        self.file.set_val(var, val, sect=sect, subsect=subsect, cond=cond)
+        self.file.set_value(var, val, sect=sect, subsect=subsect, cond=cond)
 
     def get_trt_nums(self):
-        return self.file.get_val('N', sect=TRT_HEAD)
+        return self.file.get_value('N', sect=TRT_HEAD)
 
     def get_trt_names(self):
-        return self.file.get_val('TNAME', sect=TRT_HEAD)
+        return self.file.get_value('TNAME', sect=TRT_HEAD)
 
     def add_row(self, sect, subsect=None, vals=None):
         self.file.add_row(sect=sect, subsect=subsect, vals=vals)
@@ -29,17 +29,17 @@ class ExpFileMgr(PeriphFileMgr):
     def find_var_sect(self, var):
         return self.file.find_var_sect(var)
 
-    def get_val(self, var, level):
+    def get_value(self, var, level):
         sect = self.file.find_var_sect(var)
         lv_cd = _level_codes[_factor_to_code[sect]]
 
-        return self.file.get_val(var, sect=sect, cond={lv_cd: level})
+        return self.file.get_value(var, sect=sect, cond={lv_cd: level})
 
-    def set_val(self, var, val, level):
+    def set_value(self, var, val, level):
         sect = self.file.find_var_sect(var)
-        lv_cd = _level_codes[sect]
+        lv_cd = _level_codes[_factor_to_code[sect]]
 
-        self.file.set_val(var, val, sect=sect, cond={lv_cd: level})
+        self.file.set_value(var, val, sect=sect, cond={lv_cd: level})
 
     def variables(self):
         return self.file.variables()

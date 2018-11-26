@@ -1,7 +1,6 @@
 import os
 
 from tradssat.tmpl import InpFile
-
 from .vars_.alfrm import cul_vars_ALFRM, eco_vars_ALFRM
 from .vars_.bacer import cul_vars_BACER, eco_vars_BACER
 from .vars_.bacrp import cul_vars_BACRP, eco_vars_BACRP

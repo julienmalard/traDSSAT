@@ -23,19 +23,26 @@ class FileValueSet(object):
     def to_dict(self):
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
-    def get_val(self, var, sect=None, subsect=None, cond=None):
-        if sect is not None:
-            return self[sect].get_val(var, subsect, cond=cond)
-        else:
-            return next(s.get_val(var, subsect, cond=cond) for s in self if var in s)
+    def get_value(self, var, sect=None, subsect=None, cond=None):
 
-    def set_val(self, var, val, sect=None, subsect=None, cond=None):
+        if isinstance(sect, str):
+            return self[sect].get_value(var, subsect, cond=cond)
+        else:
+            if isinstance(sect, dict):
+                sects = [
+                    s for s in self if all(vr in s and np.all(s.get_header_var(vr) == vl) for vr, vl in sect.items())
+                ]
+            else:
+                sects = self._sections.values()
+            return next(s.get_value(var, subsect, cond=cond) for s in sects if var in s)
+
+    def set_value(self, var, val, sect=None, subsect=None, cond=None):
         if sect is not None:
-            self[sect].set_val(var, val, subsect, cond=cond)
+            self[sect].set_value(var, val, subsect, cond=cond)
         else:
             for s in self:
                 if var in s:
-                    s.set_val(var, val, subsect, cond=cond)
+                    s.set_value(var, val, subsect, cond=cond)
 
     def add_row(self, sect, subsect=None, vals=None):
         self[sect].add_row(subsect, vals)
@@ -75,6 +82,9 @@ class ValueSection(object):
     def set_header_vars(self, h_vars):
         self._header_vars.set_vars(h_vars)
 
+    def get_header_var(self, var):
+        return self._header_vars.get_value(var)
+
     def write(self, lines):
         lines.append(self._write_header())
         for s in self:
@@ -90,7 +100,7 @@ class ValueSection(object):
             'main vars': [subsect.to_dict() for subsect in self]
         }
 
-    def get_val(self, var, subsect=None, cond=None):
+    def get_value(self, var, subsect=None, cond=None):
 
         subsect = self._valid_subsects(subsect)
 
@@ -102,25 +112,25 @@ class ValueSection(object):
         for s in subsect:
             sub = self[s]
             if all(vr in sub for vr in req_vars):
-
                 filter_ = sub.filter_cond(cond)
                 val.append(sub[var].val[filter_])
 
         return np.array(val).flatten()
 
-    def set_val(self, var, val, subsect=None, cond=None):
+    def set_value(self, var, val, subsect=None, cond=None):
 
         subsect = self._valid_subsects(subsect)
+
+        if cond is None:
+            cond = {}
+        req_vars = {var, *cond}
 
         success = False
         for s in subsect:
             sub = self[s]
-            if var in sub:
+            if all(vr in sub for vr in req_vars):
                 success = True
-                if cond is None:
-                    sub[var] = val
-                else:
-                    raise NotImplementedError
+                sub.set_value(var, val, cond=cond)
 
         if not success:
             raise ValueError('Variable "{}" not found.'.format(var))
@@ -153,7 +163,7 @@ class ValueSection(object):
             yield s
 
     def __contains__(self, item):
-        return any(item in s for s in self._subsections)
+        return any(item in s for s in self._subsections) or item in self._header_vars
 
     def __getitem__(self, item):
         return self._subsections[item]
@@ -169,8 +179,9 @@ class ValueSubSection(object):
 
         self._vars = {str(vr): VariableValue(vr, vl) for vr, vl in zip(l_vars, l_vals)}
 
-    def set_value(self, var, val):
-        self._vars[str(var)].set_value(val)
+    def set_value(self, var, val, cond=None):
+        filter_ = self.filter_cond(cond)
+        self._vars[str(var)].set_value(val, i=filter_)
 
     def add_row(self, vals=None):
         if vals is None:
@@ -188,7 +199,7 @@ class ValueSubSection(object):
         if cond is None:
             cond = {}
         return np.all(
-            [self[vr].val == vl for vr, vl in cond.items()], axis=0
+            [self[vr] == vl for vr, vl in cond.items()], axis=0
         )
 
     def check_dims(self):
@@ -243,14 +254,19 @@ class VariableValue(object):
         self.var = var
         self.val = val
 
-    def set_value(self, val):
+    def set_value(self, val, i=None):
+        if i is None:
+            i = True
 
-        if isinstance(val, np.ndarray) and (val.shape != self.val.shape):
+        if isinstance(val, np.ndarray) and (val.shape != self.val[i].shape):
+            if i is not True:
+                raise ValueError('Cannot set value by index when shapes do not match.')
             self.val = np.array(val)
             self.changed = True
+
         else:
-            if np.any(val != self.val):
-                self.val[:] = val
+            if np.any(val != self.val[i]):
+                self.val[i] = val
                 self.changed = True
 
     def add_value(self, val):
@@ -277,6 +293,9 @@ class VariableValue(object):
             self.changed = False
             return self.var.write(self.val[i])
 
+    def __eq__(self, other):
+        return other == self.val
+
 
 class HeaderValues(object):
     def __init__(self):
@@ -284,6 +303,9 @@ class HeaderValues(object):
 
     def set_vars(self, subsect):
         self._subsect = subsect
+
+    def get_value(self, var):
+        return self._subsect[var].val
 
     def to_dict(self):
         if self._subsect is None:
@@ -296,3 +318,9 @@ class HeaderValues(object):
             return ''
         else:
             return ''.join([vr.write(0) for vr in self._subsect])
+
+    def __contains__(self, item):
+        if self._subsect is None:
+            return False
+        else:
+            return item in self._subsect

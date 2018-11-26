@@ -1,20 +1,20 @@
 language: python
 python:
-- "3.6"
+  - "3.6"
 os:
-- linux
+  - linux
 
 install:
-- pip install --upgrade pip setuptools wheel
-- pip install -r requirements.txt
-- pip install coveralls codecov
-- python setup.py sdist bdist_wheel
-- pip install tradssat --no-index --find-links=./dist
+  - pip install --upgrade pip setuptools wheel
+  - pip install -r requirements.txt
+  - pip install coveralls codecov
+  - python setup.py sdist bdist_wheel
+  - pip install tradssat --no-index --find-links=./dist
 
 script:
-- cd tests
-- coverage run -m unittest
+  - cd tests
+  - coverage run -m unittest
 
 after_success:
-- coveralls --rcfile=.coveragerc
-- codecov
+  - coveralls --rcfile=.coveragerc
+  - codecov

@@ -4,10 +4,10 @@ from tradssat import get_dssat_dir
 
 
 class PeriphFileMgr(object):
-    def get_val(self, var, level):
+    def get_value(self, var, level):
         raise NotImplementedError
 
-    def set_val(self, var, val, level):
+    def set_value(self, var, val, level):
         raise NotImplementedError
 
     def variables(self):

@@ -2,8 +2,8 @@ import os
 import re
 
 import numpy as np
-from tradssat.utils import detect_encod
 
+from tradssat.utils import detect_encod
 from .vals import FileValueSet, ValueSubSection
 from .var import VariableSet, CODE_MISS
 
@@ -67,11 +67,11 @@ class File(object):
     def get_var(self, var, sect=None):
         return self._var_info.get_var(var, sect)
 
-    def get_val(self, var, sect=None, subsect=None, cond=None):
-        return self._values.get_val(var, sect=sect, subsect=subsect, cond=cond)
+    def get_value(self, var, sect=None, subsect=None, cond=None):
+        return self._values.get_value(var, sect=sect, subsect=subsect, cond=cond)
 
     def get_dims_val(self, var):
-        return self.get_val(var).shape
+        return self.get_value(var).shape
 
     def add_row(self, sect, subsect=None, vals=None):
         self._values.add_row(sect, subsect, vals)

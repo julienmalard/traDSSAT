@@ -1,6 +1,6 @@
 import json
-from copy import deepcopy
 import os
+from copy import deepcopy
 
 import numpy as np
 from chardet import UniversalDetector

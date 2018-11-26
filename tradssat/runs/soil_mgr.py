@@ -9,11 +9,11 @@ class PeriphSoilMgr(object):
     def __init__(self, soils, levels):
         self.files = {lvls: SoilMgr(sl) for sl, lvls in zip(soils, levels)}
 
-    def get_val(self, var, level):
-        return self.files[level].get_val(var)
+    def get_value(self, var, level):
+        return self.files[level].get_value(var)
 
-    def set_val(self, var, val, level):
-        return self.files[level].set_val(var, val)
+    def set_value(self, var, val, level):
+        return self.files[level].set_value(var, val)
 
     def variables(self):
         return list({v for f in self.files.values() for v in f.variables()})
@@ -37,11 +37,11 @@ class SoilMgr(object):
         if self.file is None:
             raise ValueError('No soil file found for soil "{}".'.format(code))
 
-    def get_val(self, var):
-        return self.file.get_val(var, sect=self.code)
+    def get_value(self, var):
+        return self.file.get_value(var, sect=self.code)
 
-    def set_val(self, var, val):
-        return self.file.set_val(var, val, sect=self.code)
+    def set_value(self, var, val):
+        return self.file.set_value(var, val, sect=self.code)
 
     def variables(self):
         return self.file.variables()
