@@ -1,12 +1,12 @@
+import json
 import os
+from copy import deepcopy
 from json import JSONDecodeError
 from tempfile import NamedTemporaryFile
 from warnings import warn
 
 import numpy as np
 import numpy.testing as npt
-
-from tradssat.utils import read_json, write_json
 
 
 def find_files(inp_class, folder):
@@ -84,3 +84,26 @@ def _test_dicts_equal(tc, act, ref, f, keys=None):
 
 def _f_loc(f, keys):
     return '{}\n\t{}'.format(f, ': '.join(str(k) for k in keys))
+
+
+def write_json(obj, file):
+    obj = deepcopy(obj)
+    jsonify(obj)
+    with open(file, 'w', encoding='utf-8') as f:
+        json.dump(obj, f, indent=2, ensure_ascii=False)
+
+
+def read_json(file):
+    with open(file, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+
+def jsonify(d):
+    for k, v in d.items():
+        if isinstance(v, np.ndarray):
+            d[k] = v.tolist()
+        elif isinstance(v, dict):
+            jsonify(v)
+        elif isinstance(v, list):
+            for i in v:
+                jsonify(i)
