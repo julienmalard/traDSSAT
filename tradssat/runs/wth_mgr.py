@@ -9,11 +9,11 @@ class PeriphWeatherMgr(PeriphFileMgr):
     def __init__(self, codes, levels):
         self.files = {lvl: WeatherFileMgr(cd) for cd, lvl in zip(codes, levels)}
 
-    def get_val(self, var, level):
-        self.files[level].get_val(var)
+    def get_value(self, var, level):
+        self.files[level].get_value(var)
 
-    def set_val(self, var, val, level):
-        self.files[level].set_val(var, val)
+    def set_value(self, var, val, level):
+        self.files[level].set_value(var, val)
 
     def variables(self):
         return {str(vr) for f in self.files.values() for vr in f.variables()}
@@ -40,8 +40,8 @@ class WeatherFileMgr(object):
         if self.file is None:
             raise ValueError('No weather file found matching "{}".'.format(code))
 
-    def get_val(self, var):
-        return self.file.get_val(var)
+    def get_value(self, var):
+        return self.file.get_value(var)
 
     def variables(self):
         return self.file.variables()

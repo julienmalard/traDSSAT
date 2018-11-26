@@ -23,19 +23,19 @@ class FileValueSet(object):
     def to_dict(self):
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
-    def get_val(self, var, sect=None, subsect=None, cond=None):
+    def get_value(self, var, sect=None, subsect=None, cond=None):
         if sect is not None:
-            return self[sect].get_val(var, subsect, cond=cond)
+            return self[sect].get_value(var, subsect, cond=cond)
         else:
-            return next(s.get_val(var, subsect, cond=cond) for s in self if var in s)
+            return next(s.get_value(var, subsect, cond=cond) for s in self if var in s)
 
-    def set_val(self, var, val, sect=None, subsect=None, cond=None):
+    def set_value(self, var, val, sect=None, subsect=None, cond=None):
         if sect is not None:
-            self[sect].set_val(var, val, subsect, cond=cond)
+            self[sect].set_value(var, val, subsect, cond=cond)
         else:
             for s in self:
                 if var in s:
-                    s.set_val(var, val, subsect, cond=cond)
+                    s.set_value(var, val, subsect, cond=cond)
 
     def add_row(self, sect, subsect=None, vals=None):
         self[sect].add_row(subsect, vals)
@@ -90,7 +90,7 @@ class ValueSection(object):
             'main vars': [subsect.to_dict() for subsect in self]
         }
 
-    def get_val(self, var, subsect=None, cond=None):
+    def get_value(self, var, subsect=None, cond=None):
 
         subsect = self._valid_subsects(subsect)
 
@@ -102,25 +102,25 @@ class ValueSection(object):
         for s in subsect:
             sub = self[s]
             if all(vr in sub for vr in req_vars):
-
                 filter_ = sub.filter_cond(cond)
                 val.append(sub[var].val[filter_])
 
         return np.array(val).flatten()
 
-    def set_val(self, var, val, subsect=None, cond=None):
+    def set_value(self, var, val, subsect=None, cond=None):
 
         subsect = self._valid_subsects(subsect)
+
+        if cond is None:
+            cond = {}
+        req_vars = {var, *cond}
 
         success = False
         for s in subsect:
             sub = self[s]
-            if var in sub:
+            if all(vr in sub for vr in req_vars):
                 success = True
-                if cond is None:
-                    sub[var] = val
-                else:
-                    raise NotImplementedError
+                sub.set_value(var, val, cond=cond)
 
         if not success:
             raise ValueError('Variable "{}" not found.'.format(var))
@@ -169,8 +169,9 @@ class ValueSubSection(object):
 
         self._vars = {str(vr): VariableValue(vr, vl) for vr, vl in zip(l_vars, l_vals)}
 
-    def set_value(self, var, val):
-        self._vars[str(var)].set_value(val)
+    def set_value(self, var, val, cond=None):
+        filter_ = self.filter_cond(cond)
+        self._vars[str(var)].set_value(val, i=filter_)
 
     def add_row(self, vals=None):
         if vals is None:
@@ -188,7 +189,7 @@ class ValueSubSection(object):
         if cond is None:
             cond = {}
         return np.all(
-            [self[vr].val == vl for vr, vl in cond.items()], axis=0
+            [self[vr] == vl for vr, vl in cond.items()], axis=0
         )
 
     def check_dims(self):
@@ -243,14 +244,19 @@ class VariableValue(object):
         self.var = var
         self.val = val
 
-    def set_value(self, val):
+    def set_value(self, val, i=None):
+        if i is None:
+            i = True
 
-        if isinstance(val, np.ndarray) and (val.shape != self.val.shape):
+        if isinstance(val, np.ndarray) and (val.shape != self.val[i].shape):
+            if i is not True:
+                raise ValueError('Cannot set value by index when shapes do not match.')
             self.val = np.array(val)
             self.changed = True
+
         else:
-            if np.any(val != self.val):
-                self.val[:] = val
+            if np.any(val != self.val[i]):
+                self.val[i] = val
                 self.changed = True
 
     def add_value(self, val):
@@ -276,6 +282,9 @@ class VariableValue(object):
         else:
             self.changed = False
             return self.var.write(self.val[i])
+
+    def __eq__(self, other):
+        return other == self.val
 
 
 class HeaderValues(object):

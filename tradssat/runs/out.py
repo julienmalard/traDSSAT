@@ -13,7 +13,7 @@ class DSSATResults(object):
         for out_class in self._outfiles:
             self._outfiles[out_class] = out_class(self.folder)
 
-    def get_val(self, var, t=None, at='DOY', trt=None):
+    def get_value(self, var, t=None, at='DOY', trt=None):
 
         for c, f in self._outfiles.items():
 
@@ -25,9 +25,9 @@ class DSSATResults(object):
 
             if var in f:
                 if t is None:
-                    return f.get_val(var)
+                    return f.get_value(var)
                 else:
-                    return f.get_val(var, cond={at: t})
+                    return f.get_value(var, cond={at: t})
 
         raise ValueError('Output variable "{}" could not be found in any output file.'.format(var))
 

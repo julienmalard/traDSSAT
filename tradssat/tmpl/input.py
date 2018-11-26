@@ -1,9 +1,8 @@
 import os
 
-
+from .file import File
 from .vals import ValueSubSection
 from .var import HeaderVariableSet
-from .file import File
 
 
 class InpFile(File):
@@ -24,8 +23,8 @@ class InpFile(File):
             with open(file, 'w', encoding=self.encoding) as f:
                 f.writelines(l + "\n" for l in lines)
 
-    def set_val(self, var, val, sect=None, subsect=None, cond=None):
-        self._values.set_val(var, val, sect=sect, subsect=subsect, cond=cond)
+    def set_value(self, var, val, sect=None, subsect=None, cond=None):
+        self._values.set_value(var, val, sect=sect, subsect=subsect, cond=cond)
 
     def changed(self):
         return self._values.changed()

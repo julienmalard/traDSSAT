@@ -1,5 +1,3 @@
-import re
-
 import numpy as np
 
 from .utils import _name_matches

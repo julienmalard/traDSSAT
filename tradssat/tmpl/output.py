@@ -2,8 +2,8 @@ import os
 
 import numpy as np
 
-from .vals import ValueSubSection
 from .file import File
+from .vals import ValueSubSection
 
 
 class OutFile(File):
@@ -17,7 +17,7 @@ class OutFile(File):
         for l in lines:
             if 'TREATMENT' in l:
                 trt_no = l.split(' : ')[0].split()[1].strip()
-                subsect = ValueSubSection(['TREATMENT'], l_vals=[ np.array([trt_no], dtype=int)])
+                subsect = ValueSubSection(['TREATMENT'], l_vals=[np.array([trt_no], dtype=int)])
 
                 self._values[section_name].set_header_vars(subsect)
 

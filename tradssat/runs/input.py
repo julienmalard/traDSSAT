@@ -1,7 +1,7 @@
 import numpy as np
+
 from tradssat.exper.exper_vars import TRT_HEAD, GENERAL
 from tradssat.runs.exp_mgr import _level_codes, _factor_codes, _factor_to_code
-
 from .exp_mgr import ExpFileMgr
 from .gen_mgr import PeriphGenMgr
 from .soil_mgr import PeriphSoilMgr
@@ -81,7 +81,7 @@ class DSSATRun(object):
         }
         self.exp.add_row(sect=factor_name, vals=level_vals)
 
-    def get_treatment_factor_level(self, trt, factor):
+    def get_trt_factor_level(self, trt, factor):
         factor = _valid_factor(factor)
         trt = self._valid_trt(trt)
 
@@ -90,7 +90,7 @@ class DSSATRun(object):
 
         return levels[trt_nums == trt][0]
 
-    def set_treatment_factor_level(self, trt, factor, level):
+    def set_trt_factor_level(self, trt, factor, level):
         factor = _valid_factor(factor)
         trt = self._valid_trt(trt)
 
@@ -98,27 +98,27 @@ class DSSATRun(object):
 
     def get_factor_level_val(self, var, level):
         file = self._locate_var(var)
-        return file.get_val(var, level=level)
+        return file.get_value(var, level=level)
 
     def set_factor_level_val(self, var, val, level):
         file = self._locate_var(var)
-        file.set_val(var, val, level=level)
+        file.set_value(var, val, level=level)
 
     def get_trt_val(self, var, trt):
 
         var_loc = self._locate_var(var)
         factor = self._get_var_factor(var, var_loc)
-        level = self.get_treatment_factor_level(trt, factor)
+        level = self.get_trt_factor_level(trt, factor)
 
-        return var_loc.get_val(var, level)
+        return var_loc.get_value(var, level)
 
     def set_trt_val(self, var, val, trt):
 
         var_loc = self._locate_var(var)
         factor = self._get_var_factor(var, var_loc)
-        level = self.get_treatment_factor_level(trt, factor)
+        level = self.get_trt_factor_level(trt, factor)
 
-        var_loc.set_val(var, val, level)
+        var_loc.set_value(var, val, level)
 
     def treatments(self, name=False):
         if name:
@@ -133,7 +133,7 @@ class DSSATRun(object):
 
         levels = self.exp.get_file_val(lv_var, sect=factor_name)
 
-        return np.unique(levels)
+        return np.unique(levels).size
 
     def get_trt_name(self, n):
         nums = self.treatments()

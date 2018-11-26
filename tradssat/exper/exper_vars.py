@@ -145,7 +145,7 @@ main_vars = {
     CharacterVar('PLNAME', 35, info='Planting details level name'),
 
     # IRRIGATION AND WATER MANAGEMENT
-    CharacterVar('I', 2, spc=0, sect='IRRIGATION AND WATER MANAGEMENT', info='Irrigation level'),
+    IntegerVar('I', 2, spc=0, sect='IRRIGATION AND WATER MANAGEMENT', info='Irrigation level'),
     FloatVar('EFIR', 5, 1, info='Irrigation application efficiency, fraction'),
     FloatVar('IDEP', 5, 0, info='Management depth for automatic application, cm'),
     FloatVar('ITHR', 5, 0, info='Threshold for automatic appl., % of max. available'),
