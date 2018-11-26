@@ -11,7 +11,7 @@ class DSSATResults(object):
 
     def reload(self):
         for out_class in self._outfiles:
-            self._outfiles[out_class] = out_class(self.folder)
+            self._outfiles[out_class] = None
 
     def get_value(self, var, trt, t=None, at='YEAR DOY'):
 
