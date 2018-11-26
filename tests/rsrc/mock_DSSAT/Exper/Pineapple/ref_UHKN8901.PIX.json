@@ -11,7 +11,7 @@
     "main vars": []
   },
   "TREATMENTS                        -------------FACTOR LEVELS------------": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "N": [
@@ -144,7 +144,7 @@
     ]
   },
   "CULTIVARS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -163,7 +163,7 @@
     ]
   },
   "FIELDS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "L": [
@@ -232,7 +232,7 @@
     ]
   },
   "INITIAL CONDITIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -677,7 +677,7 @@
     ]
   },
   "PLANTING DETAILS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "P": [
@@ -789,11 +789,11 @@
     ]
   },
   "IRRIGATION AND WATER MANAGEMENT": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "I": [
-          "1"
+          1
         ],
         "EFIR": [
           1.0
@@ -822,30 +822,30 @@
       },
       {
         "I": [
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1"
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
         ],
         "IDATE": [
           89337,
@@ -929,7 +929,7 @@
     ]
   },
   "FERTILIZERS (INORGANIC)": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "F": [
@@ -1032,7 +1032,7 @@
     ]
   },
   "CHEMICAL APPLICATIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -1063,7 +1063,7 @@
     ]
   },
   "SIMULATION CONTROLS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "N": [

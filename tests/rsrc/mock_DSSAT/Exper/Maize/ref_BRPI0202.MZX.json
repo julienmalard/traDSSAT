@@ -11,7 +11,7 @@
     "main vars": []
   },
   "GENERAL": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "PEOPLE": [
@@ -51,7 +51,7 @@
     ]
   },
   "TREATMENTS                        -------------FACTOR LEVELS------------": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "N": [
@@ -238,7 +238,7 @@
     ]
   },
   "CULTIVARS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -269,7 +269,7 @@
     ]
   },
   "FIELDS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "L": [
@@ -370,7 +370,7 @@
     ]
   },
   "SOIL ANALYSIS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "A": [
@@ -427,7 +427,7 @@
     ]
   },
   "INITIAL CONDITIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -574,7 +574,7 @@
     ]
   },
   "PLANTING DETAILS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "P": [
@@ -629,11 +629,11 @@
     ]
   },
   "IRRIGATION AND WATER MANAGEMENT": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "I": [
-          "1"
+          1
         ],
         "EFIR": [
           0.9
@@ -662,36 +662,36 @@
       },
       {
         "I": [
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1",
-          "1"
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
         ],
         "IDATE": [
           2075,
@@ -793,7 +793,7 @@
     ]
   },
   "FERTILIZERS (INORGANIC)": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "F": [
@@ -884,7 +884,7 @@
     ]
   },
   "RESIDUES AND ORGANIC FERTILIZER": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "R": [
@@ -924,7 +924,7 @@
     ]
   },
   "SIMULATION CONTROLS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "N": [
