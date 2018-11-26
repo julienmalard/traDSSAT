@@ -6,17 +6,21 @@ from .mgr import PeriphFileMgr, get_dssat_subdir
 
 class PeriphWeatherMgr(PeriphFileMgr):
 
-    def __init__(self, codes, treatments):
-        self.files = {trt: WeatherFileMgr(cd) for cd, trt in zip(codes, treatments)}
+    def __init__(self, codes, levels):
+        self.files = {lvl: WeatherFileMgr(cd) for cd, lvl in zip(codes, levels)}
 
-    def get_val(self, var, trt):
-        self.files[trt].get_val(var)
+    def get_val(self, var, level):
+        self.files[level].get_val(var)
 
-    def set_val(self, var, val, trt):
-        self.files[trt].set_val(var, val)
+    def set_val(self, var, val, level):
+        self.files[level].set_val(var, val)
 
     def variables(self):
         return {str(vr) for f in self.files.values() for vr in f.variables()}
+
+    def write(self, force=False):
+        for f in self.files.values():
+            f.write(force)
 
 
 class WeatherFileMgr(object):

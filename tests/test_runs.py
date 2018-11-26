@@ -81,13 +81,26 @@ class TestRuns(unittest.TestCase):
     def test_set_trt_val(self):
         pass
 
-    @unittest.skip('not ready')
     def test_add_treatment(self):
-        pass
+        run = self._get_run()
+        name = 'Test treatment'
 
-    @unittest.skip('not ready')
+        run.add_treatment(name)
+
+        trts = run.treatments(name=True)
+        self.assertIn(name, trts)
+
     def test_remove_treatment(self):
-        pass
+        run = self._get_run()
+
+        i = 3
+        trts = run.treatments(name=True).tolist()
+        name = trts.pop(i)
+
+        run.remove_treatment(name)
+
+        new_trts = run.treatments(name=True).tolist()
+        self.assertLessEqual(new_trts, trts)
 
     @unittest.skip('not ready')
     def test_add_factor_level(self):

@@ -73,6 +73,12 @@ class File(object):
     def get_dims_val(self, var):
         return self.get_val(var).shape
 
+    def add_row(self, sect, subsect=None, vals=None):
+        self._values.add_row(sect, subsect, vals)
+
+    def remove_row(self, sect, subsect=None, cond=None):
+        self._values.remove_row(sect, subsect, cond)
+
     def find_var_sect(self, var):
         return self._values.find_var_sect(var)
 

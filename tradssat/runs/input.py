@@ -8,7 +8,7 @@ from .soil_mgr import PeriphSoilMgr
 from .wth_mgr import PeriphWeatherMgr
 
 
-def _valid_factor(factor, code=True):
+def _valid_factor(factor):
     if factor in _factor_codes:
         return factor
     else:
@@ -19,15 +19,21 @@ def _valid_factor(factor, code=True):
 
 
 class DSSATRun(object):
+
     def __init__(self, file, model=None):
         self.file = file
         self.exp = ExpFileMgr(file)
 
-        trts = self.exp.get_file_val('N', sect=TRT_HEAD)
+        field_levels = self.exp.get_file_val('L', sect='FIELDS')
+        self.soil = PeriphSoilMgr(self.exp.get_file_val('ID_SOIL'), field_levels)
+        self.weather = PeriphWeatherMgr(self.exp.get_file_val('WSTA'), levels=field_levels)
 
-        self.soil = PeriphSoilMgr(self.exp.get_file_val('ID_SOIL'), trts)
-        self.weather = PeriphWeatherMgr(self.exp.get_file_val('WSTA'), treatments=trts)
-        self.genetics = PeriphGenMgr(self.exp.get_file_val('CR'), self.exp.get_file_val('INGENO'), trts, model)
+        cult_levels = self.exp.get_file_val('C', sect='CULTIVARS')
+        crops = self.exp.get_file_val('CR')
+        cults = self.exp.get_file_val('INGENO')
+        self.genetics = PeriphGenMgr(crops, cults, cult_levels, model)
+
+        self.peripherals = [self.soil, self.weather, self.genetics]
 
         self.check()
 
@@ -37,19 +43,27 @@ class DSSATRun(object):
     def set_general_val(self, var, val):
         self.exp.set_file_val(var, val, sect=GENERAL)
 
-    def add_treatment(self, name, factors=None):
+    def add_treatment(self, name, ops=None, factors=None):
         if factors is None:
             factors = {}
+        if ops is None:
+            ops = {}
+
+        default_ops = {'R': 1, 'O': 0, 'C': 0}
+        default_ops.update(ops)
+
         factors = {_valid_factor(cd): vl for cd, vl in factors.items()}
 
         n = self.treatments().size + 1
         d_vals = {
             'N': n,
             'TNAME': name,
+            **default_ops,
             **{cd: 0 for cd in _factor_codes}
         }
         d_vals.update(factors)
-        self.exp.add_row(sect=TRT_HEAD, subsect=0, vals=factors)
+
+        self.exp.add_row(sect=TRT_HEAD, subsect=0, vals=d_vals)
 
     def remove_treatment(self, trt):
         if isinstance(trt, str):
@@ -155,7 +169,9 @@ class DSSATRun(object):
         if clean:
             self.clean()
 
-        # todo: peripheral files
+        for prph in self.peripherals:
+            prph.write(force=force)
+
         self.exp.file.write(file=file, force=force)
 
     def _valid_trt(self, trt):

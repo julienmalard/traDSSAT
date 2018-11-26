@@ -7,25 +7,28 @@ from .mgr import get_dssat_subdir, PeriphFileMgr
 
 
 class PeriphGenMgr(PeriphFileMgr):
-    def __init__(self, crops, cultivars, treatments, model=None):
+
+    def __init__(self, crops, cultivars, levels, model=None):
         self.crops = crops
         self.cultivars = cultivars
 
         self.files = {
-            trt: GeneticMgr(get_model(crp, model), cult) for trt, crp, cult in zip(treatments, crops, cultivars)
+            lvl: GeneticMgr(_get_model(crp, model), cult) for lvl, crp, cult in zip(levels, crops, cultivars)
         }
 
-    def get_val(self, var, trt):
-        return self.files[trt].get_val(var)
+    def get_val(self, var, level):
+        return self.files[level].get_val(var)
 
-    def set_val(self, var, val, trt):
-        return self.files[trt].set_val(var, val)
+    def set_val(self, var, val, level):
+        return self.files[level].set_val(var, val)
 
     def variables(self):
         return {str(vr) for f in self.files.values() for vr in f.variables()}
 
 
+
 class GeneticMgr(object):
+
     def __init__(self, crop, cult):
         self.crop = crop
         self.cult = cult
@@ -55,7 +58,7 @@ class GeneticMgr(object):
 
     def get_val(self, var):
         if var in self.cult_file.variables():
-            return self.cult_file.get_val(var)
+            return self.cult_file.get_val(var, cond={'VAR#': self.cult})
         elif self.eco_file is not None and var in self.eco_file.variables():
             return self.eco_file.get_val(var)
         else:
@@ -115,7 +118,7 @@ _crop_models = {
 }
 
 
-def get_model(crop, mod):
+def _get_model(crop, mod):
     try:
         m = _crop_models[crop]
     except KeyError:

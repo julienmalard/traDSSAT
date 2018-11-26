@@ -6,14 +6,14 @@ from .mgr import get_dssat_subdir
 
 class PeriphSoilMgr(object):
 
-    def __init__(self, soils, treatments):
-        self.files = {trt: SoilMgr(sl) for sl, trt in zip(soils, treatments)}
+    def __init__(self, soils, levels):
+        self.files = {lvls: SoilMgr(sl) for sl, lvls in zip(soils, levels)}
 
-    def get_val(self, var, trt):
-        return self.files[trt].get_val(var)
+    def get_val(self, var, level):
+        return self.files[level].get_val(var)
 
-    def set_val(self, var, val, trt):
-        return self.files[trt].set_val(var, val)
+    def set_val(self, var, val, level):
+        return self.files[level].set_val(var, val)
 
     def variables(self):
         return list({v for f in self.files.values() for v in f.variables()})

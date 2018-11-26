@@ -37,6 +37,12 @@ class FileValueSet(object):
                 if var in s:
                     s.set_val(var, val, subsect, cond=cond)
 
+    def add_row(self, sect, subsect=None, vals=None):
+        self[sect].add_row(subsect, vals)
+
+    def remove_row(self, sect, subsect=None, cond=None):
+        self[sect].remove_row(subsect, cond)
+
     def find_var_sect(self, var):
         return next(s.name for s in self if var in s)
 
@@ -86,10 +92,7 @@ class ValueSection(object):
 
     def get_val(self, var, subsect=None, cond=None):
 
-        if subsect is None:
-            subsect = range(len(self._subsections))
-        elif isinstance(subsect, int):
-            subsect = [subsect]
+        subsect = self._valid_subsects(subsect)
 
         if cond is None:
             cond = {}
@@ -100,19 +103,14 @@ class ValueSection(object):
             sub = self[s]
             if all(vr in sub for vr in req_vars):
 
-                filter_ = np.all(
-                    [sub[vr].val == vl for vr, vl in cond.items()], axis=0
-                )
+                filter_ = sub.filter_cond(cond)
                 val.append(sub[var].val[filter_])
 
         return np.array(val).flatten()
 
     def set_val(self, var, val, subsect=None, cond=None):
 
-        if subsect is None:
-            subsect = range(len(self._subsections))
-        elif isinstance(subsect, int):
-            subsect = [subsect]
+        subsect = self._valid_subsects(subsect)
 
         success = False
         for s in subsect:
@@ -127,11 +125,28 @@ class ValueSection(object):
         if not success:
             raise ValueError('Variable "{}" not found.'.format(var))
 
+    def add_row(self, subsect=None, vals=None):
+        subsect = self._valid_subsects(subsect)
+        for s in subsect:
+            self[s].add_row(vals)
+
+    def remove_row(self, subsect=None, cond=None):
+        subsect = self._valid_subsects(subsect)
+        for s in subsect:
+            self[s].remove_row(cond)
+
     def changed(self):
         return any(s.changed() for s in self)
 
     def _write_header(self):
         return '*' + self.name + self._header_vars.write()
+
+    def _valid_subsects(self, subsects):
+        if subsects is None:
+            subsects = range(len(self._subsections))
+        elif isinstance(subsects, int):
+            subsects = [subsects]
+        return subsects
 
     def __iter__(self):
         for s in self._subsections:
@@ -156,6 +171,25 @@ class ValueSubSection(object):
 
     def set_value(self, var, val):
         self._vars[str(var)].set_value(val)
+
+    def add_row(self, vals=None):
+        if vals is None:
+            vals = {}
+        for nm, vr in self._vars.items():
+            val = vals[nm] if nm in vals else vr.var.miss
+            vr.add_value(val)
+
+    def remove_row(self, cond=None):
+        filter_ = self.filter_cond(cond)
+        for vr in self._vars.values():
+            vr.remove_value(filter_)
+
+    def filter_cond(self, cond):
+        if cond is None:
+            cond = {}
+        return np.all(
+            [self[vr].val == vl for vr, vl in cond.items()], axis=0
+        )
 
     def check_dims(self):
         return len(np.unique([v.size() for v in self._vars.values()])) == 1
@@ -218,6 +252,17 @@ class VariableValue(object):
             if np.any(val != self.val):
                 self.val[:] = val
                 self.changed = True
+
+    def add_value(self, val):
+        self.val = np.append(self.val, val).astype(self.val.dtype)
+        self.changed = True
+
+    def remove_value(self, i):
+        if i.dtype == bool:
+            filter_ = i
+        else:
+            filter_ = np.isin(np.arange(self.size()), i)
+        self.val = self.val[~filter_]
 
     def size(self):
         return self.val.size

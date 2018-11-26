@@ -2,10 +2,10 @@ import os
 import unittest
 
 from tests.utils import test_read, test_write
-from tradssat import SoilFile, WTHFile, ExpFile, PlantGrowOut, CULFile, ECOFile
+from tradssat import SoilFile, WTHFile, ExpFile, PlantGrowOut  #, CULFile, ECOFile
 
 rsrcs = os.path.join(os.path.split(__file__)[0], 'rsrc/mock_DSSAT')
-input_classes = [SoilFile, WTHFile, CULFile, ECOFile, ExpFile]
+input_classes = [SoilFile, WTHFile, ExpFile]  #, CULFile, ECOFile]
 
 rsrcs_out = os.path.join(os.path.split(__file__)[0], 'rsrc/mock_DSSAT/Out')
 output_classes = [PlantGrowOut]
