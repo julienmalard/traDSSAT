@@ -57,10 +57,10 @@ class FileValueSet(object):
         return item in self._sections
 
     def __getitem__(self, item):
-        if isinstance(item, re.Pattern):
-            return next(s for s in self._sections.values() if re.match(item, s.name))
-        else:
+        if isinstance(item, str):
             return self._sections[item]
+        else:
+            return next(s for s in self._sections.values() if re.match(item, s.name))
 
 
 class ValueSection(object):
