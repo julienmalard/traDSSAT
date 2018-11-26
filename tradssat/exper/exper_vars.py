@@ -1,32 +1,40 @@
+import re
+
 from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 
-trt = 'TREATMENTS'
+TRT_HEAD = re.compile('TREATMENTS(\W+[-]+FACTOR LEVELS[-]+)?')
+GENERAL = 'GENERAL'
 
-vars_ = {
+header_vars = [
+    CharacterVar('EXPCODE', 10, info='Experiment identifier'),
+    CharacterVar('ENAME', 60, info='Experiment name')
+]
+
+main_vars = {
 
     # General
-    CharacterVar('PEOPLE', 75, info='Names of scientists'),
-    CharacterVar('ADDRESS', 75, info='Contact address of principal scientist'),
-    CharacterVar('SITE', 75, info='Name and location of experimental site(s)'),
+    CharacterVar('PEOPLE', 75, sect=GENERAL, info='Names of scientists'),
+    CharacterVar('ADDRESS', 75, sect=GENERAL, info='Contact address of principal scientist'),
+    CharacterVar('SITE', 75, sect=GENERAL, info='Name and location of experimental site(s)'),
 
-    FloatVar('PAREA', 6, 1, spc=3, info='Gross plot area per rep, m-2'),
-    IntegerVar('PRNO', 5, info='Rows per plot'),
-    FloatVar('PLEN', 5, 1, info='Plot length, m'),
-    IntegerVar('PLDR', 5, info='Plots relative to drains, degrees'),
-    IntegerVar('PLSP', 5, info='Plot spacing, cm'),
-    CharacterVar('PLAY', 5, info='Plot layout'),
-    FloatVar('HAREA', 5, 1, info='Harvest area, m-2'),
-    IntegerVar('HRNO', 5, info='Harvest row number'),
-    FloatVar('HLEN', 5, 1, info='Harvest row length, m'),
-    CharacterVar('HARM', 15, info='Harvest method'),
+    FloatVar('PAREA', 6, 1, sect=GENERAL, spc=3, info='Gross plot area per rep, m-2'),
+    IntegerVar('PRNO', 5, sect=GENERAL, info='Rows per plot'),
+    FloatVar('PLEN', 5, 1, sect=GENERAL, info='Plot length, m'),
+    IntegerVar('PLDR', 5, sect=GENERAL, info='Plots relative to drains, degrees'),
+    IntegerVar('PLSP', 5, sect=GENERAL, info='Plot spacing, cm'),
+    CharacterVar('PLAY', 5, sect=GENERAL, info='Plot layout'),
+    FloatVar('HAREA', 5, 1, sect=GENERAL, info='Harvest area, m-2'),
+    IntegerVar('HRNO', 5, sect=GENERAL, info='Harvest row number'),
+    FloatVar('HLEN', 5, 1, sect=GENERAL, info='Harvest row length, m'),
+    CharacterVar('HARM', 15, sect=GENERAL, info='Harvest method'),
 
-    CharacterVar('NOTES', 75, info='Notes'),
+    CharacterVar('NOTES', 75, sect=GENERAL, info='Notes'),
 
     # Treatments
-    IntegerVar('N', 2, spc=0, sect=trt, info='Treatment number'),
-    IntegerVar('R', 1, sect=trt, info='Rotation component: number (default=1)'),
-    IntegerVar('O', 1, sect=trt, info='Rotation component: option (default=1)'),
-    IntegerVar('C', 1, sect=trt, info='Crop component number (default = 0)'),
+    IntegerVar('N', 2, spc=0, sect=TRT_HEAD, info='Treatment number'),
+    IntegerVar('R', 1, sect=TRT_HEAD, info='Rotation component: number (default=1)'),
+    IntegerVar('O', 1, sect=TRT_HEAD, info='Rotation component: option (default=1)'),
+    IntegerVar('C', 1, sect=TRT_HEAD, info='Crop component number (default = 0)'),
     CharacterVar('TNAME', 25, header_fill='.', info='Treatment name'),
     IntegerVar('CU', 2, info='Cultivar level'),
     IntegerVar('FL', 2, info='Field level'),
@@ -103,13 +111,13 @@ vars_ = {
     # todo: define and verify
     FloatVar('ICWD', 5, 2),
     FloatVar('ICRES', 5, 0),
-    FloatVar('ICREN', 5, 1),
+    FloatVar('ICREN', 5, 2),
     FloatVar('ICREP', 5, 0),
     FloatVar('ICRIP', 5, 0),
     FloatVar('ICRID', 5, 0),
     CharacterVar('ICNAME', 25, info='Inicial condition level name'),
 
-    FloatVar('ICBL', 5, 2, info='Depth, base of layer, cm'),
+    FloatVar('ICBL', 5, 0, info='Depth, base of layer, cm'),
     FloatVar('SH2O', 5, 3, info='Water, cm3 cm-3 x 100 volume percent'),
     FloatVar('SNH4', 5, 1, info='Ammonium, KCl, g elemental N Mg-1 soil'),
     FloatVar('SNO3', 5, 1, info='Nitrate, KCl, g elemental N Mg-1 soil'),
@@ -172,8 +180,8 @@ vars_ = {
     # Todo: check size
     CharacterVar('FERNAME', 25, info='Fertilizer level name'),
 
-    # RESIDUES AND OTHER ORGANIC MATERIALS
-    IntegerVar('R', 2, spc=0, info='Residue management level'),
+    # RESIDUES AND ORGANIC FERTILIZER
+    IntegerVar('R', 2, spc=0, sect='RESIDUES AND ORGANIC FERTILIZER', info='Residue management level'),
     IntegerVar('RDATE', 5, info='Incorporation date, year + days'),
     CharacterVar('RCOD', 5, info='Residue material, code'),
     FloatVar('RAMT', 5, 0, info='Residue amount, kg ha-1'),
@@ -188,7 +196,7 @@ vars_ = {
     CharacterVar('RENAME', 25, info='Residue management level name'),
 
     # CHEMICAL APPLICATIONS
-    IntegerVar('C', 2, spc=0, info='Chemical applications level'),
+    IntegerVar('C', 2, spc=0, sect='CHEMICAL APPLICATIONS', info='Chemical applications level'),
     IntegerVar('CDATE', 5, info='Application date, year + day or days from planting'),
     CharacterVar('CHCOD', 5, info='Chemical material, code'),
     FloatVar('CHAMT', 5, 2, info='Chemical application amount, kg ha-1'),
@@ -204,18 +212,35 @@ vars_ = {
     FloatVar('TDEP', 5, 0, info='Tillage implement, code'),
 
     # ENVIRONMENT MODIFICATIONS
-    # todo
+    IntegerVar('E', 2, spc=0, info='Environment modifications level '),
+    IntegerVar('ODATE', 5, info='Modification date, year + day or days from planting'),
+    # The following are officially 2 variables each in DSSAT (code + value). However, as this is almost impossible
+    # to implement sanely here (no space between variable names, and repeated names in the same section, we will treat
+    # these as character values including both the code and value.
+    CharacterVar('EDAY', size=5, info='Daylength adjustment, factor (A, S, M, R) + h'),
+    CharacterVar('ERAD', size=5, info='Radiation adjustment, factor (A, S, M, R) + MJ m-2 d-1'),
+    CharacterVar('EMAX', size=5, info='Temperature (maximum) adjustment, factor (A, S, M, R) + °C'),
+    CharacterVar('EMIN', size=5, info='Temperature (minimum) adjustment, factor (A, S, M, R) + °C'),
+    CharacterVar('ERAIN', size=5, info='Precipitation adjustment, factor (A, S, M, R) + mm'),
+    CharacterVar('ECO2', size=5, info='CO2 adjustment, factor (A, S, M, R) + vpm'),
+    CharacterVar('EDEW', size=5, info='Humidity (dew pt) adjustment, factor (A, S, M, R) + °C'),
+    CharacterVar('EWIND', size=5, info='Daylength adjustment, factor (A, S, M, R) + h'),
+    CharacterVar('ENVNAME', size=25, info='Environmental modification level name'),  # todo: check size
 
     # HARVEST DETAILS
     IntegerVar('H', 2, spc=0, info='Harvest level'),
     IntegerVar('HDATE', 5, info='Harvest date, year + day or days from planting'),
     CharacterVar('HSTG', 5, info='Harvest stage'),
     CharacterVar('HCOM', 5, info='Harvest component, code'),
-    CharacterVar('HSIZ', 5, info='Harvest size group, code'),
+    CharacterVar('HSIZE', 5, info='Harvest size group, code'),
     FloatVar('HPC', 5, 0, info='Harvest percentage, %'),
 
+    # Todo: check
+    FloatVar('HBPC', 5, 0, info=''),
+    CharacterVar('HNAME', 25, info='Harvest details level name'),
+
     # SIMULATION CONTROLS
-    IntegerVar('N', 2, spc=0, info='Simulation control level number'),
+    IntegerVar('N', 2, spc=0, sect='SIMULATION CONTROLS', info='Simulation control level number'),
     CharacterVar('GENERAL', 11, info='Identifier'),
     IntegerVar('NYERS', 2, spc=4, info='Years'),
     IntegerVar('NREPS', 2, spc=4, info='Replications'),
@@ -361,8 +386,7 @@ vars_ = {
     CharacterVar('FMOPT', 1, spc=5),
 
     # Automatic Management
-    CharacterVar('AUTOMATIC', 0),
-    CharacterVar('MANAGEMENT', 0),  # No idea why these two variables even exist
+    CharacterVar('AUTOMATIC MANAGEMENT', 0),  # No idea why this variable even exists
 
     CharacterVar('PLANTING', 11, info='Identifier'),
     IntegerVar('PFRST', 5, info='Earliest, year and day of year (YRDOY)'),

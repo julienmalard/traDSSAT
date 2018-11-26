@@ -1,6 +1,13 @@
 from tradssat.tmpl.var import CharacterVar, FloatVar
 
-vars_ = {
+header_vars = [
+    CharacterVar('SLSOURCE', 11, spc=2, info='Source'),
+    CharacterVar('SLTX', 5, info='Texture, code'),
+    FloatVar('SLDP', 5, 0, info='Depth, cm'),
+    CharacterVar('SLDESCRIP', 50, info='Description or local classification')
+]
+
+main_vars = {
     CharacterVar('SITE', 11, info='Site name'),
     CharacterVar('COUNTRY', 12, info='Country name'),
     FloatVar('LAT', 8, 3, info='Latitude'),

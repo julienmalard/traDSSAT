@@ -1,29 +1,40 @@
+import re
+
 import numpy as np
+
+from .utils import _name_matches
+
+CODE_MISS = -99
 
 
 class Variable(object):
     type_ = None
 
-    def __init__(self, name, size, spc, header_fill, float_r, sect, info):
+    def __init__(self, name, size, spc, header_fill, float_r, miss, sect, info):
         self.name = name
         self.size = size
         self.spc = spc
+
+        self.fill = header_fill
+        self.float_r = float_r
+        self.miss = miss
+
         self.info = info
         self.sect = sect
-        self.fill = header_fill
-
-        self.float_r = float_r
 
     def write(self, val=None):
+        fill = self.fill if val is None else ' '
         if val is None:
             txt = str(self)
         else:
+            if val == CODE_MISS:
+                val = self.miss
             txt = self._write(val)
 
         if self.float_r:
-            return ' ' * self.spc + txt.ljust(self.size, self.fill)
+            return ' ' * self.spc + txt.ljust(self.size, fill)
         else:
-            return ' ' * self.spc + txt.rjust(self.size, self.fill)
+            return ' ' * self.spc + txt.rjust(self.size, fill)
 
     def check_val(self, val):
         raise NotImplementedError
@@ -38,8 +49,8 @@ class Variable(object):
 class CharacterVar(Variable):
     type_ = str
 
-    def __init__(self, name, size, spc=1, sect=None, header_fill=' ', info=''):
-        super().__init__(name, size, spc, header_fill, float_r=False, sect=sect, info=info)
+    def __init__(self, name, size, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
+        super().__init__(name, size, spc, header_fill, float_r=False, miss=miss, sect=sect, info=info)
 
     def check_val(self, val):
         if isinstance(val, str):
@@ -56,9 +67,9 @@ class CharacterVar(Variable):
 
 class NumericVar(Variable):
 
-    def __init__(self, name, size, lims, spc, header_fill, sect, info):
+    def __init__(self, name, size, lims, spc, header_fill, miss, sect, info):
 
-        super().__init__(name, size, spc, header_fill, sect=sect, float_r=True, info=info)
+        super().__init__(name, size, spc, header_fill, sect=sect, float_r=True, miss=miss, info=info)
 
         if lims is None:
             lims = (-np.inf, np.inf)
@@ -82,12 +93,12 @@ class NumericVar(Variable):
 class FloatVar(NumericVar):
     type_ = float
 
-    def __init__(self, name, size, dec, lims=None, spc=1, sect=None, header_fill=' ', info=''):
-        super().__init__(name, size, lims, spc, header_fill, sect, info=info)
+    def __init__(self, name, size, dec, lims=None, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
+        super().__init__(name, size, lims, spc, header_fill, miss=miss, sect=sect, info=info)
         self.dec = dec
 
     def _write(self, val):
-        if val == -99:
+        if val == self.miss:
             return '-99'  # to avoid size overflow on small-sized variables with decimals
         else:
             return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec)
@@ -96,19 +107,57 @@ class FloatVar(NumericVar):
 class IntegerVar(NumericVar):
     type_ = int
 
-    def __init__(self, name, size, lims=None, spc=1, sect=None, header_fill=' ', info=''):
-        super().__init__(name, size, lims, spc, header_fill, sect, info=info)
+    def __init__(self, name, size, lims=None, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
+        super().__init__(name, size, lims, spc, header_fill, miss=miss, sect=sect, info=info)
 
     def _write(self, val):
-        return '{:{sz}d}'.format(val, sz=self.size)
+        if val == self.miss:
+            return '{:{sz}}'.format(val, sz=self.size)  # to avoid problems with non-numeric missing value codes
+        else:
+            return '{:{sz}d}'.format(val, sz=self.size)
 
 
 class VariableSet(object):
     def __init__(self, l_vars):
-        self._vars = {str(vr): vr for vr in l_vars}
+        self._vars = l_vars
 
-    def __getitem__(self, item):
-        return self._vars[item]
+    def get_var(self, var, sect=None):
+
+        try:
+            return next(
+                vr for vr in self._vars if str(vr) == var and _name_matches(vr.sect, sect, full=True)
+            )
+        except StopIteration:
+            if sect is None:
+                msg = 'Variable {var} does not exist.'.format(var=var)
+            else:
+                msg = 'Variable {var} does not exist in section {sect}.'.format(var=var, sect=sect)
+            raise ValueError(msg)
+
+    def variables(self):
+        return self._vars
 
     def __contains__(self, item):
-        return item in self._vars
+        return any(str(vr) == str(item) for vr in self._vars)
+
+
+class HeaderVariableSet(object):
+    def __init__(self, d_vars):
+        self._vars = d_vars
+
+    def matches(self, header):
+        for hd in self._vars:
+            match = _name_matches(hd, header)
+            if match is not None:
+                return match
+
+    def get_vars(self, header):
+        return next(self._vars[hd] for hd in self._vars if _name_matches(hd, header))
+
+    def get_var(self, var, sect=None):
+        try:
+            return next(
+                vr for hd, vrs in self._vars.items() for vr in vrs if _name_matches(hd, sect) and var == str(vr)
+            )
+        except StopIteration:
+            raise ValueError('Variable {var} does not exist.'.format(var=var))

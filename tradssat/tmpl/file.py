@@ -1,12 +1,15 @@
+import os
 import re
 
 import numpy as np
+from tradssat.utils import detect_encod
 
 from .vals import FileValueSet, ValueSubSection
-from .var import VariableSet
+from .var import VariableSet, CODE_MISS
 
 
 class File(object):
+
     def __init__(self, file):
         """
 
@@ -16,14 +19,15 @@ class File(object):
 
         """
         self.file = file
-        self.var_info = VariableSet(self._get_var_info())
+        self._var_info = VariableSet(self._get_var_info())
 
         self._values = FileValueSet()
+        self.encoding = detect_encod(self.file)
         self._read()
 
     def _read(self):
 
-        with open(self.file, encoding='utf8') as f:
+        with open(self.file, encoding=self.encoding) as f:
             section = []  # To store lines that go in the same section
             for l in f.readlines():
 
@@ -45,14 +49,44 @@ class File(object):
             # Read the last block too
             self._read_section(section)
 
-    def get_var_type(self, var):
-        return self.var_info[var].type_
+    def get_var_type(self, var, sect=None):
+        return self.get_var(var, sect).type_
 
-    def get_var_spc(self, var):
-        return self.var_info[var].spc
+    def get_var_lims(self, var, sect=None):
+        return self.get_var(var, sect).lims
 
-    def get_var_size(self, var):
-        return self.var_info[var].size
+    def get_var_spc(self, var, sect=None):
+        return self.get_var(var, sect).spc
+
+    def get_var_size(self, var, sect=None):
+        return self.get_var(var, sect).size
+
+    def get_var_miss(self, var, sect=None):
+        return self.get_var(var, sect).miss
+
+    def get_var(self, var, sect=None):
+        return self._var_info.get_var(var, sect)
+
+    def get_val(self, var, sect=None, subsect=None, cond=None):
+        return self._values.get_val(var, sect=sect, subsect=subsect, cond=cond)
+
+    def get_dims_val(self, var):
+        return self.get_val(var).shape
+
+    def add_row(self, sect, subsect=None, vals=None):
+        self._values.add_row(sect, subsect, vals)
+
+    def remove_row(self, sect, subsect=None, cond=None):
+        self._values.remove_row(sect, subsect, cond)
+
+    def find_var_sect(self, var):
+        return self._values.find_var_sect(var)
+
+    def variables(self):
+        return list(str(vr) for vr in self._var_info.variables())
+
+    def to_dict(self):
+        return self._values.to_dict()
 
     def _read_subsection(self, section_name, subblock):
 
@@ -69,13 +103,13 @@ class File(object):
         for i, l in enumerate(subblock[1:]):
             vals = [l[c[0]:c[1]].strip() for c in cutoffs]
             for vr, vl in zip(var_names, vals):
-                if not len(vl):
-                    vl = -99
+                if not len(vl) or vl == self.get_var_miss(vr):
+                    vl = CODE_MISS
                 d_vals[vr][i] = vl
 
-        subsect = ValueSubSection()
-        for vr in var_names:
-            subsect.set_value(vr, d_vals[vr])
+        l_vars = [self._var_info.get_var(vr, sect=section_name) for vr in var_names]
+        l_vals = [d_vals[vr] for vr in var_names]
+        subsect = ValueSubSection(l_vars, l_vals)
 
         self._values[section_name].add_subsection(subsect)
 
@@ -91,7 +125,7 @@ class File(object):
                 subblock.clear()
 
             # Append current line to section
-            if len(l.strip()):
+            if len(l.strip().strip('\x1a')):  # '\x1a' needed for obscure character DSSAT likes to append to .SNX/SQX
                 subblock.append(l)
 
         if len(subblock):
@@ -109,7 +143,7 @@ class File(object):
         else:
             dtype = tp
 
-        return np.full(size, -99, dtype=dtype)
+        return np.full(size, CODE_MISS, dtype=dtype)
 
     def _get_var_names(self, line):
         names = [x.strip() for x in re.split('[. +]', line[1:]) if len(x.strip())]  # skip initial "@"
@@ -118,23 +152,19 @@ class File(object):
         for i, vr in enumerate(names):
             if vr in to_skip:
                 continue
-            if vr in self.var_info:
+            if vr in self._var_info:
                 final_names.append(vr)
-            elif i != len(names) - 1 and '{} {}'.format(vr, names[i + 1]) in self.var_info:
+            elif i != len(names) - 1 and '{} {}'.format(vr, names[i + 1]) in self._var_info:
                 final_names.append('{} {}'.format(vr, names[i + 1]))
                 to_skip.append(names[i + 1])
             else:
-                raise ValueError('Variable "{}" does not exist.'.format(vr))
+                raise ValueError(
+                    'Variable "{vr}" is not defined for file {nm}.'.format(vr=vr, nm=os.path.split(self.file)[1])
+                )
         return final_names
 
-    def to_dict(self):
-        return self._values.to_dict()
-
-    def get_val(self, var):
-        return self._values[var]['val']
-
-    def get_dims_val(self, var):
-        return self.get_val(var).shape
+    def __contains__(self, item):
+        return item in self._values
 
     def _get_var_info(self):
         """

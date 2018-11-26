@@ -16,7 +16,7 @@ Piracicaba, SP. Brazil
  doi:10.1016/j.eja.2007.03.002 
  Soler, C.M.T., Hoogenboom,G., Sentelhas, P.C., Pereira Duarte, A. 2007. 
  Impact of water stress on maize grown off-season in a subtropical 
- environment, Journal of Agronomy and Crop Science 193 (4), pp 247-Â­261. 
+ environment, Journal of Agronomy and Crop Science 193 (4), pp 247-­261. 
  doi:10.1111/j.1439-037X.2007.00265.x 
  Soler, C.M.T., Sentelhas, P.C., Hoogenboom, G. 2005. Thermal time for 
  phenological development of four maize hybrids grown off-season in a 
@@ -46,8 +46,8 @@ Piracicaba, SP. Brazil
 
 *FIELDS
 @L ID_FIELD WSTA....  FLSA  FLOB  FLDT  FLDD  FLDS  FLST SLTX  SLDP  ID_SOIL    FLNAME
- 1 BRPI0001 BRPI0201   -99     0 DR000     0     0 00000 -99    120  BRPI020001 RAINFED EXPERIMENT
- 2 BRPI0002 BRPI0201   -99     0 DR000     0     0 00000 -99    120  BRPI020002 IRRIGATED EXPERIMENT
+ 1 BRPI0001 ACNM1301   -99     0 DR000     0     0 00000 -99    120  SIAZ950001 RAINFED EXPERIMENT
+ 2 BRPI0002 ACNM1301   -99     0 DR000     0     0 00000 -99    120  SIAZ950002 IRRIGATED EXPERIMENT
 @L ...........XCRD ...........YCRD .....ELEV .............AREA .SLEN .FLWR .SLAS FLHST FHDUR
  1               0               0         0                 0     0     0     0   -99   -99
  2               0               0         0                 0     0     0     0   -99   -99

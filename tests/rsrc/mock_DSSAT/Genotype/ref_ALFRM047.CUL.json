@@ -1,0 +1,75 @@
+{
+  "ALFALFA GENOTYPE COEFFICIENTS: PRFRM047 MODEL": {
+    "header vars": {},
+    "main vars": [
+      {
+        "VAR#": [
+          "AL0001"
+        ],
+        "VRNAME": [
+          "Aragon"
+        ],
+        "EXPNO": [
+          -99
+        ],
+        "ECO#": [
+          "G00001"
+        ],
+        "CSDL": [
+          12.5
+        ],
+        "PPSEN": [
+          0.2
+        ],
+        "EM-FL": [
+          99.0
+        ],
+        "FL-SH": [
+          10.0
+        ],
+        "FL-SD": [
+          18.0
+        ],
+        "SD-PM": [
+          33.0
+        ],
+        "FL-LF": [
+          25.0
+        ],
+        "LFMAX": [
+          1.4
+        ],
+        "SLAVR": [
+          280.0
+        ],
+        "SIZLF": [
+          2.0
+        ],
+        "XFRT": [
+          0.01
+        ],
+        "WTPSD": [
+          0.02
+        ],
+        "SFDUR": [
+          15.0
+        ],
+        "SDPDV": [
+          2.05
+        ],
+        "PODUR": [
+          20.0
+        ],
+        "THRSH": [
+          78.0
+        ],
+        "SDPRO": [
+          0.115
+        ],
+        "SDLIP": [
+          0.035
+        ]
+      }
+    ]
+  }
+}

@@ -1,42 +1,77 @@
 import os
 
-import numpy as np
 
+from .vals import ValueSubSection
+from .var import HeaderVariableSet
 from .file import File
 
 
 class InpFile(File):
     ext = None  # type: str
 
-    def write(self, file, check=True):
+    def __init__(self, file):
+        self._header_vars = HeaderVariableSet(self._get_header_vars())
+        super().__init__(file)
+
+    def write(self, file, force=False, check=True):
         lines = []
 
-        self._values.write(lines, self.var_info)
+        write = force or file != self.file or self.changed()
 
-        with open(file, 'w', encoding='utf8') as f:
-            f.writelines(l + "\n" for l in lines)
+        if write:
+            self._values.write(lines)
 
-    def set_var(self, var, val):
-        if isinstance(val, np.ndarray) and val.shape != self.get_dims_val(var):
-            self._values[var] = val
-        else:
-            self._values[var][:] = val
+            with open(file, 'w', encoding=self.encoding) as f:
+                f.writelines(l + "\n" for l in lines)
 
-    def get_var_section(self, var):
-        return self.var_info[var].sect
+    def set_val(self, var, val, sect=None, subsect=None, cond=None):
+        self._values.set_val(var, val, sect=sect, subsect=subsect, cond=cond)
 
-    def get_var_lims(self, var):
-        return self.var_info[var].lims
+    def changed(self):
+        return self._values.changed()
 
-    def equals(self, other):
-        self._values.equals(other._values)
+    def get_var(self, var, sect=None):
+        try:
+            return super().get_var(var, sect=sect)
+        except ValueError:
+            return self._header_vars.get_var(var, sect=sect)
 
     def _process_section_header(self, lines):
 
-        section_name = lines[0][1:].strip()
-        self._values.add_section(section_name)
+        header_text = lines[0][1:].strip()
 
-        return section_name, lines[1:]
+        match = self._header_vars.matches(header_text)
+        if match:
+
+            section_name = match.strip()
+            self._values.add_section(section_name)
+            header_text = header_text[len(match):]
+
+            h_vars = self._header_vars.get_vars(match)
+
+            l_vals = []
+            for vr in h_vars:
+                size = vr.size + vr.spc
+                val = header_text[:size].strip()
+
+                matr = self._gen_empty_mtrx(str(vr), size=1)
+                matr[:] = val
+
+                l_vals.append(matr)
+
+                header_text = header_text[size:]
+
+            header_vars_subsect = ValueSubSection(h_vars, l_vals=l_vals)
+            self._values[section_name].set_header_vars(header_vars_subsect)
+
+            return match, lines[1:]
+
+        else:
+            self._values.add_section(header_text)
+            return header_text, lines[1:]
+
+    def _get_header_vars(self):
+        return {}
 
     @classmethod
     def matches_file(cls, file):

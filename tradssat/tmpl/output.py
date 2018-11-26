@@ -1,10 +1,12 @@
 import os
 
+import numpy as np
+
+from .vals import ValueSubSection
 from .file import File
 
 
 class OutFile(File):
-
     filename = None  # type: str
 
     def _process_section_header(self, lines):
@@ -15,7 +17,9 @@ class OutFile(File):
         for l in lines:
             if 'TREATMENT' in l:
                 trt_no = l.split(' : ')[0].split()[1].strip()
-                self._values[section_name].add_header_var('TREATMENT', trt_no)
+                subsect = ValueSubSection(['TREATMENT'], l_vals=[ np.array([trt_no], dtype=int)])
+
+                self._values[section_name].set_header_vars(subsect)
 
             elif '@' in l:
                 break
