@@ -5,6 +5,7 @@ from warnings import warn
 
 import numpy as np
 import numpy.testing as npt
+
 from tradssat.utils import read_json, write_json
 
 
