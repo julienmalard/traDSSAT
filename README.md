@@ -62,7 +62,7 @@ out.get_value('FWAD', trt=1)
 # Get results at specific time (day of year, days after planting or days after start)
 out.get_value('FWAD', trt=1, t=13, at='DAS')  # Get result at 13 days after start
 out.get_value('FWAD', trt=1, t=13, at='DAP')  # Get result at 13 days after planting
-out.get_value('FWAD', trt=1, t='1989 123', at='DOY')  # Get result at 123th day of yeat 1989
+out.get_value('FWAD', trt=1, t='1989 123', at='DOY')  # Get result at 123th day of year 1989
 
 ```
 
