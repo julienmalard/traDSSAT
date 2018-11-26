@@ -3,8 +3,11 @@ import shutil
 import tempfile
 import unittest
 
-from tradssat import DSSATRun, set_dssat_dir, ExpFile
+import numpy.testing as npt
+
+from tradssat import DSSATRun, DSSATResults, set_dssat_dir, ExpFile
 from tradssat.exper.exper_vars import TRT_HEAD
+from tradssat.out import PlantGrowOut
 
 _test_vars = {
     'SOL': 'SRGF',
@@ -15,7 +18,7 @@ _test_vars = {
 }
 
 
-class TestRuns(unittest.TestCase):
+class TestRunInput(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -146,9 +149,14 @@ class TestRuns(unittest.TestCase):
             with self.subTest(file=subfile):
                 self.dssat_run.get_factor_level_val(vr, level=1)
 
-    @unittest.skip('not ready')
     def test_set_factor_level_val(self):
-        pass
+        run = self._get_run()
+        new_name = 'NEW NAME'
+        lvl = 1
+        run.set_factor_level_val('CNAME', new_name, level=lvl)
+        new_val = run.get_factor_level_val('CNAME', lvl)
+
+        self.assertEqual(new_val, new_name)
 
     @unittest.skip('not ready')
     def test_clean(self):
@@ -169,3 +177,34 @@ class TestRuns(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.temp_dir.cleanup()
+
+
+class TestRunOutput(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.dir_ = 'rsrc/mock_DSSAT/Out'
+        cls.result = DSSATResults(cls.dir_)
+
+    def test_get_value(self):
+        var = 'RL1D'
+        trt = 1
+        ref_val = PlantGrowOut(os.path.join(self.dir_, 'PlantGro.OUT')).get_value(var, sect={'TREATMENT': trt})
+        val = self.result.get_value(var, trt=trt)
+
+        npt.assert_equal(val, ref_val)
+
+    def test_get_value_at_time(self):
+        var = 'BWAD'
+        trt = 1
+
+        l_at = {'YEAR DOY': '1989 301', 'DAS': 142, 'DAP': 135}
+
+        vec_t = self.result.get_value('DAS', trt)
+        vec_vals = self.result.get_value(var, trt)
+        ref_val = vec_vals[vec_t == l_at['DAS']]
+
+        for at, t in l_at.items():
+            with self.subTest(at):
+                val = self.result.get_value(var, t=t, at=at, trt=trt)
+                npt.assert_equal(ref_val, val)

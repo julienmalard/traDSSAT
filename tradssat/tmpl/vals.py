@@ -24,10 +24,17 @@ class FileValueSet(object):
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
     def get_value(self, var, sect=None, subsect=None, cond=None):
-        if sect is not None:
+
+        if isinstance(sect, str):
             return self[sect].get_value(var, subsect, cond=cond)
         else:
-            return next(s.get_value(var, subsect, cond=cond) for s in self if var in s)
+            if isinstance(sect, dict):
+                sects = [
+                    s for s in self if all(vr in s and np.all(s.get_header_var(vr) == vl) for vr, vl in sect.items())
+                ]
+            else:
+                sects = self._sections.values()
+            return next(s.get_value(var, subsect, cond=cond) for s in sects if var in s)
 
     def set_value(self, var, val, sect=None, subsect=None, cond=None):
         if sect is not None:
@@ -74,6 +81,9 @@ class ValueSection(object):
 
     def set_header_vars(self, h_vars):
         self._header_vars.set_vars(h_vars)
+
+    def get_header_var(self, var):
+        return self._header_vars.get_value(var)
 
     def write(self, lines):
         lines.append(self._write_header())
@@ -153,7 +163,7 @@ class ValueSection(object):
             yield s
 
     def __contains__(self, item):
-        return any(item in s for s in self._subsections)
+        return any(item in s for s in self._subsections) or item in self._header_vars
 
     def __getitem__(self, item):
         return self._subsections[item]
@@ -294,6 +304,9 @@ class HeaderValues(object):
     def set_vars(self, subsect):
         self._subsect = subsect
 
+    def get_value(self, var):
+        return self._subsect[var].val
+
     def to_dict(self):
         if self._subsect is None:
             return []
@@ -305,3 +318,9 @@ class HeaderValues(object):
             return ''
         else:
             return ''.join([vr.write(0) for vr in self._subsect])
+
+    def __contains__(self, item):
+        if self._subsect is None:
+            return False
+        else:
+            return item in self._subsect
