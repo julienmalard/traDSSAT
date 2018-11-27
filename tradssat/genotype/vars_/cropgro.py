@@ -103,7 +103,7 @@ _standard_eco_vars = {
                        'under optimal temperature and daylengths, photothermal days')},
     'PM06': {'class': FloatVar,
              'args': dict(
-                 size=5, dec=2,
+                 size=5, dec=1,
                  info='Proportion of time between first flower and first pod for first peg (peanut only)')},
     'PM09': {'class': FloatVar,
              'args': dict(
@@ -128,12 +128,12 @@ _standard_eco_vars = {
                   info='Rate of appearance of leaves on the mainstem (leaves per thermal day)')},
     'RWDTH': {'class': FloatVar,
               'args': dict(
-                  size=5, dec=2,
+                  size=5, dec=1,
                   info='Relative width of this ecotype in comparison to the standard width per node (YVSWH) defined '
                        'in the species file (*.SPE)')},
     'RHGHT': {'class': FloatVar,
               'args': dict(
-                  size=5, dec=2,
+                  size=5, dec=1,
                   info='Relative height of this ecotype in comparison to the standard height per node (YVSHT) defined '
                        'in the species file (*.SPE)')},
     'SIZELF': {'class': FloatVar,
