@@ -31,8 +31,7 @@ class Variable(object):
 
         if self.float_r:
             return ' ' * self.spc + txt.ljust(self.size, fill)
-        else:
-            return ' ' * self.spc + txt.rjust(self.size, fill)
+        return ' ' * self.spc + txt.rjust(self.size, fill)
 
     def check_val(self, val):
         raise NotImplementedError
@@ -78,7 +77,7 @@ class NumericVar(Variable):
     def check_val(self, val):
         val = np.array(val)
         out = np.where(np.logical_or(np.less(val, self.lims[0]), np.greater(val, self.lims[1])))
-        if len(out[0]):
+        if out[0]:
             vals_out = val[out]
             raise ValueError(
                 'Value {val} is not in range {rng} for variable {name}.'.format(val=vals_out, name=self, rng=self.lims)
@@ -98,8 +97,7 @@ class FloatVar(NumericVar):
     def _write(self, val):
         if val == self.miss:
             return '-99'  # to avoid size overflow on small-sized variables with decimals
-        else:
-            return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec)
+        return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec)
 
 
 class IntegerVar(NumericVar):
@@ -111,8 +109,7 @@ class IntegerVar(NumericVar):
     def _write(self, val):
         if val == self.miss:
             return '{:{sz}}'.format(val, sz=self.size)  # to avoid problems with non-numeric missing value codes
-        else:
-            return '{:{sz}d}'.format(val, sz=self.size)
+        return '{:{sz}d}'.format(val, sz=self.size)
 
 
 class VariableSet(object):

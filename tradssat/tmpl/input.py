@@ -65,9 +65,8 @@ class InpFile(File):
 
             return match, lines[1:]
 
-        else:
-            self._values.add_section(header_text)
-            return header_text, lines[1:]
+        self._values.add_section(header_text)
+        return header_text, lines[1:]
 
     def _get_header_vars(self):
         return {}
@@ -77,8 +76,7 @@ class InpFile(File):
         ext = os.path.splitext(file)[1]
         if isinstance(cls.ext, str):
             return ext.lower() == cls.ext.lower()
-        else:
-            return ext.lower() in [x.lower() for x in cls.ext]
+        return ext.lower() in [x.lower() for x in cls.ext]
 
     def _get_var_info(self):
         raise NotImplementedError
