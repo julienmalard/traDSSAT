@@ -1,0 +1,75 @@
+{
+  "GREENBEAN GENOTYPE COEFFICIENTS: CRGRO047 MODEL": {
+    "header vars": [],
+    "main vars": [
+      {
+        "VAR#": [
+          "GB0001"
+        ],
+        "VRNAME": [
+          "Bronco Habit 1"
+        ],
+        "EXPNO": [
+          "-99"
+        ],
+        "ECO#": [
+          "SNAPBN"
+        ],
+        "CSDL": [
+          12.17
+        ],
+        "PPSEN": [
+          0.0
+        ],
+        "EM-FL": [
+          21.0
+        ],
+        "FL-SH": [
+          2.8
+        ],
+        "FL-SD": [
+          13.0
+        ],
+        "SD-PM": [
+          14.0
+        ],
+        "FL-LF": [
+          12.0
+        ],
+        "LFMAX": [
+          1.0
+        ],
+        "SLAVR": [
+          250.0
+        ],
+        "SIZLF": [
+          133.0
+        ],
+        "XFRT": [
+          1.0
+        ],
+        "WTPSD": [
+          0.29
+        ],
+        "SFDUR": [
+          14.0
+        ],
+        "SDPDV": [
+          5.4
+        ],
+        "PODUR": [
+          6.0
+        ],
+        "THRSH": [
+          77.0
+        ],
+        "SDPRO": [
+          0.255
+        ],
+        "SDLIP": [
+          0.03
+        ]
+      }
+    ]
+  }
+}
