@@ -1,6 +1,6 @@
 from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 
-cul_vars_SCCSP = {
+cul_vars_SCCSP = {  # Todo: add info for all vars
     CharacterVar(
         'VAR#', 6, spc=0, info='Identification code or number for a specific cultivar used by  DSSAT program.'
     ),
@@ -39,10 +39,25 @@ cul_vars_SCCSP = {
     FloatVar('PI2', 5, 2),
     FloatVar('DTPI', 5, 1),
     FloatVar('LSFAC', 5, 3),
-    FloatVar('PLF2', 5, 3),
-    FloatVar('PLF2', 5, 3),
-    FloatVar('PLF2', 5, 3),
-    FloatVar('PLF2', 5, 3),
+    IntegerVar('Null5', 5),
+    FloatVar('LI1', 5, 3),
+    FloatVar('TELOM', 5, 1),
+    FloatVar('TB(2)', 5, 2),
+    FloatVar('TO1(2)', 5, 2),
+    FloatVar('TO2(2)', 5, 2),
+    FloatVar('TM(2)', 5, 2),
+    FloatVar('Ph1P', 5, 1),
+    FloatVar('Ph1R', 5, 1),
+    FloatVar('Ph2', 5, 3),
+    FloatVar('Ph3', 5, 0),
+    FloatVar('Ph4', 5, 0),
+    FloatVar('StHrv', 5, 3),
+    FloatVar('RTNFAC', 5, 3),
+    FloatVar('MinGr', 5, 2),
+    IntegerVar('Null7', 5),
+    FloatVar('RES30C', 5, 3),
+    FloatVar('RLF30C', 5, 3),
+    FloatVar('R30C2', 5, 3),
 
 }
 
