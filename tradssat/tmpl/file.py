@@ -146,21 +146,27 @@ class File(object):
         return np.full(size, CODE_MISS, dtype=dtype)
 
     def _get_var_names(self, line):
-        names = [x.strip() for x in re.split('[. +]', line[1:]) if len(x.strip())]  # skip initial "@"
+        var_names = [str(vr) for vr in self._var_info]
+        var_names.sort(key=len, reverse=True)
+
+        def _strip(txt):
+            return re.sub('^[|.\W]+', '', txt)
+
         final_names = []
-        to_skip = []
-        for i, vr in enumerate(names):
-            if vr in to_skip:
-                continue
-            if vr in self._var_info:
-                final_names.append(vr)
-            elif i != len(names) - 1 and '{} {}'.format(vr, names[i + 1]) in self._var_info:
-                final_names.append('{} {}'.format(vr, names[i + 1]))
-                to_skip.append(names[i + 1])
-            else:
+        line = _strip(line[1:])  # skip initial "@"
+
+        while len(line):
+            try:
+                name = next(vr for vr in var_names if line.startswith(vr))
+            except StopIteration:
                 raise ValueError(
-                    'Variable "{vr}" is not defined for file {nm}.'.format(vr=vr, nm=os.path.split(self.file)[1])
+                    'No variable matching "{line}" for file {nm}.'.format(
+                        line=line[:20], nm=os.path.split(self.file)[1]
+                    )
                 )
+            final_names.append(name)
+            line = _strip(line[len(name):])
+
         return final_names
 
     def __contains__(self, item):
