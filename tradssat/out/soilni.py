@@ -16,5 +16,10 @@ vars_ = {
     IntegerVar('NAPC', 5, info='Cumulative inorganic N applied, kg/ha'),
     IntegerVar('NI#M', 5, info='N application numbers'),
     FloatVar('NIAD', 7, 1, info='Inorganic N in soil, kg/ha'),
-    FloatVar('NITD', 6, 1, info= 'Amount of total N, kg/ha' ),
+    FloatVar('NITD', 6, 1, info='Amount of total NO3, kg/ha' ),
+    FloatVar('NHTD', 6, 1, info='Amount of total NH4, kg/ha'),
+    FloatVar('NI1D', 7, 2, info= 'NO3 at 0-5 cm soil depth, ppm'),
+    FloatVar('NI2D', 7, 2, info= 'NO3 at 5-15 cm soil depth, ppm'),
+    FloatVar('NI3D', 7, 2, info= 'NO3 at 15-30 cm soil depth, ppm'),
+    
 }

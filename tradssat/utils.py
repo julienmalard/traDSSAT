@@ -3,6 +3,11 @@ import os
 from chardet import UniversalDetector
 
 
+def read_txt(f):
+    with open(f, 'r', encoding='UTF-8') as d:
+        return d.read()
+
+
 def detect_encod(file):
     detector = UniversalDetector()
     with open(file, 'rb') as d:

@@ -1,4 +1,4 @@
-from .utils import set_dssat_dir, get_dssat_dir
+from .utils import set_dssat_dir, get_dssat_dir, read_txt
 from .exper import ExpFile
 from .genotype import CULFile, ECOFile
 from .out import PlantGrowOut
@@ -10,3 +10,4 @@ try:
     set_dssat_dir('C:/DSSAT47')
 except FileNotFoundError:
     pass
+__authors__ = read_txt('AUTHORS.txt')
