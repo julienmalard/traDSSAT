@@ -135,6 +135,10 @@ class VariableSet(object):
     def __contains__(self, item):
         return any(str(vr) == str(item) for vr in self._vars)
 
+    def __iter__(self):
+        for vr in self._vars:
+            yield vr
+
 
 class HeaderVariableSet(object):
     def __init__(self, d_vars):

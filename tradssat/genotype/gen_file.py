@@ -115,6 +115,9 @@ class GenFile(InpFile):
 class CULFile(GenFile):
     ext = '.CUL'
 
+    def _get_var_names(self, line):
+        return super()._get_var_names(line)
+
 
 class ECOFile(GenFile):
     ext = '.ECO'
