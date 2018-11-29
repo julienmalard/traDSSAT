@@ -2,13 +2,14 @@ import os
 import unittest
 
 from tests.utils import test_read, test_write
-from tradssat import SoilFile, WTHFile, ExpFile, PlantGrowOut, CULFile, ECOFile
+from tradssat import SoilFile, WTHFile, ExpFile, CULFile, ECOFile, PlantGrowOut, SummaryOut
 
 rsrcs = os.path.join(os.path.split(__file__)[0], 'rsrc/mock_DSSAT')
 input_classes = [SoilFile, WTHFile, ExpFile, CULFile, ECOFile]
 
 rsrcs_out = os.path.join(os.path.split(__file__)[0], 'rsrc/mock_DSSAT/Out')
 output_classes = [PlantGrowOut]
+final_out_classes = [SummaryOut]
 
 
 # Inputs must be read and written
@@ -30,3 +31,10 @@ class TestOutputs(unittest.TestCase):
         for out_class in output_classes:
             with self.subTest(out_class.__name__):
                 test_read(out_class, folder=rsrcs_out, testcase=self)
+
+
+class TestFinalOutputs(unittest.TestCase):
+    def test_read(self):
+        for final_out_class in final_out_classes:
+            with self.subTest(final_out_class.__name__):
+                test_read(final_out_class, folder=rsrcs_out, testcase=self)
