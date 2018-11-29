@@ -208,3 +208,13 @@ class TestRunOutput(unittest.TestCase):
             with self.subTest(at):
                 val = self.result.get_value(var, t=t, at=at, trt=trt)
                 npt.assert_equal(ref_val, val)
+
+    def test_get_final_value(self):
+        d_vars = {'FinalOut': {'var': 'HWAM', 'ref_val': 3136},
+                  'Out': {'var': 'FWAD', 'ref_val': 3136},
+                  'Out&FinalOut': {'var': 'NUCM', 'ref_val': 118.36}}
+        trt = 1
+        for test, info in d_vars.items():
+            with self.subTest(test):
+                val = self.result.get_final_value(info['var'], trt=trt)
+                self.assertAlmostEqual(info['ref_val'], val, places=0)
