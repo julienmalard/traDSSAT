@@ -18,7 +18,7 @@ class DSSATResults(object):
         if t is not None:
             if at in ['DAS', 'DAP']:
                 cond = {at: t}
-            elif at == 'YEAR DOY':
+            elif at in ['DOY', 'YEAR DOY']:
                 year, doy = t.split()
                 cond = {'YEAR': int(year), 'DOY': int(doy)}
             else:
