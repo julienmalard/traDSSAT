@@ -4,11 +4,15 @@ TraDSSAT is a library to easily read and write DSSAT input and output files.
 ## Status
 [![Build Status](https://travis-ci.org/julienmalard/traDSSAT.svg?branch=master)](https://travis-ci.org/julienmalard/traDSSAT)
 [![codecov](https://codecov.io/gh/julienmalard/traDSSAT/branch/master/graph/badge.svg)](https://codecov.io/gh/julienmalard/traDSSAT)
+[![Documentation Status](https://readthedocs.org/projects/tradssat/badge/?version=latest)](https://tradssat.readthedocs.io/en/latest/?badge=latest)
 
 ## Installation
 `pip install tradssat`
 
-## Examples
+## Full docs
+Read the full thing [here](https://tradssat.readthedocs.io/en/latest/).
+
+## Quick examples
 
 Parse and edit any DSSAT file directly:
 ```python
@@ -21,7 +25,7 @@ soil = SoilFile('path/to/my/file.SOL')
 # Read and write weather files as well
 wth = WTHFile('path/to/my/WTHR0001.WTH')
 
-# ...and experiment files
+# ...and experiment files!
 exp = ExpFile('path/to/my/experiment.EXP')
 
 
