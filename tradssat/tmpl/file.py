@@ -61,7 +61,7 @@ class File(object):
     def get_var_size(self, var, sect=None):
         return self.get_var(var, sect).size
 
-    def get_var_miss(self, var, sect=None):
+    def get_var_code_miss(self, var, sect=None):
         return self.get_var(var, sect).miss
 
     def get_var(self, var, sect=None):
@@ -96,7 +96,7 @@ class File(object):
         lengths = [self.get_var_size(vr) for vr in var_names]
         spaces = [self.get_var_spc(vr) for vr in var_names]
         cum_lens = np.insert(np.cumsum(lengths) + np.cumsum(spaces), 0, 0)
-        cutoffs = [(cum_lens[i], cum_lens[i + 1] + 1) for i in range(len(var_names))]
+        cutoffs = [(cum_lens[i], cum_lens[i + 1]) for i in range(len(var_names))]
 
         d_vals = {vr: self._gen_empty_mtrx(vr, n_lines) for vr in var_names}
 
@@ -104,10 +104,14 @@ class File(object):
             # Odd workaround necessary because several cultivar names in DSSAT are larger than the allowed space
             # and so run into the next column, which apparently isn't supposed to matter if the next column's value
             # is small enough to allow both to fit. (Really?!)
-            vals = [l[c[0]:c[1]].strip() for c in cutoffs]  # [l[l.find(' ', c[0]):l.find(' ', c[1])] for c in cutoffs]
+            vals = [
+                (l[0 if c[0] == 0 else max(c[0], l.find(' ', c[0], c[1] - 1)):
+                   None if l.find(' ', c[1] - 1) < 0 else l.find(' ', c[1] - 1)]).strip()
+                for c in cutoffs]
             for vr, vl in zip(var_names, vals):
-                if not len(vl) or vl == self.get_var_miss(vr):
-                    vl = CODE_MISS
+                if not len(vl):
+                    vl = self.get_var_code_miss(vr)
+                    # vl = CODE_MISS
                 d_vals[vr][i] = vl
 
         l_vars = [self._var_info.get_var(vr, sect=section_name) for vr in var_names]
@@ -142,7 +146,7 @@ class File(object):
             dtype = int
         elif tp == 'str' or tp == str:
             str_size = self.get_var_size(var)
-            dtype = f'U{str_size}'
+            dtype = f'U{str_size + 5}'  # +5 just to be safe (with DSSAT input files you never know)
         else:
             dtype = tp
 
