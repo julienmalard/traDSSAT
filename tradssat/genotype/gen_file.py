@@ -24,7 +24,7 @@ from .vars_.gbgro import cul_vars_GBGRO, eco_vars_GBGRO
 from .vars_.mlcer import cul_vars_MLCER, eco_vars_MLCER
 from .vars_.mzcer import cul_vars_MZCER, eco_vars_MZCER
 from .vars_.mzixm import cul_vars_MZIXM, eco_vars_MZIXM
-from .vars_.pialo import cul_vars_PIALO, eco_vars_PIALO
+from .vars_.pialo import cul_vars_PIALO
 from .vars_.pngro import cul_vars_PNGRO, eco_vars_PNGRO
 from .vars_.ppgro import cul_vars_PPGRO, eco_vars_PPGRO
 from .vars_.prgro import cul_vars_PRGRO, eco_vars_PRGRO
@@ -70,7 +70,7 @@ vars_gen = {
     'MLCER': {'.cul': cul_vars_MLCER, '.eco': eco_vars_MLCER},
     'MZCER': {'.cul': cul_vars_MZCER, '.eco': eco_vars_MZCER},
     'MZIXM': {'.cul': cul_vars_MZIXM, '.eco': eco_vars_MZIXM},
-    'PIALO': {'.cul': cul_vars_PIALO, '.eco': eco_vars_PIALO},
+    'PIALO': {'.cul': cul_vars_PIALO},
     'PNGRO': {'.cul': cul_vars_PNGRO, '.eco': eco_vars_PNGRO},
     'PPGRO': {'.cul': cul_vars_PPGRO, '.eco': eco_vars_PPGRO},
     'PRGRO': {'.cul': cul_vars_PRGRO, '.eco': eco_vars_PRGRO},
