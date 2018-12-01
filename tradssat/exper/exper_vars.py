@@ -28,7 +28,7 @@ main_vars = {
     FloatVar('HLEN', 5, 1, sect=GENERAL, info='Harvest row length, m'),
     CharacterVar('HARM', 15, sect=GENERAL, info='Harvest method'),
 
-    CharacterVar('NOTES', 75, sect=GENERAL, info='Notes'),
+    CharacterVar('NOTES', 500, sect=GENERAL, info='Notes'),
 
     # Treatments
     IntegerVar('N', 2, spc=0, sect=TRT_HEAD, info='Treatment number'),
@@ -266,7 +266,7 @@ main_vars = {
     CharacterVar('DISES', 1, spc=5, info='Diseases and other pests (Y = yes; N = no)'),
     CharacterVar('CHEM', 1, spc=5, info='Chemical applications (Y = yes; N = no)'),
     CharacterVar('TILL', 1, spc=5, info='Tillage (Y = yes; N = no)'),
-    CharacterVar('CO2', 1, spc=5, info='CO2 effects (Y = yes; N = no)'),
+    CharacterVar('CO2', 1, spc=5, miss='', info='CO2 effects (Y = yes; N = no)'),
 
     CharacterVar('METHODS', 11, info='Identifier'),
     CharacterVar(
