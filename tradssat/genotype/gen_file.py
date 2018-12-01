@@ -51,7 +51,7 @@ vars_gen = {
     'BACER': {'.cul': cul_vars_BACER, '.eco': eco_vars_BACER},
     'BACRP': {'.cul': cul_vars_BACRP, '.eco': eco_vars_BACRP},
     'BHGRO': {'.cul': cul_vars_BHGRO, '.eco': eco_vars_BHGRO},
-    'BMRFM': {'.cul': cul_vars_BMFRM, '.eco': eco_vars_BMFRM},
+    'BMFRM': {'.cul': cul_vars_BMFRM, '.eco': eco_vars_BMFRM},
     'BMGRO': {'.cul': cul_vars_BMGRO, '.eco': eco_vars_BMGRO},
     'BNGRO': {'.cul': cul_vars_BNGRO, '.eco': eco_vars_BNGRO},
     'BRFRM': {'.cul': cul_vars_BRFRM, '.eco': eco_vars_BRFRM},
