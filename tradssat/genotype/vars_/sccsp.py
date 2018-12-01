@@ -7,7 +7,7 @@ cul_vars_SCCSP = {  # Todo: add info for all vars
     CharacterVar(
         'VAR-NAME', 16, header_fill='.', info='Name of cultivar as recognized commercially or within industry.'
     ),
-    IntegerVar('EXPNO', 5, miss='.', info='Number of experiments used to estimate cultivar parameters.'),
+    CharacterVar('EXPNO', 5, miss='.', info='Number of experiments used to estimate cultivar parameters.'),
     CharacterVar('ECO#', 6, info='Ecotype code of this cultivar in the ECO input file'),
 
     FloatVar(

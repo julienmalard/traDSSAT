@@ -5,7 +5,7 @@ miss = '9999'
 cul_vars_ALFRM = {
     CharacterVar('VAR#', 6, spc=0, info='Variety (cultivar) code'),
     CharacterVar('VRNAME', 16, header_fill='.', info='Variety (cultivar) name'),
-    IntegerVar('EXPNO', 5, miss=miss, info='Number of experiments used to estimate cultivar parameters'),
+    CharacterVar('EXPNO', 5, miss=miss, info='Number of experiments used to estimate cultivar parameters'),
 
     CharacterVar('ECO#', 6, info='Code for the ecotype to which this cultivar belongs (see *.eco file)'),
     FloatVar(
