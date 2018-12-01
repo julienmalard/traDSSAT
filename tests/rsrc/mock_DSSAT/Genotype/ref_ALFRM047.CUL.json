@@ -1,6 +1,6 @@
 {
   "ALFALFA GENOTYPE COEFFICIENTS: PRFRM047 MODEL": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "VAR#": [
@@ -10,7 +10,7 @@
           "Aragon"
         ],
         "EXPNO": [
-          -99
+          "9999"
         ],
         "ECO#": [
           "G00001"

@@ -11,7 +11,7 @@
     "main vars": []
   },
   "GENERAL": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "PEOPLE": [
@@ -31,13 +31,13 @@
       {
         "NOTES": [
           "The KBS Long-Term Ecological Research in Row-Crop Agriculture Site (LTER)",
-          "This is an example of one of the experiments of the Kellogg Biological Stat"
+          "This is an example of one of the experiments of the Kellogg Biological Station(KBS) Long-Term Ecological Research in Row-Crop Agriculture (LTER)ResearchEffort. It only includes the first nine components of treatment 1: the corn -soybean rotation under conventional tillage and high inputs. This example willbe expanded as more experimental data become available. For further informationsee the KBS LTER web site at http://lter.kbs.msu.edu."
         ]
       }
     ]
   },
   "TREATMENTS                        -------------FACTOR LEVELS------------": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "N": [
@@ -242,7 +242,7 @@
     ]
   },
   "CULTIVARS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -277,7 +277,7 @@
     ]
   },
   "FIELDS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "L": [
@@ -355,7 +355,7 @@
     ]
   },
   "INITIAL CONDITIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "C": [
@@ -466,7 +466,7 @@
     ]
   },
   "PLANTING DETAILS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "P": [
@@ -649,7 +649,7 @@
     ]
   },
   "FERTILIZERS (INORGANIC)": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "F": [
@@ -716,7 +716,7 @@
     ]
   },
   "TILLAGE AND ROTATIONS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "T": [
@@ -783,7 +783,7 @@
     ]
   },
   "HARVEST DETAILS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "H": [
@@ -878,7 +878,7 @@
     ]
   },
   "SIMULATION CONTROLS": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "N": [
@@ -1354,7 +1354,7 @@
           "Y"
         ],
         "FMOPT": [
-          "-"
+          "-99"
         ]
       },
       {

@@ -1,6 +1,6 @@
 {
   "TANIER CULTIVAR COEFFICIENTS: TRARO047 MODEL": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "VAR#": [
@@ -14,9 +14,9 @@
           "MORANDA"
         ],
         "EXPNO": [
-          -99,
-          -99,
-          -99
+          ".",
+          ".",
+          "."
         ],
         "ECO#": [
           "-99",
