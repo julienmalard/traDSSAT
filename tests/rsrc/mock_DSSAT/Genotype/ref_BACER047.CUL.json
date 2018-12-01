@@ -1,10 +1,10 @@
 {
   "CULTIVARS:BACER047.08102017   Last edit: 08/11/2017 GH": {
-    "header vars": {},
+    "header vars": [],
     "main vars": []
   },
   "CULTIVARS:BACER047": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "VAR#": [
@@ -24,12 +24,12 @@
           "Maris Badger"
         ],
         "EXP#": [
-          -99,
-          -99,
-          -99,
-          -99,
-          -99,
-          -99
+          ".",
+          ".",
+          ".",
+          ".",
+          ".",
+          "."
         ],
         "ECO#": [
           "999991",

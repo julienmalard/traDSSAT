@@ -1,6 +1,6 @@
 {
   "SWEET CORN CULTIVAR COEFFICIENTS: SWCER047 MODEL": {
-    "header vars": {},
+    "header vars": [],
     "main vars": [
       {
         "VAR#": [
@@ -14,9 +14,9 @@
           "BSS0977 sh2"
         ],
         "EXPNO": [
-          -99,
-          -99,
-          -99
+          ".",
+          ".",
+          "."
         ],
         "ECO#": [
           "IB0001",
