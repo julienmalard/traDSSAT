@@ -98,8 +98,19 @@ class FloatVar(NumericVar):
         if val == self.miss:
             return '-99'  # to avoid size overflow on small-sized variables with decimals
         # todo: clean
-        dec = min(self.dec, max(0, self.size - (len(str(val).split('.')[0])+1)))
-        return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=dec)
+        txt_0 = str(val)
+        space_req = len(txt_0.split('.')[0])+1
+        if txt_0.startswith('0') or txt_0.startswith('-0'):
+            space_req -= 1
+
+        dec = min(self.dec, max(0, self.size - space_req))
+
+        txt = '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=dec)
+        if txt[0] == '0':
+            txt = txt[1:]
+        elif txt[:2] == '-0':
+            txt = '-{}'.format(txt[2:])
+        return txt
 
 
 class IntegerVar(NumericVar):
