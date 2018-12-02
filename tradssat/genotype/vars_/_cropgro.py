@@ -19,7 +19,7 @@ _standard_cul_vars = {
              },
     'PPSEN': {'class': FloatVar,
               'args': dict(
-                  size=5, dec=3,
+                  size=5, dec=4,
                   info='Slope of the relative response of development to photoperiod with time '
                        '(positive for shortday plants) (1/hour)')
               },
@@ -45,14 +45,14 @@ _standard_cul_vars = {
               'args': dict(size=5, dec=1,
                            info='Specific leaf area of cultivar under standard growth conditions (cm2/g)')},
     'SIZLF': {'class': FloatVar,
-              'args': dict(size=5, dec=1, info='Maximum size of full leaf (three leaflets) (cm2)')},
+              'args': dict(size=5, dec=2, info='Maximum size of full leaf (three leaflets) (cm2)')},
     'XFRT': {'class': FloatVar,
              'args': dict(size=5, dec=2, info='Maximum fraction of daily growth that is partitioned to seed + shell')},
     'WTPSD': {'class': FloatVar,
-              'args': dict(size=5, dec=3, info='Maximum weight per seed (g)')},
+              'args': dict(size=5, dec=4, info='Maximum weight per seed (g)')},
     'SFDUR': {'class': FloatVar,
               'args': dict(
-                  size=5, dec=1,
+                  size=5, dec=2,
                   info='Seed filling duration for pod cohort at standard growth conditions (photothermal days)')},
     'SDPDV': {'class': FloatVar,
               'args': dict(size=5, dec=2, info='Average seed per pod under standard growing conditions (#/pod)')},
@@ -88,7 +88,7 @@ _standard_eco_vars = {
                            info='Minimum rate of reproductive development under short days and optimal temperature')},
     'PP-SS': {'class': FloatVar, 'args': dict(size=5, dec=2, info='')},
     'PL-EM': {'class': FloatVar,
-              'args': dict(size=5, dec=1, info='Time between planting and emergence (V0) (thermal days)')},
+              'args': dict(size=5, dec=2, info='Time between planting and emergence (V0) (thermal days)')},
     'EM-V1': {'class': FloatVar,
               'args': dict(
                   size=5, dec=1,
@@ -116,7 +116,7 @@ _standard_eco_vars = {
                   info='Time required for growth of individual shells (photothermal days)')},
     'R7-R8': {'class': FloatVar,
               'args': dict(
-                  size=5, dec=1,
+                  size=5, dec=2,
                   info='Time between physiological (R7) and harvest maturity (R8) (days)')},
     'FL-VS': {'class': FloatVar,
               'args': dict(
@@ -192,10 +192,6 @@ def cropgro_cul_vars(var_name='VRNAME', exclude=None):
         rename = None
 
     return _return_vars(_standard_cul_vars, rename=rename, exclude=exclude)
-
-
-def cropgro_eco_vars_23(rename=None, exclude=None):
-    return _return_vars(_standard_eco_vars, rename=rename, exclude=exclude)
 
 
 def cropgro_eco_vars(rename=None, exclude=None):
