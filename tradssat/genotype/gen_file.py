@@ -40,7 +40,7 @@ from .vars_.sugro import cul_vars_SUGRO, eco_vars_SUGRO
 from .vars_.swcer import cul_vars_SWCER, eco_vars_SWCER
 from .vars_.tmgro import cul_vars_TMGRO, eco_vars_TMGRO
 from .vars_.tnaro import cul_vars_TNARO
-from .vars_.traro import cul_vars_TRARO, eco_vars_TRARO
+from .vars_.traro import cul_vars_TRARO
 from .vars_.vbgro import cul_vars_VBGRO, eco_vars_VBGRO
 from .vars_.whaps import cul_vars_WHAPS, eco_vars_WHAPS
 from .vars_.whcer import cul_vars_WHCER, eco_vars_WHCER
@@ -86,7 +86,7 @@ vars_gen = {
     'SWCER': {'.cul': cul_vars_SWCER, '.eco': eco_vars_SWCER},
     'TNARO': {'.cul': cul_vars_TNARO},
     'TMGRO': {'.cul': cul_vars_TMGRO, '.eco': eco_vars_TMGRO},
-    'TRARO': {'.cul': cul_vars_TRARO, '.eco': eco_vars_TRARO},
+    'TRARO': {'.cul': cul_vars_TRARO},
     'VBGRO': {'.cul': cul_vars_VBGRO, '.eco': eco_vars_VBGRO},
     'WHAPS': {'.cul': cul_vars_WHAPS, '.eco': eco_vars_WHAPS},
     'WHCER': {'.cul': cul_vars_WHCER, '.eco': eco_vars_WHCER},

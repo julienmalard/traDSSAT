@@ -1,3 +1,4 @@
+from ._utils import _return_vars
 from tradssat.tmpl.var import CharacterVar, FloatVar
 
 _standard_cul_vars = {
@@ -159,31 +160,6 @@ _standard_eco_vars = {
                        'OPTBI')}
 }
 
-_eco_vars_23 = {}
-_eco_vars_23.update(_standard_eco_vars)
-
-
-def _gen_vars(dict_vars):
-    vars_set = set()
-    for name, d_var in dict_vars.items():
-        vars_set.add(d_var['class'](name, **d_var['args']))
-
-    return vars_set
-
-
-def _return_vars(info_dict, rename=None, exclude=None):
-    if exclude is None:
-        exclude = []
-    if rename is None:
-        rename = {}
-
-    info_dict_copy = info_dict.copy()
-    for old, new in rename.items():
-        info_dict_copy[new] = info_dict_copy.pop(old)
-
-    d_vars = {vr: d_vr for vr, d_vr in info_dict_copy.items() if vr not in exclude}
-    return _gen_vars(d_vars)
-
 
 def cropgro_cul_vars(var_name='VRNAME', exclude=None):
     if var_name != 'VRNAME':
@@ -195,4 +171,4 @@ def cropgro_cul_vars(var_name='VRNAME', exclude=None):
 
 
 def cropgro_eco_vars(rename=None, exclude=None):
-    return _return_vars(_eco_vars_23, rename=rename, exclude=exclude)
+    return _return_vars(_standard_eco_vars, rename=rename, exclude=exclude)
