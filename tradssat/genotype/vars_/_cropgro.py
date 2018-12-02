@@ -1,5 +1,5 @@
-from ._utils import _return_vars
 from tradssat.tmpl.var import CharacterVar, FloatVar
+from ._utils import _return_vars
 
 _standard_cul_vars = {
     'VAR#': {
@@ -160,6 +160,26 @@ _standard_eco_vars = {
                        'OPTBI')}
 }
 
+_std_frm_eco_vars = {
+    'RDRMT': {
+        'class': FloatVar,
+        'args': dict(size=5, dec=3,
+                     info='Relative dormancy sensitivity of this cultivar to daylength - partitioning (0-1)')
+    },
+    'RDRMG': {
+        'class': FloatVar,
+        'args': dict(size=5, dec=3,
+                     info='Relative dormancy sensitivity of this cultivar to daylength - photosynthesis (0-1)')
+    },
+    'RDRMM': {
+        'class': FloatVar,
+        'args': dict(size=5, dec=3,
+                     info='Relative dormancy sensitivity of this cultivar to daylength - mobilization (0-1)')
+    },
+    'RCHDP': {'class': FloatVar, 'args': dict(size=5, dec=3, info='Relative cold hardening potential (0-1)')},
+}
+_std_frm_eco_vars.update(_standard_eco_vars)
+
 
 def cropgro_cul_vars(var_name='VRNAME', exclude=None):
     if var_name != 'VRNAME':
@@ -172,3 +192,7 @@ def cropgro_cul_vars(var_name='VRNAME', exclude=None):
 
 def cropgro_eco_vars(rename=None, exclude=None):
     return _return_vars(_standard_eco_vars, rename=rename, exclude=exclude)
+
+
+def frm_eco_vars(rename=None, exclude=None):
+    return _return_vars(_std_frm_eco_vars, rename=rename, exclude=exclude)

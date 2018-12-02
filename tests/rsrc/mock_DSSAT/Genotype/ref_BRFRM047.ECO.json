@@ -1,5 +1,5 @@
 {
-  "ALFALFA ECOTYPE COEFFICIENTS: PRFRM047 MODEL": {
+  "BRACHIARIA ECOTYPE COEFFICIENTS: PRFRM047 MODEL": {
     "header vars": [],
     "main vars": [
       {
@@ -7,7 +7,7 @@
           "G00001"
         ],
         "ECONAME": [
-          "Aragon"
+          "Brachiaria"
         ],
         "MG": [
           "00"
@@ -46,7 +46,7 @@
           9999.0
         ],
         "TRIFL": [
-          0.2
+          0.15
         ],
         "RWDTH": [
           1.0
@@ -64,7 +64,7 @@
           0.0
         ],
         "RDRMT": [
-          0.421
+          0.475
         ],
         "RDRMG": [
           1.0
