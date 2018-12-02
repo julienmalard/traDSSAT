@@ -1,4 +1,4 @@
-from tradssat.genotype.vars_.cropgro import cropgro_cul_vars, cropgro_eco_vars
+from tradssat.genotype.vars_._cropgro import cropgro_cul_vars, cropgro_eco_vars
 from tradssat.tmpl.var import FloatVar
 
 cul_vars_BMGRO = cropgro_cul_vars()

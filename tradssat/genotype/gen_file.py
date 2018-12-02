@@ -29,7 +29,7 @@ from .vars_.pngro import cul_vars_PNGRO, eco_vars_PNGRO
 from .vars_.ppgro import cul_vars_PPGRO, eco_vars_PPGRO
 from .vars_.prgro import cul_vars_PRGRO, eco_vars_PRGRO
 from .vars_.ptsub import cul_vars_PTSUB, eco_vars_PTSUB
-from .vars_.ricer import cul_vars_RICER, eco_vars_RICER
+from .vars_.ricer import cul_vars_RICER
 from .vars_.riorz import cul_vars_RIORZ
 from .vars_.sbgro import cul_vars_SBGRO, eco_vars_SBGRO
 from .vars_.sccan import cul_vars_SCCAN, eco_vars_SCCAN
@@ -75,7 +75,7 @@ vars_gen = {
     'PPGRO': {'.cul': cul_vars_PPGRO, '.eco': eco_vars_PPGRO},
     'PRGRO': {'.cul': cul_vars_PRGRO, '.eco': eco_vars_PRGRO},
     'PTSUB': {'.cul': cul_vars_PTSUB, '.eco': eco_vars_PTSUB},
-    'RICER': {'.cul': cul_vars_RICER, '.eco': eco_vars_RICER},
+    'RICER': {'.cul': cul_vars_RICER},
     'RIORZ': {'.cul': cul_vars_RIORZ},
     'SBGRO': {'.cul': cul_vars_SBGRO, '.eco': eco_vars_SBGRO},
     'SCCAN': {'.cul': cul_vars_SCCAN, '.eco': eco_vars_SCCAN},
