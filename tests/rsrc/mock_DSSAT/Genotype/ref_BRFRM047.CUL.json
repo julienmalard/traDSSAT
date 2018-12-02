@@ -1,13 +1,13 @@
 {
-  "ALFALFA GENOTYPE COEFFICIENTS: PRFRM047 MODEL": {
+  "BRACHIARIA GENOTYPE COEFFICIENTS: PRFRM047 MODEL": {
     "header vars": [],
     "main vars": [
       {
         "VAR#": [
-          "AL0001"
+          "SP0001"
         ],
         "VRNAME": [
-          "Aragon"
+          "Marandu"
         ],
         "EXPNO": [
           "."
@@ -37,10 +37,10 @@
           25.0
         ],
         "LFMAX": [
-          1.4
+          1.8
         ],
         "SLAVR": [
-          280.0
+          190.0
         ],
         "SIZLF": [
           2.0
