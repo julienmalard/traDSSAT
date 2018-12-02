@@ -26,6 +26,11 @@ def detect_encod(file):
 config = {'DSSAT_DIR': None}
 
 
+def read_txt(f):
+    with open(f, 'r', encoding='UTF-8') as d:
+        return d.read()
+
+
 def set_dssat_dir(dssat_dir):
     if os.path.isdir(dssat_dir):
         config['DSSAT_DIR'] = dssat_dir

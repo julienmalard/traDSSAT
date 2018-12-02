@@ -12,7 +12,7 @@ setup(
     packages=find_packages(),
     url='',
     license='MIT',
-    author=read_txt('AUTHORS.txt'),
+    author=read_txt('tradssat/AUTHORS.txt'),
     author_email='julien.malard@mail.mcgill.ca',
     description='DSSAT input and output tmpl reader and writer',
     long_description=read_txt('README.md'),
