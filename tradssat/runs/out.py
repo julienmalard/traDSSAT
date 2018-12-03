@@ -41,8 +41,7 @@ class DSSATResults(object):
             if var in f.variables():
                 if t is None:
                     return f.get_value(var)
-                else:
-                    return f.get_value(var, sect={'TREATMENT': trt}, cond=cond)
+                return f.get_value(var, sect={'TREATMENT': trt}, cond=cond)
 
         raise ValueError('Output variable "{}" could not be found in any output file.'.format(var))
 
