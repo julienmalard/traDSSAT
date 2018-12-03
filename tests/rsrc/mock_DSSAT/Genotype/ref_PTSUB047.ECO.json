@@ -1,0 +1,29 @@
+{
+  "POTATO ECOTYPE COEFFICIENTS: PTSUB047 MODEL": {
+    "header vars": [],
+    "main vars": [
+      {
+        "ECO#": [
+          "IB0001",
+          "IB0002",
+          "DFAULT"
+        ],
+        "ECONAME": [
+          "GENERIC POTATO",
+          "GENERIC POTATO+10%",
+          "DEFAULT"
+        ],
+        "RUE1": [
+          3.5,
+          3.8,
+          3.5
+        ],
+        "RUE2": [
+          4.0,
+          4.4,
+          4.0
+        ]
+      }
+    ]
+  }
+}
