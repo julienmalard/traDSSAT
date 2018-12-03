@@ -38,6 +38,7 @@ class InpFile(File):
     def _process_section_header(self, lines):
 
         if lines[0][0] == '@':  # In case a section header is missing
+            self._values.add_section('')
             return '', lines
 
         header_text = lines[0][1:].strip()  # Skip initial "*"

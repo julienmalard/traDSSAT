@@ -1,0 +1,61 @@
+{
+  "SWEET CORN ECOTYPE COEFFICIENTS: SWCER047 MODEL": {
+    "header vars": [],
+    "main vars": [
+      {
+        "ECO#": [
+          "IB0001",
+          "DFAULT"
+        ],
+        "ECONAME": [
+          "GENERIC",
+          "DEFAULT"
+        ],
+        "TBASE": [
+          8.0,
+          8.0
+        ],
+        "TOPT": [
+          34.0,
+          34.0
+        ],
+        "ROPT": [
+          34.0,
+          34.0
+        ],
+        "P20": [
+          12.5,
+          12.5
+        ],
+        "DJTI": [
+          4.0,
+          4.0
+        ],
+        "GDDE": [
+          6.0,
+          6.0
+        ],
+        "DSGFT": [
+          170.0,
+          170.0
+        ],
+        "RUE": [
+          4.2,
+          4.2
+        ],
+        "KCAN": [
+          0.85,
+          0.85
+        ],
+        "TSEN": [
+          -99.0,
+          -99.0
+        ],
+        "CDAY": [
+          -99.0,
+          -99.0
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "SORGHUM ECOTYPE COEFFICIENTS: SGCER047 MODEL": {
+    "header vars": [],
+    "main vars": [
+      {
+        "ECO#": [
+          "IB0001",
+          "IB0002",
+          "DFAULT"
+        ],
+        "ECONAME": [
+          "GENERIC",
+          "West Africa",
+          "DEFAULT"
+        ],
+        "TBASE": [
+          8.0,
+          8.0,
+          8.0
+        ],
+        "TOPT": [
+          34.0,
+          34.0,
+          34.0
+        ],
+        "ROPT": [
+          34.0,
+          34.0,
+          34.0
+        ],
+        "GDDE": [
+          6.0,
+          6.0,
+          6.0
+        ],
+        "RUE": [
+          3.2,
+          3.2,
+          3.2
+        ],
+        "KCAN": [
+          0.85,
+          0.85,
+          0.85
+        ],
+        "STPC": [
+          0.1,
+          1.0,
+          0.1
+        ],
+        "RTPC": [
+          0.25,
+          0.25,
+          0.25
+        ],
+        "TILFC": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  }
+}

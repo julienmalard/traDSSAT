@@ -33,7 +33,7 @@ from .vars_.ricer import cul_vars_RICER
 from .vars_.riorz import cul_vars_RIORZ
 from .vars_.sbgro import cul_vars_SBGRO, eco_vars_SBGRO
 from .vars_.sccan import cul_vars_SCCAN, eco_vars_SCCAN
-from .vars_.sccsp import cul_vars_SCCSP, eco_vars_SCCSP
+from .vars_.sccsp import cul_vars_SCCSP
 from .vars_.sfgro import cul_vars_SFGRO, eco_vars_SFGRO
 from .vars_.sgcer import cul_vars_SGCER, eco_vars_SGCER
 from .vars_.sugro import cul_vars_SUGRO, eco_vars_SUGRO
@@ -79,7 +79,7 @@ vars_gen = {
     'RIORZ': {'.cul': cul_vars_RIORZ},
     'SBGRO': {'.cul': cul_vars_SBGRO, '.eco': eco_vars_SBGRO},
     'SCCAN': {'.cul': cul_vars_SCCAN, '.eco': eco_vars_SCCAN},
-    'SCCSP': {'.cul': cul_vars_SCCSP, '.eco': eco_vars_SCCSP},
+    'SCCSP': {'.cul': cul_vars_SCCSP},
     'SFGRO': {'.cul': cul_vars_SFGRO, '.eco': eco_vars_SFGRO},
     'SGCER': {'.cul': cul_vars_SGCER, '.eco': eco_vars_SGCER},
     'SUGRO': {'.cul': cul_vars_SUGRO, '.eco': eco_vars_SUGRO},
@@ -114,9 +114,6 @@ class GenFile(InpFile):
 
 class CULFile(GenFile):
     ext = '.CUL'
-
-    def _get_var_names(self, line):
-        return super()._get_var_names(line)
 
 
 class ECOFile(GenFile):

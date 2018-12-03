@@ -60,7 +60,3 @@ cul_vars_SCCSP = {  # Todo: add info for all vars
     FloatVar('R30C2', 5, 3),
 
 }
-
-eco_vars_SCCSP = {
-
-}

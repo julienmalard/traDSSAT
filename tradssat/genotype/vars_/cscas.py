@@ -8,7 +8,6 @@ cul_vars_CSCAS = {
 
     FloatVar('PPS1', 5, 0, info='Photoperiod sensitivity for phase n. (% drop for 10h pp.change)'),
 
-
     FloatVar('B01ND', 5, 2, info='Duration from branch 0 to branch 1 (ie.tier x,node number)'),
     FloatVar('B12ND', 5, 2, info='Duration from branch 1 to branch 2 (ie.tier x,node number)'),
     FloatVar('B23ND', 5, 2, info='Duration from branch 2 to branch 3 (ie.tier x,node number)'),
@@ -33,10 +32,18 @@ cul_vars_CSCAS = {
 
 }
 
-
-
-
-
 eco_vars_CSCAS = {
+    CharacterVar('ECO#', 6, spc=0, info='Code for the ecotype to which a cultivar belongs (see *.cul file)'),
+    CharacterVar('ECONAME', 17, header_fill='.', info='Name of the ecotype, which is referenced from *.CUL file'),
 
+    FloatVar('BR1FX', 5, 0, info='Branch number per fork at fork 1, maximum (#)'),
+    FloatVar('BR2FX', 5, 0, info='Branch number per fork at fork 2, maximum (#)'),
+    FloatVar('BR3FX', 5, 0, info='Branch number per fork at fork 3, maximum (#)'),
+    FloatVar('BR4FX', 5, 0, info='Branch number per fork at fork 4, maximum (#)'),
+    FloatVar('BR5FX', 5, 0, info='Branch number per fork at fork 5, maximum (#)'),
+    FloatVar('BR6FX', 5, 0, info='Branch number per fork at fork 6, maximum (#)'),
+    FloatVar('PARUE', 5, 2, info='PAR conversion factor,standard (g dry matter/MJ)'),
+    FloatVar('DUSRI', 5, 0, info='Degree days at which storage root number determined (oC.d)'),
+    FloatVar('SRN%S', 5, 2, info='Storage root standard N concentration (% dm)'),
+    FloatVar('HTSTD', 5, 0, info='Standard canopy height (cm)')
 }
