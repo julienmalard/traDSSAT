@@ -3,6 +3,7 @@ import os
 import numpy as np
 
 from .file import File
+from .input import InpFile
 from .vals import ValueSubSection
 
 
@@ -42,3 +43,23 @@ class OutFile(File):
     def matches_file(cls, file):
         fname = os.path.split(file)[1]
         return fname.lower() == cls.filename.lower()
+
+
+class FinalOutFile(InpFile):
+    filename = None  # type: str
+
+    def __init__(self, folder):
+        if os.path.isdir(folder):
+            file = os.path.join(folder, self.filename)
+        else:
+            file = folder
+
+        super().__init__(file)
+
+    @classmethod
+    def matches_file(cls, file):
+        fname = os.path.split(file)[1]
+        return fname.lower() == cls.filename.lower()
+
+    def _get_var_info(self):
+        raise NotImplementedError

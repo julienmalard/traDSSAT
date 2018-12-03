@@ -1,13 +1,17 @@
-from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
+from tradssat.genotype.vars_._cropgro import cropgro_cul_vars, cropgro_eco_vars
+from tradssat.tmpl.var import FloatVar
 
-cul_vars_G0GRO = {
-    CharacterVar('VAR#', 6, spc=0, info='Identification code or number for the specific cultivar.'),
-    CharacterVar('VRNAME', 16, header_fill='.', info='Name of cultivar.'),
-    IntegerVar('EXPNO', 5, miss='.', info='Number of experiments used for calibration.'),
-    CharacterVar('ECO#', 6, info='Code for the ecotype to which this cultivar belongs (see *.eco file)'),
+cul_vars_G0GRO = cropgro_cul_vars(exclude=['EXPNO', 'THRESH', 'SDPRO', 'SDLIP'])
 
-}
-
-eco_vars_G0GRO = {
-
-}
+eco_vars_G0GRO = cropgro_eco_vars()
+eco_vars_G0GRO.update({
+    FloatVar(
+        'THRSH', 5, 1,
+        info='The maximum ratio of (seed/(seed+shell)) at maturity. '
+             'Causes seed to stop growing as their dry weights '
+             'increase until shells are filled in a cohort. '
+             '(Threshing percentage).'
+    ),
+    FloatVar('SDPRO', 5, 3, info='Fraction protein in seeds (g(protein)/g(seed))'),
+    FloatVar('SDLIP', 5, 3, info='Fraction oil in seeds (g(oil)/g(seed))'),
+})

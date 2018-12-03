@@ -1,0 +1,69 @@
+{
+  "GREENBEAN ECOTYPE COEFFICIENTS: CRGRO047 MODEL": {
+    "header vars": [],
+    "main vars": [
+      {
+        "ECO#": [
+          "SNAPBN"
+        ],
+        "ECONAME": [
+          "X-ANDEAN TYPE"
+        ],
+        "MG": [
+          "02"
+        ],
+        "TM": [
+          "02"
+        ],
+        "THVAR": [
+          0.0
+        ],
+        "PL-EM": [
+          4.0
+        ],
+        "EM-V1": [
+          3.0
+        ],
+        "V1-JU": [
+          0.0
+        ],
+        "JU-R0": [
+          5.0
+        ],
+        "PM06": [
+          0.0
+        ],
+        "PM09": [
+          0.55
+        ],
+        "LNGSH": [
+          8.0
+        ],
+        "R7-R8": [
+          7.0
+        ],
+        "FL-VS": [
+          1.0
+        ],
+        "TRIFL": [
+          0.33
+        ],
+        "RWDTH": [
+          1.1
+        ],
+        "RHGHT": [
+          1.0
+        ],
+        "R1PPO": [
+          0.0
+        ],
+        "OPTBI": [
+          0.0
+        ],
+        "SLOBI": [
+          0.0
+        ]
+      }
+    ]
+  }
+}

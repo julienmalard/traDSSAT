@@ -219,7 +219,13 @@ class ValueSubSection(object):
 
         lines.append('@' + ''.join([vr.write() for vr in self]))
         for i in range(self.n_data()):
-            line = ''.join([vr.write(i) for vr in self])
+            written = [vr.write(i) for vr in self]
+            for i, (x, vr) in enumerate(zip(list(written), self)):
+                extra = len(x) - (vr.var.size + vr.var.spc)
+                if i < len(written) - 1 and extra:
+                    written[i + 1] = written[i + 1][extra:]
+
+            line = ''.join(written)
             lines.append(line)
 
         return lines

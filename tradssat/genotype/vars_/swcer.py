@@ -1,9 +1,9 @@
-from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
+from tradssat.tmpl.var import CharacterVar, FloatVar
 
 cul_vars_SWCER = {
     CharacterVar('VAR#', 6, spc=0, info='Identification code or number for the specific cultivar.'),
     CharacterVar('VRNAME', 16, header_fill='.', info='Name of cultivar.'),
-    IntegerVar('EXPNO', 5, miss='.', info='Number of experiments used for calibration.'),
+    CharacterVar('EXPNO', 5, miss='.', info='Number of experiments used for calibration.'),
     CharacterVar(
         'ECO#', 6,
         info='Ecotype code or this cultivar, points to the Ecotype in the ECO file (currently not used).'
@@ -42,5 +42,22 @@ cul_vars_SWCER = {
 }
 
 eco_vars_SWCER = {
+    CharacterVar('ECO#', 6, spc=0, info='Code for the ecotype to which a cultivar belongs (see *.cul file)'),
+    CharacterVar('ECONAME', 17, header_fill='.', info='Name of the ecotype, which is referenced from *.CUL file'),
 
+    FloatVar('TBASE', 5, 1, info='Base temperature below which no development occurs, C'),
+    FloatVar('TOPT', 5, 1, info='Temperature at which maximum development rate occurs during vegetative stages, C'),
+    FloatVar('ROPT', 5, 1, info='Temperature at which maximum development rate occurs for reproductive stages, C'),
+    FloatVar('P20', 5, 1, info='Daylength below which daylength does not affect development rate, hours'),
+    FloatVar(
+        'DJTI', 5, 1,
+        info='Minimum days from end of juvenile stage to tassel initiation if the cultivar is not photoperiod '
+             'sensitive, days'
+    ),
+    FloatVar('GDDE', 5, 1, info='Growing degree days per cm seed depth required for emergence, GDD/cm'),
+    FloatVar('DSGFT', 5, 0, info='GDD from silking to effective grain filling period, C'),
+    FloatVar('RUE', 5, 1, info='Radiation use efficiency, g plant dry matter/MJ PAR'),
+    FloatVar('KCAN', 5, 2, info='Canopy light extinction coefficient for daily PAR.'),
+    FloatVar('TSEN', 5, 1, info='Critical temperature below which leaf damage occurs (default 6°C)'),
+    FloatVar('CDAY', 5, 1, info='Number of cold days parameter (default 15.0 )')
 }

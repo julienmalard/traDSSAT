@@ -1,13 +1,5 @@
-from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
+from ._cropgro import cropgro_cul_vars, frm_eco_vars
 
-cul_vars_BRFRM = {
-    CharacterVar('VAR#', 6, spc=0, info='Identification code or number for the specific cultivar.'),
-    CharacterVar('VRNAME', 16, header_fill='.', info='Name of cultivar.'),
-    IntegerVar('EXPNO', 5, miss='.', info='Number of experiments used for calibration.'),
-    CharacterVar('ECO#', 6, info='Code for the ecotype to which this cultivar belongs (see *.eco file)'),
+cul_vars_BRFRM = cropgro_cul_vars()
 
-}
-
-eco_vars_BRFRM = {
-
-}
+eco_vars_BRFRM = frm_eco_vars()

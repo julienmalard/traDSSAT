@@ -3,7 +3,7 @@ from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 cul_vars_BACER = {
     CharacterVar('VAR#', 6, spc=0, info='Identification code or number for the specific cultivar.'),
     CharacterVar('VAR-NAME', 16, header_fill='.', info='Name of cultivar.'),
-    IntegerVar('EXP#', 5, miss='.', info='Number of experiments used to generate parameters'),
+    CharacterVar('EXP#', 5, miss='.', info='Number of experiments used to generate parameters'),
     CharacterVar('ECO#', 6, info='Ecotype code for this cultivar,points to entry in ECO file'),
     FloatVar('P1V', 5, 0, info='Days,optimum vernalizing temperature,required for vernalization'),
     FloatVar('P1D', 5, 0, info='Photoperiod response (% reduction in rate/10 h drop in pp)'),

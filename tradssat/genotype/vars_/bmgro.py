@@ -1,13 +1,15 @@
-from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
+from tradssat.genotype.vars_._cropgro import cropgro_cul_vars, cropgro_eco_vars
+from tradssat.tmpl.var import FloatVar
 
-cul_vars_BMGRO = {
-    CharacterVar('VAR#', 6, spc=0, info='Identification code or number for the specific cultivar.'),
-    CharacterVar('VRNAME', 16, header_fill='.', info='Name of cultivar.'),
-    IntegerVar('EXPNO', 5, miss='.', info='Number of experiments used for calibration.'),
-    CharacterVar('ECO#', 6, info='Code for the ecotype to which this cultivar belongs (see *.eco file)'),
+cul_vars_BMGRO = cropgro_cul_vars()
 
-}
-
-eco_vars_BMGRO = {
-
-}
+eco_vars_BMGRO = cropgro_eco_vars()
+eco_vars_BMGRO.update({
+    FloatVar('RDRMT', 5, dec=3,
+             info='Relative dormancy sensitivity of this cultivar to daylength - partitioning (0-1)'),
+    FloatVar('RDRMG', 5, dec=3,
+             info='Relative dormancy sensitivity of this cultivar to daylength - photosynthesis (0-1)'),
+    FloatVar('RDRMM', 5, dec=3,
+             info='Relative dormancy sensitivity of this cultivar to daylength - mobilization (0-1)'),
+    FloatVar('RCHDP', 5, dec=3, info='Relative cold hardening potential (0-1)')
+})

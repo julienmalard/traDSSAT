@@ -61,7 +61,7 @@ class File(object):
     def get_var_size(self, var, sect=None):
         return self.get_var(var, sect).size
 
-    def get_var_miss(self, var, sect=None):
+    def get_var_code_miss(self, var, sect=None):
         return self.get_var(var, sect).miss
 
     def get_var(self, var, sect=None):
@@ -96,15 +96,21 @@ class File(object):
         lengths = [self.get_var_size(vr) for vr in var_names]
         spaces = [self.get_var_spc(vr) for vr in var_names]
         cum_lens = np.insert(np.cumsum(lengths) + np.cumsum(spaces), 0, 0)
-        cutoffs = [(cum_lens[i], cum_lens[i + 1] + 1) for i in range(len(var_names))]
+        cutoffs = [(cum_lens[i], cum_lens[i + 1]) for i in range(len(var_names))]
 
         d_vals = {vr: self._gen_empty_mtrx(vr, n_lines) for vr in var_names}
 
         for i, l in enumerate(subblock[1:]):
-            vals = [l[c[0]:c[1]].strip() for c in cutoffs]
+            # Odd workaround necessary because several cultivar names in DSSAT are larger than the allowed space
+            # and so run into the next column, which apparently isn't supposed to matter if the next column's value
+            # is small enough to allow both to fit. (Really?!)
+            vals = [
+                (l[0 if c[0] == 0 else max(c[0], l.find(' ', c[0], c[1] - 1)):
+                   None if l.find(' ', c[1] - 1) < 0 else l.find(' ', c[1] - 1)]).strip()
+                for c in cutoffs]
             for vr, vl in zip(var_names, vals):
-                if not len(vl) or vl == self.get_var_miss(vr):
-                    vl = CODE_MISS
+                if not len(vl):
+                    vl = self.get_var_code_miss(vr)
                 d_vals[vr][i] = vl
 
         l_vars = [self._var_info.get_var(vr, sect=section_name) for vr in var_names]
@@ -139,28 +145,34 @@ class File(object):
             dtype = int
         elif tp == 'str' or tp == str:
             str_size = self.get_var_size(var)
-            dtype = f'U{str_size}'
+            dtype = f'U{str_size + 5}'  # +5 just to be safe (with DSSAT input files you never know)
         else:
             dtype = tp
 
         return np.full(size, CODE_MISS, dtype=dtype)
 
     def _get_var_names(self, line):
-        names = [x.strip() for x in re.split('[. +]', line[1:]) if len(x.strip())]  # skip initial "@"
+        var_names = [str(vr) for vr in self._var_info]
+        var_names.sort(key=len, reverse=True)
+
+        def _strip(txt):
+            return re.sub('^[|.\W]+', '', txt)
+
         final_names = []
-        to_skip = []
-        for i, vr in enumerate(names):
-            if vr in to_skip:
-                continue
-            if vr in self._var_info:
-                final_names.append(vr)
-            elif i != len(names) - 1 and '{} {}'.format(vr, names[i + 1]) in self._var_info:
-                final_names.append('{} {}'.format(vr, names[i + 1]))
-                to_skip.append(names[i + 1])
-            else:
+        line = _strip(line[1:])  # skip initial "@"
+
+        while len(line):
+            try:
+                name = next(vr for vr in var_names if line.startswith(vr))
+            except StopIteration:
                 raise ValueError(
-                    'Variable "{vr}" is not defined for file {nm}.'.format(vr=vr, nm=os.path.split(self.file)[1])
+                    'No variable matching "{line}" for file {nm}.'.format(
+                        line=line[:20], nm=os.path.split(self.file)[1]
+                    )
                 )
+            final_names.append(name)
+            line = _strip(line[len(name):])
+
         return final_names
 
     def __contains__(self, item):

@@ -77,7 +77,7 @@ class NumericVar(Variable):
     def check_val(self, val):
         val = np.array(val)
         out = np.where(np.logical_or(np.less(val, self.lims[0]), np.greater(val, self.lims[1])))
-        if out[0]:
+        if out[0].size > 0:
             vals_out = val[out]
             raise ValueError(
                 'Value {val} is not in range {rng} for variable {name}.'.format(val=vals_out, name=self, rng=self.lims)
@@ -97,7 +97,20 @@ class FloatVar(NumericVar):
     def _write(self, val):
         if val == self.miss:
             return '-99'  # to avoid size overflow on small-sized variables with decimals
-        return '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=self.dec)
+        # todo: clean
+        txt_0 = str(val)
+        space_req = len(txt_0.split('.')[0])+1
+        if txt_0.startswith('0') or txt_0.startswith('-0'):
+            space_req -= 1
+
+        dec = min(self.dec, max(0, self.size - space_req))
+
+        txt = '{:{sz}.{dec}f}'.format(val, sz=self.size, dec=dec)
+        if txt[0] == '0':
+            txt = txt[1:]
+        elif txt[:2] == '-0':
+            txt = '-{}'.format(txt[2:])
+        return txt
 
 
 class IntegerVar(NumericVar):
@@ -134,6 +147,10 @@ class VariableSet(object):
 
     def __contains__(self, item):
         return any(str(vr) == str(item) for vr in self._vars)
+
+    def __iter__(self):
+        for vr in self._vars:
+            yield vr
 
 
 class HeaderVariableSet(object):

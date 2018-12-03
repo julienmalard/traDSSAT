@@ -1,0 +1,39 @@
+{
+  "SugarBeet CULTIVAR COEFFICIENTS: BSCER047 MODEL": {
+    "header vars": [],
+    "main vars": [
+      {
+        "VAR#": [
+          "CR0001"
+        ],
+        "VRNAME": [
+          "SVRR1142E"
+        ],
+        "EXPNO": [
+          "."
+        ],
+        "ECO#": [
+          "BS0001"
+        ],
+        "P1": [
+          970.0
+        ],
+        "P2": [
+          0.001
+        ],
+        "P5": [
+          700.0
+        ],
+        "G2": [
+          990.0
+        ],
+        "G3": [
+          5.5
+        ],
+        "PHINT": [
+          38.9
+        ]
+      }
+    ]
+  }
+}
