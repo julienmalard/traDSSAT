@@ -18,6 +18,7 @@ setup(
     long_description=read_txt('README.md'),
     setup_requires=[],
     install_requires=['numpy', 'chardet'],
+    package_data={'tradssat': ['*.txt']},
     classifiers=[
         'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.6'

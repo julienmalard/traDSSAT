@@ -50,6 +50,5 @@ class DSSATResults(object):
             self._sumoutfile = self._sumoutclass(self.folder)
         if var in self._sumoutfile.variables():
             return self._sumoutfile.get_value(var, cond={'TRNO': trt})[0]
-        else:
-            vals = self.get_value(var=var, trt=trt)
-            return vals[-1]
+        vals = self.get_value(var=var, trt=trt)
+        return vals[-1]
