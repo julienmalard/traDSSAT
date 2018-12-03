@@ -111,7 +111,6 @@ class File(object):
             for vr, vl in zip(var_names, vals):
                 if not len(vl):
                     vl = self.get_var_code_miss(vr)
-                    # vl = CODE_MISS
                 d_vals[vr][i] = vl
 
         l_vars = [self._var_info.get_var(vr, sect=section_name) for vr in var_names]
