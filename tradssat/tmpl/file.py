@@ -200,7 +200,7 @@ class File(object):
 
     def _get_var_info(self):
         """
-        Return a dictionary of variable information.
+        Return a set of variables.
 
         Returns
         -------
@@ -212,15 +212,19 @@ class File(object):
     @classmethod
     def matches_file(cls, file):
         """
+        Checks whether a given file can be read by this class. Must be implemented in subclasses.
 
         Parameters
         ----------
         file: str
+            The file to be read.
 
         Returns
         -------
         bool
+            ``True`` if the file matches; ``False`` otherwise.
         """
+        
         raise NotImplementedError
 
     def _process_section_header(self, lines):
