@@ -2,7 +2,7 @@ from tradssat.tmpl.output import OutFile
 from tradssat.tmpl.var import FloatVar, IntegerVar
 
 
-class SoilTemp(OutFile):
+class SoilTempOut(OutFile):
     filename = 'SoilTemp.Out'
 
     def _get_var_info(self):

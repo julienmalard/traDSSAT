@@ -12,6 +12,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+import tradssat
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
@@ -24,9 +25,9 @@ copyright = '2018, Julien Malard, श्रेया यादव'
 author = 'Julien Malard, श्रेया यादव'
 
 # The short X.Y version
-version = ''
+version = tradssat.__version__.rsplit('.', 1)[0]
 # The full version, including alpha/beta/rc tags
-release = '0.0'
+release = tradssat.__version__
 
 
 # -- General configuration ---------------------------------------------------
@@ -43,6 +44,7 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
+    'sphinx.ext.napoleon'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

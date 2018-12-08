@@ -8,6 +8,10 @@ from .vals import ValueSubSection
 
 
 class OutFile(File):
+    """
+    Parent class for (nearly all) DSSAT output files.
+    """
+
     filename = None  # type: str
 
     def __init__(self, folder):

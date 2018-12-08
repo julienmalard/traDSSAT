@@ -9,7 +9,10 @@ from .var import VariableSet, CODE_MISS
 
 
 class File(object):
-
+    """
+    Parent class for all file objects.
+    """
+    
     def __init__(self, file):
         """
 
@@ -59,6 +62,23 @@ class File(object):
         return self.get_var(var, sect).spc
 
     def get_var_size(self, var, sect=None):
+        """
+        Returns the size of a variable.
+
+        Parameters
+        ----------
+        var: str
+            The name of the variable.
+        sect: str
+            The name of the section in which this variable appears (optional; for ambiguous cases where a file
+            has several variables with the same code).
+
+        Returns
+        -------
+        int
+            The size of the variable.
+
+        """
         return self.get_var(var, sect).size
 
     def get_var_code_miss(self, var, sect=None):

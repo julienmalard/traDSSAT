@@ -6,6 +6,10 @@ from .var import HeaderVariableSet
 
 
 class InpFile(File):
+    """
+    Parent class for all input files, as well as for `Summary.OUT`.
+    """
+    
     ext = None  # type: str
 
     def __init__(self, file):
@@ -27,6 +31,14 @@ class InpFile(File):
         self._values.set_value(var, val, sect=sect, subsect=subsect, cond=cond)
 
     def changed(self):
+        """
+        Checks whether the file has been edited and needs to be rewritten.
+
+        Returns
+        -------
+        bool
+            Whether the file has been edited or not.
+        """
         return self._values.changed()
 
     def get_var(self, var, sect=None):
