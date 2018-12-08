@@ -40,7 +40,7 @@ eco.get_value('TOPT')  # returns array of all ecotypes' TOPT
 set_dssat_dir('C:/DSSAT47')
 gen = GeneticMgr(crop='MZIXM', cult='PC0001')
 gen.get_value('P1')  # Returns P1 for MZIXM cultivar PC0001
-gen.get_value('TOPT')  # Returns ecotype variable TOPT for cultivar PC001
+gen.get_value('TOPT')  # Returns ecotype variable TOPT for cultivar PC0001
 
 ```
 

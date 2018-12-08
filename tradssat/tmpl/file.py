@@ -9,7 +9,10 @@ from .var import VariableSet, CODE_MISS
 
 
 class File(object):
-
+    """
+    Parent class for all file objects.
+    """
+    
     def __init__(self, file):
         """
 
@@ -59,6 +62,23 @@ class File(object):
         return self.get_var(var, sect).spc
 
     def get_var_size(self, var, sect=None):
+        """
+        Returns the size of a variable.
+
+        Parameters
+        ----------
+        var: str
+            The name of the variable.
+        sect: str
+            The name of the section in which this variable appears (optional; for ambiguous cases where a file
+            has several variables with the same code).
+
+        Returns
+        -------
+        int
+            The size of the variable.
+
+        """
         return self.get_var(var, sect).size
 
     def get_var_code_miss(self, var, sect=None):
@@ -180,7 +200,7 @@ class File(object):
 
     def _get_var_info(self):
         """
-        Return a dictionary of variable information.
+        Return a set of variables.
 
         Returns
         -------
@@ -192,15 +212,19 @@ class File(object):
     @classmethod
     def matches_file(cls, file):
         """
+        Checks whether a given file can be read by this class. Must be implemented in subclasses.
 
         Parameters
         ----------
         file: str
+            The file to be read.
 
         Returns
         -------
         bool
+            ``True`` if the file matches; ``False`` otherwise.
         """
+        
         raise NotImplementedError
 
     def _process_section_header(self, lines):

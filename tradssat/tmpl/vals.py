@@ -4,14 +4,39 @@ import numpy as np
 
 
 class FileValueSet(object):
-
+    """
+    Represents the set of values in a DSSAT file.
+    """
+    
     def __init__(self):
         self._sections = {}
 
     def add_section(self, name):
+        """
+        Adds a section to the file.
+        
+        Parameters
+        ----------
+        name: str
+            Name of the new section.
+
+        """
         self._sections[name] = ValueSection(name)
 
     def write(self, lines):
+        """
+        Writes the file.
+        
+        Parameters
+        ----------
+        lines: list
+            List to which to write output lines.
+
+        Returns
+        -------
+        list
+            The modified list.
+        """
 
         for s in self:
             s.write(lines)
@@ -21,6 +46,14 @@ class FileValueSet(object):
         return lines
 
     def to_dict(self):
+        """
+        Converts the file to a dictionnary.
+        
+        Returns
+        -------
+        dict
+
+        """
         return {name: sect.to_dict() for name, sect in self._sections.items()}
 
     def get_value(self, var, sect=None, subsect=None, cond=None):
@@ -51,6 +84,19 @@ class FileValueSet(object):
         self[sect].remove_row(subsect, cond)
 
     def find_var_sect(self, var):
+        """
+        Finds the section in which a variable appears.
+        
+        Parameters
+        ----------
+        var: str
+            The name of the variable
+
+        Returns
+        -------
+        str
+            The file section name.
+        """
         return next(s.name for s in self if var in s)
 
     def changed(self):
@@ -71,6 +117,10 @@ class FileValueSet(object):
 
 
 class ValueSection(object):
+    """
+    Represents the structure and variable values in a DSSAT file section.
+    """
+
     def __init__(self, name):
         self.name = name
         self._subsections = []
@@ -175,6 +225,10 @@ class ValueSection(object):
 
 
 class ValueSubSection(object):
+    """
+    Represents the variables and values in a DSSAT file subsection.
+    """
+
     def __init__(self, l_vars, l_vals):
 
         self._vars = {str(vr): VariableValue(vr, vl) for vr, vl in zip(l_vars, l_vals)}
@@ -251,6 +305,10 @@ class ValueSubSection(object):
 
 
 class VariableValue(object):
+    """
+    Represents a DSSAT file variable.
+    """
+
     def __init__(self, var, val):
 
         self.changed = False
@@ -304,6 +362,10 @@ class VariableValue(object):
 
 
 class HeaderValues(object):
+    """
+    Represents DSSAT file header variables and their values.
+    """
+    
     def __init__(self):
         self._subsect = None
 

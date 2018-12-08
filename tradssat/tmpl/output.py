@@ -8,6 +8,10 @@ from .vals import ValueSubSection
 
 
 class OutFile(File):
+    """
+    Parent class for (nearly all) DSSAT output files.
+    """
+
     filename = None  # type: str
 
     def __init__(self, folder):
@@ -41,6 +45,20 @@ class OutFile(File):
 
     @classmethod
     def matches_file(cls, file):
+        """
+        Checks whether a given file can be read by this class.
+        
+        Parameters
+        ----------
+        file: str
+           The filename or full path to be read.
+        
+        Returns
+        -------
+        bool
+           ``True`` if the file matches; ``False`` otherwise.
+        """
+        
         fname = os.path.split(file)[1]
         return fname.lower() == cls.filename.lower()
 

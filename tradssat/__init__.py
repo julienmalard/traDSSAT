@@ -3,10 +3,10 @@ import os
 from .utils import set_dssat_dir, get_dssat_dir, read_txt
 from .exper import ExpFile
 from .genotype import CULFile, ECOFile
-from .out import PlantGrowOut, SummaryOut
+from .out import PlantGrowOut, SummaryOut, SoilNiOut, SoilTempOut
 from .soil import SoilFile
 from .weather import WTHFile
-from .runs import DSSATRun, DSSATResults, GeneticMgr, WeatherFileMgr, SoilMgr
+from .mgrs import DSSATRun, DSSATResults, GeneticMgr, WeatherFileMgr, SoilMgr
 
 try:
     set_dssat_dir('C:/DSSAT47')

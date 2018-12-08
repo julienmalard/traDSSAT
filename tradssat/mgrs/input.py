@@ -1,7 +1,7 @@
 import numpy as np
 
 from tradssat.exper.exper_vars import TRT_HEAD, GENERAL
-from tradssat.runs.exp_mgr import _level_codes, _factor_codes, _factor_to_code
+from tradssat.mgrs.exp_mgr import _level_codes, _factor_codes, _factor_to_code
 from .exp_mgr import ExpFileMgr
 from .gen_mgr import PeriphGenMgr
 from .soil_mgr import PeriphSoilMgr

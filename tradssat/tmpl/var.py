@@ -6,6 +6,9 @@ CODE_MISS = -99
 
 
 class Variable(object):
+    """
+    Parent class for all variable types.
+    """
     type_ = None
 
     def __init__(self, name, size, spc, header_fill, float_r, miss, sect, info):
@@ -44,6 +47,9 @@ class Variable(object):
 
 
 class CharacterVar(Variable):
+    """
+    Character (string) variable.
+    """
     type_ = str
 
     def __init__(self, name, size, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
@@ -63,6 +69,9 @@ class CharacterVar(Variable):
 
 
 class NumericVar(Variable):
+    """
+    Parent class for numeric variable types.
+    """
 
     def __init__(self, name, size, lims, spc, header_fill, miss, sect, info):
 
@@ -88,6 +97,9 @@ class NumericVar(Variable):
 
 
 class FloatVar(NumericVar):
+    """
+    Floating point (decimal) variable.
+    """
     type_ = float
 
     def __init__(self, name, size, dec, lims=None, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
@@ -114,6 +126,9 @@ class FloatVar(NumericVar):
 
 
 class IntegerVar(NumericVar):
+    """
+    Integer (whole number) variable.
+    """
     type_ = int
 
     def __init__(self, name, size, lims=None, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
@@ -126,6 +141,10 @@ class IntegerVar(NumericVar):
 
 
 class VariableSet(object):
+    """
+    Organiser for the allowed variables of a DSSAT file type.
+    """
+
     def __init__(self, l_vars):
         self._vars = l_vars
 
@@ -154,6 +173,10 @@ class VariableSet(object):
 
 
 class HeaderVariableSet(object):
+    """
+    Organiser for the allowed header variables of a DSSAT file type.
+    """
+    
     def __init__(self, d_vars):
         self._vars = d_vars
 

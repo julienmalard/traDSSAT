@@ -2,7 +2,7 @@ from tradssat.tmpl.output import OutFile
 from tradssat.tmpl.var import FloatVar, IntegerVar
 
 
-class SoilNitrogen(OutFile):
+class SoilNiOut(OutFile):
     filename = 'SoilNi.Out'
 
     def _get_var_info(self):
