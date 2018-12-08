@@ -131,7 +131,7 @@
    190   -99 0.072 0.174 0.451 0.033   -99  1.39  0.06  10.0  60.0   0.0 0.010   6.5   -99   -99   -99 
    210   -99 0.072 0.174 0.452 0.018   -99  1.39  0.01  10.0  60.0   0.0 0.000   6.5   -99   -99   -99 
 
-*  IBSNAT      SIL     150 DEFAULT - MEDIUM SILTY LOAM
+*IB00000005  IBSNAT      SIL     150 DEFAULT - MEDIUM SILTY LOAM
 @SITE        COUNTRY          LAT     LONG SCS FAMILY
  Generic     Generic           -99    -99  Generic
 @ SCOM  SALB  SLU1  SLDR  SLRO  SLNF  SLPF  SMHB  SMPX  SMKE
