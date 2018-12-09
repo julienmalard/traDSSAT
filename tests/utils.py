@@ -22,7 +22,7 @@ def find_files(inp_class, folder):
 def get_ref(file, default):
     path, file = os.path.split(file)
     file_name = os.path.splitext(file)[0]
-    ref_file = os.path.join(path, f'_ref_{file}.json')
+    ref_file = os.path.join(path, '_ref_{}.json'.format(file))
     try:
         return read_json(ref_file)
     except (FileNotFoundError, JSONDecodeError):

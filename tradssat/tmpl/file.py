@@ -165,7 +165,7 @@ class File(object):
             dtype = int
         elif tp == 'str' or tp == str:
             str_size = self.get_var_size(var)
-            dtype = f'U{str_size + 5}'  # +5 just to be safe (with DSSAT input files you never know)
+            dtype = 'U{}'.format(str_size + 5)  # +5 just to be safe (with DSSAT input files you never know)
         else:
             dtype = tp
 
