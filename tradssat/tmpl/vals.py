@@ -7,7 +7,7 @@ class FileValueSet(object):
     """
     Represents the set of values in a DSSAT file.
     """
-    
+
     def __init__(self):
         self._sections = {}
 
@@ -365,7 +365,7 @@ class HeaderValues(object):
     """
     Represents DSSAT file header variables and their values.
     """
-    
+
     def __init__(self):
         self._subsect = None
 

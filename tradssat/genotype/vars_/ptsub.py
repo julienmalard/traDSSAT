@@ -1,4 +1,4 @@
-from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
+from tradssat.tmpl.var import CharacterVar, FloatVar
 
 cul_vars_PTSUB = {
     CharacterVar('VAR#', 6, spc=0, info='Identification code or number for the specific cultivar.'),
@@ -23,6 +23,5 @@ eco_vars_PTSUB = {
 
     FloatVar('RUE1', 5, 1, info='Radiation use efficiency, ISTAGE=1, g plant dry matter/MJ PAR'),
     FloatVar('RUE2', 5, 1, info='Radiation use efficiency, ISTAGE>1, g plant dry matter/MJ PAR')
-
 
 }

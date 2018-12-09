@@ -58,7 +58,7 @@ class OutFile(File):
         bool
            ``True`` if the file matches; ``False`` otherwise.
         """
-        
+
         fname = os.path.split(file)[1]
         return fname.lower() == cls.filename.lower()
 

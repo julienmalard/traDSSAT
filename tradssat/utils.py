@@ -11,7 +11,7 @@ def read_txt(f):
 def detect_encod(file):
     detector = UniversalDetector()
     with open(file, 'rb') as d:
-        for i, line in enumerate(d.readlines()):
+        for line in d.readlines():
 
             detector.feed(line)
 
@@ -24,11 +24,6 @@ def detect_encod(file):
 
 
 config = {'DSSAT_DIR': None}
-
-
-def read_txt(f):
-    with open(f, 'r', encoding='UTF-8') as d:
-        return d.read()
 
 
 def set_dssat_dir(dssat_dir):

@@ -12,7 +12,7 @@ class File(object):
     """
     Parent class for all file objects.
     """
-    
+
     def __init__(self, file):
         """
 
@@ -224,7 +224,7 @@ class File(object):
         bool
             ``True`` if the file matches; ``False`` otherwise.
         """
-        
+
         raise NotImplementedError
 
     def _process_section_header(self, lines):

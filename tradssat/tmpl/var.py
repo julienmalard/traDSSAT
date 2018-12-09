@@ -111,7 +111,7 @@ class FloatVar(NumericVar):
             return '-99'  # to avoid size overflow on small-sized variables with decimals
         # todo: clean
         txt_0 = str(val)
-        space_req = len(txt_0.split('.')[0])+1
+        space_req = len(txt_0.split('.')[0]) + 1
         if txt_0.startswith('0') or txt_0.startswith('-0'):
             space_req -= 1
 
@@ -176,7 +176,7 @@ class HeaderVariableSet(object):
     """
     Organiser for the allowed header variables of a DSSAT file type.
     """
-    
+
     def __init__(self, d_vars):
         self._vars = d_vars
 

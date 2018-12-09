@@ -17,7 +17,7 @@ class DSSATResults(object):
         folder: str
             The DSSAT run output folder.
         """
-        
+
         self.folder = folder
 
         outfiles = [PlantGrowOut]
@@ -30,7 +30,7 @@ class DSSATResults(object):
         """
         Reload data (useful if a new DSSAT simulation has been run).
         """
-        
+
         for out_class in self._outfiles:
             self._outfiles[out_class] = None
         self._sumoutfile = None

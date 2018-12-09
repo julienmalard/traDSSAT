@@ -9,7 +9,7 @@ class InpFile(File):
     """
     Parent class for all input files, as well as for `Summary.OUT`.
     """
-    
+
     ext = None  # type: str
 
     def __init__(self, file):
@@ -102,7 +102,7 @@ class InpFile(File):
         bool
            ``True`` if the file matches; ``False`` otherwise.
         """
-        
+
         ext = os.path.splitext(file)[1]
         if isinstance(cls.ext, str):
             return ext.lower() == cls.ext.lower()
