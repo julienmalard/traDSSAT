@@ -1,20 +1,28 @@
 language: python
+
 python:
   - '3.6'
+
 os:
   - linux
+
 install:
   - pip install --upgrade pip setuptools wheel
   - pip install -r requirements.txt
-  - pip install coveralls codecov
+  - pip install coveralls codecov codacy-coverage
   - python setup.py sdist bdist_wheel
   - pip install tradssat --no-index --find-links=./dist
+
 script:
   - cd tests
   - coverage run -m unittest
+
 after_success:
   - coveralls --rcfile=.coveragerc
   - codecov
+  - coverage xml
+  - python-codacy-coverage -r coverage.xml
+
 deploy:
   provider: pypi
   user: julien.malard
