@@ -14,7 +14,7 @@ setup(
     license='MIT',
     author=read_txt('tradssat/AUTHORS.txt'),
     author_email='julien.malard@mail.mcgill.ca',
-    description='DSSAT input and output tmpl reader and writer',
+    description='DSSAT input and output file reader and writer',
     long_description=read_txt('README.md'),
     setup_requires=[],
     install_requires=['numpy', 'chardet'],
@@ -22,6 +22,8 @@ setup(
     classifiers=[
         'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.6'
-        'Programming Language :: Python :: 3.7'
+        'Programming Language :: Python :: 3.7',
+        'License :: OSI Approved :: MIT License',
+        'Development Status :: 3 - Alpha'
     ],
 )
