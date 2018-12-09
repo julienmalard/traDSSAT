@@ -5,7 +5,7 @@ cul_vars_PIALO = {
     CharacterVar('VAR-NAME', 16, header_fill='.', info=''),
     CharacterVar('EXPNO', 5, miss='', info=''),
     CharacterVar('ECO#', 6, info=''),
-    
+
     FloatVar('P1', 5, 1, info='Growing degree days from first leaf emerged to end of stem growth'),
     FloatVar('P2', 5, 0, info='Growing degree days from forcing to sepals closed on youngest flower'),
     FloatVar('P3', 5, 0, info='Growing degree days from SCY to early flowering'),

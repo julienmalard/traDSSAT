@@ -1,4 +1,4 @@
-from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
+from tradssat.tmpl.var import CharacterVar, FloatVar
 
 cul_vars_TNARO = {
     CharacterVar('VAR#', 6, spc=0, info='Identification code or number for the specific cultivar.'),
