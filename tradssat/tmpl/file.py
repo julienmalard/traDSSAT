@@ -40,13 +40,13 @@ class File(object):
                 if l[0] == '*':  # start of section
 
                     # Process any previously stored block
-                    if len(section):
+                    if section:
                         self._read_section(section)
 
                     # Clear the current block
                     section.clear()
 
-                if len(l.strip()):
+                if l.strip():
                     section.append(l)  # Append current line to block
 
             # Read the last block too
@@ -146,15 +146,15 @@ class File(object):
         for l in section_lines:  # skip first line (with "*")
             if l[0] == '@':
 
-                if len(subblock):
+                if subblock:
                     self._read_subsection(section_name, subblock)
                 subblock.clear()
 
             # Append current line to section
-            if len(l.strip().strip('\x1a')):  # '\x1a' needed for obscure character DSSAT likes to append to .SNX/SQX
+            if l.strip().strip('\x1a'):  # '\x1a' needed for obscure character DSSAT likes to append to .SNX/SQX
                 subblock.append(l)
 
-        if len(subblock):
+        if subblock:
             self._read_subsection(section_name, subblock)
 
     def _gen_empty_mtrx(self, var, size):
@@ -181,7 +181,7 @@ class File(object):
         final_names = []
         line = _strip(line[1:])  # skip initial "@"
 
-        while len(line):
+        while line:
             try:
                 name = next(vr for vr in var_names if line.startswith(vr))
             except StopIteration:
