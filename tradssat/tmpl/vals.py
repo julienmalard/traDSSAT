@@ -78,6 +78,19 @@ class FileValueSet(object):
                     s.set_value(var, val, subsect, cond=cond)
 
     def add_row(self, sect, subsect=None, vals=None):
+        """
+        Adds a row to the file.
+        
+        Parameters
+        ----------
+        sect: str
+            Name of section.
+        subsect: int
+            Subsection number. If ``None``, will add row to all subsections.
+        vals: dict
+            Dictionnary of new row variable values.
+
+        """
         self[sect].add_row(subsect, vals)
 
     def remove_row(self, sect, subsect=None, cond=None):
@@ -100,6 +113,13 @@ class FileValueSet(object):
         return next(s.name for s in self if var in s)
 
     def changed(self):
+        """
+        Detects if any variable values have been changed.
+        
+        Returns
+        -------
+        bool
+        """
         return any(s.changed() for s in self)
 
     def __iter__(self):

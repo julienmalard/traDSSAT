@@ -2,6 +2,21 @@ import re
 
 
 def _name_matches(pattern, name, full=False):
+    """
+    
+    Parameters
+    ----------
+    pattern: str | re.Pattern
+        The desired name, or a regex.
+    name: str
+        The name to test.
+    full:
+        Whether ``pattern`` should match the full name or just the beginning.
+
+    Returns
+    -------
+
+    """
     if None in [pattern, name]:
         return True
 

@@ -174,12 +174,39 @@ class DSSATRun(object):
         return levels[trt_nums == trt][0]
 
     def set_trt_factor_level(self, trt, factor, level):
+        """
+        Sets the factor level for a treatment.
+        
+        Parameters
+        ----------
+        trt: str | int
+            The treatment name or number.
+        factor: str
+            The factor name or code.
+        level: int
+            The new factor level.
+        """
         factor = _valid_factor(factor)
         trt = self._valid_trt(trt)
 
         self.exp.set_file_val(factor, level, sect=TRT_HEAD, subsect=0, cond={'N': trt})
 
     def get_factor_level_val(self, var, level):
+        """
+        Obtain the variable value for a specific factor level.
+        
+        Parameters
+        ----------
+        var: str
+            The variable of interest.
+        level: int
+            The factor level corresponding to the specified variable.
+
+        Returns
+        -------
+        np.ndarray
+            The variable value at the factor level.
+        """
         file = self._locate_var(var)
         return file.get_value(var, level=level)
 
@@ -188,7 +215,21 @@ class DSSATRun(object):
         file.set_value(var, val, level=level)
 
     def get_trt_val(self, var, trt):
+        """
+        Returns the value of a treatment's variable.
+        
+        Parameters
+        ----------
+        var: str
+            The variable of interest.
+        trt: int | str
+            The treatment name or number.
 
+        Returns
+        -------
+        np.ndarray
+            The variable value for the treatment.
+        """
         var_loc = self._locate_var(var)
         factor = self._get_var_factor(var, var_loc)
         level = self.get_trt_factor_level(trt, factor)
@@ -204,6 +245,20 @@ class DSSATRun(object):
         var_loc.set_value(var, val, level)
 
     def treatments(self, name=False):
+        """
+        Returns the treatments in the run.
+        
+        Parameters
+        ----------
+        name: bool
+            Whether to return treatment names or numbers.
+
+        Returns
+        -------
+        np.ndarray
+            The list of treatments.
+        """
+        
         if name:
             return self.exp.get_trt_names()
         else:
@@ -219,12 +274,38 @@ class DSSATRun(object):
         return np.unique(levels).size
 
     def get_trt_name(self, n):
+        """
+        Returns the treatment name corresponding to a treatment number.
+        
+        Parameters
+        ----------
+        n: int
+            The treatment number.
+
+        Returns
+        -------
+        str
+            The treatment name.
+        """
         nums = self.treatments()
         names = self.treatments(name=True)
 
         return names[np.where(nums == n)][0]
 
     def get_trt_num(self, trt):
+        """
+        Returns the treatment number corresponding to a specified treatment name.
+        
+        Parameters
+        ----------
+        trt: str
+            The treatment name.
+
+        Returns
+        -------
+        int
+            The corresponding treatment number.
+        """
         nums = self.treatments()
         names = self.treatments(name=True)
 
