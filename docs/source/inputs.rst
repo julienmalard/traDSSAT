@@ -10,11 +10,11 @@ and variable information. All files have the same general structure:
 
 Specific classes used to read DSSAT input files are:
 
-* ``SoilFile`` (.SOL)
-* ``WTHFile`` (.WTH, .WTG)
-* ``ExpFile`` (.ccX)
-* ``CULFile`` (.CUL)
-* ``ECOFile`` (.ECO)
+* :class:`~tradssat.SoilFile` (.SOL)
+* :class:`~tradssat.WTHFile` (.WTH, .WTG)
+* :class:`~tradssat.ExpFile` (.ccX)
+* :class:`~tradssat.CULFile` (.CUL)
+* :class:`~tradssat.ECOFile` (.ECO)
 
 As all input files inherit from :class:`~tradssat.tmpl.InpFile`, the same interface to reading, editing and writing
 holds for all DSSAT input files.

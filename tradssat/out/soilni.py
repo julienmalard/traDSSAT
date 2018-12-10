@@ -3,6 +3,9 @@ from tradssat.tmpl.var import FloatVar, IntegerVar
 
 
 class SoilNiOut(OutFile):
+    """
+    Reader for DSSAT soil nitrogen (SOILNI.OUT) files.
+    """
     filename = 'SoilNi.Out'
 
     def _get_var_info(self):

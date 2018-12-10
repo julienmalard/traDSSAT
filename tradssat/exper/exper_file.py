@@ -3,6 +3,9 @@ from .exper_vars import main_vars, header_vars
 
 
 class ExpFile(InpFile):
+    """
+    File reader for all DSSAT (.ccX) experiment files.
+    """
     ext = [
         '.ALX', '.ARX', '.BAX', '.BNX', '.BWX', '.COX', '.CSX', '.FAX', '.GWX', '.MLX', '.MZX', '.PIX', '.PNX', '.PTX',
         '.RIX', '.SBX', '.SCX', '.SGX', '.STX', '.WHX', '.SQX', '.SNX'

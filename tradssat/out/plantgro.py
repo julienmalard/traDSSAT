@@ -2,7 +2,10 @@ from tradssat.tmpl.output import OutFile
 from tradssat.tmpl.var import FloatVar, IntegerVar
 
 
-class PlantGrowOut(OutFile):
+class PlantGroOut(OutFile):
+    """
+    File reader for DSSAT plant growth (PLANTGRO.OUT) output files.
+    """
     filename = 'PlantGro.OUT'
 
     def _get_var_info(self):

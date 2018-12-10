@@ -95,6 +95,9 @@ vars_gen = {
 
 
 class GenFile(InpFile):
+    """
+    Template for genotype input file readers.
+    """
     ext = None  # type: str
 
     def _get_var_info(self):
@@ -113,8 +116,14 @@ class GenFile(InpFile):
 
 
 class CULFile(GenFile):
+    """
+    Cultivar (.CUL) input file reader.
+    """
     ext = '.CUL'
 
 
 class ECOFile(GenFile):
+    """
+    Ecotype (.ECO) input file reader.
+    """
     ext = '.ECO'
