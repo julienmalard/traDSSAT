@@ -19,8 +19,20 @@ def _valid_factor(factor):
 
 
 class DSSATRun(object):
+    """
+    General manager for DSSAT run input files.
+    """
 
     def __init__(self, file, model=None):
+        """
+        
+        Parameters
+        ----------
+        file: str
+            Input experiment file (.ccX).
+        model: str
+            Crop model code (optional). Useful when a crop can be simulated by more than one DSSAT crop model.
+        """
         self.file = file
         self.exp = ExpFileMgr(file)
 
@@ -38,12 +50,48 @@ class DSSATRun(object):
         self.check()
 
     def get_general_val(self, var):
+        """
+        Obtain a variable value from the `GENERAL` section of the EXP file.
+        
+        Parameters
+        ----------
+        var: str
+            Variable name
+
+        Returns
+        -------
+        np.ndarray
+            Variable value.
+        """
         return self.exp.get_file_val(var, sect=GENERAL)
 
     def set_general_val(self, var, val):
+        """
+        Sets a variable value in the `GENERAL` section of the EXP file.
+
+        Parameters
+        ----------
+        var: str
+            Variable name.
+        val: str | float | int | np.ndarray
+            New value for the variable.
+        """
         self.exp.set_file_val(var, val, sect=GENERAL)
 
     def add_treatment(self, name, ops=None, factors=None):
+        """
+        Adds a treatment level to the experiment.
+        
+        Parameters
+        ----------
+        name: str
+            Name of the new treatment.
+        ops: dict
+            Dictionnary of values for the `R`, `O`, and `C` treatment level options (optional).
+        factors: dict
+            Dictionnary of values for the treatment's factor levels (optional). Missing factors will be assigned 
+            level 0.
+        """
         if factors is None:
             factors = {}
         if ops is None:
@@ -66,11 +114,31 @@ class DSSATRun(object):
         self.exp.add_row(sect=TRT_HEAD, subsect=0, vals=d_vals)
 
     def remove_treatment(self, trt):
+        """
+        Removes a treatment from the experiment.
+        
+        Parameters
+        ----------
+        trt: str | int
+            Treatment name or number.
+        """
         if isinstance(trt, str):
             trt = self.get_trt_num(trt)
         self.exp.remove_row(sect=TRT_HEAD, subsect=0, cond={'N': trt})
 
     def add_factor_level(self, factor, vals):
+        """
+        Adds a factor level to the experiment.
+        
+        Parameters
+        ----------
+        factor: str
+            Factor code or name.
+        vals: dict
+            Dictionnary of variable values for that factor level's variables. Missing variables will be assigned
+            the corresponding missing code (usually -99).
+
+        """
         factor = _valid_factor(factor)
         factor_name = _factor_codes[factor]
         level = self.n_factor_levels(factor) + 1
@@ -82,6 +150,21 @@ class DSSATRun(object):
         self.exp.add_row(sect=factor_name, vals=level_vals)
 
     def get_trt_factor_level(self, trt, factor):
+        """
+        Obtain the factor level for a specific treatment.
+
+        Parameters
+        ----------
+        trt: str | int
+            Treatment name or number.
+        factor: str
+            Factor name or code.
+
+        Returns
+        -------
+        int
+            The factor level corresponding to the given treatment.
+        """
         factor = _valid_factor(factor)
         trt = self._valid_trt(trt)
 

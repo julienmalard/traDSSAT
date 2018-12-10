@@ -3,6 +3,9 @@ from tradssat.tmpl.var import FloatVar, IntegerVar
 
 
 class SoilTempOut(OutFile):
+    """
+    Reader for DSSAT soil temperature (SOILTEMP.OUT) output files.
+    """
     filename = 'SoilTemp.Out'
 
     def _get_var_info(self):

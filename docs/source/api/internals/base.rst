@@ -10,3 +10,5 @@ or changing a few things in the source code itself.
 
    vars
    vals
+   inp_out
+   template

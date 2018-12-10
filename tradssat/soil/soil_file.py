@@ -5,6 +5,9 @@ from .soil_vars import main_vars, header_vars
 
 
 class SoilFile(InpFile):
+    """
+    File reader for soil (.SOL) DSSAT files.
+    """
     ext = '.SOL'
 
     def _get_var_info(self):

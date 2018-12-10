@@ -3,6 +3,9 @@ from tradssat.tmpl.var import IntegerVar, CharacterVar, FloatVar
 
 
 class SummaryOut(FinalOutFile):
+    """
+    Reader for DSSAT run summary (SUMMARY.OUT) output files.
+    """
     filename = 'Summary.OUT'
 
     def _get_var_info(self):

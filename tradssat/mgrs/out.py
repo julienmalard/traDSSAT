@@ -1,4 +1,4 @@
-from tradssat import SummaryOut, PlantGrowOut
+from tradssat import SummaryOut, PlantGroOut
 
 
 class DSSATResults(object):
@@ -20,7 +20,7 @@ class DSSATResults(object):
 
         self.folder = folder
 
-        outfiles = [PlantGrowOut]
+        outfiles = [PlantGroOut]
         self._outfiles = {f: None for f in outfiles}
 
         self._sumoutclass = SummaryOut

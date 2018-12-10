@@ -7,7 +7,7 @@ import numpy.testing as npt
 
 from tradssat import DSSATRun, DSSATResults, set_dssat_dir, ExpFile
 from tradssat.exper.exper_vars import TRT_HEAD
-from tradssat.out import PlantGrowOut
+from tradssat.out import PlantGroOut
 
 _test_vars = {
     'SOL': 'SRGF',
@@ -189,7 +189,7 @@ class TestRunOutput(unittest.TestCase):
     def test_get_value(self):
         var = 'RL1D'
         trt = 1
-        ref_val = PlantGrowOut(os.path.join(self.dir_, 'PlantGro.OUT')).get_value(var, sect={'TREATMENT': trt})
+        ref_val = PlantGroOut(os.path.join(self.dir_, 'PlantGro.OUT')).get_value(var, sect={'TREATMENT': trt})
         val = self.result.get_value(var, trt=trt)
 
         npt.assert_equal(val, ref_val)
