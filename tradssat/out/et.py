@@ -31,4 +31,3 @@ vars_ = {
     FloatVar('EFAC', 7, 0, info='Cumulative floodwater evaporation (mm)'),
     FloatVar('EMAC', 7, 2, info='Cumulative mulch evaporation (mm)'),
 }
-
