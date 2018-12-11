@@ -2,7 +2,7 @@ from tradssat.tmpl.output import OutFile
 from tradssat.tmpl.var import FloatVar, IntegerVar
 
 
-class Mulch (OutFile)
+class Mulch (OutFile):
     filename = 'Mulch.Out'
 
     def _get_var_info(self):
