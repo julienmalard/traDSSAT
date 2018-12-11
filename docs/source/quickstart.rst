@@ -15,6 +15,7 @@ DSSAT installation by itself, but if it needs help you can specify it with:
 
 .. code-block:: python
 
+   from tradssat import set_dssat_dir
    set_dssat_dir('C:/My/odd/path/to/DSSAT47')
 
 A quick example
