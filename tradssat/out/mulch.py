@@ -1,0 +1,20 @@
+from tradssat.tmpl.output import OutFile
+from tradssat.tmpl.var import FloatVar, IntegerVar
+
+
+class Mulch (OutFile)
+    filename = 'Mulch.Out'
+
+    def _get_var_info(self):
+        return vars_
+
+
+vars_ = {
+    IntegerVar('YEAR', 4, info='Year'),
+    IntegerVar('DOY', 3, info='Day of year starting on Jan 1.'),
+    IntegerVar('DAS', 5, info='Day after start'),
+    FloatVar('MCFD', 7, 3, info='fraction of soil covered by mulch'),
+    FloatVar('MDEPD', 7, 2, info='thickness of mulch layer, cm'),
+    IntegerVar('MWAD', 7, info='mass of mulch layer, kg/ha'),
+    FloatVar ('MWTD', 7, 2, info='water stored in mulch layer, mm'),
+}
