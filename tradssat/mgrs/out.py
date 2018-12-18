@@ -48,7 +48,8 @@ class DSSATResults(object):
         t: str | int
             The time at which one wants the results. If ``None``, results will be given for all time steps.
         at: str
-            Must be one of ``DAS``, ``DOY``, or ``YEAR DOY`` (default). Only used if ``t`` is not ``None``.
+            Must be one of ``DAS`` (days after start), ``DAP`` (days after planting), or ``YEAR DOY`` (year,
+            day of year; default). Only used if ``t`` is not ``None``.
         Returns
         -------
         np.ndarray:

@@ -9,9 +9,10 @@ TraDSSAT aims to reinvent the wheel, once and for all, for `DSSAT <https://www.d
 for preparing input files for automated DSSAT runs or for analysing outputs, traDSSAT's simple Python interface and
 modular structure will (we hope!) dramatically simplify your code.
 
+Contents
+--------
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    quickstart
    inputs
