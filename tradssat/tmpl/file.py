@@ -129,7 +129,7 @@ class File(object):
                    None if l.find(' ', c[1] - 1) < 0 else l.find(' ', c[1] - 1)]).strip()
                 for c in cutoffs]
             for vr, vl in zip(var_names, vals):
-                if not len(vl):
+                if not vl:
                     vl = self.get_var_code_miss(vr)
                 d_vals[vr][i] = vl
 
