@@ -1,1 +1,2 @@
-from .wth.wth_file import WTHFile
+from .wth import WTHFile
+from .mth import MTHFile
