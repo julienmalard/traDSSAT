@@ -88,6 +88,19 @@ class File(object):
         return self._var_info.get_var(var, sect)
 
     def get_value(self, var, sect=None, subsect=None, cond=None):
+        """
+        
+        Parameters
+        ----------
+        var
+        sect
+        subsect
+        cond
+
+        Returns
+        -------
+        np.ndarray
+        """
         return self._values.get_value(var, sect=sect, subsect=subsect, cond=cond)
 
     def get_dims_val(self, var):
