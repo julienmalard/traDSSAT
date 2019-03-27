@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Julien Malard, श्रेया यादव
+# This file is distributed under the same license as the traDSSAT package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Julien Malard <julien.malard@mail.mcgill.ca>, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: traDSSAT 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-27 23:54+0000\n"
+"PO-Revision-Date: 2019-03-27 17:26+0000\n"
+"Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
+"Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../../source/high_level.rst:2
+msgid "High-level interface"
+msgstr "Interface de haut niveau"
+
+#: ../../source/high_level.rst:3
+msgid ""
+"The high-level interface simplifies many tasks while working with DSSAT "
+"input and output files."
+msgstr ""
+"L'interface d'haut niveau simplifie beaucoup de tâches communes lorsque vous"
+" travaillez avec des fichiers d'entrée et de sortie de DSSAT."
+
+#: ../../source/high_level.rst:6
+msgid "Input files"
+msgstr "Fichiers d'entrée"
+
+#: ../../source/high_level.rst:7
+msgid ""
+"Each of these managers creates a more friendly interface to DSSAT files than"
+" that of the base input file reader."
+msgstr ""
+"Chacun de ces gestionnaires crée une interface plus intuitive pour les "
+"fichiers DSSAT que celle des lecteurs de fichier de base."
+
+#: ../../source/high_level.rst:10
+msgid "Experiment file manager"
+msgstr "Gestionnaire de fichier d'expérience"
+
+#: ../../source/high_level.rst:11
+msgid ""
+":class:`~tradssat.mgrs.DSSATRun` allows you to read, edit and write "
+"experiments, with automatic access to referenced external soil, genetic and "
+"weather files. TraDSSAT will also automagically manage the link between "
+"DSSAT treatments and associated factor levels (if you don't know what this "
+"means, now would be a great time to stop reading this and read the DSSAT "
+"docs instead)."
+msgstr ""
+":class:`~tradssat.mgrs.DSSATRun` vous permet d'éditer et d'écrire des "
+"expériences, et cela avec accès automatique aux fichiers externes de sol, "
+"génétique et météo associés. En plus, TraDSSAT gère automagiquement le lien "
+"entre des traitements de DSSAT et les niveaux de facteurs associés (si vous "
+"ne savez pas de quoi je parle, ce serait un bon moment d'arrêter de lire "
+"ceci et d'aller lire la documentation de DSSAT à la place)."
+
+#: ../../source/high_level.rst:35
+msgid "Genetic file manager"
+msgstr "Gestionnaire de fichier de génétique"
+
+#: ../../source/high_level.rst:36
+msgid ""
+"DSSAT's crop modules generally split coefficients between cultivar, ecotype "
+"and species files. TraDSSAT provides a :class:`~tradssat.mgrs.GeneticMgr` "
+"class to automagically manage all genetic coefficients for a particular crop"
+" and cultivar type."
+msgstr ""
+"Les modules de culture de DSSAT séparent généralement les coefficients entre"
+" fichiers de cultivar, d'écotype et d'espèce. TraDSSAT offre la classe "
+":class:`~tradssat.mgrs.GeneticMgr` pour automagiquement gérer tous les "
+"coefficients génétiques pour cultivar donné."
+
+#: ../../source/high_level.rst:54
+msgid ""
+"It is currently not possible to access species coefficients with traDSSAT, "
+"because these are in practice model constants and should not be written or "
+"changed (and, if they were, would also by default affect **all future** "
+"DSSAT simulations run on your DSSAT installation). More practically, they "
+"also come in a variety of formats and would be a pain to parse."
+msgstr ""
+"Il est actuellement impossible d'accéder aux coefficients d'espèce avec "
+"traDSSAT, parce que ceux-ci sont en pratique des constants du modèle et ne "
+"devraient pas être modifiés ou changés (et, s'ils l'étaient, auraient aussi "
+"comme effet d'affecter **toutes les simulations futures** de votre "
+"installation de DSSAT). D'un point de vue plus pratique, il y a aussi le "
+"fait que ces fichiers viennent dans une multitude de formats et seraient "
+"donc un drôle de casse-tête à analyser)."
+
+#: ../../source/high_level.rst:60
+msgid "Soil file manager"
+msgstr "Gestionnaire de fichier de sol"
+
+#: ../../source/high_level.rst:61
+msgid ""
+"Soil files can be hard to manage, since they can contain data for many "
+"different soils in the same file. With :class:`~tradssat.mgrs.SoilMgr`, "
+"simply pass the soil code and traDSSAT will find the correct file and file "
+"section."
+msgstr ""
+"Les fichiers de sol peuvent être difficiles à gérer, parce qu'ils peuvent "
+"contenir les données de beaucoup de différents sols dans le même fichiers. "
+"Avec la classe :class:`~tradssat.mgrs.SoilMgr`, vous n'avez qu'à spécifier "
+"le code du sol et traDSSAT trouvera le fichier et la section correspondants."
+
+#: ../../source/high_level.rst:72
+msgid "Weather file manager"
+msgstr "Gestionnaire de fichier de météo"
+
+#: ../../source/high_level.rst:73
+msgid ""
+"Don't feel like finding your weather file yourself? Just give the station "
+"code to :class:`~tradssat.mgrs.WeatherFileMgr` and let it find it for you."
+msgstr ""
+"Vous n'avez pas le goût de chercher vous-même pour le fichier de météo dont "
+"vous avez de besoin ? Vous n'avez qu'à donner le code de la station à "
+":class:`~tradssat.mgrs.WeatherFileMgr` et elle la trouvera pour vous."
+
+#: ../../source/high_level.rst:84
+msgid "Output files"
+msgstr "Fichiers de sortie"
+
+#: ../../source/high_level.rst:85
+msgid ""
+"You can access output from a run using a "
+":class:`~tradssat.mgrs.DSSATResults` object instantiated with the output "
+"directory."
+msgstr ""
+"Vous pouvez accéder les résultats d'une simulation à l'aide d'un objet "
+":class:`~tradssat.mgrs.DSSATResults` initialisé avec le dossier contenant "
+"les résultats."

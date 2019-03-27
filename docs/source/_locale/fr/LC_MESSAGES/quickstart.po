@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Julien Malard, श्रेया यादव
+# This file is distributed under the same license as the traDSSAT package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Julien Malard <julien.malard@mail.mcgill.ca>, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: traDSSAT 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-27 23:54+0000\n"
+"PO-Revision-Date: 2019-03-27 17:26+0000\n"
+"Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
+"Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../../source/quickstart.rst:2
+msgid "Quick start"
+msgstr "Démarrage rapide"
+
+#: ../../source/quickstart.rst:5
+msgid "Installation"
+msgstr "Installation"
+
+#: ../../source/quickstart.rst:7
+msgid ""
+"traDSSAT requires ``numpy`` and ``chardet`` to run. You can install it from "
+"pip with:"
+msgstr ""
+"traDSSAT nécessite ``numpy`` et ``chardet``. Vous pouvez l'installer de pip "
+"avec:"
+
+#: ../../source/quickstart.rst:7
+msgid ":command:`pip install tradssat`"
+msgstr ":command:`pip install tradssat`"
+
+#: ../../source/quickstart.rst:10
+msgid ""
+"You can also install the most cutting-edge version directly from GitHub "
+"with:"
+msgstr ""
+"Vous pouvez aussi installer la version en développement la plus récente "
+"directement de GitHub avec :"
+
+#: ../../source/quickstart.rst:10
+msgid ""
+":command:`pip install git+git://github.com/julienmalard/tradssat.git@master`"
+msgstr ""
+":command:`pip install git+git://github.com/julienmalard/tradssat.git@master`"
+
+#: ../../source/quickstart.rst:12
+msgid ""
+"You will need a local installation of DSSAT to use the high-level "
+"interface's automatic file managers (since these will need to find soil, "
+"weather, and other files in the DSSAT installation directory). TraDSSAT "
+"should find your DSSAT installation by itself, but if it needs help you can "
+"specify it with:"
+msgstr ""
+"Vous aurez besoin d'une installation locale de DSSAT pour utiliser les "
+"gestionnaires de fichier de l'interface de haut niveau (parce que ceux-ci "
+"devront pouvoir localiser les fichiers de sol et météo, parmi autres, dans "
+"le dossier d'installation de DSSAT). TraDSSAT devrait pouvoir trouver votre "
+"installation de DSSAT par elle-même, mais si elle a besoin d'aide vous "
+"pouvez la spécifier avec :"
+
+#: ../../source/quickstart.rst:22
+msgid "A quick example"
+msgstr "Un exemple rapide"

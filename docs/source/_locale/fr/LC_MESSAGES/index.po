@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Julien Malard, श्रेया यादव
+# This file is distributed under the same license as the traDSSAT package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Julien Malard <julien.malard@mail.mcgill.ca>, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: traDSSAT 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-27 23:54+0000\n"
+"PO-Revision-Date: 2019-03-27 17:26+0000\n"
+"Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
+"Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../../source/index.rst:7
+msgid "Welcome to traDSSAT!"
+msgstr "Bienvenu.e à traDSSAT !"
+
+#: ../../source/index.rst:8
+msgid ""
+"TraDSSAT aims to reinvent the wheel, once and for all, for `DSSAT "
+"<https://www.dssat.net>`_ file management. Whether for preparing input files"
+" for automated DSSAT runs or for analysing outputs, traDSSAT's simple Python"
+" interface and modular structure will (we hope!) dramatically simplify your "
+"code."
+msgstr ""
+"TraDSSAT vise à réinventer la roue, une fois pour toutes, en ce qui traite "
+"de la gestion des fichiers `DSSAT <https://www.dssat.net>`_. Qu'il s'agisse "
+"de la préparation de fichiers d'entrées de DSSAT pour des simulations "
+"automatisées ou de l'analyse des résultats, l'interface simple en Python et "
+"la structure modulaire de traDSSAT simplifieront votre code de manière "
+"dramatique."
+
+#: ../../source/index.rst:13
+msgid "Contents"
+msgstr "Contenu"
+
+#: ../../source/index.rst:26
+msgid "Indices and tables"
+msgstr "Index et tableaux"
+
+#: ../../source/index.rst:28
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+#: ../../source/index.rst:29
+msgid ":ref:`search`"
+msgstr ":ref:`search`"

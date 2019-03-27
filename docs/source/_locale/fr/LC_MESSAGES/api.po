@@ -1,0 +1,1138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Julien Malard, श्रेया यादव
+# This file is distributed under the same license as the traDSSAT package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Julien Malard <julien.malard@mail.mcgill.ca>, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: traDSSAT 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-27 23:54+0000\n"
+"PO-Revision-Date: 2019-03-27 17:26+0000\n"
+"Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
+"Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../../source/api/api.rst:2
+msgid "API Reference"
+msgstr "Référence de l'IPA"
+
+#: ../../source/api/api.rst:3
+msgid ""
+"TraDSSAT allows users to access files directly or to manage them through the"
+" high-level interface."
+msgstr ""
+"TraDSSAT permet aux utilisatrices et utilisateurs d'accéder les fichiers "
+"directement autant qu'à travers sont interface de haut niveau."
+
+#: ../../source/api/file/base.rst:2
+msgid "File managers"
+msgstr "Gestionnaires de fichiers"
+
+#: ../../source/api/file/base.rst:3
+msgid ""
+"All DSSAT file reading and editing happens through subclasses of these "
+"parent classes."
+msgstr ""
+"Tout ce qui traite de lecture et de modification de fichiers DSSAT est "
+"effectué par des sous-classes de ces classes gabarit."
+
+#: ../../source/api/file/input.rst:2
+msgid "Input files"
+msgstr "Fichiers d'entrée"
+
+#: ../../source/api/file/input.rst:3
+msgid "All input files inherit from :class:`~tradssat.tmpl.InpFile`."
+msgstr ""
+"Tous les fichiers d'entrée héritent de :class:`~tradssat.tmpl.InpFile`."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/soil/soil_file.pydocstring
+#: of tradssat.SoilFile:1
+msgid "File reader for soil (.SOL) DSSAT files."
+msgstr "Lecteur pour les fichiers de sol (.SOL) de DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/weather/wth/wth_file.pydocstring
+#: of tradssat.WTHFile:1
+msgid "Reader for DSSAT weather (.WTH and .WTG) files."
+msgstr "Lecteur pour les fichiers de météo (.WTH et .WTG) de DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/exper/exper_file.pydocstring
+#: of tradssat.ExpFile:1
+msgid "File reader for all DSSAT (.ccX) experiment files."
+msgstr "Lecteur pour les fichiers d'expérience (.ccX) de DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/genotype/gen_file.pydocstring
+#: of tradssat.CULFile:1
+msgid "Cultivar (.CUL) input file reader."
+msgstr "Lecteur de fichiers de cultivar (.CUL)."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/genotype/gen_file.pydocstring
+#: of tradssat.ECOFile:1
+msgid "Ecotype (.ECO) input file reader."
+msgstr "Lecteur de fichiers d'écotype (.ECO)."
+
+#: ../../source/api/file/output.rst:2
+msgid "Output files"
+msgstr "Fichiers de sortie"
+
+#: ../../source/api/file/output.rst:4
+msgid "Most output files inherit from :class:`~tradssat.tmpl.OutFile`."
+msgstr ""
+"La majorité des fichiers de sortie héritent de "
+":class:`~tradssat.tmpl.OutFile`."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/out/plantgro.pydocstring
+#: of tradssat.out.PlantGroOut:1
+msgid "File reader for DSSAT plant growth (PLANTGRO.OUT) output files."
+msgstr ""
+"Lecteur pour les fichiers de résultats de croissance de culture "
+"(PLANTGRO.OUT) de DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/out/soilni.pydocstring
+#: of tradssat.out.SoilNiOut:1
+msgid "Reader for DSSAT soil nitrogen (SOILNI.OUT) files."
+msgstr ""
+"Lecteur pour les fichiers de résultats d'azote des sols (SOILNI.OUT) de "
+"DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/out/soiltemp.pydocstring
+#: of tradssat.out.SoilTempOut:1
+msgid "Reader for DSSAT soil temperature (SOILTEMP.OUT) output files."
+msgstr ""
+"Lecteur pour les fichiers de résultats de température des sols "
+"(SOILTEMP.OUT) de DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/out/summary.pydocstring
+#: of tradssat.out.SummaryOut:1
+msgid "Reader for DSSAT run summary (SUMMARY.OUT) output files."
+msgstr ""
+"Lecteur pour les fichiers de résumé de simulation (SUMMARY.OUT) de DSSAT."
+
+#: ../../source/api/high_level/base.rst:2
+msgid "High-level API"
+msgstr "IPA de haut niveau"
+
+#: ../../source/api/high_level/base.rst:3
+msgid ""
+"The high-level API simplifies work with more complex DSSAT files, espcially "
+"ones that reference each other."
+msgstr ""
+"L'IPA de haut niveau simplifie le travail associé avec la gestion des "
+"fichiers DSSAT plus complexes, surtout lorsqu'il y a des références vers "
+"d'autres fichiers."
+
+#: ../../source/api/high_level/inputs.rst:2
+msgid "Run input managers"
+msgstr "Gestionnaires d'entrées de simulation"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun:1
+msgid "General manager for DSSAT run input files."
+msgstr "Gestionnaire général pour les fichiers d'entrée de DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_factor_level:1
+msgid "Adds a factor level to the experiment."
+msgstr "Ajoute un facteur à l'expérience."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_factor_level:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_treatment:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_factor_level_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_general_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_factor_level:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_name:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_num:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.remove_treatment:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_general_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_trt_factor_level:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.treatments:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_final_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/output.pydocstring
+#: of tradssat.tmpl.OutFile.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_var_size:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.add_row:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.add_section:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.find_var_sect:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.write:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.set_vars:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.add_subsection:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.get_header_var:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.set_header_vars:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.write:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.add_row:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.write:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.add_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.remove_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.set_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.write:0
+msgid "Parameters"
+msgstr "Paramètres"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_factor_level:3
+msgid "Factor code or name."
+msgstr "Code ou nom du facteur."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_factor_level:5
+msgid ""
+"Dictionnary of variable values for that factor level's variables. Missing "
+"variables will be assigned the corresponding missing code (usually -99)."
+msgstr ""
+"Dictionnaire des valeurs des variables pour ce facteur. Les variables "
+"manquantes seront assignées le code correspondant pour les valeurs "
+"manquantes (généralement -99)."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_treatment:1
+msgid "Adds a treatment level to the experiment."
+msgstr "Ajoute un niveau de traitement à l'expérience."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_treatment:3
+msgid "Name of the new treatment."
+msgstr "Le nom du nouveau traitement."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_treatment:5
+msgid ""
+"Dictionnary of values for the `R`, `O`, and `C` treatment level options "
+"(optional)."
+msgstr ""
+"Dictionnaire des valeurs pour les options `R`, `O` et `C` du niveau de "
+"traitement (facultatif)."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.add_treatment:7
+msgid ""
+"Dictionnary of values for the treatment's factor levels (optional). Missing "
+"factors will be assigned level 0."
+msgstr ""
+"Dictionnaire des valeurs pour les niveaux des facteurs du traitement "
+"(facultatif). Les facteurs manquants seront assignés le niveau 0."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_factor_level_val:1
+msgid "Obtain the variable value for a specific factor level."
+msgstr ""
+"Obtenir la valeur d'une variable pour un niveau de facteur spécifique."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_factor_level_val:3
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_val:3
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.get_value:3
+msgid "The variable of interest."
+msgstr "La variable d'intérêt."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_factor_level_val:5
+msgid "The factor level corresponding to the specified variable."
+msgstr "Le niveau de facteur correspondant à la variable spécifiée."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_factor_level_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_general_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_factor_level:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_name:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_num:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.treatments:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_final_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/output.pydocstring
+#: of tradssat.tmpl.OutFile.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_var_size:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.find_var_sect:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.to_dict:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.write:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.to_dict:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.write:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.get_header_var:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.to_dict:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.n_data:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.to_dict:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.size:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.write:0
+msgid "Returns"
+msgstr "Retourne"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_factor_level_val:8
+msgid "The variable value at the factor level."
+msgstr "La valeur de la variable pour le niveau du facteur."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_factor_level_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_general_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_factor_level:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_name:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_num:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_val:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.treatments:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_final_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/output.pydocstring
+#: of tradssat.tmpl.OutFile.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_var_size:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.matches_file:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.find_var_sect:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.to_dict:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.write:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.get_value:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.to_dict:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.write:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.get_header_var:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.to_dict:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.changed:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.n_data:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.to_dict:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.size:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.write:0
+msgid "Return type"
+msgstr "Type de retour"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_general_val:1
+msgid "Obtain a variable value from the `GENERAL` section of the EXP file."
+msgstr ""
+"Obtenir une valeur de variable de la section `GENERAL` du fichier EXP."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_general_val:3
+msgid "Variable name"
+msgstr "Le nom de la variable"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_general_val:6
+msgid "Variable value."
+msgstr "La valeur de la variable"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_factor_level:1
+msgid "Obtain the factor level for a specific treatment."
+msgstr "Obtenir le niveau de facteur pour un traitement donné."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_factor_level:3
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.remove_treatment:3
+msgid "Treatment name or number."
+msgstr "Nom ou numéro du traitement."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_factor_level:5
+msgid "Factor name or code."
+msgstr "Nom ou code du facteur."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_factor_level:8
+msgid "The factor level corresponding to the given treatment."
+msgstr "Le niveau de facteur correspondant au traitement donné."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_name:1
+msgid "Returns the treatment name corresponding to a treatment number."
+msgstr ""
+"Retourne le nom du traitement correspondant au numéro de traitement donné."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_name:3
+msgid "The treatment number."
+msgstr "Le numéro de traitement."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_name:6
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_num:3
+msgid "The treatment name."
+msgstr "Le nom du traitement."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_num:1
+msgid ""
+"Returns the treatment number corresponding to a specified treatment name."
+msgstr ""
+"Retourne le numéro de traitement correspondant au nom de traitement "
+"spécifié."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_num:6
+msgid "The corresponding treatment number."
+msgstr "Le nom du traitement correspondant."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_val:1
+msgid "Returns the value of a treatment's variable."
+msgstr "Retourne la valeur d'une variable du traitement."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_val:5
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_trt_factor_level:3
+msgid "The treatment name or number."
+msgstr "Le nom ou numéro de traitement."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.get_trt_val:8
+msgid "The variable value for the treatment."
+msgstr "La valeur de la variable pour le traitement."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.remove_treatment:1
+msgid "Removes a treatment from the experiment."
+msgstr "Efface un traitement de l'expérience."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_general_val:1
+msgid "Sets a variable value in the `GENERAL` section of the EXP file."
+msgstr ""
+"Définit la valeur d'une variable dans la section `GENERAL` du fichier EXP."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_general_val:3
+msgid "Variable name."
+msgstr "Le nom de la variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_general_val:5
+msgid "New value for the variable."
+msgstr "La nouvelle valeur pour la variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_trt_factor_level:1
+msgid "Sets the factor level for a treatment."
+msgstr "Définit le niveau d'un facteur d'un traitement."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_trt_factor_level:5
+msgid "The factor name or code."
+msgstr "Le nom ou code du facteur."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.set_trt_factor_level:7
+msgid "The new factor level."
+msgstr "Le nouveau niveau du facteur."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.treatments:1
+msgid "Returns the treatments in the run."
+msgstr "Retourne les traitements présents dans la simulation."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.treatments:3
+msgid "Whether to return treatment names or numbers."
+msgstr "Si vous voulez les noms ou les numéros des traitements."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/input.pydocstring
+#: of tradssat.mgrs.DSSATRun.treatments:6
+msgid "The list of treatments."
+msgstr "La liste des traitements."
+
+#: ../../source/api/high_level/outputs.rst:2
+msgid "Run output manager"
+msgstr "Gestionnaire des résultats de simulation"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults:1
+msgid ""
+"Facilitates the reading of DSSAT results. Instead of having to read each "
+"output file individually, you can simply point this class to a DSSAT run "
+"output folder containing the output files and it will find the desired "
+"variables for you."
+msgstr ""
+"Facilite la lecture des résultats de DSSAT. Plutôt que de devoir lire chaque"
+" fichier de résultat un par un, vous n'avez qu'à donner à cette classe un "
+"dossier contenant les résultats d'une simulation DSSAT pour qu'elle y trouve"
+" les variables que vous voulez."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_final_value:1
+msgid ""
+"Returns a variable's final value. Faster than :func:`get_value` if the "
+"variable is available in `Summary.OUT`."
+msgstr ""
+"Retourne la valeur finale d'une variable. Plus rapide que :func:`get_value` "
+"si la variable est disponible dans `Summary.OUT`."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_final_value:4
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:3
+msgid "The variable name."
+msgstr "Le nom de la variable"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_final_value:6
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:5
+msgid "The treatment number of interest."
+msgstr "Le numéro du traitement d'intérêt."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_final_value:9
+msgid "The variable's final value."
+msgstr "La valeur final de la variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:1
+msgid ""
+"Returns the value (point or time-series) of a variable from a DSSAT run."
+msgstr ""
+"Retourne la valeur (ponctuelle ou en série chronologique) d'une variable "
+"d'une simulation de DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:7
+msgid ""
+"The time at which one wants the results. If ``None``, results will be given "
+"for all time steps."
+msgstr ""
+"Le temps duquel vous voulez les résultats. Si vous donnez ``None``, les "
+"résultats de chaque point temporel seront retournés."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:9
+msgid ""
+"Must be one of ``DAS`` (days after start), ``DAP`` (days after planting), or"
+" ``YEAR DOY`` (year, day of year; default). Only used if ``t`` is not "
+"``None``."
+msgstr ""
+"Doit être l'un de ``DAS`` (jours depuis le début), ``DAP`` (jours après la "
+"semence), ou ``YEAR DOY`` (année, jour de l'année ; valeur par défaut). "
+"Seulement utilisé si ``t`` n'est pas ``None``."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.get_value:13
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.get_value:6
+msgid "The value of the variable."
+msgstr "La valeur de la variable"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/mgrs/out.pydocstring
+#: of tradssat.mgrs.DSSATResults.reload:1
+msgid "Reload data (useful if a new DSSAT simulation has been run)."
+msgstr ""
+"Recharger les données (util si une nouvelle simulation de DSSAT a été "
+"exécutée)."
+
+#: ../../source/api/internals/base.rst:2
+msgid "traDSSAT internals"
+msgstr "Fonctionnement interne de traDSSAT"
+
+#: ../../source/api/internals/base.rst:4
+msgid ""
+"This references traDSSAT's (mostly) internal API and is really only useful "
+"if you are planning on contributing to or changing a few things in the "
+"source code itself."
+msgstr ""
+"Cette section document l'IPA (en majorité) interne de DSSAT et n'est util "
+"que si vous planifiez vous-même contribuer ou apporter des modifications au "
+"code source."
+
+#: ../../source/api/internals/inp_out.rst:2
+msgid "Input and output files"
+msgstr "Fichiers d'entrée et de résultats"
+
+#: ../../source/api/internals/inp_out.rst:3
+#: ../../source/api/internals/template.rst:3
+msgid ""
+"All file objects, whether input or output, inherit from the abstract class "
+":mod:`~tradssat.tmpl.File` and all of its methods."
+msgstr ""
+"Tous les objets de fichiers, qu'ils soient d'entrée ou de résultats, "
+"héritent de la classe abstraite :mod:`~tradssat.tmpl.File` et de toutes ses "
+"méthodes."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile:1
+msgid "Parent class for all input files, as well as for `Summary.OUT`."
+msgstr ""
+"Classe mère pour tous les fichiers d'entrée, autant que pour `Summary.OUT`."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.changed:1
+msgid "Checks whether the file has been edited and needs to be rewritten."
+msgstr "Vérifie si le fichier a été édité et doit être réécrit."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.changed:3
+msgid "Whether the file has been edited or not."
+msgstr "Si le fichier a été édité ou non."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.matches_file:1
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/output.pydocstring
+#: of tradssat.tmpl.OutFile.matches_file:1
+msgid "Checks whether a given file can be read by this class."
+msgstr "Vérifie si un fichier donné peut être lu par cette classe."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.matches_file:3
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/output.pydocstring
+#: of tradssat.tmpl.OutFile.matches_file:3
+msgid "The filename or full path to be read."
+msgstr "Le nom du fichier à lire, ou son chemin complet."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/input.pydocstring
+#: of tradssat.tmpl.InpFile.matches_file:6
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/output.pydocstring
+#: of tradssat.tmpl.OutFile.matches_file:6
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.matches_file:6
+msgid "``True`` if the file matches; ``False`` otherwise."
+msgstr "``True`` si le fichier correspond ; ``False`` sinon."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/output.pydocstring
+#: of tradssat.tmpl.OutFile:1
+msgid "Parent class for (nearly all) DSSAT output files."
+msgstr "Classe mère pour (quasiment) tous les fichiers de résultat DSSAT."
+
+#: ../../source/api/internals/template.rst:2
+msgid "File template"
+msgstr "Gabarit de fichier"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File:1
+msgid "Parent class for all file objects."
+msgstr "Classe mère pour tous les objets fichier."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_var_size:1
+msgid "Returns the size of a variable."
+msgstr "Retourne la taille d'une variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_var_size:3
+msgid "The name of the variable."
+msgstr "Le nom de la variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_var_size:5
+msgid ""
+"The name of the section in which this variable appears (optional; for "
+"ambiguous cases where a file has several variables with the same code)."
+msgstr ""
+"Le nom de la section dans laquelle cette variable apparaît (facultatif ; "
+"utilisé pout les cas ambigües ou un fichier contient plusieurs variables "
+"avec le même code)."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.get_var_size:9
+msgid "The size of the variable."
+msgstr "La taille de la variable"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.matches_file:1
+msgid ""
+"Checks whether a given file can be read by this class. Must be implemented "
+"in subclasses."
+msgstr ""
+"Vérifie si un fichier donné peut être lu par cette classe. Doit être "
+"implémenté dans les sous-classes."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/file.pydocstring
+#: of tradssat.tmpl.File.matches_file:3
+msgid "The file to be read."
+msgstr "Le fichier à lire."
+
+#: ../../source/api/internals/vals.rst:2
+msgid "Values"
+msgstr "Valeurs"
+
+#: ../../source/api/internals/vals.rst:3
+msgid "Internal structure to organise DSSAT file data and variable values."
+msgstr ""
+"La structure interne utilisé pour organiser les données de fichier DSSAT et "
+"les valeurs de leurs variables."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet:1
+msgid "Represents the set of values in a DSSAT file."
+msgstr "Représente l'ensemble des valeurs dans un fichier DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.add_row:1
+msgid "Adds a row to the file."
+msgstr "Ajoute un rangée au fichier."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.add_row:3
+msgid "Name of section."
+msgstr "Nom de la section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.add_row:5
+msgid "Subsection number. If ``None``, will add row to all subsections."
+msgstr ""
+"Numéro de la sous-section. Si ``None``, un rangée sera ajoutée à toutes les "
+"sous-sections."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.add_row:7
+msgid "Dictionnary of new row variable values."
+msgstr "Dictionnaire des valeurs de variables pour la nouvelle rangée."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.add_section:1
+msgid "Adds a section to the file."
+msgstr "Ajoute une section au fichier."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.add_section:3
+msgid "Name of the new section."
+msgstr "Nom de la nouvelle section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.changed:1
+msgid "Detects if any variable values have been changed."
+msgstr "Détecte si les valeurs des variables ont changées."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.find_var_sect:1
+msgid "Finds the section in which a variable appears."
+msgstr "Trouve la section dans laquelle apparaît une variable"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.find_var_sect:3
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.get_header_var:3
+msgid "The name of the variable"
+msgstr "Le nom de la variable"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.find_var_sect:6
+msgid "The file section name."
+msgstr "Le nom de la section du fichier."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.to_dict:1
+msgid "Converts the file to a dictionnary."
+msgstr "Convertie le fichier à un dictionnaire."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.write:1
+msgid "Writes the file."
+msgstr "Écrit le fichier."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.write:3
+msgid "List to which to write output lines."
+msgstr "La liste à laquelle les lignes de sortie seront écrites."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.FileValueSet.write:6
+msgid "The modified list."
+msgstr "La liste modifiée."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues:1
+msgid "Represents DSSAT file header variables and their values."
+msgstr "Représente les variables d'entête de fichier DSSAT et leurs valeurs."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.changed:1
+msgid "Checks if the header variables values have been changed."
+msgstr "Vérifie si les valeurs des variables d'entête ont été changées."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.get_value:1
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.get_header_var:1
+msgid "Obtain the value of a header variable."
+msgstr "Obtenir la valeur d'une variable d'entête."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.set_vars:1
+msgid "Sets the variables of the header."
+msgstr "Définie les variables de l'entête."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.set_vars:3
+msgid "The subsection with variables and their values already specified."
+msgstr "La sous-section avec ses variables et leurs valeurs déjà spécifiées."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.to_dict:1
+msgid "Convert to dictionnary (json) format."
+msgstr "Convertir au format de dictionnaire (json)."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.to_dict:3
+msgid "The (mostly) jsonified version of the header's variables."
+msgstr "Les variables de l'entête en format (pas mal) jsonifié."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.HeaderValues.write:1
+msgid "Writes the header values to a string."
+msgstr "Écrit les valeurs de l'entête vers une valeur de chaîne."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection:1
+msgid "Represents the structure and variable values in a DSSAT file section."
+msgstr ""
+"Représente la structure et les valeurs des variables d'une section d'un "
+"fichier de DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.add_subsection:1
+msgid "Add a subsection to the section."
+msgstr "Ajoute une sous-section à la section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.add_subsection:3
+msgid "The new subsection."
+msgstr "La nouvelle sous-section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.changed:1
+msgid "Checks whether any value has changed in the section."
+msgstr "Vérifie si une valeur a été changée dans la section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.get_header_var:6
+msgid "The value of the header variable."
+msgstr "La valeur de la variable d'entête."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.set_header_vars:1
+msgid "Sets the section's header variables."
+msgstr "Définit les variables de l'entête de la section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.set_header_vars:3
+msgid "The subsection representing the header variables."
+msgstr "La sous-section représentant les variables d'entête."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.to_dict:1
+msgid "Converts the section to a dictionnary."
+msgstr "Convertit la section en dictionnaire."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.write:1
+msgid "Writes the section to a list of lines."
+msgstr "Écrit la section en liste de lignes."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSection.write:3
+msgid "The list of lines to which to append this section."
+msgstr "La liste de lignes à laquelle ajouter cette section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection:1
+msgid "Represents the variables and values in a DSSAT file subsection."
+msgstr ""
+"Représente les variables d'une sous-section d'un fichier DSSAT avec leurs "
+"valeurs."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.add_row:1
+msgid "Adds a row to the subsection."
+msgstr "Ajoute une rangée à la sous-section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.add_row:3
+msgid ""
+"The values for the new row. Any missing value will be assigned the "
+"corresponding missing code for that variable (usually -99)."
+msgstr ""
+"Les valeurs pour la nouvelle rangée. Si un valeur manque, elle sera assigné "
+"le code de valeur manquante correspondant (généralement -99)."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.changed:1
+msgid "Checks whether any variable in the subsection has been changed."
+msgstr "Vérifie si une variable dans la sous-section a changé de valeur."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.check_dims:1
+msgid ""
+"Checks that all variables in the subsection have the same size. (If not, the"
+" subsection cannot write to disk.)"
+msgstr ""
+"Vérifie que toutes les variables dans la sous-section ont la même taille "
+"(sinon, la sous-section ne pourra être sauvegarder sur le disque)."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.check_dims:0
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.n_data:0
+msgid "raises"
+msgstr "soulève"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.check_dims:3
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.n_data:6
+msgid ":exc:`ValueError` -- If not all variables have the same size."
+msgstr ""
+":exc:`ValueError` -- Si toutes les variables n'ont pas la même taille."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.n_data:1
+msgid ""
+"Obtain the size of variables. Will fail if not all variables have the same "
+"size."
+msgstr ""
+"Obtenir la taille des variables. Soulèvera une erreur si toutes les "
+"variables n'ont pas la même taille."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.n_data:3
+msgid "The size of all variables in the subsection."
+msgstr "La taille de toutes les variables de la sous-section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.to_dict:1
+msgid "Converts the subsection to a dictionnary."
+msgstr "Convertie la sous-section en dictionnaire."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.write:1
+msgid "Writes the subsection."
+msgstr "Écrit la sous-section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.ValueSubSection.write:3
+msgid "The list of lines to which to append this subsection."
+msgstr "La liste de lignes à laquelle ajouter cette sous-section."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue:1
+msgid "Represents a DSSAT file variable."
+msgstr "Représente une variable de fichier DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.add_value:1
+msgid "Adds a value to the variable's matrix."
+msgstr "Ajoute une valeur à la matrice de la variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.add_value:3
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.set_value:3
+msgid "The new value."
+msgstr "La nouvelle valeur."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.remove_value:1
+msgid "Removes a value from the variable's matrix."
+msgstr "Enlève une valeur de la matrice de la variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.remove_value:3
+msgid ""
+"The indices of the value(s) to remove. May be a list of indices, or else a "
+"boolean mask of the same size as the variable."
+msgstr ""
+"Les indices des valeur(s) à effacer. Cela peut être une liste d'indices, ou "
+"bien un masque booléen de la même taille que la variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.set_value:1
+msgid "Changes the value of the variable."
+msgstr "Modifie la valeur de la variable"
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.set_value:5
+msgid ""
+"Índices at which to change the value. If ``None``, all values of the "
+"variable will be changed."
+msgstr ""
+"Les indices auxquels changer la valeur. Si ``None``, toutes les valeurs de "
+"la variable seront changées."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.size:1
+msgid "Returns the size of the variable."
+msgstr "Retourne la taille de la variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.write:1
+msgid "Converts the variable to a string."
+msgstr "Convertie la variable en chaîne."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.write:3
+msgid ""
+"The index of the value to write. If ``None``, the name of the variable will "
+"be written instead."
+msgstr ""
+"L'indice de la valeur à écrire. Si ``None``, le nom de la variable sera "
+"écrit à la place."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/vals.pydocstring
+#: of tradssat.tmpl.vals.VariableValue.write:6
+msgid "The properly written and formatted variable."
+msgstr "La variable, correctement formatée et écrite en format de chaîne."
+
+#: ../../source/api/internals/vars.rst:2
+msgid "Variables"
+msgstr "Variables"
+
+#: ../../source/api/internals/vars.rst:3
+msgid "Variable types used to specify DSSAT file variables."
+msgstr ""
+"Les types de variables utilisés pour spécifier les variables des fichiers "
+"DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/var.pydocstring
+#: of tradssat.tmpl.var.CharacterVar:1
+msgid "Character (string) variable."
+msgstr "Variable texte (chaîne)."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/var.pydocstring
+#: of tradssat.tmpl.var.FloatVar:1
+msgid "Floating point (decimal) variable."
+msgstr "Variable de virgule flottante."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/var.pydocstring
+#: of tradssat.tmpl.var.HeaderVariableSet:1
+msgid "Organiser for the allowed header variables of a DSSAT file type."
+msgstr ""
+"Organisateur pour les variables d'entête permises pour une classe de fichier"
+" DSSAT."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/var.pydocstring
+#: of tradssat.tmpl.var.IntegerVar:1
+msgid "Integer (whole number) variable."
+msgstr "Variable de chiffre entier."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/var.pydocstring
+#: of tradssat.tmpl.var.NumericVar:1
+msgid "Parent class for numeric variable types."
+msgstr "Classe mère pour les types de variable numériques."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/var.pydocstring
+#: of tradssat.tmpl.var.Variable:1
+msgid "Parent class for all variable types."
+msgstr "Classe mère pour tous les types de variable."
+
+#: ../../../../../../virtualenv/python3.6.3/lib/python3.6/site-packages/tradssat/tmpl/var.pydocstring
+#: of tradssat.tmpl.var.VariableSet:1
+msgid "Organiser for the allowed variables of a DSSAT file type."
+msgstr ""
+"Organisateur pour les variables permises dans une classe de fichier DSSAT."
