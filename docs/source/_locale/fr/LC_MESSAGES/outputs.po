@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Julien Malard, श्रेया यादव
+# This file is distributed under the same license as the traDSSAT package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Julien Malard <julien.malard@mail.mcgill.ca>, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: traDSSAT 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-27 23:54+0000\n"
+"PO-Revision-Date: 2019-03-27 17:26+0000\n"
+"Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
+"Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../../source/outputs.rst:2
+msgid "Output files"
+msgstr "Fichiers de sortie"
+
+#: ../../source/outputs.rst:3
+msgid ""
+"Output files can only be read from, not written to. The following classes "
+"are available:"
+msgstr ""
+"Les fichiers de sortie ne peuvent être que lus (et non écrits). Les classes "
+"suivantes sont disponibles :"
+
+#: ../../source/outputs.rst:5
+msgid ":class:`~tradssat.out.PlantGroOut` (PlantGro.OUT)"
+msgstr ":class:`~tradssat.out.PlantGroOut` (PlantGro.OUT)"
+
+#: ../../source/outputs.rst:6
+msgid ":class:`~tradssat.out.SoilNiOut` (SoilNi.OUT)"
+msgstr ":class:`~tradssat.out.SoilNiOut` (SoilNi.OUT)"
+
+#: ../../source/outputs.rst:7
+msgid ":class:`~tradssat.out.SoilTempOut` (SoilTemp.OUT)"
+msgstr ":class:`~tradssat.out.SoilTempOut` (SoilTemp.OUT)"
+
+#: ../../source/outputs.rst:8
+msgid ":class:`~tradssat.out.SummaryOut` (Summary.OUT)"
+msgstr ":class:`~tradssat.out.SummaryOut` (Summary.OUT)"
+
+#: ../../source/outputs.rst:10
+msgid ""
+"These classes can all be used to read the corresponding output file. Note "
+"that it is generally more straightforward and pleasant to use a "
+":class:`~tradssat.mgrs.DSSATResults` object instead of accessing individual "
+"output files directly."
+msgstr ""
+"Ces classes peuvent toutes être utilisées pour lire des fichiers de sortie "
+"correspondants. Cependant, veuillez noter qu'il est généralement plus facile"
+" et plaisant d'utiliser un objet de la classe "
+":class:`~tradssat.mgrs.DSSATResults` au lieu d'acceder directement aux "
+"fichiers de sortie individuels."

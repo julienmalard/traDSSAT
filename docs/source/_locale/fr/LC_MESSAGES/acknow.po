@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Julien Malard, श्रेया यादव
+# This file is distributed under the same license as the traDSSAT package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Julien Malard <julien.malard@mail.mcgill.ca>, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: traDSSAT 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-27 23:54+0000\n"
+"PO-Revision-Date: 2019-03-27 17:26+0000\n"
+"Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
+"Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../../source/acknow.rst:2
+msgid "Acknowledgements"
+msgstr "Remerciements"
+
+#: ../../source/acknow.rst:5
+msgid "Authors"
+msgstr "Auteurs"
+
+#: ../../source/acknow.rst:6
+msgid "TraDSSAT was written by:"
+msgstr "TraDSSAT est développé par :"
+
+#: ../../source/acknow.rst:8
+msgid ""
+"`Julien Jean Malard <https://www.researchgate.net/profile/Julien_Malard>`_"
+msgstr ""
+"`Julien Jean Malard <https://www.researchgate.net/profile/Julien_Malard>`_"
+
+#: ../../source/acknow.rst:9
+msgid "श्रेया यादव (Shreya Yadav)"
+msgstr "श्रेया यादव (Shreya Yadav)"
