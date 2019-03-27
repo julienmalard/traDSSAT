@@ -13,6 +13,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import tradssat
+
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
@@ -28,7 +29,6 @@ author = 'Julien Malard, श्रेया यादव'
 version = tradssat.__version__.rsplit('.', 1)[0]
 # The full version, including alpha/beta/rc tags
 release = tradssat.__version__
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -74,7 +74,6 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -109,7 +108,6 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'traDSSATdoc'
 
-
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
@@ -138,7 +136,6 @@ latex_documents = [
      'Julien Malard, श्रेया यादव', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -147,7 +144,6 @@ man_pages = [
     (master_doc, 'tradssat', 'traDSSAT Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -159,7 +155,6 @@ texinfo_documents = [
      author, 'traDSSAT', 'One line description of project.',
      'Miscellaneous'),
 ]
-
 
 # -- Options for Epub output -------------------------------------------------
 
@@ -178,5 +173,6 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
-
 # -- Extension configuration -------------------------------------------------
+locale_dirs = ['locale/']  # path is example but recommended.
+gettext_compact = True  # optional.
