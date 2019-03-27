@@ -5,7 +5,7 @@ from .exper import ExpFile
 from .genotype import CULFile, ECOFile
 from .out import PlantGroOut, SummaryOut, SoilNiOut, SoilTempOut
 from .soil import SoilFile
-from .weather import WTHFile, MTHFile
+from .weather import WTHFile, MTHFile, CLIFile
 from .mgrs import DSSATRun, DSSATResults, GeneticMgr, WeatherFileMgr, SoilMgr
 
 try:
