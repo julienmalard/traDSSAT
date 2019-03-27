@@ -1,10 +1,11 @@
 language: python
-
 python:
   - '3.6'
-
 os:
   - linux
+env:
+  global:
+  - TX_BRANCH="dev"
 
 install:
   - pip install --upgrade pip setuptools wheel
@@ -12,22 +13,23 @@ install:
   - pip install coveralls codecov codacy-coverage
   - python setup.py sdist bdist_wheel
   - pip install tradssat --no-index --find-links=./dist
-
 script:
   - cd tests
   - coverage run -m unittest
-
 after_success:
   - coveralls --rcfile=.coveragerc
   - codecov
   - coverage xml
   - python-codacy-coverage -r coverage.xml
-
+  - cd ..
+  - cd docs
+  - if [[ $TRAVIS_PULL_REQUEST == "false" ]]; then sh .tx/tx.sh push; sh .tx/tx.sh pull; fi
+  - cd ..
 deploy:
   provider: pypi
   user: julien.malard
   password:
-    secure: fZ5PkJH+lGdeo4tCSc3UWuZgGmK9/S/t8OHpL8SpPBACbSZLqfEC0mLYcbliG0r2rwsMc6XrVl08FcVSMvnL3IFB95LCLT+R4BpnVIVSt+x3+1AhnyukfMuQUNXgmDwy6BjDF7YXPvKuloWfJH7rt1ywmxfxEewAnggIZ4nEwed/Ke734+6Fmd92rpeUsqm0/sBIeypc/GpSm61r5wfK4B6caMJhjKCq6sEyXV5PQmKrC/IhObLI2S0cuyXo8NO0nOZ1L0j8cf5we8a+m82MdPDtvcnPzAR9kXcxU9bvhWV12FtF7bqegYkNE0LlGE2QGDqAcLf2hCdgi05boSd24e5Dar8/gqJTzbzIDbXLo798IGTfIAVIsXO1iexhV3DyfYuXsJzq7u36xt4mso5xFBPyJGmXZR11mSreE14cPov05EGLea1aK7mzvi9ti3/ayTaVD2gmedmQR9lVvXLU3raxHWxSDFUlwhzyxq9+nuqRroG/BatpNxOnLm22qLZjUnZnLkyt+l4bhG8V7a3dL5jNOVsr22eJyxT2DfdbAdCuPVkaD4WVhd+CBU5EdT/fGkHAyrfsbpaay2gUBadgMiSI4EP/TRPzrdQHFmYUYpKyxYVokzzQe4Ftac+Jwkeoo1TxcUhWaZpYyxLnD53wgTcHWM0bxxVpakjDN4JOz2g=
+    secure: bmsrBIPiCYLrgQHpNgtbnE+xEXLlREirBQMhDcKhYrMSjAKpoV277xQIjXwci6Ji94kdcR8y65cNI8Kvu9nmESIur7GkyzyhTMhlBbNc0BLy439hwBSs/J/2bDgCcHpvUg0Dm3nZpNPT0vRmMniwwumdIluJOfRShjQalJBtMdud9IMIFFQIGBGirgDRV0Daldv57U9ZvDgYxo+bNH0ooPm+HGmP+ZRPodmmo1YxHzSm9n57X1xfqCz6O3GBsPWwgHF0pL0w64i7BPPErOb1VcLanKUV6vfGMeN1tXaAG+yYRewwUc0RzPLOyH+DXxA5XB0GZ4M8h5dalYEs/od9kLKO/SoYzS12N4qeJ5e7KO0pIowSmpTKluzid7IwNJG/KrgxajwyrJTWiWLqn2Kx7sRumRaEh4riTHVDlT8z6PjSIAVHsRVwfwLj8P9Fwz77Bba0NHXFErcjkR2dTXHLTmZwvmrW9K7vLyZtN5vMGXYNRe3jB2gM4FiUDdP5j5sE5+6eMYfV++YZ4W0/qSDrafPkYtPnAthwnivtN5FDoPom5n1mv98eQWebgOSyaBBC/K+Kpg/yxvKS3kPP01LiTI+SFRQqS8ashxkHtz62AcobkpbdrGwz4rX53WqMZKCxjEu/UOHqkeWsyNtcJ9JOCtvMPvPSgcA1+0BRqAL/j+4=
   distributions: sdist bdist_wheel
   skip_existing: true
   on:
