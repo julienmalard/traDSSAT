@@ -174,5 +174,5 @@ epub_title = project
 epub_exclude_files = ['search.html']
 
 # -- Extension configuration -------------------------------------------------
-locale_dirs = ['locale/']  # path is example but recommended.
+locale_dirs = ['_locale/']  # path is example but recommended.
 gettext_compact = True  # optional.
