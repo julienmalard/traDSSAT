@@ -42,7 +42,7 @@ update_translations() {
 tx_push() {
   # Only run once, and only on $TX_BRANCH branch
   echo $TRAVIS_JOB_NUMBER | grep "\.1$"
-  if [ $? -eq 0 ] && [ $TRAVIS_BRANCH == $TX_BRANCH ]
+  if [ $? -eq 0 ] # && [ $TRAVIS_BRANCH == $TX_BRANCH ]
     then
       tx_init
       update_translations
@@ -59,7 +59,6 @@ tx_pull() {
       tx_init
       tx pull --all --force
       FRESH_TRANSLATIONS=$(git diff-index --name-only HEAD --)
-      echo $FRESH_TRANSLATIONS
       if [ -n "$FRESH_TRANSLATIONS" ]
         then
           echo "pushing"
