@@ -10,7 +10,7 @@ vars_ = {
     FloatVar('REFHT', 5, 1, info='Height of temperature measurements, m'),
     FloatVar('WNDHT', 5, 1, info='Height of wind measurements, m'),
 
-    IntegerVar('DATE', 5, spc=0, info='Year + days from Jan. 1'),
+    CharacterVar('DATE', 5, spc=0, info='Year + days from Jan. 1'),
     FloatVar('SRAD', 5, 1, info='Solar radiation, MJ m-2 day-1'),
     FloatVar('TMAX', 5, 1, info='Air temperature maximum, °C'),
     FloatVar('TMIN', 5, 1, info='Air temperature minimum, °C'),
