@@ -15,7 +15,6 @@ setup(
     author=read_txt('tradssat/AUTHORS.txt'),
     author_email='julien.malard@mail.mcgill.ca',
     description='DSSAT input and output file reader and writer',
-    long_description=read_txt('README.md'),
     setup_requires=[],
     install_requires=['numpy', 'chardet'],
     package_data={'tradssat': ['*.txt']},
