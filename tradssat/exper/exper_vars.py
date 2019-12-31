@@ -2,7 +2,7 @@ import re
 
 from tradssat.tmpl.var import CharacterVar, FloatVar, IntegerVar
 
-TRT_HEAD = re.compile('TREATMENTS(\W+[-]+FACTOR LEVELS[-]+)?')
+TRT_HEAD = re.compile(r'TREATMENTS(\W+[-]+FACTOR LEVELS[-]+)?')
 GENERAL = 'GENERAL'
 
 header_vars = [
