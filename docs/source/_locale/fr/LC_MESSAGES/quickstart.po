@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traDSSAT 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-27 23:54+0000\n"
+"POT-Creation-Date: 2019-12-31 18:10+0000\n"
 "PO-Revision-Date: 2019-03-27 17:26+0000\n"
 "Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
 "Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
@@ -21,15 +21,15 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../../source/quickstart.rst:2
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/quickstart.rst:2
 msgid "Quick start"
 msgstr "Démarrage rapide"
 
-#: ../../source/quickstart.rst:5
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/quickstart.rst:5
 msgid "Installation"
 msgstr "Installation"
 
-#: ../../source/quickstart.rst:7
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/quickstart.rst:7
 msgid ""
 "traDSSAT requires ``numpy`` and ``chardet`` to run. You can install it from "
 "pip with:"
@@ -37,11 +37,11 @@ msgstr ""
 "traDSSAT nécessite ``numpy`` et ``chardet``. Vous pouvez l'installer de pip "
 "avec:"
 
-#: ../../source/quickstart.rst:7
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/quickstart.rst:7
 msgid ":command:`pip install tradssat`"
 msgstr ":command:`pip install tradssat`"
 
-#: ../../source/quickstart.rst:10
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/quickstart.rst:10
 msgid ""
 "You can also install the most cutting-edge version directly from GitHub "
 "with:"
@@ -49,13 +49,13 @@ msgstr ""
 "Vous pouvez aussi installer la version en développement la plus récente "
 "directement de GitHub avec :"
 
-#: ../../source/quickstart.rst:10
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/quickstart.rst:10
 msgid ""
 ":command:`pip install git+git://github.com/julienmalard/tradssat.git@master`"
 msgstr ""
 ":command:`pip install git+git://github.com/julienmalard/tradssat.git@master`"
 
-#: ../../source/quickstart.rst:12
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/quickstart.rst:12
 msgid ""
 "You will need a local installation of DSSAT to use the high-level "
 "interface's automatic file managers (since these will need to find soil, "
@@ -70,6 +70,6 @@ msgstr ""
 "installation de DSSAT par elle-même, mais si elle a besoin d'aide vous "
 "pouvez la spécifier avec :"
 
-#: ../../source/quickstart.rst:22
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/quickstart.rst:22
 msgid "A quick example"
 msgstr "Un exemple rapide"
