@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traDSSAT 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-27 23:54+0000\n"
+"POT-Creation-Date: 2019-12-31 18:10+0000\n"
 "PO-Revision-Date: 2019-03-27 17:26+0000\n"
 "Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
 "Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../../source/high_level.rst:2
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:2
 msgid "High-level interface"
 msgstr "Interface de haut niveau"
 
-#: ../../source/high_level.rst:3
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:3
 msgid ""
 "The high-level interface simplifies many tasks while working with DSSAT "
 "input and output files."
@@ -33,11 +33,11 @@ msgstr ""
 "L'interface d'haut niveau simplifie beaucoup de tâches communes lorsque vous"
 " travaillez avec des fichiers d'entrée et de sortie de DSSAT."
 
-#: ../../source/high_level.rst:6
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:6
 msgid "Input files"
 msgstr "Fichiers d'entrée"
 
-#: ../../source/high_level.rst:7
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:7
 msgid ""
 "Each of these managers creates a more friendly interface to DSSAT files than"
 " that of the base input file reader."
@@ -45,11 +45,11 @@ msgstr ""
 "Chacun de ces gestionnaires crée une interface plus intuitive pour les "
 "fichiers DSSAT que celle des lecteurs de fichier de base."
 
-#: ../../source/high_level.rst:10
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:10
 msgid "Experiment file manager"
 msgstr "Gestionnaire de fichier d'expérience"
 
-#: ../../source/high_level.rst:11
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:11
 msgid ""
 ":class:`~tradssat.mgrs.DSSATRun` allows you to read, edit and write "
 "experiments, with automatic access to referenced external soil, genetic and "
@@ -65,11 +65,11 @@ msgstr ""
 "ne savez pas de quoi je parle, ce serait un bon moment d'arrêter de lire "
 "ceci et d'aller lire la documentation de DSSAT à la place)."
 
-#: ../../source/high_level.rst:35
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:35
 msgid "Genetic file manager"
 msgstr "Gestionnaire de fichier de génétique"
 
-#: ../../source/high_level.rst:36
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:36
 msgid ""
 "DSSAT's crop modules generally split coefficients between cultivar, ecotype "
 "and species files. TraDSSAT provides a :class:`~tradssat.mgrs.GeneticMgr` "
@@ -81,7 +81,7 @@ msgstr ""
 ":class:`~tradssat.mgrs.GeneticMgr` pour automagiquement gérer tous les "
 "coefficients génétiques pour cultivar donné."
 
-#: ../../source/high_level.rst:54
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:54
 msgid ""
 "It is currently not possible to access species coefficients with traDSSAT, "
 "because these are in practice model constants and should not be written or "
@@ -97,11 +97,11 @@ msgstr ""
 "fait que ces fichiers viennent dans une multitude de formats et seraient "
 "donc un drôle de casse-tête à analyser)."
 
-#: ../../source/high_level.rst:60
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:60
 msgid "Soil file manager"
 msgstr "Gestionnaire de fichier de sol"
 
-#: ../../source/high_level.rst:61
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:61
 msgid ""
 "Soil files can be hard to manage, since they can contain data for many "
 "different soils in the same file. With :class:`~tradssat.mgrs.SoilMgr`, "
@@ -113,11 +113,11 @@ msgstr ""
 "Avec la classe :class:`~tradssat.mgrs.SoilMgr`, vous n'avez qu'à spécifier "
 "le code du sol et traDSSAT trouvera le fichier et la section correspondants."
 
-#: ../../source/high_level.rst:72
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:72
 msgid "Weather file manager"
 msgstr "Gestionnaire de fichier de météo"
 
-#: ../../source/high_level.rst:73
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:73
 msgid ""
 "Don't feel like finding your weather file yourself? Just give the station "
 "code to :class:`~tradssat.mgrs.WeatherFileMgr` and let it find it for you."
@@ -126,11 +126,11 @@ msgstr ""
 "vous avez de besoin ? Vous n'avez qu'à donner le code de la station à "
 ":class:`~tradssat.mgrs.WeatherFileMgr` et elle la trouvera pour vous."
 
-#: ../../source/high_level.rst:84
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:84
 msgid "Output files"
 msgstr "Fichiers de sortie"
 
-#: ../../source/high_level.rst:85
+#: /home/travis/build/julienmalard/traDSSAT/docs/source/high_level.rst:85
 msgid ""
 "You can access output from a run using a "
 ":class:`~tradssat.mgrs.DSSATResults` object instantiated with the output "
