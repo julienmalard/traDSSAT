@@ -235,10 +235,10 @@ class ValueSection(object):
         for s in subsect:
             sub = self[s]
             if all(vr in sub for vr in req_vars):
-                filter_ = sub.filter_cond(cond)
+                filter_ = sub.filter_cond(cond) if cond else slice(None)
                 val.append(sub[var].val[filter_])
 
-        return np.array(val).flatten()
+        return np.concatenate(val)
 
     def set_value(self, var, val, subsect=None, cond=None):
 

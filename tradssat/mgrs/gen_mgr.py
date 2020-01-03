@@ -50,6 +50,8 @@ class GeneticMgr(object):
 
         eco_codes = self.cult_file.get_value('ECO#')
         cult_codes = self.cult_file.get_value('VAR#')
+        if self.cult not in cult_codes:
+            raise ValueError('Cultivar {} not found in cultivar file (.CUL).'.format(self.cult))
         eco = eco_codes[cult_codes == self.cult]
 
         self.eco_n = np.where(self.eco_file.get_value('ECO#') == eco)

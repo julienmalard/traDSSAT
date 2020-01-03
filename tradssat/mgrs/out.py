@@ -1,4 +1,4 @@
-from tradssat import SummaryOut, PlantGroOut
+from tradssat import SummaryOut, PlantGroOut, SoilWatOut, SoilNiOut, SoilTempOut
 
 
 class DSSATResults(object):
@@ -20,8 +20,8 @@ class DSSATResults(object):
 
         self.folder = folder
 
-        outfiles = [PlantGroOut]
-        self._outfiles = {f: None for f in outfiles}
+        self._outfiles_clases = {f.filename: f for f in [PlantGroOut, SoilWatOut, SoilNiOut, SoilTempOut]}
+        self._outfiles = {f: None for f in self._outfiles_clases}
 
         self._sumoutclass = SummaryOut
         self._sumoutfile = None
@@ -32,7 +32,7 @@ class DSSATResults(object):
         """
 
         for out_class in self._outfiles:
-            self._outfiles[out_class] = None
+            self._outfiles[out_class.filename] = None
         self._sumoutfile = None
 
     def get_value(self, var, trt, t=None, at='YEAR DOY'):
@@ -70,7 +70,7 @@ class DSSATResults(object):
 
             if f is None:
                 try:
-                    f = self._outfiles[c] = c(self.folder)
+                    f = self._outfiles[c] = self._outfiles_clases[c](self.folder)
                 except FileNotFoundError:
                     pass
 

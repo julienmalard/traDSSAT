@@ -23,15 +23,16 @@ def detect_encod(file):
     return detector.result['encoding']
 
 
-config = {'DSSAT_DIR': None}
+DSSAT_DIR = 'DSSAT_DIR'
+config = {DSSAT_DIR: None}
 
 
 def set_dssat_dir(dssat_dir):
     if os.path.isdir(dssat_dir):
-        config['DSSAT_DIR'] = dssat_dir
+        config[DSSAT_DIR] = dssat_dir
     else:
         raise FileNotFoundError(dssat_dir)
 
 
 def get_dssat_dir():
-    return config['DSSAT_DIR']
+    return config[DSSAT_DIR]
