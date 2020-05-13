@@ -65,6 +65,14 @@ class OutFile(File):
         fname = os.path.split(file)[1]
         return fname.lower() == cls.filename.lower()
 
+    def get_var_spc(self, var, sect=None, **kwargs):
+
+        header = kwargs.get('header')
+
+        match = re.search(var, header)
+        spc = re.search("[ @]+$", header[:(match.start())]).group(0)
+        return len(spc)
+
 
 class FinalOutFile(InpFile):
     filename = None  # type: str

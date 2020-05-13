@@ -59,21 +59,6 @@ class File(object):
         return self.get_var(var, sect).lims
 
     def get_var_spc(self, var, sect=None, **kwargs):
-
-        def output_spc(header, var_names, var):
-
-            match = re.search(var, header)
-            spc = re.search("[ @]+$", header[:(match.start())]).group(0)
-            return len(spc)
-
-        header = kwargs.get('header')
-        var_names = kwargs.get('var_names')
-
-        out_file = re.search("(?i)(.OUT)", self.file)
-
-        if out_file and self.filename != "Summary.OUT":
-            return output_spc(header, var_names, var)
-
         return self.get_var(var, sect).spc
 
     def get_var_size(self, var, sect=None):
@@ -144,8 +129,7 @@ class File(object):
         lengths = [self.get_var_size(vr) for vr in var_names]
 
         spaces = [self.get_var_spc(var = vr,
-                                   header = subblock[0],
-                                   var_names = var_names) for vr in var_names]
+                                   header = subblock[0]) for vr in var_names]
 
         cum_lens = np.insert(np.cumsum(lengths) + np.cumsum(spaces), 0, 0)
         cutoffs = [(cum_lens[i], cum_lens[i + 1]) for i in range(len(var_names))]
