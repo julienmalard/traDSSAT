@@ -13,8 +13,8 @@ vars_ = {
     IntegerVar('YEAR', 4, info='Year'),
     IntegerVar('DOY', 3, info='Day of year starting on Jan 1.'),
     IntegerVar('DAS', 5, info='Day after start'),
-    FloatVar('MCFD', 7, 3, info='fraction of soil covered by mulch'),
-    FloatVar('MDEPD', 7, 2, info='thickness of mulch layer, cm'),
-    IntegerVar('MWAD', 7, info='mass of mulch layer, kg/ha'),
-    FloatVar('MWTD', 7, 2, info='water stored in mulch layer, mm'),
+    FloatVar('MCFD', 4, 3, info='fraction of soil covered by mulch'),
+    FloatVar('MDEPD', 5, 2, info='thickness of mulch layer, cm'),
+    IntegerVar('MWAD', 4, info='mass of mulch layer, kg/ha'),
+    FloatVar('MWTD', 4, 2, info='water stored in mulch layer, mm'),
 }
