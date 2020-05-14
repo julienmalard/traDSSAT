@@ -12,9 +12,6 @@ rsrcs_out = os.path.join(os.path.split(__file__)[0], 'rsrc/mock_DSSAT/Out')
 output_classes = [PlantGroOut, SoilNiOut, SoilTempOut, SoilWatOut, MulchOut, ETOut]
 final_out_classes = [SummaryOut]
 
-# Recently added (#20)
-rsrcs_out_cassava = os.path.join(os.path.split(__file__)[0], 'rsrc/mock_DSSAT/Cassava')
-
 
 # Inputs must be read and written
 class TestInputs(unittest.TestCase):
@@ -36,16 +33,9 @@ class TestOutputs(unittest.TestCase):
             with self.subTest(out_class.__name__):
                 test_read(out_class, folder=rsrcs_out, testcase=self)
 
-                # Recently added (#20)
-                test_read(out_class, folder=rsrcs_out_cassava, testcase=self)
-
 
 class TestFinalOutputs(unittest.TestCase):
     def test_read(self):
         for final_out_class in final_out_classes:
             with self.subTest(final_out_class.__name__):
                 test_read(final_out_class, folder=rsrcs_out, testcase=self)
-
-                # Recently added (#20)
-                test_read(final_out_class, folder=rsrcs_out_cassava, testcase=self)
-
