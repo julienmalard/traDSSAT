@@ -35,7 +35,7 @@ class DSSATResults(object):
             self._outfiles[out_class.filename] = None
         self._sumoutfile = None
 
-    def get_value(self, var, trt, t=None, at='YEAR DOY'):
+    def get_value(self, var, trt, t=None, at='YEAR DOY', run=None):
         """
         Returns the value (point or time-series) of a variable from a DSSAT run.
 
@@ -66,6 +66,11 @@ class DSSATResults(object):
         else:
             cond = None
 
+        if run == None:
+            sect = {'TREATMENT': trt}
+        else:
+            sect = {'TREATMENT': trt, 'RUN': run}
+
         for c, f in self._outfiles.items():
 
             if f is None:
@@ -76,7 +81,7 @@ class DSSATResults(object):
 
             if var in f.variables():
                 if t is None:
-                    return f.get_value(var, sect={'TREATMENT': trt})
+                    return f.get_value(var, sect=sect)
                 return f.get_value(var, sect={'TREATMENT': trt}, cond=cond)
 
         raise ValueError('Output variable "{}" could not be found in any output file.'.format(var))
