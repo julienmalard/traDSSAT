@@ -29,12 +29,17 @@ class OutFile(File):
         self._values.add_section(section_name)
         i = 0
         for l in lines:
+            if "RUN" in l:
+
+                run_no = l.split(' : ')[0].strip()
+                run_no = re.search('\d+$', run_no).group(0)
+
             if 'TREATMENT' in l:
 
                 trt_no = l.split(' : ')[0].strip()
                 trt_no = re.search('\d+$', trt_no).group(0)
-                subsect = ValueSubSection(['TREATMENT'], l_vals=[np.array([trt_no], dtype=int)])
 
+                subsect = ValueSubSection(['RUN', 'TREATMENT'], l_vals=np.array([run_no, trt_no], dtype=int))
                 self._values[section_name].set_header_vars(subsect)
 
             elif '@' in l:
