@@ -24,9 +24,9 @@ class TestRunInput(unittest.TestCase):
     def setUpClass(cls):
         cls.temp_dir = tempfile.TemporaryDirectory()
 
-        mock_dir = shutil.copytree('tests/rsrc/mock_DSSAT', os.path.join(cls.temp_dir.name, 'DSSAT47'))
+        mock_dir = shutil.copytree('rsrc/mock_DSSAT', os.path.join(cls.temp_dir.name, 'DSSAT47'))
         set_dssat_dir(mock_dir)
-        cls.file = 'tests/rsrc/mock_DSSAT/Exper/Maize/BRPI0202.MZX'
+        cls.file = 'rsrc/mock_DSSAT/Exper/Maize/BRPI0202.MZX'
 
         cls.dssat_run = DSSATRun(cls.file)
         cls.ref_expfile = ExpFile(cls.file)
@@ -183,7 +183,7 @@ class TestRunOutput(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.dir_ = 'tests/rsrc/mock_DSSAT/Out'
+        cls.dir_ = 'rsrc/mock_DSSAT/Out'
         cls.result = DSSATResults(cls.dir_)
 
     def test_get_value(self):
