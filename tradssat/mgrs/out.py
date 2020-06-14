@@ -4,14 +4,14 @@ from tradssat import SummaryOut, PlantGroOut, SoilWatOut, SoilNiOut, SoilTempOut
 class DSSATResults(object):
     """
     Facilitates the reading of DSSAT results. Instead of having to read each output file individually, you can simply
-    point this class to a DSSAT run output folder containing the output files and it will find the desired variables 
+    point this class to a DSSAT run output folder containing the output files and it will find the desired variables
     for you.
     """
 
     def __init__(self, folder):
         """
         Initialise with the base folder.
-        
+
         Parameters
         ----------
         folder: str
@@ -38,7 +38,7 @@ class DSSATResults(object):
     def get_value(self, var, trt, t=None, at='YEAR DOY'):
         """
         Returns the value (point or time-series) of a variable from a DSSAT run.
-        
+
         Parameters
         ----------
         var: str
@@ -76,7 +76,7 @@ class DSSATResults(object):
 
             if var in f.variables():
                 if t is None:
-                    return f.get_value(var)
+                    return f.get_value(var, sect={'TREATMENT': trt})
                 return f.get_value(var, sect={'TREATMENT': trt}, cond=cond)
 
         raise ValueError('Output variable "{}" could not be found in any output file.'.format(var))
