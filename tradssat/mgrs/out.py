@@ -66,7 +66,7 @@ class DSSATResults(object):
         else:
             cond = None
 
-        if run == None:
+        if run is None:
             sect = {'TREATMENT': trt}
         else:
             sect = {'TREATMENT': trt, 'RUN': run}
