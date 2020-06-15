@@ -71,7 +71,7 @@ out.get_value('FWAD', trt=1, t='1989 123', at='DOY')  # Get result at 123th day 
 ```
 
 ## Contributing
-Don't forget to add your name to the `AUTHORS.txt` list!
+Don't forget to add your name to the authors list in the `docs/source/acknow.rst` file!
 
 ## Licensing
 MIT License
