@@ -58,7 +58,7 @@ class File(object):
     def get_var_lims(self, var, sect=None):
         return self.get_var(var, sect).lims
 
-    def get_var_spc(self, var, sect=None):
+    def get_var_spc(self, var, sect=None, **kwargs):
         return self.get_var(var, sect).spc
 
     def get_var_size(self, var, sect=None):
@@ -89,7 +89,7 @@ class File(object):
 
     def get_value(self, var, sect=None, subsect=None, cond=None):
         """
-        
+
         Parameters
         ----------
         var
@@ -127,7 +127,10 @@ class File(object):
 
         n_lines = len(subblock) - 1  # -1 for the header line (with "@" )
         lengths = [self.get_var_size(vr) for vr in var_names]
-        spaces = [self.get_var_spc(vr) for vr in var_names]
+
+        spaces = [self.get_var_spc(var = vr,
+                                   header = subblock[0]) for vr in var_names]
+
         cum_lens = np.insert(np.cumsum(lengths) + np.cumsum(spaces), 0, 0)
         cutoffs = [(cum_lens[i], cum_lens[i + 1]) for i in range(len(var_names))]
 

@@ -1,4 +1,5 @@
 import os
+import re
 
 import numpy as np
 
@@ -29,7 +30,9 @@ class OutFile(File):
         i = 0
         for l in lines:
             if 'TREATMENT' in l:
-                trt_no = l.split(' : ')[0].split()[1].strip()
+
+                trt_no = l.split(' : ')[0].strip()
+                trt_no = re.search('\d+$', trt_no).group(0)
                 subsect = ValueSubSection(['TREATMENT'], l_vals=[np.array([trt_no], dtype=int)])
 
                 self._values[section_name].set_header_vars(subsect)
@@ -47,12 +50,12 @@ class OutFile(File):
     def matches_file(cls, file):
         """
         Checks whether a given file can be read by this class.
-        
+
         Parameters
         ----------
         file: str
            The filename or full path to be read.
-        
+
         Returns
         -------
         bool
@@ -61,6 +64,14 @@ class OutFile(File):
 
         fname = os.path.split(file)[1]
         return fname.lower() == cls.filename.lower()
+
+    def get_var_spc(self, var, sect=None, **kwargs):
+
+        header = kwargs.get('header')
+
+        match = re.search(var, header)
+        spc = re.search("[ @]+$", header[:(match.start())]).group(0)
+        return len(spc)
 
 
 class FinalOutFile(InpFile):

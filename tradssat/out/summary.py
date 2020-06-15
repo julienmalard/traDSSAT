@@ -59,7 +59,7 @@ _vars = {
     IntegerVar('NIAM', 5, info='Inorganic N in soil at maturity, kg/ha'),
     IntegerVar('CNAM', 5, info='Tops N at maturity, kg ha-1 '),
     IntegerVar('GNAM', 5, info='Nitrogen in harvest product (seed), kg ha-1 '),
-    IntegerVar('N2OEC', 5, info=''),
+    FloatVar('N2OEC', 5, 3, info=''),
     IntegerVar('PI#M', 5, info=''),
     IntegerVar('PICM', 5, info=''),
     IntegerVar('PUPC', 5, info=''),
@@ -97,5 +97,9 @@ _vars = {
     FloatVar('PRCP', 6, 1, info=''),
     FloatVar('ETCP', 6, 1, info=''),
     FloatVar('ESCP', 6, 1, info=''),
-    FloatVar('EPCP', 6, 1, info='')
+    FloatVar('EPCP', 6, 1, info=''),
+
+    # Recently added (#19)
+    IntegerVar('P#', 2, info=''),
+    IntegerVar('NMINC', 5, info=''),
 }
