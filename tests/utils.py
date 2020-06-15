@@ -102,6 +102,8 @@ def jsonify(d):
     for k, v in d.items():
         if isinstance(v, np.ndarray):
             d[k] = v.tolist()
+        elif isinstance(v, (np.int_, np.float_)):
+            d[k] = v.item()
         elif isinstance(v, dict):
             jsonify(v)
         elif isinstance(v, list):
