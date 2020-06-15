@@ -17,7 +17,7 @@ vars_ = {
     FloatVar('TMIN', 5, 1, info='Air temperature minimum, °C'),
     FloatVar('RAIN', 5, 1, info='Precipitation, mm'),
     FloatVar('DEWP', 5, 1, info='Dewpoint temperature5, °C'),
-    FloatVar('WIND', 5, 1, info='Wind run5, km day-1'),
+    FloatVar('WIND', 5, 1, info='Wind run, km day-1'),
     FloatVar('PAR', 5, 1, info='Photosynthetic active radiation (PAR)5, moles m-2 day-1'),
     FloatVar('EVAP', 5, 1),
     FloatVar('RHUM', 5, 1)
