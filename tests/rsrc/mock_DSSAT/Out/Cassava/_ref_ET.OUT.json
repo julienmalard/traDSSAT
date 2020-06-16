@@ -9,9 +9,8 @@
   },
   "RUN   1        : January_to_January        CSYCA047 EMBR8101    1\n": {
     "header vars": {
-      "TREATMENT": [
-        1
-      ]
+      "RUN": 1,
+      "TREATMENT": 1
     },
     "main vars": [
       {
@@ -13653,9 +13652,8 @@
   },
   "RUN   2        : March_to_March            CSYCA047 EMBR8101    2\n": {
     "header vars": {
-      "TREATMENT": [
-        2
-      ]
+      "RUN": 2,
+      "TREATMENT": 2
     },
     "main vars": [
       {
@@ -29277,9 +29275,8 @@
   },
   "RUN   3        : May_to_May                CSYCA047 EMBR8101    3\n": {
     "header vars": {
-      "TREATMENT": [
-        3
-      ]
+      "RUN": 3,
+      "TREATMENT": 3
     },
     "main vars": [
       {
@@ -46881,9 +46878,8 @@
   },
   "RUN   4        : July_to_July              CSYCA047 EMBR8101    4\n": {
     "header vars": {
-      "TREATMENT": [
-        4
-      ]
+      "RUN": 4,
+      "TREATMENT": 4
     },
     "main vars": [
       {
@@ -66465,9 +66461,8 @@
   },
   "RUN   5        : September_to_September    CSYCA047 EMBR8101    5\n": {
     "header vars": {
-      "TREATMENT": [
-        5
-      ]
+      "RUN": 5,
+      "TREATMENT": 5
     },
     "main vars": [
       {
@@ -88029,9 +88024,8 @@
   },
   "RUN   6        : November_to_November      CSYCA047 EMBR8101    6\n": {
     "header vars": {
-      "TREATMENT": [
-        6
-      ]
+      "RUN": 6,
+      "TREATMENT": 6
     },
     "main vars": [
       {
