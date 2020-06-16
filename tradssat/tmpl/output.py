@@ -42,10 +42,10 @@ class OutFile(File):
                 
                 if run_no is None:
                     l_vals = np.array([trt_no], dtype=int)
-                    l_vars = ['RUN', 'TREATMENT']
+                    l_vars = ['TREATMENT']
                 else:
                     l_vals = np.array([run_no, trt_no], dtype=int)
-                    l_vars = ['TREATMENT']
+                    l_vars = ['RUN', 'TREATMENT']
                 subsect = ValueSubSection(l_vars, l_vals=l_vals)
                 self._values[section_name].set_header_vars(subsect)
 
