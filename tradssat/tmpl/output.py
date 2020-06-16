@@ -28,6 +28,7 @@ class OutFile(File):
         section_name = lines[0][1:]
         self._values.add_section(section_name)
         i = 0
+        run_no = None
         for l in lines:
             if "RUN" in l:
 
@@ -38,8 +39,14 @@ class OutFile(File):
 
                 trt_no = l.split(' : ')[0].strip()
                 trt_no = re.search('\d+$', trt_no).group(0)
-
-                subsect = ValueSubSection(['RUN', 'TREATMENT'], l_vals=np.array([run_no, trt_no], dtype=int))
+                
+                if run_no is None:
+                    l_vals = np.array([trt_no], dtype=int)
+                    l_vars = ['RUN', 'TREATMENT']
+                else:
+                    l_vals = np.array([run_no, trt_no], dtype=int)
+                    l_vars = ['TREATMENT']
+                subsect = ValueSubSection(l_vars, l_vals=l_vals)
                 self._values[section_name].set_header_vars(subsect)
 
             elif '@' in l:
