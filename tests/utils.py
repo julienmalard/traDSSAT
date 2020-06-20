@@ -109,3 +109,13 @@ def jsonify(d):
         elif isinstance(v, list):
             for i in v:
                 jsonify(i)
+
+def get_ref_var(ref, var, trt, run):
+    '''
+    Return the entire var array for a specific combination of 'trt' and 'run'.
+    '''
+    for k, v in ref.items():
+        h = v["header vars"]
+        if h.get('RUN') == run and h.get('TREATMENT') == trt:
+            return [v for k, v in v["main vars"][0].items()
+                   if k == var][0]
