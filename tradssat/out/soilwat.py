@@ -32,8 +32,8 @@ vars_ = {
     FloatVar('SW5D', 4, 3, info='soil water content at 45-60 cm depth, mm3/mm3'),
     FloatVar('SW6D', 4, 3, info='soil water content at 60-90 cm depth, mm3/mm3'),
     FloatVar('SW7D', 4, 3, info='soil water content at 90-110 cm depth, mm3/mm3'),
-
-    # Recently added (#19)
     FloatVar('SW8D', 4, 3, info='soil water content at 120-150 cm depth, mm3/mm3'),
+    FloatVar('SW9D', 4, 3, info='soil water content at ____ cm depth, mm3/mm3'),
+    FloatVar('SW10', 4, 3, info='soil water content at ____ cm depth, mm3/mm3'),
 
 }

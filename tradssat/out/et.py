@@ -44,5 +44,7 @@ vars_ = {
     FloatVar('ES6D', 4, 3, info='Soil evaporation Layer 6 (mm/d)'),
     FloatVar('ES7D', 4, 3, info='Soil evaporation Layer 7 (mm/d)'),
     FloatVar('ES8D', 4, 3, info='Soil evaporation Layer 8 (mm/d)'),
+    FloatVar('ES9D', 4, 3, info='Soil evaporation Layer 9 (mm/d)'),
+    FloatVar('ES10D', 5, 3, info='Soil evaporation Layer 10 (mm/d)'),
     FloatVar('TRWUD', 5, 3, info='Root water uptake (cm/d)'),
 }
