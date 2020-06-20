@@ -60,12 +60,9 @@ class TestOutHeader(unittest.TestCase):
         npt.assert_equal(actual, expected)
 
     def test_wrong_values(self):
-        # 'run' is unique for each simulation.
-        # For the current ref file the correct input is:
-        # 'trt = 2' and 'run = 4'
+        '''
+        Header var 'run' is unique for each simulation.
+        For the current ref file the correct input is: 'trt = 2' and 'run = 4'
+        '''
         with npt.assert_raises(StopIteration):
-            self.instance.get_value("LAID", trt=2, run=2, t=100, at='DAP')
-
-
-if __name__ == "__main__":
-    unittest.main()
+            self.instance.get_value("LAID", trt=2, run=2)
