@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traDSSAT 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-31 18:10+0000\n"
+"POT-Creation-Date: 2020-10-12 07:49+0000\n"
 "PO-Revision-Date: 2019-03-27 17:26+0000\n"
 "Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
 "Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
@@ -21,19 +21,19 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/contrib.rst:2
+#: ../../source/contrib.rst:2
 msgid "Contributing"
 msgstr "Contribuer"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/contrib.rst:4
+#: ../../source/contrib.rst:4
 msgid "There are a few ways to contribute to traDSSAT..."
 msgstr "Il y a plusieurs méthodes de contribuer à traDSSAT..."
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/contrib.rst:7
+#: ../../source/contrib.rst:7
 msgid "Error reporting"
 msgstr "Signalisation d'erreurs"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/contrib.rst:8
+#: ../../source/contrib.rst:8
 msgid ""
 "Something looks fishy? Please `report it "
 "<https://github.com/julienmalard/tradssat/issues>`_ on GitHub."
@@ -41,11 +41,11 @@ msgstr ""
 "Quelque chose paraît bizarre ? SVP `signalez le "
 "<https://github.com/julienmalard/tradssat/issues>`_ sur GitHub."
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/contrib.rst:11
+#: ../../source/contrib.rst:11
 msgid "Improvements"
 msgstr "Améliorations"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/contrib.rst:12
+#: ../../source/contrib.rst:12
 msgid ""
 "Think you can fix it yourself? Great! Fork traDSSAT on `GitHub "
 "<https://github.com/julienmalard/tradssat>`_ and submit a pull request with "

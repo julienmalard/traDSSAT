@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traDSSAT 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-31 18:10+0000\n"
+"POT-Creation-Date: 2020-10-12 07:49+0000\n"
 "PO-Revision-Date: 2019-03-27 17:26+0000\n"
 "Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
 "Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/index.rst:7
+#: ../../source/index.rst:7
 msgid "Welcome to traDSSAT!"
 msgstr "Bienvenu.e à traDSSAT !"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/index.rst:8
+#: ../../source/index.rst:8
 msgid ""
 "TraDSSAT aims to reinvent the wheel, once and for all, for `DSSAT "
 "<https://www.dssat.net>`_ file management. Whether for preparing input files"
@@ -40,18 +40,18 @@ msgstr ""
 "la structure modulaire de traDSSAT simplifieront votre code de manière "
 "dramatique."
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/index.rst:13
+#: ../../source/index.rst:13
 msgid "Contents"
 msgstr "Contenu"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/index.rst:26
+#: ../../source/index.rst:26
 msgid "Indices and tables"
 msgstr "Index et tableaux"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/index.rst:28
+#: ../../source/index.rst:28
 msgid ":ref:`genindex`"
 msgstr ":ref:`genindex`"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/index.rst:29
+#: ../../source/index.rst:29
 msgid ":ref:`search`"
 msgstr ":ref:`search`"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traDSSAT 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-31 18:10+0000\n"
+"POT-Creation-Date: 2020-10-12 07:49+0000\n"
 "PO-Revision-Date: 2019-03-27 17:26+0000\n"
 "Last-Translator: Julien Malard <julien.malard@mail.mcgill.ca>, 2019\n"
 "Language-Team: French (https://www.transifex.com/qatikon/teams/97602/fr/)\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:2
+#: ../../source/inputs.rst:2
 msgid "Input files"
 msgstr "Fichiers d'entrée"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:3
+#: ../../source/inputs.rst:3
 msgid ""
 "TraDSSAT has specific classes to read and edit DSSAT input files. Each class"
 " defines its own allowed variables and variable information. All files have "
@@ -36,17 +36,17 @@ msgstr ""
 "autant que les paramètres de celles-ci. Tous les fichiers ont la même "
 "structure générale :"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:6
+#: ../../source/inputs.rst:6
 msgid "Section (named; header line starts with ``*`` or ``$`` in DSSAT files)"
 msgstr ""
 "Section (nommée ; l'entête commence avec un ``*`` ou un ``$`` dans les "
 "fichiers de DSSAT)"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:7
+#: ../../source/inputs.rst:7
 msgid "Section header variables (optional)"
 msgstr "Variables d'entête de section (facultatif)"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:8
+#: ../../source/inputs.rst:8
 msgid ""
 "Subsection (numbered; header line starts with ``@`` followed by variable "
 "names in DSSAT files)"
@@ -54,35 +54,35 @@ msgstr ""
 "Sous-section (numérotée ; l'entête commence avec un ``@`` suivit des noms "
 "des variables dans un fichier DSSAT)"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:9
+#: ../../source/inputs.rst:9
 msgid "Subsection variables"
 msgstr "Variables de sous-section"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:11
+#: ../../source/inputs.rst:11
 msgid "Specific classes used to read DSSAT input files are:"
 msgstr "Les classes utilisées pour lire les fichiers d'entrée de DSSAT sont :"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:13
+#: ../../source/inputs.rst:13
 msgid ":class:`~tradssat.SoilFile` (.SOL)"
 msgstr ":class:`~tradssat.SoilFile` (.SOL)"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:14
+#: ../../source/inputs.rst:14
 msgid ":class:`~tradssat.WTHFile` (.WTH, .WTG)"
 msgstr ":class:`~tradssat.WTHFile` (.WTH, .WTG)"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:15
+#: ../../source/inputs.rst:15
 msgid ":class:`~tradssat.ExpFile` (.ccX)"
 msgstr ":class:`~tradssat.ExpFile` (.ccX)"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:16
+#: ../../source/inputs.rst:16
 msgid ":class:`~tradssat.CULFile` (.CUL)"
 msgstr ":class:`~tradssat.CULFile` (.CUL)"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:17
+#: ../../source/inputs.rst:17
 msgid ":class:`~tradssat.ECOFile` (.ECO)"
 msgstr ":class:`~tradssat.ECOFile` (.ECO)"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:19
+#: ../../source/inputs.rst:19
 msgid ""
 "As all input files inherit from :class:`~tradssat.tmpl.InpFile`, the same "
 "interface to reading, editing and writing holds for all DSSAT input files."
@@ -91,32 +91,32 @@ msgstr ""
 ":class:`~tradssat.tmpl.InpFile`, la même interface s'applique pour la "
 "lecture, la modification et l'écriture de tous les fichiers d'entrée DSSAT."
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:23
+#: ../../source/inputs.rst:23
 msgid "Reading files"
 msgstr "Lecture de fichiers"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:24
+#: ../../source/inputs.rst:24
 msgid "Input files are instantiated with the path to the file to be read."
 msgstr ""
 "Les fichiers d'entrée sont initialisés avec le chemin du fichier à lire. "
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:31
+#: ../../source/inputs.rst:31
 msgid "Values of all variables can then be read directly."
 msgstr ""
 "Les valeurs de toutes les variables peuvent ensuite être lues directement."
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:46
+#: ../../source/inputs.rst:46
 msgid ""
 "Getting a list of all allowed variable names for the file type is also easy."
 msgstr ""
 "C'est aussi facile d'obtenir une liste de tous les noms de variable permis "
 "pour le type de fichier."
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:53
+#: ../../source/inputs.rst:53
 msgid "Editing files"
 msgstr "Modification des fichiers"
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:54
+#: ../../source/inputs.rst:54
 msgid ""
 "Variable values can be changed, either for the whole file or for specific "
 "sections and/or subsections, as well as by condition."
@@ -125,7 +125,7 @@ msgstr ""
 "entier ou d'une section ou sous-section particulière, autant que selon une "
 "condition."
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:71
+#: ../../source/inputs.rst:71
 msgid ""
 "You can also add rows to specific subsections of a file, or remove existing "
 "rows. Subsection variables not included in ``vals`` will be set to missing "
@@ -136,7 +136,7 @@ msgstr ""
 "section non spécifiées dans ``vals`` seront assignée une valeur manquante "
 "(généralement -99)."
 
-#: /home/travis/build/julienmalard/traDSSAT/docs/source/inputs.rst:81
+#: ../../source/inputs.rst:81
 msgid ""
 "You can save the data to json format, or else write a DSSAT-format file back"
 " to disk."
