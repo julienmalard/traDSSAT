@@ -127,12 +127,12 @@ main_vars = {
     IntegerVar('PDATE', 5, info='Planting date, year + days from Jan. 1'),
     IntegerVar('EDATE', 5, info='Emergence date, earliest treatment'),
     FloatVar('PPOP', 5, 2, info='Plant population at seeding, plants m-2'),
-    FloatVar('PPOE', 5, 1, info='Plant population at emergence, plants m-2 '),
+    FloatVar('PPOE', 5, 2, info='Plant population at emergence, plants m-2 '),
     CharacterVar(
         'PLME', 1, spc=5, info='Planting method, transplant (T), seed (S), pregerminated seed (P) or nursery (N)'
     ),
     CharacterVar('PLDS', 1, spc=5, info='Planting distribution, row (R), broadcast (B) or hill (H) '),
-    FloatVar('PLRS', 5, 0, info='Row spacing, cm'),
+    FloatVar('PLRS', 5, 1, info='Row spacing, cm'),
     FloatVar('PLRD', 5, 0, info='Row direction, degrees from N'),
     FloatVar('PLDP', 5, 1, info='Planting depth, cm'),
     FloatVar('PLWT', 5, 0, info='Planting material dry weight, kg ha-1'),
@@ -146,7 +146,7 @@ main_vars = {
 
     # IRRIGATION AND WATER MANAGEMENT
     IntegerVar('I', 2, spc=0, sect='IRRIGATION AND WATER MANAGEMENT', info='Irrigation level'),
-    FloatVar('EFIR', 5, 1, info='Irrigation application efficiency, fraction'),
+    FloatVar('EFIR', 5, 2, info='Irrigation application efficiency, fraction'),
     FloatVar('IDEP', 5, 0, info='Management depth for automatic application, cm'),
     FloatVar('ITHR', 5, 0, info='Threshold for automatic appl., % of max. available'),
     FloatVar('IEPT', 5, 0, info='End point for automatic appl., % of max. available'),
@@ -160,7 +160,7 @@ main_vars = {
     IntegerVar('IDATE', 5, info='Irrigation date, year + day or days from planting'),
     CharacterVar('IROP', 5, info='Irrigation operation, code'),
     FloatVar(
-        'IRVAL', 5, 0,
+        'IRVAL', 5, 1,
         info='Irrigation amount, depth of water/water table, bund height, or percolation rate, mm or mm day -1'
     ),
 
