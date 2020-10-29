@@ -24,6 +24,7 @@ main_vars = {
     CharacterVar('SMHB', 5, info='pH in buffer determination method, code'),
     CharacterVar('SMPX', 5, info='Phosphorus, extractable, determination code'),
     CharacterVar('SMKE', 5, info='Potassium determination method, code'),
+    CharacterVar('SGRP', 5, info='Probably soil group'),
 
     FloatVar('SLB', 5, 0, info='Depth, base of layer, cm'),
     CharacterVar('SLMH', 5, info='Master horizon'),
@@ -31,13 +32,13 @@ main_vars = {
     FloatVar('SDUL', 5, 3, info='Upper limit, drained, cm3 cm-3'),
     FloatVar('SSAT', 5, 3, info='Upper limit, saturated, cm3 cm-3'),
     FloatVar('SRGF', 5, 3, info='Root growth factor, 0.0 to 1.0 '),
-    FloatVar('SSKS', 5, 2, info='Sat. hydraulic conductivity, macropore, cm h-1'),
+    FloatVar('SSKS', 5, 3, info='Sat. hydraulic conductivity, macropore, cm h-1'),
     FloatVar('SBDM', 5, 2, info='Bulk density, moist, g cm-3'),
-    FloatVar('SLOC', 5, 2, info='Organic carbon, %'),
+    FloatVar('SLOC', 5, 3, info='Organic carbon, %'),
     FloatVar('SLCL', 5, 1, info='Clay (<0.002 mm), %'),
     FloatVar('SLSI', 5, 1, info='Silt (0.05 to 0.002 mm), %'),
     FloatVar('SLCF', 5, 1, info='Coarse fraction (>2 mm), %'),
-    FloatVar('SLNI', 5, 2, info='Total nitrogen, %'),
+    FloatVar('SLNI', 5, 3, info='Total nitrogen, %'),
     FloatVar('SLHW', 5, 1, info='pH in water'),
     FloatVar('SLHB', 5, 2, info='pH in buffer'),
     FloatVar('SCEC', 5, 1, info='Cation exchange capacity, cmol kg-1'),
@@ -59,4 +60,10 @@ main_vars = {
     FloatVar('SLSU', 5, 1, info='Sulfur'),
     FloatVar('SLEC', 5, 1, info='Electric conductivity, seimen'),
     FloatVar('SLCA', 5, 1, info='Ca level?'),
+
+    FloatVar('ALFVG', 5, 3, info='Who knows?'),
+    FloatVar('MVG', 5, 3),
+    FloatVar('NVG', 5, 3),
+    FloatVar('WCRES', 5, 3)
+
 }

@@ -53,13 +53,13 @@ def _test_write(inp_class, folder, testcase):
 
             name = os.path.split(f)[1]
 
-            temp_file = NamedTemporaryFile(prefix=name, suffix=ext).name
-            inp_file_obj = inp_class(f)
-            inp_file_obj.write(temp_file)
+            with NamedTemporaryFile(prefix=name, suffix=ext) as temp_file:
+                inp_file_obj = inp_class(f)
+                inp_file_obj.write(temp_file.name)
 
-            new_file_obj = inp_class(temp_file)
+                new_file_obj = inp_class(temp_file.name)
 
-            _test_dicts_equal(testcase, act=new_file_obj.to_dict(), ref=inp_file_obj.to_dict(), f=f)
+                _test_dicts_equal(testcase, act=new_file_obj.to_dict(), ref=inp_file_obj.to_dict(), f=f)
 
 
 def _test_dicts_equal(tc, act, ref, f, keys=None):
