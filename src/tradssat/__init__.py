@@ -12,7 +12,3 @@ try:
     set_dssat_dir('C:/DSSAT47')
 except FileNotFoundError:
     pass
-
-_base_dir = os.path.split(__file__)[0]
-__version__ = read_txt(os.path.join(_base_dir, 'version.txt'))
-__authors__ = read_txt(os.path.join(_base_dir, 'AUTHORS.txt'))

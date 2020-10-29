@@ -6,16 +6,15 @@ os:
 env:
   global:
   - TX_BRANCH="master"
+
 install:
-- pip install --upgrade pip setuptools wheel
-- pip install -r requirements.txt
-- pip install coveralls codecov codacy-coverage
-- pip install transifex-client sphinx sphinx-intl
-- python setup.py sdist bdist_wheel
-- pip install tradssat --no-index --find-links=./dist
+  - pip install poetry
+  - pip install coveralls codecov
+  - poetry install -v
+
 script:
-- cd tests
-- coverage run -m unittest
+  - poetry run pytest --cov=\"src\"
+
 after_success:
 - coveralls --rcfile=.coveragerc
 - codecov

@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "tradssat"
+version = "0.1.0"
+description = "DSSAT input and output file reader and writer"
+authors = ["Julien Malard <julien.malard@mail.mcgill.ca>", "श्रेया संजय यादव <shreya.yadav@mail.mcgill.ca>"]
+license = "MIT"
+classifiers = [
+    'Programming Language :: Python :: 3 :: Only',
+    'License :: OSI Approved :: MIT License',
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.19.3"
+chardet = "^3.0.4"
+pytest-cov = "^2.10.1"
+pandas = "^1.1.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.1"
+pytest-subtests = "^0.3.2"
+coverage = { extras = ["toml"], version = "^5.3" }
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["tradssat"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

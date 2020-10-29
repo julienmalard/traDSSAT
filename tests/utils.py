@@ -8,7 +8,7 @@ from warnings import warn
 import numpy as np
 import numpy.testing as npt
 
-
+rsrcs = os.path.join(os.path.split(__file__)[0], 'rsrc/mock_DSSAT')
 def find_files(inp_class, folder):
     l_files = []
     for root, dirs, files in os.walk(folder):
@@ -31,7 +31,7 @@ def get_ref(file, default):
         return default
 
 
-def test_read(inp_class, folder, testcase):
+def _test_read(inp_class, folder, testcase):
     files = find_files(inp_class, folder)
 
     for f in files:
@@ -42,7 +42,7 @@ def test_read(inp_class, folder, testcase):
             _test_dicts_equal(tc=testcase, act=dict_vars, ref=ref, f=f)
 
 
-def test_write(inp_class, folder, testcase):
+def _test_write(inp_class, folder, testcase):
     ext = inp_class.ext
     files = find_files(inp_class, folder)
 

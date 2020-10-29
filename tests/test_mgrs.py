@@ -9,6 +9,8 @@ from tradssat import DSSATRun, DSSATResults, set_dssat_dir, ExpFile
 from tradssat.exper.exper_vars import TRT_HEAD
 from tradssat.out import PlantGroOut
 
+from tests.utils import rsrcs
+
 _test_vars = {
     'SOL': 'SRGF',
     'WTH': 'SRAD',
@@ -24,9 +26,9 @@ class TestRunInput(unittest.TestCase):
     def setUpClass(cls):
         cls.temp_dir = tempfile.TemporaryDirectory()
 
-        mock_dir = shutil.copytree('rsrc/mock_DSSAT', os.path.join(cls.temp_dir.name, 'DSSAT47'))
+        mock_dir = shutil.copytree(rsrcs, os.path.join(cls.temp_dir.name, 'DSSAT47'))
         set_dssat_dir(mock_dir)
-        cls.file = 'rsrc/mock_DSSAT/Exper/Maize/BRPI0202.MZX'
+        cls.file = os.path.join(rsrcs, 'Exper/Maize/BRPI0202.MZX')
 
         cls.dssat_run = DSSATRun(cls.file)
         cls.ref_expfile = ExpFile(cls.file)
@@ -183,7 +185,7 @@ class TestRunOutput(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.dir_ = 'rsrc/mock_DSSAT/Out'
+        cls.dir_ = os.path.join(rsrcs, 'Out')
         cls.result = DSSATResults(cls.dir_)
 
     def test_get_value(self):

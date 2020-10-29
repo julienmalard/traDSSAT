@@ -12,6 +12,9 @@ TraDSSAT is a library to easily read and write DSSAT input and output files.
 ## Full docs
 Read the full thing [here](https://tradssat.readthedocs.io/en/latest/).
 
+## Citation
+If you use traDSSAT, please consider citing: 
+
 ## Quick examples
 
 Parse and edit any DSSAT file directly:
