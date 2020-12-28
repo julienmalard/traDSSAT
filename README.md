@@ -15,7 +15,7 @@ or
 Read the full thing [here](https://tradssat.readthedocs.io/en/latest/).
 
 ## Citation
-If you use traDSSAT, please consider citing: 
+If you use traDSSAT, please consider citing this repository until we write a real publication about traDSSAT.
 
 ## Quick examples
 
