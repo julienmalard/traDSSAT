@@ -12,6 +12,27 @@ class Variable(object):
     type_ = None
 
     def __init__(self, name, size, spc, header_fill, float_r, miss, sect, info):
+        """
+
+        Parameters
+        ----------
+        name : str
+            A DSSAT variable name
+        size : int
+            Allowed maximum width of the variable
+        spc : int
+            Number of required leading spaces
+        header_fill : str
+            A character with which to fill a header
+        float_r : bool
+            Flag to indicate whether a value is a float
+        miss : str
+            A substitute to indicate missing data, ie '-99'
+        sect : str
+            A section or subsection to which a variable corresponds
+        info : str
+            Description for the name
+        """
         self.name = name
         self.size = size
         self.spc = spc
@@ -33,8 +54,8 @@ class Variable(object):
             txt = self._write(val)
 
         if self.float_r:
-            return ' ' * self.spc + txt.ljust(self.size, fill)
-        return ' ' * self.spc + txt.rjust(self.size, fill)
+            return ' ' * self.spc + txt.rjust(self.size, fill)
+        return ' ' * self.spc + txt.ljust(self.size, fill)
 
     def check_val(self, val):
         raise NotImplementedError
@@ -75,7 +96,7 @@ class NumericVar(Variable):
 
     def __init__(self, name, size, lims, spc, header_fill, miss, sect, info):
 
-        super().__init__(name, size, spc, header_fill, sect=sect, float_r=True, miss=miss, info=info)
+        super().__init__(name, size=size, spc=spc, header_fill=header_fill, sect=sect, float_r=True, miss=miss, info=info)
 
         if lims is None:
             lims = (-np.inf, np.inf)
@@ -103,7 +124,30 @@ class FloatVar(NumericVar):
     type_ = float
 
     def __init__(self, name, size, dec, lims=None, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
-        super().__init__(name, size, lims, spc, header_fill, miss=miss, sect=sect, info=info)
+        """_summary_
+
+        Parameters
+        ----------
+        name : _type_
+            _description_
+        size : _type_
+            _description_
+        dec : _type_
+            _description_
+        lims : _type_, optional
+            _description_, by default None
+        spc : int, optional
+            _description_, by default 1
+        sect : _type_, optional
+            _description_, by default None
+        header_fill : str, optional
+            _description_, by default ' '
+        miss : str, optional
+            _description_, by default '-99'
+        info : str, optional
+            _description_, by default ''
+        """
+        super().__init__(name, size=size, lims=lims, spc=spc, header_fill=header_fill, miss=miss, sect=sect, info=info)
         self.dec = dec
 
     def _write(self, val):
