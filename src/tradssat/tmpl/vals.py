@@ -391,8 +391,10 @@ class ValueSubSection(object):
         """
         self.check_dims()
         self.check_vals()
-
-        lines.append('@' + ''.join([vr.write() for vr in self]))
+        headers = ''.join([vr.write() for vr in self])
+        # Hack for soil SALB header
+        headers = '@' + headers[1:] if headers.startswith("   SLB") else '@' + headers
+        lines.append(headers)
         for i in range(self.n_data()):
             written = [vr.write(i) for vr in self]
             for i, (x, vr) in enumerate(zip(list(written), self)):
@@ -444,6 +446,15 @@ class VariableValue(object):
     """
 
     def __init__(self, var, val):
+        """_summary_
+
+        Parameters
+        ----------
+        var : Variable object
+            _description_
+        val : str, int, or floats
+            _description_
+        """
 
         self.changed = False
 
