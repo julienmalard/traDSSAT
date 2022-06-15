@@ -446,14 +446,14 @@ class VariableValue(object):
     """
 
     def __init__(self, var, val):
-        """_summary_
+        """
 
         Parameters
         ----------
         var : Variable object
-            _description_
+            Class for all variable types
         val : str, int, or floats
-            _description_
+            Value pertaining to variable
         """
 
         self.changed = False

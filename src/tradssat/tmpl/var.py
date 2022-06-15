@@ -124,28 +124,28 @@ class FloatVar(NumericVar):
     type_ = float
 
     def __init__(self, name, size, dec, lims=None, spc=1, sect=None, header_fill=' ', miss='-99', info=''):
-        """_summary_
+        """
 
         Parameters
         ----------
-        name : _type_
-            _description_
-        size : _type_
-            _description_
-        dec : _type_
-            _description_
-        lims : _type_, optional
-            _description_, by default None
+        name : str
+            A DSSAT variable name
+        size : int
+            Allowed maximum width of the variable
+        dec : int
+            The number of allowed decimal spaces
+        lims : tuple, optional
+            Describes the minimum and maximum boundaries for a value, by default None
         spc : int, optional
-            _description_, by default 1
-        sect : _type_, optional
-            _description_, by default None
+            Number of required leading spaces, by default 1
+        sect : str, optional
+            A section or subsection to which a variable corresponds, by default None
         header_fill : str, optional
-            _description_, by default ' '
+            Character with which to fill width of the field, by default ' '
         miss : str, optional
-            _description_, by default '-99'
+            A substitute to indicate missing data, by default '-99'
         info : str, optional
-            _description_, by default ''
+            Description for the name, by default ''
         """
         super().__init__(name, size=size, lims=lims, spc=spc, header_fill=header_fill, miss=miss, sect=sect, info=info)
         self.dec = dec
