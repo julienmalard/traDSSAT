@@ -54,5 +54,6 @@ eco_vars_SGCER = {
     FloatVar('KCAN', 5, 2, info='Canopy light extinction coefficient for daily PAR'),
     FloatVar('STPC', 5, 3, info='Partitioning to stem growth as a fraction of potential leaf growth'),
     FloatVar('RTPC', 5, 3, info='Partitioning to root growth as a fraction of available carbohydrates'),
-    FloatVar('TILFC', 5, 1, info='Tillering factor (0.0 no tillering; 1.0 full tillering)')
+    FloatVar('TILFC', 5, 1, info='Tillering factor (0.0 no tillering; 1.0 full tillering)'),
+    FloatVar('PLAM', x, y, info='Plant leaf area maximun (Initial leaf area)')
 }
