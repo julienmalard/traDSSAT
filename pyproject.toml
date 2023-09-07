@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tradssat"
-version = "0.1.7"
+version = "0.1.8"
 description = "DSSAT input and output file reader and writer"
 authors = ["Julien Malard <julien.malard@mail.mcgill.ca>", "श्रेया संजय यादव <shreya.yadav@mail.mcgill.ca>"]
 license = "MIT"
