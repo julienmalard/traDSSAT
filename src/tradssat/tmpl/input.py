@@ -16,7 +16,7 @@ class InpFile(File):
         self._header_vars = HeaderVariableSet(self._get_header_vars())
         super().__init__(file)
 
-    def write(self, file, force=False, check=True):
+    def write(self, file: str, force=False, check=True):
         lines = []
 
         write = force or file != self.file or self.changed()

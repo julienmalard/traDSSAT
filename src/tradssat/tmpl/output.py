@@ -33,12 +33,12 @@ class OutFile(File):
             if "RUN" in l:
 
                 run_no = l.split(' : ')[0].strip()
-                run_no = re.search('\d+$', run_no).group(0)
+                run_no = re.search(r'\d+$', run_no).group(0)
 
             if 'TREATMENT' in l:
 
                 trt_no = l.split(' : ')[0].strip()
-                trt_no = re.search('\d+$', trt_no).group(0)
+                trt_no = re.search(r'\d+$', trt_no).group(0)
                 
                 if run_no is None:
                     l_vals = np.array([trt_no], dtype=int)
@@ -82,7 +82,7 @@ class OutFile(File):
         header = kwargs.get('header')
 
         match = re.search(var, header)
-        spc = re.search("[ @]+$", header[:(match.start())]).group(0)
+        spc = re.search(r"[ @]+$", header[:(match.start())]).group(0)
         return len(spc)
 
 

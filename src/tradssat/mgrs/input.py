@@ -1,3 +1,5 @@
+from typing import Union, Optional, TextIO
+
 import numpy as np
 
 from tradssat.exper.exper_vars import TRT_HEAD, GENERAL
@@ -258,7 +260,7 @@ class DSSATRun(object):
         np.ndarray
             The list of treatments.
         """
-        
+
         if name:
             return self.exp.get_trt_names()
         else:
@@ -329,7 +331,7 @@ class DSSATRun(object):
         # renumber factor levels, and reorder them in subsections
         pass
 
-    def write(self, file=None, force=False, clean=True, override=False):
+    def write(self, file: Optional[str] = None, force=False, clean=True, override=False):
         if clean:
             self.clean()
 

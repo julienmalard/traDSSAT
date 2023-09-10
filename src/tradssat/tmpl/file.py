@@ -195,7 +195,7 @@ class File(object):
         var_names.sort(key=len, reverse=True)
 
         def _strip(txt):
-            return re.sub('^[|.\W]+', '', txt)
+            return re.sub(r'^[|.\W]+', '', txt)
 
         final_names = []
         line = _strip(line[1:])  # skip initial "@"
