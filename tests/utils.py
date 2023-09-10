@@ -2,7 +2,7 @@ import json
 import os
 from copy import deepcopy
 from json import JSONDecodeError
-from tempfile import NamedTemporaryFile
+from tempfile import TemporaryDirectory
 from warnings import warn
 
 import numpy as np
@@ -55,11 +55,12 @@ def _test_write(inp_class, folder, testcase):
 
             name = os.path.split(f)[1]
 
-            with NamedTemporaryFile(prefix=name, suffix=ext) as temp_file:
+            with TemporaryDirectory() as tmp:
+                temp_file = os.path.join(tmp, name)
                 inp_file_obj = inp_class(f)
-                inp_file_obj.write(temp_file.name)
+                inp_file_obj.write(temp_file)
 
-                new_file_obj = inp_class(temp_file.name)
+                new_file_obj = inp_class(temp_file)
 
                 _test_dicts_equal(testcase, act=new_file_obj.to_dict(), ref=inp_file_obj.to_dict(), f=f)
 
