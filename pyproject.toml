@@ -17,7 +17,7 @@ pytest-cov = "^4.0.0"
 pandas = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.1"
+pytest = "^7.0.0"
 pytest-subtests = "^0.4.0"
 coverage = { extras = ["toml"], version = "^7.0.0" }
 
