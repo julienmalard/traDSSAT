@@ -11,15 +11,15 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-numpy = "^1.19.3"
+numpy = "^1.24.4"
 chardet = "^5.0.0"
 pytest-cov = "^4.0.0"
-pandas = "^2.0.0"
+pandas = "^2.0.3"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.1"
-pytest-subtests = "^0.4.0"
-coverage = { extras = ["toml"], version = "^7.0.0" }
+pytest = "^7.4.2"
+pytest-subtests = "^0.11.0"
+coverage = { extras = ["toml"], version = "^7.3.2" }
 
 [tool.coverage.paths]
 source = ["src"]
