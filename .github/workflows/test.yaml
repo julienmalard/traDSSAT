@@ -1,4 +1,4 @@
-name: Client Python
+name: traDSSAT tests
 
 on:
   push:
