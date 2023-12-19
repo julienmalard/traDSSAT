@@ -1,4 +1,4 @@
-from tradssat import SummaryOut, PlantGroOut, SoilWatOut, SoilNiOut, SoilTempOut
+from ..out import SummaryOut, PlantGroOut, SoilWatOut, SoilNiOut, SoilTempOut
 
 
 class DSSATResults(object):

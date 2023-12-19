@@ -1,6 +1,6 @@
 import os
 
-from tradssat import SoilFile
+from ..soil import SoilFile
 from .mgr import get_dssat_subdir
 
 

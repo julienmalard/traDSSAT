@@ -1,3 +1,4 @@
+import subprocess
 from typing import Union, Optional, TextIO
 
 import numpy as np
@@ -8,6 +9,7 @@ from .exp_mgr import ExpFileMgr
 from .gen_mgr import PeriphGenMgr
 from .soil_mgr import PeriphSoilMgr
 from .wth_mgr import PeriphWeatherMgr
+from ..utils import get_dssat_exe
 
 
 def _valid_factor(factor):
@@ -50,6 +52,11 @@ class DSSATRun(object):
         self.peripherals = [self.soil, self.weather, self.genetics]
 
         self.check()
+
+    def run(self, mode="A", cwd=None):
+        self.write()
+        dssat_csm = get_dssat_exe()
+        subprocess.run([dssat_csm, mode, self.file], cwd=cwd, shell=True)
 
     def get_general_val(self, var):
         """
@@ -338,7 +345,7 @@ class DSSATRun(object):
         for prph in self.peripherals:
             prph.write(force=force)
 
-        self.exp.file.write(file=file, force=force)
+        self.exp.file.write(file=file or self.file, force=force)
 
     def _valid_trt(self, trt):
 

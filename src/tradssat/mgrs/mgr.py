@@ -1,6 +1,6 @@
 import os
 
-from tradssat import get_dssat_dir
+from ..utils import get_dssat_dir
 
 
 class PeriphFileMgr(object):

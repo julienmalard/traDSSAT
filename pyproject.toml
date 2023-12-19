@@ -1,25 +1,20 @@
-[tool.poetry]
+[project]
 name = "tradssat"
 version = "0.1.8"
 description = "DSSAT input and output file reader and writer"
-authors = ["Julien Malard <julien.malard@mail.mcgill.ca>", "श्रेया संजय यादव <shreya.yadav@mail.mcgill.ca>"]
-license = "MIT"
-classifiers = [
-    'Programming Language :: Python :: 3 :: Only',
-    'License :: OSI Approved :: MIT License',
+authors = [
+    {name = "Julien Malard-Adam", email = "julien.malard@mail.mcgill.ca"},
+    {name = "श्रेया संजय यादव", email = "shreya.yadav@mail.mcgill.ca"},
 ]
+dependencies = [
+    "numpy>=1.26.2",
+    "pandas>=2.1.4",
+]
+requires-python = ">=3.10,<4.0"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = ["Programming Language :: Python :: 3 :: Only", "License :: OSI Approved :: MIT License"]
 
-[tool.poetry.dependencies]
-python = "^3.8"
-numpy = "^1.24.4"
-chardet = "^5.0.0"
-pytest-cov = "^4.0.0"
-pandas = "^2.0.3"
-
-[tool.poetry.dev-dependencies]
-pytest = "^7.4.2"
-pytest-subtests = "^0.11.0"
-coverage = { extras = ["toml"], version = "^7.3.2" }
 
 [tool.coverage.paths]
 source = ["src"]
@@ -28,6 +23,23 @@ source = ["src"]
 branch = true
 source = ["tradssat"]
 
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest<8.0.0,>=7.4.2",
+    "pytest-subtests<1.0.0,>=0.11.0",
+    "coverage[toml]<8.0.0,>=7.3.2",
+]
+test = [
+    "pytest>=7.4.3",
+    "pytest-subtests>=0.11.0",
+    "coverage>=7.3.3",
+    "pytest-cov>=4.1.0",
+]
+
+[tool.pdm.build]
+includes = []
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
