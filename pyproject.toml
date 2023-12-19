@@ -9,6 +9,7 @@ authors = [
 dependencies = [
     "numpy>=1.26.2",
     "pandas>=2.1.4",
+    "chardet>=5.2.0",
 ]
 requires-python = ">=3.10,<4.0"
 readme = "README.md"
