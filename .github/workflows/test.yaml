@@ -61,4 +61,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: pdm-project/setup-pdm@v3
-      - run: pdm publish
+
+      - name: Publish to PyPI
+        run: pdm publish
