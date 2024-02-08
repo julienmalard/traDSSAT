@@ -14,4 +14,4 @@ class SoilFile(InpFile):
         return main_vars
 
     def _get_header_vars(self):
-        return {re.compile('[A-Z0-9]{10}'): header_vars}
+        return {re.compile(r'[A-Z0-9]{10}'): header_vars}

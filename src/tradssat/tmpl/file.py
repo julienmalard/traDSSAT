@@ -147,7 +147,10 @@ class File(object):
             for vr, vl in zip(var_names, vals):
                 if not vl:
                     vl = self.get_var_code_miss(vr)
-                d_vals[vr][i] = vl
+                try:
+                    d_vals[vr][i] = vl
+                except ValueError as e:
+                    raise ValueError(e, vr, vl)
 
         l_vars = [self._var_info.get_var(vr, sect=section_name) for vr in var_names]
         l_vals = [d_vals[vr] for vr in var_names]
@@ -192,7 +195,7 @@ class File(object):
         var_names.sort(key=len, reverse=True)
 
         def _strip(txt):
-            return re.sub('^[|.\W]+', '', txt)
+            return re.sub(r'^[|.\W]+', '', txt)
 
         final_names = []
         line = _strip(line[1:])  # skip initial "@"

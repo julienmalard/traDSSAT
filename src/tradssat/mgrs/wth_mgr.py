@@ -1,6 +1,6 @@
 import os
 
-from tradssat import WTHFile
+from ..weather import WTHFile
 from .mgr import PeriphFileMgr, get_dssat_subdir
 
 

@@ -192,7 +192,7 @@ main_vars = {
     FloatVar('RDEP', 5, 0, info='Residue incorporation depth, cm'),
 
     # Todo: check
-    FloatVar('RMET', 5, 0, info=''),
+    CharacterVar('RMET', 5, info='<same as FACD> Fertilizer application/placement, code'),
     CharacterVar('RENAME', 25, info='Residue management level name'),
 
     # CHEMICAL APPLICATIONS

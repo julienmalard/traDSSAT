@@ -1,0 +1,51 @@
+name: Client Python
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+        os: [macos-latest, ubuntu-latest, windows-latest]
+      fail-fast: false
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Setup PDM
+        uses: pdm-project/setup-pdm@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: true
+
+      - name: Install dependencies
+        run: pdm install
+
+      #----------------------------------------------
+      #              run test suite
+      #----------------------------------------------
+      - name: Tests
+        run: pdm run coverage run -m pytest && pdm run coverage xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
