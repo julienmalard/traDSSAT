@@ -70,6 +70,7 @@ _vars = {
     IntegerVar('CNAM', 5, info='Tops N at maturity, kg ha-1 '),
     IntegerVar('GNAM', 5, info='Nitrogen in harvest product (seed), kg ha-1 '),
     FloatVar('N2OEC', 5, 3, info=''),
+    FloatVar('N2OEM', 5, 3, info=''),
     IntegerVar('PI#M', 5, info=''),
     IntegerVar('PICM', 5, info=''),
     IntegerVar('PUPC', 5, info=''),
@@ -86,7 +87,9 @@ _vars = {
     IntegerVar('OCTAM', 7, info=''),
     IntegerVar('OCAM', 7, info='Soil C at end of season, t ha-1'),
     IntegerVar('CO2EC', 7, info=''),
+    IntegerVar('CO2EM', 7, info=''),
     FloatVar('CH4EC', 6, 1, info=''),
+    FloatVar('CH4EM', 6, 1, info=''),
     FloatVar('DMPPM', 8, 1, info=''),
     FloatVar('DMPEM', 8, 1, info=''),
     FloatVar('DMPTM', 8, 1, info=''),
@@ -113,4 +116,6 @@ _vars = {
     # Recently added (#19)
     IntegerVar('P#', 2, info=''),
     IntegerVar('NMINC', 5, info=''),
+
+    IntegerVar('CRST', 2, info=''),
 }
