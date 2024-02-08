@@ -1,6 +1,6 @@
 [project]
 name = "tradssat"
-version = "0.1.9"
+version = "0.1.10"
 description = "DSSAT input and output file reader and writer"
 authors = [
     {name = "Julien Malard-Adam", email = "julien.malard@mail.mcgill.ca"},
