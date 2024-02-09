@@ -4,10 +4,10 @@ Quick start
 Installation
 ------------
 traDSSAT requires ``numpy`` and ``chardet`` to run. You can install it from pip with:
-   :command:`pip install tradssat`
+   :command:`pdm install tradssat`
 
 You can also install the most cutting-edge version directly from GitHub with:
-   :command:`pip install git+git://github.com/julienmalard/tradssat.git@master`
+   :command:`pdm install git+git://github.com/julienmalard/tradssat.git@master`
 
 You will need a local installation of DSSAT to use the high-level interface's automatic file managers (since these
 will need to find soil, weather, and other files in the DSSAT installation directory). TraDSSAT should find your
