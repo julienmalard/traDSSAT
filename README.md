@@ -7,7 +7,7 @@ TraDSSAT is a library to easily read and write DSSAT input and output files.
 [![Documentation Status](https://readthedocs.org/projects/tradssat/badge/?version=latest)](https://tradssat.readthedocs.io/en/latest/?badge=latest)
 
 ## Installation
-`poetry add tradssat`
+`pdm add tradssat`
 or
 `pip install tradssat`
 
