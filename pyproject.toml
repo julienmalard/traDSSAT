@@ -27,7 +27,7 @@ source = ["tradssat"]
 [tool.pdm]
 [tool.pdm.dev-dependencies]
 dev = [
-    "pytest<8.1.0,>=8.0.0",
+    "pytest<8.1.1,>=8.1.0",
     "pytest-subtests<1.0.0,>=0.11.0",
     "coverage[toml]<8.0.0,>=7.3.2",
 ]
